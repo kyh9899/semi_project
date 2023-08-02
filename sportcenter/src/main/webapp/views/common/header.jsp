@@ -63,7 +63,7 @@
 		</div>
 		<nav>
 			<ul class="main-nav">
-				<li class="home"><a href="${ path }/">센터 소개</a></li>
+				<li class="home"><a href="${ path }/views/introduce/intro.jsp">센터 소개</a></li>
 				<li id="program"><a href="${ path }/views/program/list.jsp">프로그램 안내</a></li>
 				<li class="application"><a href="${ path }/views/application/list.jsp">수강 신청</a></li>
 				<li class="customerService"><a href="${ path }/views/board/list.jsp">고객센터</a></li>
