@@ -63,16 +63,16 @@
 		</div>
 		<nav>
 			<ul class="main-nav">
-				<li class="introduce"><a href="${ path }/">센터 소개</a></li>
+				<li class="home"><a href="${ path }/">센터 소개</a></li>
 				<li id="program"><a href="${ path }/board/list">프로그램 안내</a></li>
 				<c:if test="${ not empty loginMember && loginMember.role == 'ROLE_ADMIN'}">
 					<li id="admin-member">
 						<a href="${ path }/admin/members">회원관리</a>
 					</li>
 				</c:if>
-				<li class="application">수강 신청</li>
-				<li class="customerService">고객센터</li>
-				<li class="myPage">마이페이지</li>
+				<li class="application"><a>수강 신청</a></li>
+				<li class="customerService"><a>고객센터</a></li>
+				<li class="myPage"><a>마이페이지</a></li>
 				
 			</ul>
 		</nav>
