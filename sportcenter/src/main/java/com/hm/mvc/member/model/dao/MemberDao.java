@@ -32,6 +32,8 @@ public class MemberDao {
 				member.setPassword(rs.getString("PASSWORD"));
 				member.setRole(rs.getString("ROLE"));
 				member.setName(rs.getString("NAME"));
+				member.setJumin1(rs.getString("jumin1"));
+				member.setJumin2(rs.getString("jumin2"));			    
 				member.setPhone(rs.getString("PHONE"));
 				member.setEmail(rs.getString("EMAIL"));
 				member.setAddress(rs.getString("ADDRESS"));
@@ -53,7 +55,7 @@ public class MemberDao {
 	public int insertMember(Connection connection, Member member) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "INSERT INTO MEMBER VALUES(SEQ_UNO.NEXTVAL,?,?,DEFAULT,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT)";
+		String query = "INSERT INTO MEMBER VALUES(SEQ_UNO.NEXTVAL,?,?,DEFAULT,?,?,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT)";
 		
 		try {			
 			pstmt = connection.prepareStatement(query);
@@ -61,10 +63,12 @@ public class MemberDao {
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2, member.getPassword());
 			pstmt.setString(3, member.getName());
-			pstmt.setString(4, member.getPhone());
-			pstmt.setString(5, member.getEmail());
-			pstmt.setString(6, member.getAddress());
-			pstmt.setString(7, member.getHobby());
+			pstmt.setString(4, member.getJumin1());
+			pstmt.setString(5, member.getJumin2());
+			pstmt.setString(6, member.getPhone());
+			pstmt.setString(7, member.getEmail());
+			pstmt.setString(8, member.getAddress());
+			pstmt.setString(9, member.getHobby());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
