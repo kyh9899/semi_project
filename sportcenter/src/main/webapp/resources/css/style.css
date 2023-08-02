@@ -3,7 +3,7 @@
 div,session,header,aside, footer{padding:10px;}
 
 div#container {
-	background-color:rgb(255, 255, 128); 
+	background-color:#F5F5F5; 
 	width:960px;
 	margin:0 auto;
 }
@@ -17,6 +17,7 @@ header{
 
 header h1{
 	margin-left:20px;
+	text-decoration:none;
 }
 
 section#content {
