@@ -6,9 +6,11 @@
 <jsp:include page="/views/common/header.jsp" />
 
 <style>
-	section#board-list-container{width:600px; margin:0 auto; text-align:center;}
-	section#board-list-container h2{margin:10px 0;}
-	table#tbl-board{width:100%; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
+	section #board-list-container1{width:30%; height: 100%; margin:10px auto; text-align:center; float:left;}
+	section #board-list-container{width:60%; height:100%; margin:10px auto; text-align:center;  float:left;}
+	section#board-list-container h2{margin:0px 0;}
+	table#tbl-board1{width:100%; height:500px; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
+	table#tbl-board{width:100%;  margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
 	table#tbl-board th, table#tbl-board td {border:1px solid; padding: 5px 0; text-align:center;} 
 	/*글쓰기버튼*/
 	input#btn-add{float:right; margin: 0 0 15px;}
@@ -16,7 +18,14 @@
 	div#pageBar{margin-top:10px; text-align:center; background-color:rgba(0, 188, 212, 0.3);}
 </style>
 <section id="content">
-	<h2 align="center">게시판 </h2>
+	<h2 align="center">고객센터</h2>
+	<div id="board-list-container1">
+	<table id="tbl-board1">
+			<tr>
+				<th>메뉴판</th>
+			</tr>
+	</table>
+	</div>
 	<div id="board-list-container">
 		<c:if test="${ not empty loginMember }">
 			<button type="button" onclick="location.href='${ path }/board/write'">글쓰기</button>

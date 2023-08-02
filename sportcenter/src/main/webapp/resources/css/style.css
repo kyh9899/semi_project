@@ -1,15 +1,13 @@
 @charset "UTF-8";
 
-div,session,header,aside, footer{padding:10px;}
-
 div#container {
-	background-color:rgb(255, 255, 128); 
+	background-color:#F5F5F5; 
 	width:960px;
 	margin:0 auto;
 }
 
 header{
-	background-color:#00BCd4;
+	background-color:#1b857d;
 	height:130px;
 	position:relative;
 	padding:10px 0 0 0;
@@ -17,6 +15,7 @@ header{
 
 header h1{
 	margin-left:20px;
+	text-decoration:none;
 }
 
 section#content {
@@ -27,7 +26,7 @@ section#content {
 }
 
 footer { 
-	background-color:#00BCd4;
+	background-color:#1b857d;
 	clear:both;
 	height:75px;
 	text-align:center;
@@ -51,14 +50,14 @@ header div.login-container {
 	width:60px; 
 	height:50px; 
 	color:white; 
-	background:#3300ff; 
+	background:orange; 
 	position:absolute; 
 	top:10px;
 }
 
 /* 메뉴관련스타일 */
 header nav {
-	background:#5283de; 
+	background:gray; 
 	width:100%; 
 	margin-top:40px;
 }
@@ -79,7 +78,7 @@ ul.main-nav li {
 	text-align: center; 
 	font-family: "휴먼모음T", sans-serif; 
 	border-left: 1px #00bcd4 solid;
-	background-color: #5283de; 
+	background-color: gray; 
 }
 
 ul.main-nav li:last-of-type {
