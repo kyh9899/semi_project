@@ -13,7 +13,7 @@
 </head>
 <body>
 	<header>
-		<h1>Hello MVC</h1>
+		<h1>스포츠 센터(Semi-Project)</h1>
 		<div class="login-container">
 			<c:if test="${ empty loginMember }">
 				<form id="loginFrm" action="${ path }/login" method="post">
