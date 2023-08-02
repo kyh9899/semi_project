@@ -3,7 +3,7 @@
 
 	<footer>
 		<p>
-			&lt;Copyright 2023. <strong>하이미디어 아카데미</strong>. All rights reserved.&gt;
+			&lt; <strong>Semi-Project</strong>. Sports Center.&gt;
 		</p>
 	</footer>
 
