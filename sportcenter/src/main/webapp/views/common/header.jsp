@@ -13,8 +13,9 @@
 </head>
 <body>
 	<header>
-		<h1>스포츠 센터(Semi-Project)</h1>
+		<h1><a href="${ path }/">SPORT CENTER</a></h1>
 		<div class="login-container">
+			<%-- 로그인 폼과 관련된 내용 --%>
 			<c:if test="${ empty loginMember }">
 				<form id="loginFrm" action="${ path }/login" method="post">
 					<table>
@@ -62,6 +63,7 @@
 			</c:if>
 		</div>
 		<nav>
+			<%-- 메뉴와 관련된 내용 --%>
 			<ul class="main-nav">
 				<li class="home"><a href="${ path }/views/introduce/intro.jsp">센터 소개</a></li>
 				<li id="program"><a href="${ path }/views/program/list.jsp">프로그램 안내</a></li>
