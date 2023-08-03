@@ -74,9 +74,7 @@
         <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
       </a>
       
-     
       
-
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li class="home"><a href="${ path }/views/introduce/intro.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
         <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
@@ -86,9 +84,8 @@
       </ul>
 
       <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2">로그인</button>
-        <button type="button" onclick="location.href = '${ path }/member/enroll';" class="btn btn-primary">회원가입</button>
-
+        <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/member/signin'">로그인</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='${ path }/member/enroll'">회원가입</button>
       </div>
     </header>
   </div>
