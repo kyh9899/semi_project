@@ -80,24 +80,34 @@
 
         <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
         <li><a href="${ path }/views/application/list.jsp" class="nav-link px-2 link-dark">수강신청</a></li>
-        <li id="board"><a href="${ path }/views/board/list.jsp" class="nav-link px-2 link-dark">고객센터</a></li>
-        <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
-        <%-- 
-        <li id="admin-member">
 <<<<<<< HEAD
-						<a href="${ path }/admin/members" class="nav-link px-2 link-dark">회원관리</a></li>
-        <li><a href="${ path }/views/application/list.jsp" class="nav-link px-2 link-dark">수강신청</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">마이페이지</a></li>
-=======
-			<a href="${ path }/admin/members" class="nav-link px-2 link-dark">회원관리</a>
-		</li>
-		 --%>
-	
+        <li><a href="${ path }/views/board/list.jsp" class="nav-link px-2 link-dark">고객센터</a></li>
+        <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
       </ul>
 
       <div class="col-md-3 text-end">
+<<<<<<< HEAD
         <button type="button" class="btn btn-outline-primary me-2" >Login</button>
         <button type="button" class="btn btn-primary">Sign-up</button>
+=======
+        <button type="button" class="btn btn-outline-primary me-2">로그인</button>
+        <button type="button" onclick="location.href = '${ path }/member/enroll';" class="btn btn-primary">회원가입</button>
+
+      </ul>
+=======
+        <li id="board"><a href="${ path }/views/board/list.jsp" class="nav-link px-2 link-dark">고객센터</a></li> 
+        <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
+        <li id="admin-member">
+			<a href="${ path }/admin/members" class="nav-link px-2 link-dark">회원관리</a>
+		</li>
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/member/signin'">로그인</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='${ path }/member/enroll'">회원가입</button>
+
+      </ul>
+
+>>>>>>> eb300d27401fe6873d0bf30fe72183478e682892
+>>>>>>> 715cb321dc699f456f568e40d94841e047f43ca4
       </div>
     </header>
   </div>

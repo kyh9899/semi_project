@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="path" value="${ pageContext.request.contextPath }"/>
 <jsp:include page="/views/common/header.jsp" />
 <style>
- #box {
- 	display: flex;
+ #box {	
+    display: flex;
     justify-content: center;
  }
  img {
@@ -14,14 +15,17 @@
  table {
  	margin-left: 30px;
  }
+ h2 {
+ 	margin-bottom: 50px;
+ }
 </style>
  <section id="content">
- 	<h2 align="center">프로그램 안내 페이지</h2>
+ 	<h2 align="center">프로그램 안내</h2>
  	<div id="box">
  		<div> 		
 			<table>
 				<tr>
-					<td><a href="#"><img src="${ pageContext.request.contextPath }/resources/images/swim.jpg"></a></td>
+					<td><a href="#"><img src="${ path }/resources/images/swim.jpg"></a></td>
 				</tr>
 				<tr>
 					<td>
@@ -38,7 +42,7 @@
 		<div>
 			<table>
 				<tr>
-					<td><a href="#"><img src="${ pageContext.request.contextPath }/resources/images/health.jpg"></a></td>
+					<td><a href="#"><img src="${ path }/resources/images/health.jpg"></a></td>
 				</tr>
 				<tr>
 					<td>
@@ -55,7 +59,7 @@
 		<div>
 			<table>
 				<tr>
-					<td><a href="#"><img src="${ pageContext.request.contextPath }/resources/images/pilates.jpg"></a></td>
+					<td><a href="#"><img src="${ path }/resources/images/pilates.jpg"></a></td>
 				</tr>
 				<tr>
 					<td>
@@ -74,7 +78,7 @@
 			<div>
 				<table>
 					<tr>
-						<td><a href="#"><img src="${ pageContext.request.contextPath }/resources/images/tabletennis.jpg"></a></td>
+						<td><a href="#"><img src="${ path }/resources/images/tabletennis.jpg"></a></td>
 					</tr>
 					<tr>
 						<td>
@@ -91,7 +95,7 @@
 			<div>
 				<table>
 					<tr>
-						<td><a href="#"><img src="${ pageContext.request.contextPath }/resources/images/yoga.jpg"></a></td>
+						<td><a href="#"><img src="${ path }/resources/images/yoga.jpg"></a></td>
 					</tr>
 					<tr>
 						<td>
@@ -108,7 +112,7 @@
 			<div>
 				<table>
 					<tr>
-						<td><a href="#"><img src="${ pageContext.request.contextPath }/resources/images/badminton.jpg"></a></td>
+						<td><a href="#"><img src="${ path }/resources/images/badminton.jpg"></a></td>
 					</tr>
 					<tr>
 						<td>
