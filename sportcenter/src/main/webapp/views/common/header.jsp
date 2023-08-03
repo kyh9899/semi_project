@@ -82,6 +82,17 @@
 
         <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
         <li><a href="${ path }/views/application/list.jsp" class="nav-link px-2 link-dark">수강신청</a></li>
+<<<<<<< HEAD
+        <li><a href="${ path }/views/board/list.jsp" class="nav-link px-2 link-dark">고객센터</a></li>
+        <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2">로그인</button>
+        <button type="button" onclick="location.href = '${ path }/member/enroll';" class="btn btn-primary">회원가입</button>
+
+      </ul>
+=======
         <li id="board"><a href="${ path }/views/board/list.jsp" class="nav-link px-2 link-dark">고객센터</a></li> 
         <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
         <li id="admin-member">
@@ -93,6 +104,7 @@
 
       </ul>
 
+>>>>>>> eb300d27401fe6873d0bf30fe72183478e682892
       </div>
     </header>
   </div>
