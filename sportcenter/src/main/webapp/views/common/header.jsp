@@ -98,7 +98,7 @@
       </ul>
 
       <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+        <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/member/signin'">Login</button>
         <button type="button" class="btn btn-primary">Sign-up</button>
       </div>
     </header>
