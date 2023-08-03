@@ -25,11 +25,11 @@
  		<div> 		
 			<table>
 				<tr>
-					<td><a href="#"><img src="${ path }/resources/images/swim.jpg"></a></td>
+					<td><a href="${ path }/views/program/swim.jsp"><img src="${ path }/resources/images/swim.jpg"></a></td>
 				</tr>
 				<tr>
 					<td>
-						<a href="#">
+						<a href="${ path }/views/program/swim.jsp">
 							<p><span>수영</span></p>
 						</a>
 						<p>
