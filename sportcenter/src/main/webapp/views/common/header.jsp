@@ -90,8 +90,8 @@
       </ul>
 
       <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2">Login</button>
-        <button type="button" class="btn btn-primary">Sign-up</button>
+        <button type="button" class="btn btn-outline-primary me-2">로그인</button>
+        <button type="button" class="btn btn-primary">회원가입</button>
       </div>
     </header>
   </div>
