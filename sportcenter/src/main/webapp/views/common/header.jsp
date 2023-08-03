@@ -74,9 +74,7 @@
         <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
       </a>
       
-     
       
-
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li class="home"><a href="${ path }/views/introduce/intro.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
 
@@ -88,6 +86,10 @@
       </ul>
 
       <div class="col-md-3 text-end">
+<<<<<<< HEAD
+        <button type="button" class="btn btn-outline-primary me-2" >Login</button>
+        <button type="button" class="btn btn-primary">Sign-up</button>
+=======
         <button type="button" class="btn btn-outline-primary me-2">로그인</button>
         <button type="button" onclick="location.href = '${ path }/member/enroll';" class="btn btn-primary">회원가입</button>
 
@@ -105,6 +107,7 @@
       </ul>
 
 >>>>>>> eb300d27401fe6873d0bf30fe72183478e682892
+>>>>>>> 715cb321dc699f456f568e40d94841e047f43ca4
       </div>
     </header>
   </div>
