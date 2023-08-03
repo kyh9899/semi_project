@@ -6,11 +6,13 @@
  #box {
  	display: flex;
     justify-content: center;
-    margin left: 10px;
  }
  img {
  	width: 300px;
  	height: 250px;
+ }
+ table {
+ 	margin-left: 30px;
  }
 </style>
  <section id="content">
@@ -68,8 +70,61 @@
 			</table>
 		</div>
 	</div>
+	<div id="box">
+			<div>
+				<table>
+					<tr>
+						<td><a href="#"><img src="${ pageContext.request.contextPath }/resources/images/tabletennis.jpg"></a></td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#">
+								<p><span>탁구</span></p>
+							</a>
+							<p>
+								전신 운동으로서 근지구력을
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div>
+				<table>
+					<tr>
+						<td><a href="#"><img src="${ pageContext.request.contextPath }/resources/images/yoga.jpg"></a></td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#">
+								<p><span>요가</span></p>
+							</a>
+							<p>
+								라인을 날씬하게 잡아주는데 도움
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div>
+				<table>
+					<tr>
+						<td><a href="#"><img src="${ pageContext.request.contextPath }/resources/images/badminton.jpg"></a></td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#">
+								<p><span>배드민턴</span></p>
+							</a>
+							<p>
+								고강도의 무산소 운동과 유산소 운동
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+	</div>
  </section>
 <body>
-	
+
 </body>
 <jsp:include page="/views/common/footer.jsp" />

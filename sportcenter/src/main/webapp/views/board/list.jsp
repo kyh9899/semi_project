@@ -6,10 +6,8 @@
 <jsp:include page="/views/common/header.jsp" />
 
 <style>
-	section #board-list-container1{width:30%; height: 100%; margin:10px auto; text-align:center; float:left;}
-	section #board-list-container{width:60%; height:100%; margin:10px auto; text-align:center;  float:left;}
-	section#board-list-container h2{margin:0px 0;}
-	table#tbl-board1{width:100%; height:500px; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
+	section #board-list-container{width:800px; height:100%; margin:10px auto; text-align:center;  float:left;}
+	section #board-list-container h2{margin:0px 0;}
 	table#tbl-board{width:100%;  margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
 	table#tbl-board th, table#tbl-board td {border:1px solid; padding: 5px 0; text-align:center;} 
 	/*글쓰기버튼*/
@@ -19,13 +17,20 @@
 </style>
 <section id="content">
 	<h2 align="center">고객센터</h2>
-	<div id="board-list-container1">
-	<table id="tbl-board1">
-			<tr>
-				<th>메뉴판</th>
-			</tr>
-	</table>
-	</div>
+	 <nav style="width: 200px; height: 500px; background-color: #f2f2f2; padding: 10px; margin: 0 50px 0 200px; float:left">
+        <ul style="display: flex; flex-direction: column;">
+            <li style="margin-bottom: 10px; list-style:none"><a href="#greeting">공지사항</a></li>
+            <li style="margin-bottom: 10px;"><a href="#map">분실물센터</a></li>
+            <li style="margin-bottom: 10px;"><a href="#instructors">자주하는질문(FAQ)</a></li>
+            <li><a href="#facilities">시설 안내</a></li>
+        </ul>
+    </nav>
+    
+    <div>
+     <h3>공지사항</h3>
+     <p>새로운 소식을 알려드립니다.</p>
+    </div>
+    
 	<div id="board-list-container">
 		<c:if test="${ not empty loginMember }">
 			<button type="button" onclick="location.href='${ path }/board/write'">글쓰기</button>
