@@ -75,9 +75,10 @@
       </a>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+        <li class="home"><a href="href="${ path }/" class="nav-link px-2 link-secondary">Home</a></li>
+        <li id="board"><a href="${ path }/board/list" class="nav-link px-2 link-dark">게시판</a></li>
+        <li id="admin-member">
+						<a href="${ path }/admin/members" class="nav-link px-2 link-dark">회원관리</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
       </ul>
