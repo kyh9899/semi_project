@@ -10,128 +10,81 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${ path }/resources/css/style.css">
 <script src="${ path }/resources/js/jquery-3.7.0.js"></script>
+
+<!-- bootstrap css -->
+<link rel="stylesheet" href="${ path }/resources/css/bootstrap.min.css">
+
 <style>
-.main-nav > li > ul {
-    list-style-type: none;
-    padding : 0;
-    height: 0;
-    overflow: hidden;
-}
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
 
-.main-nav > li:hover > ul {
-  height: 250px;
-  display: block;
-  transition-duration: 1s;
-}
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
 
-.main-nav > li > ul:hover {
-  display: block;
-}
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
 
-</style>
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
 </head>
 <body>
-	<header>
-		<h1><a href="${ path }/">SPORT CENTER</a></h1>
-		<div class="login-container">
-			<%-- 로그인 폼과 관련된 내용 --%>
-			<c:if test="${ empty loginMember }">
-				<form id="loginFrm" action="${ path }/login" method="post">
-					<table>
-						<tr>
-							<td>
-								<input type="text" name="userId" id="userId" placeholder="아이디" 
-										value="${ cookie.saveId.value }" required>
-							</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>
-								<input type="password" name="userPwd" id="userPwd" placeholder="비밀번호" required>
-							</td>
-							<td>
-								<input type="submit" value="로그인">						
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2">
-								<label><input type="checkbox" name="saveId"
-											${ empty cookie.saveId ? "" : "checked" }>아이디 저장</label>
-								<input type="button" value="회원가입" onclick="location.href = '${ path }/member/enroll';"> 
-							</td>
-						</tr>
-					</table>
-				</form>
-			</c:if>
-			<c:if test="${ not empty loginMember }">
-				<table>
-					<tr>
-						<td colspan="2">
-							${ loginMember.name }님 안녕하세요.
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<button onclick="location.href='${ path }/member/myPage'">내 정보</button>
-						</td>
-						<td>
-							<button onclick="location.replace('${ path }/logout')">로그아웃</button>						
-						</td>
-					</tr>
-				</table>
-			</c:if>
-		</div>
-		<nav>
-			<%-- 메뉴와 관련된 내용 --%>
-			<ul class="main-nav">
-				<li class="home">
-				<a href="${ path }/views/introduce/intro.jsp">센터 소개</a>
-				<ul>
-                    <li><a href="#">소메뉴1</a></li>
-                    <li><a href="#">소메뉴2</a></li>
-                    <li><a href="#">소메뉴3</a></li>
-                    <li><a href="#">소메뉴4</a></li>
-                </ul>
-				</li>
-				<li id="program"><a href="${ path }/views/program/list.jsp">프로그램 안내</a>
-				<ul>
-                    <li><a href="#">소메뉴1</a></li>
-                    <li><a href="#">소메뉴2</a></li>
-                    <li><a href="#">소메뉴3</a></li>
-                    <li><a href="#">소메뉴4</a></li>
-                </ul>
-				</li>
-				<li class="application"><a href="${ path }/views/application/list.jsp">수강 신청</a>
-				<ul>
-                    <li><a href="#">소메뉴1</a></li>
-                    <li><a href="#">소메뉴2</a></li>
-                    <li><a href="#">소메뉴3</a></li>
-                    <li><a href="#">소메뉴4</a></li>
-                </ul>
-				</li>
-				<li class="customerService"><a href="${ path }/views/board/list.jsp">고객센터</a>
-				<ul>
-                    <li><a href="#">소메뉴1</a></li>
-                    <li><a href="#">소메뉴2</a></li>
-                    <li><a href="#">소메뉴3</a></li>
-                    <li><a href="#">소메뉴4</a></li>
-                </ul>
-				</li>
-				<li class="myPage"><a href="${ path }/views/member/myPage.jsp">마이페이지</a>
-				<ul>
-                    <li><a href="#">소메뉴1</a></li>
-                    <li><a href="#">소메뉴2</a></li>
-                    <li><a href="#">소메뉴3</a></li>
-                    <li><a href="#">소메뉴4</a></li>
-                </ul>
-				</li>		
-				<%-- 
-				<c:if test="${ not empty loginMember && loginMember.role == 'ROLE_ADMIN'}">
-					<li id="admin-member">
-						<a href="${ path }/admin/members">회원관리</a>
-					</li>
-				</c:if>	
-				 --%>
-			</ul>
-		</nav>
-	</header> 
+	<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+        <button type="button" class="btn btn-primary">Sign-up</button>
+      </div>
+    </header>
+  </div>
