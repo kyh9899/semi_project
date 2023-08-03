@@ -73,6 +73,9 @@
       <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
       </a>
+      
+     
+      
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li class="home"><a href="${ path }/views/introduce/intro.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
@@ -80,26 +83,38 @@
         <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
         <li><a href="${ path }/views/application/list.jsp" class="nav-link px-2 link-dark">수강신청</a></li>
         <li id="board"><a href="${ path }/views/board/list.jsp" class="nav-link px-2 link-dark">고객센터</a></li>
+<<<<<<< HEAD
+=======
+        <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark"></a></li>
+        <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
+>>>>>>> 76420e887a67e54f042480317559d374bf744b71
         <%-- 
         <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
         <li id="admin-member">
-<<<<<<< HEAD
-						<a href="${ path }/admin/members" class="nav-link px-2 link-dark">회원관리</a></li>
-        <li><a href="${ path }/views/application/list.jsp" class="nav-link px-2 link-dark">수강신청</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">마이페이지</a></li>
-=======
 			<a href="${ path }/admin/members" class="nav-link px-2 link-dark">회원관리</a>
 		</li>
 <<<<<<< HEAD
+      </ul>
 
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2">로그인</button>
+        <button type="button" class="btn btn-primary">회원가입</button>
 =======
+<<<<<<< HEAD
 >>>>>>> caae99354327198b134129a6ec9f79edf3981021
 		 --%>
+=======
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 481bbe7747d383e6f5f19453269b8f0e06c26909
+>>>>>>> 76420e887a67e54f042480317559d374bf744b71
       </ul>
 
       <div class="col-md-3 text-end">
         <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/member/signin'">Login</button>
         <button type="button" class="btn btn-primary">Sign-up</button>
+>>>>>>> b6e7e627c522837f310d72fba70621dfd01331fd
       </div>
     </header>
   </div>

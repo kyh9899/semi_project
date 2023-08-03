@@ -79,6 +79,7 @@
   <div id="menuBar">
     <a href="/sportcenter/">메인페이지</a>
     <a href="/sportcenter/views/introduce/intro.jsp">센터소개</a>
+    <a href="/sportcenter/views/program/list.jsp">프로그램 안내 페이지</a>
     <a href="/sportcenter/views/board/list.jsp">고객 센터</a>
     <a href="/sportcenter/views/member/myPage.jsp">마이 페이지</a>
   </div>
