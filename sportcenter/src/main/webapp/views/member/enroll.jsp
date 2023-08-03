@@ -5,150 +5,154 @@
 
 <jsp:include page="/views/common/header.jsp" />
 
-<style>
-	section #enroll-container {
-		text-align:center;
-	}
-	
-	section #enroll-container input {
-		margin:3px;
-	}
-	
-	section #enroll-container table {
-		margin:0 auto;
-	}
-	
-	section #enroll-container table th {
-		padding:0 10px; 
-		text-align:right;
-	}
-	
-	section #enroll-container table td {
-		padding:0 10px; 
-		text-align:left;
-	}
-</style>
-
-<section id="content">
-	<h2 align="center">회원 가입 정보</h2>
-	<div id="enroll-container">	 	
-	 	<form name="memberEnrollFrm" action="${ path }/member/enroll" method="POST">
-	 		<table>
-	 			<tr>
-					<th>아이디</th>
-					<td>
-						<input type="text" name="userId" id="newId" placeholder="아이디(4글자이상)" required>
-						<input type="button" id="checkDuplicate" value="중복검사" >
-					</td> 			
-	 			</tr>
-	 			<tr>
-					<th>패스워드</th>
-					<td>
-						<input type="password" name="userPwd" id="pass1" required>
-					</td> 			
-	 			</tr>
-	 			<tr>
-					<th>패스워드확인</th>
-					<td>
-						<input type="password" id="pass2">
-					</td> 			
-	 			</tr>
-	 			<tr>
-					<th>이름</th>
-					<td>
-						<input type="text" name="userName" id="userName" required>				
-					</td> 			
-	 			</tr>
-	 			<tr>
-					<th>주민번호</th>
-				    <td>
-				       <input type="text" name="jumin1" id="jumin1"  size="6" maxlength="6">-<input type="password" name="jumin2" id="jumin2" size="7" maxlength="7" />
-				       <input type="button" value="주민번호확인" onclick="juminOk()"/>
-				    </td>
-				    </tr>		
-	 			<tr>
-					<th>휴대폰</th>
-					<td>
-						<input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11">								
-					</td> 			
-	 			</tr>
-	 			<tr>
-					<th>이메일</th>
-					<td>
-						<input type="email" placeholder="abc@abc.com" name="email" id="email">												
-					</td> 			
-	 			</tr>
-	 			<tr>
-					<th>주소</th>
-					<td>
-						<input type="text" name="address" id="address">
-					</td> 			
-	 			</tr>
-	 			<tr>
-					<th>취미</th>
-					<td>
-						<label><input type="checkbox" name="hobby" id="hobby0" value="운동">운동</label>
-						<label><input type="checkbox" name="hobby" id="hobby1" value="등산">등산</label>
-						<label><input type="checkbox" name="hobby" id="hobby2" value="독서">독서</label>
-						<label><input type="checkbox" name="hobby" id="hobby3" value="게임">게임</label>
-						<label><input type="checkbox" name="hobby" id="hobby4" value="여행">여행</label>
-					</td> 			
-	 			</tr> 		
-	 		</table> 
-	 		<input type="submit" id="enrollSubmit" value="가입">	
-	 		<input type="reset" value="취소">	
-	 	</form>
- 	</div>
-</section>
-<script>
-	// 아이디 중복 확인
-	$(document).ready(() => {
-		$('#checkDuplicate').on('click', () => {
-			let userId = $('#newId').val().trim();
-			
-			if(userId === '') {
-				alert('아이디를 입력해 주세요.');
-			} else {
-				$.ajax({
-					type: 'GET',
-					url: '${ path }/member/idCheck',
-					dataType: 'json',
-					data: {
-						userId // 'userId': userId
-					},
-					success: (obj) => {
-						console.log(obj);
-						
-						if(obj.duplicate) {
-							alert('이미 사용중인 아이디 입니다.');
-						} else {
-							alert('사용 가능한 아이디 입니다.');
-						}
-					},
-					error: (error) => {
-						console.log(error);
-					}
-				});
-			}
-		});
-	});
-</script>
+<link rel="stylesheet" href="${ path }/resources/css/new_main.css">
+        
+    </head>
+    <body>
+        <form name="memberEnrollFrm" action="${path}/member/enroll" method="POST">
+        <!-- header -->
+        <div id="header">
+        </div>
 
 
+        <!-- wrapper -->
+        <div id="wrapper">
+
+            <!-- content-->
+            <div id="content">
+
+                <!-- ID -->
+                <div>
+                    <h3 class="join_title">
+                        <label for="id">아이디</label>
+                    </h3>
+                    <span class="box int_id">
+                        <input type="text" id="id" class="int" maxlength="20">
+                    </span>
+                    <span class="error_next_box"></span>
+                </div>
+
+                <!-- PW1 -->
+                <div>
+                    <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
+                    <span class="box int_pass">
+                        <input type="password" id="pswd1" class="int" maxlength="20">
+                        <span id="alertTxt">사용불가</span>
+                        <img src="${ path }/resources/images/m_icon_pass.png" id="pswd1_img1" class="pswdImg">
+                    </span>
+                    <span class="error_next_box"></span>
+                </div>
+
+                <!-- PW2 -->
+                <div>
+                    <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
+                    <span class="box int_pass_check">
+                        <input type="password" id="pswd2" class="int" maxlength="20">
+                        <img src="${ path }/resources/images/m_icon_check_disable.png" id="pswd2_img1" class="pswdImg">
+                    </span>
+                    <span class="error_next_box"></span>
+                </div>
+
+                <!-- NAME -->
+                <div>
+                    <h3 class="join_title"><label for="name">이름</label></h3>
+                    <span class="box int_name">
+                        <input type="text" id="name" class="int" maxlength="20">
+                    </span>
+                    <span class="error_next_box"></span>
+                </div>
+
+                <!-- BIRTH -->
+                <div>
+                    <h3 class="join_title"><label for="yy">생년월일</label></h3>
+
+                    <div id="bir_wrap">
+                        <!-- BIRTH_YY -->
+                        <div id="bir_yy">
+                            <span class="box">
+                                <input type="text" id="yy" class="int" maxlength="4" placeholder="년(4자)">
+                            </span>
+                        </div>
+
+                        <!-- BIRTH_MM -->
+                        <div id="bir_mm">
+                            <span class="box">
+                                <select id="mm" class="sel">
+                                    <option>월</option>
+                                    <option value="01">1</option>
+                                    <option value="02">2</option>
+                                    <option value="03">3</option>
+                                    <option value="04">4</option>
+                                    <option value="05">5</option>
+                                    <option value="06">6</option>
+                                    <option value="07">7</option>
+                                    <option value="08">8</option>
+                                    <option value="09">9</option>                                    
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </span>
+                        </div>
+
+                        <!-- BIRTH_DD -->
+                        <div id="bir_dd">
+                            <span class="box">
+                                <input type="text" id="dd" class="int" maxlength="2" placeholder="일">
+                            </span>
+                        </div>
+
+                    </div>
+                    <span class="error_next_box"></span>    
+                </div>
+
+                <!-- GENDER -->
+                <div>
+                    <h3 class="join_title"><label for="gender">성별</label></h3>
+                    <span class="box gender_code">
+                        <select id="gender" class="sel">
+                            <option>성별</option>
+                            <option value="M">남자</option>
+                            <option value="F">여자</option>
+                        </select>                            
+                    </span>
+                    <span class="error_next_box">필수 정보입니다.</span>
+                </div>
+
+                <!-- EMAIL -->
+                <div>
+                    <h3 class="join_title"><label for="email">본인확인 이메일<span class="optional">(선택)</span></label></h3>
+                    <span class="box int_email">
+                        <input type="text" id="email" class="int" maxlength="100" placeholder="선택입력">
+                    </span>
+                    <span class="error_next_box">이메일 주소를 다시 확인해주세요.</span>    
+                </div>
+
+                <!-- MOBILE -->
+                <div>
+                    <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
+                    <span class="box int_mobile">
+                        <input type="tel" id="mobile" class="int" maxlength="16" placeholder="전화번호 입력">
+                    </span>
+                    <span class="error_next_box"></span>    
+                </div>
 
 
+                <!-- JOIN BTN-->
+                <div class="btn_area">
+                    <button type="button" id="btnJoin">
+                        <span>가입하기</span>
+                    </button>
+                </div>
 
+                
 
+            </div> 
+            <!-- content-->
 
-
-
-
-
-
-
-
-
-
-
+        </div> 
+        <!-- wrapper -->
+    </form>
+    <script src="${ path }/resources/js/main.js"></script>
 
 <jsp:include page="/views/common/footer.jsp" /> 
