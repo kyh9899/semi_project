@@ -20,6 +20,10 @@ public class Member {
 	
 	private String name;
 	
+	private String jumin1;
+	
+	private String jumin2;
+	
 	private String phone;
 	
 	private String email;

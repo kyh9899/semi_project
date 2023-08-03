@@ -60,6 +60,13 @@
 					</td> 			
 	 			</tr>
 	 			<tr>
+					<th>주민번호</th>
+				    <td>
+				       <input type="text" name="jumin1" id="jumin1"  size="6" maxlength="6">-<input type="password" name="jumin2" id="jumin2" size="7" maxlength="7" />
+				       <input type="button" value="주민번호확인" onclick="juminOk()"/>
+				    </td>
+				    </tr>		
+	 			<tr>
 					<th>휴대폰</th>
 					<td>
 						<input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11">								
