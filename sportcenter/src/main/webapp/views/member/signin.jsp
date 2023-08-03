@@ -65,7 +65,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="button" value="아이디 찾기" onclick="location.href = '${ path }/member/login'">
+					<input type="button" value="아이디 찾기" onclick="location.href = '${ path }/member/findid'">
 				</td>
 			</tr>
 			<tr>
@@ -89,7 +89,7 @@
 				<button onclick="location.href='${ path }/member/myPage'">내 정보</button>
 			</td>
 			<td>
-				<button onclick="location.replace('${ path }/logout')">로그아웃</button>						
+				<button onclick="location.href='${ path }/logout'">로그아웃</button>						
 			</td>
 		</tr>
 	</table>
