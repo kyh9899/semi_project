@@ -75,12 +75,23 @@
       </a>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li class="home"><a href="href="${ path }/" class="nav-link px-2 link-secondary">Home</a></li>
-        <li id="board"><a href="${ path }/board/list" class="nav-link px-2 link-dark">게시판</a></li>
+        <li class="home"><a href="${ path }/views/introduce/intro.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
+
+        <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
+        <li><a href="${ path }/views/application/list.jsp" class="nav-link px-2 link-dark">수강신청</a></li>
+        <li id="board"><a href="${ path }/views/board/list.jsp" class="nav-link px-2 link-dark">고객센터</a></li>
+        <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
+        <%-- 
         <li id="admin-member">
+<<<<<<< HEAD
 						<a href="${ path }/admin/members" class="nav-link px-2 link-dark">회원관리</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+        <li><a href="${ path }/views/application/list.jsp" class="nav-link px-2 link-dark">수강신청</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">마이페이지</a></li>
+=======
+			<a href="${ path }/admin/members" class="nav-link px-2 link-dark">회원관리</a>
+		</li>
+		 --%>
+>>>>>>> 58ccbbbcdafebe392dbc384b5f34755d848f73c5
       </ul>
 
       <div class="col-md-3 text-end">
