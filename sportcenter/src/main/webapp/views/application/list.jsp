@@ -2,76 +2,86 @@
 <jsp:include page="/views/common/header.jsp" />
 
 <style>
-    #menuBar {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 200px;
-        background-color: #FFFFFF;
-        padding: 20px 0;
-    }
-    #menuBar a {
-        display: block;
-        color: black;
-        text-decoration: none;
-        padding: 8px 16px;
-        margin-bottom: 10px;
-    }
-    #menuBar a:hover {
-        background-color: #FFFFFF;
-    }
-    #content {
-        margin-left: 220px;
-    }
+   #menuBar {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+  background-color: #f9f9f9;
+  padding: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#menuBar a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  padding: 8px 16px;
+  margin-bottom: 10px;
+}
+
+#menuBar a:hover,
+#menuBar a.active {
+  background-color: #4CAF50;
+  color: #f9f9f9;
+}
+#registrationButton {
+  font-size: larger;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+#content {
+  margin-left: 180px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 추가된 스타일 */
+#courseList table {
+  border-collapse: collapse;
+  width: 100%;
+}
+#courseList {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#courseList th,
+#courseList td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+#courseList tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+#courseList tbody tr:hover {
+  background-color: #ddd;
+}
+
+#courseList th {
+  background-color: #4CAF50;
+  color: white;
+}
 </style>
 
+
+
 <div id="menuBar">
-    <a href="메뉴1URL">메뉴 1</a>
-    <a href="메뉴2URL">메뉴 2</a>
-    <a href="메뉴3URL">메뉴 3</a>
-    <a href="메뉴4URL">메뉴 4</a>
+    <a href="/sportcenter/">메인페이지</a>
+    <a href="/sportcenter/views/introduce/intro.jsp" >센터소개</a>
+    <a href="/sportcenter/views/board/list.jsp" >고객 센터</a>
+    <a href="/sportcenter/views/member/myPage.jsp" >마이 페이지</a>
 </div>
 
-<section id="courseList">
-  <h3>강좌 목록</h3>
-  <table border="1">
-    <thead>
-      <tr>
-        <th>강좌명</th>
-        <th>강의실</th>
-        <th>강사명</th>
-        <th>교육시간</th>
-        <th>수강료</th>
-        <th>정원</th>
-        <th>상태</th>
-        <th>신청</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- 예시 강좌 행 -->
-      <tr>
-        <td>에어로빅A</td>
-        <td>강의실1</td>
-        <td>김강사</td>
-        <td>18:00-19:00</td>
-        <td>100,000원</td>
-        <td>30명</td>
-        <td>모집중</td>
-        <td>
-          <form method="POST" action="신청URL">
-            <input type="hidden" name="courseId" value="코스ID">
-            <input type="submit" value="신청">
-          </form>
-        </td>
-      </tr>
-      <!-- 강좌 행을 추가하려면 위와 같은 형태로 새로운 <tr>을 만들어주세요. -->
-    </tbody>
-  </table>
-</section>
-
 <section id="content">
-    <h2 align="center">수강신청 페이지</h2>
+    <h1 align="center">수강신청 페이지</h1>
+    <h3 align="center">로그인시에만 수강신청이 가능합니다.</h3>
+  
   
     <p align="center">
         <button type="button" id="registrationButton" onclick="registerCourse();">
@@ -80,16 +90,21 @@
     </p>
     
     <script>
-        let isLoggedIn = <%= (session.getAttribute("loginUser") != null) ? "true" : "false" %>;
+        let isLoggedIn = <%= (session.getAttribute("loginMember") != null) ? "true" : "false" %>;
         
         function registerCourse() {
             if (isLoggedIn) {
-                window.location.href = '수강신청URL';
+                window.location.href = '/sportcenter/views/application/enrollment.jsp';
             } else {
                 alert("로그인이 필요합니다.");
             }
         }
     </script>
+    
+
+    
 </section>
 
 <jsp:include page="/views/common/footer.jsp" />
+
+
