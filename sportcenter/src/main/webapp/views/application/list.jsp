@@ -15,36 +15,42 @@
     </a>
     <ul class="list-unstyled ps-0">
       <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" 
+        data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true" >
           센터 소개
         </button>
         <div class="collapse show" id="home-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">인사말</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">오시는 길</a></li>
+            <li><a href="http://localhost:8087/sportcenter/views/introduce/intro.jsp" class="link-dark d-inline-flex text-decoration-none rounded">오시는 길</a></li>
             <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">강사 소개</a></li>
           </ul>
         </div>
       </li>
+      
       <li class="greeting">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-          프로그램 안내
-        </button>
-        <div class="collapse" id="dashboard-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">시설 안내</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">이용 시간표</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">요금</a></li>
-          </ul>
-        </div>
-      </li>
+  <a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+    프로그램 안내
+  </a>
+  <div class="collapse" id="dashboard-collapse">
+    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+      <li><a href="/sportcenter/views/program/list.jsp" class="link-dark d-inline-flex text-decoration-none rounded">시설 안내</a></li>
+      <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">이용 시간표</a></li>
+      <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">요금</a></li>
+    </ul>
+  </div>
+</li>
+
+
+
+      
       <li class="mb-1">
         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
           수강 신청 
         </button>
         <div class="collapse" id="orders-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">프로그램</a></li>
+            <li><a href="/sportcenter/views/program/list.jsp" class="link-dark d-inline-flex text-decoration-none rounded">프로그램</a></li>
             <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">이용 시간</a></li>
             <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">요금</a></li>
           </ul>
@@ -66,33 +72,32 @@
       </li>
     </ul>
   </div>
-  
-  <section id="content">
+ 
+
+    
     <section id="content" style="display: flex; flex-direction: column; align-items: center;">
     <h1>수강신청 페이지</h1>
     <h3>로그인시에만 수강신청이 가능합니다.</h3>
     <p style="text-align: center;">
-        <button type="button" id="registrationButton" onclick="registerCourse();">
+    <button type="button" id="registrationButton" onclick="registerCourse();" r>
             수강신청
         </button>
-    
+  		<button type="button" id="myPageButton" onclick="goToMyPage();">마이페이지</button>
+        <button type="button" id="signUpButton" onclick="signUp();"> 회원가입 </button>
+        </p>
+	</section>
     <script>
-        let isLoggedIn = <%= (session.getAttribute("loginMember") != null) ? "true" : "false" %>;
-        
-        function registerCourse() {
-            if (isLoggedIn) {
-                window.location.href = '/sportcenter/views/application/enrollment.jsp';
-            } else {
-                alert("로그인이 필요합니다.");
-            }
-        }
-    </script>
+    function registerCourse() { window.location.href = '/sportcenter/views/application/enrollment.jsp'; }
+    function goToMyPage() { window.location.href = '/sportcenter/views/member/myPage.jsp'; } 
+    function signUp() { window.location.href = '/sportcenter/member/enroll'; } 
+    </script> 
+    </section>
+   
 
-</section>
   
  <div style="width: 700px;">
  
-
+ 
 
 
 
