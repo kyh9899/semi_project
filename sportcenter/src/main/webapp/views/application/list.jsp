@@ -72,14 +72,14 @@
       </li>
     </ul>
   </div>
-  
  
+
     
     <section id="content" style="display: flex; flex-direction: column; align-items: center;">
     <h1>수강신청 페이지</h1>
     <h3>로그인시에만 수강신청이 가능합니다.</h3>
     <p style="text-align: center;">
-    <button type="button" id="registrationButton" onclick="registerCourse();">
+    <button type="button" id="registrationButton" onclick="registerCourse();" r>
             수강신청
         </button>
   		<button type="button" id="myPageButton" onclick="goToMyPage();">마이페이지</button>
