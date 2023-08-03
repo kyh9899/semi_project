@@ -40,7 +40,7 @@
 		<table>
 			<tr>
 				<td>
-				<label> 아이디 : </label>
+				<label> 아이디 : &nbsp;&nbsp;&nbsp;</label>
 					<input type="text" name="userId" id="userId" placeholder="아이디" 
 							value="${ cookie.saveId.value }" required>
 				</td>
@@ -50,21 +50,19 @@
 				<td>
 				<label>비밀번호 : </label>
 					<input type="password" name="userPwd" id="userPwd" placeholder="비밀번호" required>
-				</td>
-				<td>
 					<input type="button" value="로그인" >						
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
+				<td colspan="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					<label><input type="checkbox" name="saveId"
-								${ empty cookie.saveId ? "" : "checked" }>아이디 저장</label>
+								${ empty cookie.saveId ? "" : "checked" }>아이디 저장</label> &nbsp; 
 					<input type="button" value="회원가입" onclick="location.href = '${ path }/member/enroll';"> 
 				</td>
 			</tr>
 			<tr>
-				<td>
-					<input type="button" value="아이디 찾기" onclick="location.href = '${ path }/member/findid'">
+				<td>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+					<input type="button" value="아이디 찾기" onclick="location.href = '${ path }/member/findid'"> 
 					<input type="button" value="비밀번호 찾기" onclick="location.href='${ path }/member/findpwd'">
 				</td>
 			</tr>
