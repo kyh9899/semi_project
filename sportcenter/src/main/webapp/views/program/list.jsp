@@ -4,20 +4,20 @@
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 <jsp:include page="/views/common/header.jsp" />
 <style>
- #box {	
-    display: flex;
-    justify-content: center;
- }
- img {
- 	width: 300px;
- 	height: 250px;
- }
- table {
- 	margin-left: 30px;
- }
- h2 {
- 	margin-bottom: 50px;
- }
+	#box {	
+    	display: flex;
+    	justify-content: center;
+ 	}
+ 	img {
+ 		width: 300px;
+ 		height: 250px;
+	}
+	table {
+ 		margin-left: 30px;
+ 	}
+ 	h2 {
+ 		margin-bottom: 50px;
+ 	}
 </style>
  <section id="content">
  	<h2 align="center">프로그램 안내</h2>
@@ -25,11 +25,11 @@
  		<div> 		
 			<table>
 				<tr>
-					<td><a href="#"><img src="${ path }/resources/images/swim.jpg"></a></td>
+					<td><a href="${ path }/views/program/swim.jsp"><img src="${ path }/resources/images/swim.jpg"></a></td>
 				</tr>
 				<tr>
 					<td>
-						<a href="#">
+						<a href="${ path }/views/program/swim.jsp">
 							<p><span>수영</span></p>
 						</a>
 						<p>
@@ -42,11 +42,11 @@
 		<div>
 			<table>
 				<tr>
-					<td><a href="#"><img src="${ path }/resources/images/health.jpg"></a></td>
+					<td><a href="${ path }/views/program/health.jsp"><img src="${ path }/resources/images/health.jpg"></a></td>
 				</tr>
 				<tr>
 					<td>
-						<a href="#">
+						<a href="${ path }/views/program/health.jsp">
 							<p><span>헬스</span></p>
 						</a>
 						<p>
@@ -59,11 +59,11 @@
 		<div>
 			<table>
 				<tr>
-					<td><a href="#"><img src="${ path }/resources/images/pilates.jpg"></a></td>
+					<td><a href="${ path }/views/program/pilates.jsp"><img src="${ path }/resources/images/pilates.jpg"></a></td>
 				</tr>
 				<tr>
 					<td>
-						<a href="#">
+						<a href="${ path }/views/program/pilates.jsp">
 							<p><span>필라테스</span></p>
 						</a>
 						<p>
@@ -78,11 +78,11 @@
 			<div>
 				<table>
 					<tr>
-						<td><a href="#"><img src="${ path }/resources/images/tabletennis.jpg"></a></td>
+						<td><a href="${ path }/views/program/tabletennis.jsp"><img src="${ path }/resources/images/tabletennis.jpg"></a></td>
 					</tr>
 					<tr>
 						<td>
-							<a href="#">
+							<a href="${ path }/views/program/tabletennis.jsp">
 								<p><span>탁구</span></p>
 							</a>
 							<p>
@@ -95,11 +95,11 @@
 			<div>
 				<table>
 					<tr>
-						<td><a href="#"><img src="${ path }/resources/images/yoga.jpg"></a></td>
+						<td><a href="${ path }/views/program/yoga.jsp"><img src="${ path }/resources/images/yoga.jpg"></a></td>
 					</tr>
 					<tr>
 						<td>
-							<a href="#">
+							<a href="${ path }/views/program/yoga.jsp">
 								<p><span>요가</span></p>
 							</a>
 							<p>
@@ -112,11 +112,11 @@
 			<div>
 				<table>
 					<tr>
-						<td><a href="#"><img src="${ path }/resources/images/badminton.jpg"></a></td>
+						<td><a href="${ path }/views/program/badminton.jsp"><img src="${ path }/resources/images/badminton.jpg"></a></td>
 					</tr>
 					<tr>
 						<td>
-							<a href="#">
+							<a href="${ path }/views/program/badminton.jsp">
 								<p><span>배드민턴</span></p>
 							</a>
 							<p>

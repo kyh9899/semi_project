@@ -40,6 +40,7 @@
 		<table>
 			<tr>
 				<td>
+				<label> 아이디 : </label>
 					<input type="text" name="userId" id="userId" placeholder="아이디" 
 							value="${ cookie.saveId.value }" required>
 				</td>
@@ -47,13 +48,11 @@
 			</tr>
 			<tr>
 				<td>
+				<label>비밀번호 : </label>
 					<input type="password" name="userPwd" id="userPwd" placeholder="비밀번호" required>
 				</td>
-				<%-- 
-				--%>
-				
 				<td>
-					<input type="button" value="로그인">						
+					<input type="button" value="로그인" >						
 				</td>
 			</tr>
 			<tr>
@@ -65,12 +64,8 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="button" value="아이디 찾기" onclick="location.href = '${ path }/member/login'">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="button" value="비밀번호 찾기">
+					<input type="button" value="아이디 찾기" onclick="location.href = '${ path }/member/findid'">
+					<input type="button" value="비밀번호 찾기" onclick="location.href='${ path }/member/findpwd'">
 				</td>
 			</tr>
 		</table>
@@ -89,7 +84,7 @@
 				<button onclick="location.href='${ path }/member/myPage'">내 정보</button>
 			</td>
 			<td>
-				<button onclick="location.replace('${ path }/logout')">로그아웃</button>						
+				<button onclick="location.href='${ path }/logout'">로그아웃</button>						
 			</td>
 		</tr>
 	</table>
