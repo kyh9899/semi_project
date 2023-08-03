@@ -79,7 +79,7 @@
         <li id="board"><a href="${ path }/board/list" class="nav-link px-2 link-dark">게시판</a></li>
         <li id="admin-member">
 						<a href="${ path }/admin/members" class="nav-link px-2 link-dark">회원관리</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">수강신청</a></li>
+        <li><a href="${ path }/views/application/list.jsp" class="nav-link px-2 link-dark">수강신청</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">마이페이지</a></li>
       </ul>
 
