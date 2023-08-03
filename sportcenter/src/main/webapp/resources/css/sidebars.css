@@ -57,3 +57,23 @@ main {
 .scrollarea {
   overflow-y: auto;
 }
+/* 콘텐츠 숨기기 */
+.hidden {
+    display: none;
+}
+
+/* 버튼 스타일 설정 */
+#toggleButton {
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+#toggleButton:hover {
+    background-color: #0056b3;
+}
+
