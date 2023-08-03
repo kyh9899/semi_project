@@ -83,14 +83,22 @@
         <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
         <li><a href="${ path }/views/application/list.jsp" class="nav-link px-2 link-dark">수강신청</a></li>
         <li id="board"><a href="${ path }/views/board/list.jsp" class="nav-link px-2 link-dark">고객센터</a></li>
+<<<<<<< HEAD
+=======
         <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark"></a></li>
         <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
+>>>>>>> 76420e887a67e54f042480317559d374bf744b71
         <%-- 
+        <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
         <li id="admin-member">
 			<a href="${ path }/admin/members" class="nav-link px-2 link-dark">회원관리</a>
 		</li>
+<<<<<<< HEAD
 		 --%>
 
+=======
+<<<<<<< HEAD
+>>>>>>> dd7abf70f5beba0a734bdae87df9ec54be6cb7e2
       </ul>
 
       
@@ -98,6 +106,25 @@
       <div class="col-md-3 text-end">
         <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/member/signin'">로그인</button>
         <button type="button" class="btn btn-primary">회원가입</button>
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> caae99354327198b134129a6ec9f79edf3981021
+		 --%>
+=======
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 481bbe7747d383e6f5f19453269b8f0e06c26909
+>>>>>>> 76420e887a67e54f042480317559d374bf744b71
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/member/signin'">Login</button>
+        <button type="button" class="btn btn-primary">Sign-up</button>
+>>>>>>> b6e7e627c522837f310d72fba70621dfd01331fd
+>>>>>>> dd7abf70f5beba0a734bdae87df9ec54be6cb7e2
       </div>
     </header>
   </div>
