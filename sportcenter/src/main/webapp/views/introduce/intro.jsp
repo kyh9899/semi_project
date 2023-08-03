@@ -12,6 +12,8 @@
         </ul>
     </nav>
     
+    
+    
     <div style="width: 700px;">
         <h2>센터 소개 페이지</h2>
         
@@ -24,6 +26,14 @@
 	<head>
     		<title>Kakao 지도 시작하기</title>
 	</head>
+	<style>
+	  .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+	</style>
+	<link href="sidebars.css" rel="stylesheet">
         <body>
             <div id="map" style="width:700px;height:550px;margin: 0 auto;">
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c570a4bb062a63d6e8c95aa274b0531"></script>
