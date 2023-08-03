@@ -3,8 +3,8 @@
 
 <jsp:include page="/views/common/header.jsp" />
 <style>
- #box {
- 	display: flex;
+ #box {	
+    display: flex;
     justify-content: center;
  }
  img {

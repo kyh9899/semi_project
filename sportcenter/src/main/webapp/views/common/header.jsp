@@ -91,7 +91,6 @@
 			<a href="${ path }/admin/members" class="nav-link px-2 link-dark">회원관리</a>
 		</li>
 		 --%>
->>>>>>> 58ccbbbcdafebe392dbc384b5f34755d848f73c5
       </ul>
 
       <div class="col-md-3 text-end">
