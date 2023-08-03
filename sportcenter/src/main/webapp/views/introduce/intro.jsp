@@ -12,21 +12,30 @@
         </ul>
     </nav>
     
+    
+    
     <div style="width: 700px;">
         <h2>센터 소개 페이지</h2>
         
         <h3 id="greeting">인사말</h3>
         <!-- 인사말 내용 추가 -->
 
-        <h3 id="map">오시는 길</h3>
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="utf-8"/>
-            <title>Kakao 지도 시작하기</title>
-        </head>
+<h3>오시는 길</h3>
+<!DOCTYPE html>
+<html>
+	<head>
+    		<title>Kakao 지도 시작하기</title>
+	</head>
+	<style>
+	  .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+	</style>
+	<link href="sidebars.css" rel="stylesheet">
         <body>
-            <div id="map" style="width:700px;height:550px;margin: 0 auto;"></div>
+            <div id="map" style="width:700px;height:550px;margin: 0 auto;">
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c570a4bb062a63d6e8c95aa274b0531"></script>
             <script>
                 var container = document.getElementById('map');
@@ -37,8 +46,10 @@
 
                 var map = new kakao.maps.Map(container, options);
             </script>
+            </div>
+           
         </body>
-        </html>
+</html>
 
         <h3 id="instructors">강사소개</h3>
         <!-- 강사소개 내용 추가 -->
