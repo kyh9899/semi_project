@@ -42,11 +42,11 @@
 		<div>
 			<table>
 				<tr>
-					<td><a href="#"><img src="${ path }/resources/images/health.jpg"></a></td>
+					<td><a href="${ path }/views/program/health.jsp"><img src="${ path }/resources/images/health.jpg"></a></td>
 				</tr>
 				<tr>
 					<td>
-						<a href="#">
+						<a href="${ path }/views/program/health.jsp">
 							<p><span>헬스</span></p>
 						</a>
 						<p>
@@ -59,11 +59,11 @@
 		<div>
 			<table>
 				<tr>
-					<td><a href="#"><img src="${ path }/resources/images/pilates.jpg"></a></td>
+					<td><a href="${ path }/views/program/pilates.jsp"><img src="${ path }/resources/images/pilates.jpg"></a></td>
 				</tr>
 				<tr>
 					<td>
-						<a href="#">
+						<a href="${ path }/views/program/pilates.jsp">
 							<p><span>필라테스</span></p>
 						</a>
 						<p>
@@ -78,11 +78,11 @@
 			<div>
 				<table>
 					<tr>
-						<td><a href="#"><img src="${ path }/resources/images/tabletennis.jpg"></a></td>
+						<td><a href="${ path }/views/program/tabletennis.jsp"><img src="${ path }/resources/images/tabletennis.jpg"></a></td>
 					</tr>
 					<tr>
 						<td>
-							<a href="#">
+							<a href="${ path }/views/program/tabletennis.jsp">
 								<p><span>탁구</span></p>
 							</a>
 							<p>
@@ -95,11 +95,11 @@
 			<div>
 				<table>
 					<tr>
-						<td><a href="#"><img src="${ path }/resources/images/yoga.jpg"></a></td>
+						<td><a href="${ path }/views/program/yoga.jsp"><img src="${ path }/resources/images/yoga.jpg"></a></td>
 					</tr>
 					<tr>
 						<td>
-							<a href="#">
+							<a href="${ path }/views/program/yoga.jsp">
 								<p><span>요가</span></p>
 							</a>
 							<p>
@@ -112,11 +112,11 @@
 			<div>
 				<table>
 					<tr>
-						<td><a href="#"><img src="${ path }/resources/images/badminton.jpg"></a></td>
+						<td><a href="${ path }/views/program/badminton.jsp"><img src="${ path }/resources/images/badminton.jpg"></a></td>
 					</tr>
 					<tr>
 						<td>
-							<a href="#">
+							<a href="${ path }/views/program/badminton.jsp">
 								<p><span>배드민턴</span></p>
 							</a>
 							<p>

@@ -78,11 +78,11 @@
 	.tab_con li strong{display:block; margin-bottom:10px;}
 </style>
 <body>
-	<h2 align="center">수영</h2>
+	<h2 align="center">필라테스</h2>
 	<div id="div1">
 		<table class="table-centered">
 			<tr>
-				<td><img id="swim" src="${ path }/resources/images/swim.jpg"></td>
+				<td><img id="swim" src="${ path }/resources/images/pilates.jpg"></td>
 			</tr>
 		</table>	
 		
