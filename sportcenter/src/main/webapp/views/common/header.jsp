@@ -11,37 +11,23 @@
 <link rel="stylesheet" href="${ path }/resources/css/style.css">
 <script src="${ path }/resources/js/jquery-3.7.0.js"></script>
 <style>
-  .sub-nav {
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    top: 100%	;
-    left: 0;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    padding: 5px;
-    list-style: none;
-    transition: opacity 1s, visibility 1s linear 1s;
-  }
-  .main-nav > li:hover > .sub-nav {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s;
-  }
-/
-  .sub-nav li {
-    margin-bottom: 5px;
-  }
+.main-nav > li > ul {
+    list-style-type: none;
+    padding : 0;
+    height: 0;
+    overflow: hidden;
+}
 
-  .sub-nav li:last-child {
-    margin-bottom: 0;
-  }
+.main-nav > li:hover > ul {
+  height: 250px;
+  display: block;
+  transition-duration: 1s;
+}
 
-  .main-nav > li {
-    position: relative;
-  }
+.main-nav > li > ul:hover {
+  display: block;
+}
+
 </style>
 </head>
 <body>
@@ -100,7 +86,7 @@
 			<ul class="main-nav">
 				<li class="home">
 				<a href="${ path }/views/introduce/intro.jsp">센터 소개</a>
-				<ul class="sub-nav">
+				<ul>
                     <li><a href="#">소메뉴1</a></li>
                     <li><a href="#">소메뉴2</a></li>
                     <li><a href="#">소메뉴3</a></li>
@@ -108,7 +94,7 @@
                 </ul>
 				</li>
 				<li id="program"><a href="${ path }/views/program/list.jsp">프로그램 안내</a>
-				<ul class="sub-nav">
+				<ul>
                     <li><a href="#">소메뉴1</a></li>
                     <li><a href="#">소메뉴2</a></li>
                     <li><a href="#">소메뉴3</a></li>
@@ -116,7 +102,7 @@
                 </ul>
 				</li>
 				<li class="application"><a href="${ path }/views/application/list.jsp">수강 신청</a>
-				<ul class="sub-nav">
+				<ul>
                     <li><a href="#">소메뉴1</a></li>
                     <li><a href="#">소메뉴2</a></li>
                     <li><a href="#">소메뉴3</a></li>
@@ -124,7 +110,7 @@
                 </ul>
 				</li>
 				<li class="customerService"><a href="${ path }/views/board/list.jsp">고객센터</a>
-				<ul class="sub-nav">
+				<ul>
                     <li><a href="#">소메뉴1</a></li>
                     <li><a href="#">소메뉴2</a></li>
                     <li><a href="#">소메뉴3</a></li>
@@ -132,7 +118,7 @@
                 </ul>
 				</li>
 				<li class="myPage"><a href="${ path }/views/member/myPage.jsp">마이페이지</a>
-				<ul class="sub-nav">
+				<ul>
                     <li><a href="#">소메뉴1</a></li>
                     <li><a href="#">소메뉴2</a></li>
                     <li><a href="#">소메뉴3</a></li>
