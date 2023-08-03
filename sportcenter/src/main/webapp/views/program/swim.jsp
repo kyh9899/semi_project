@@ -10,11 +10,109 @@
 <title>Insert title here</title>
 </head>
 <style>
-	
+	h2 {
+		margin-bottom: 30px;
+	}
+	#swim {
+		width: 400px;
+		height: 250px;
+	}
+	#div1 {
+		text-align: center;
+	}
+	.table-centered {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#btn1 {
+		margin-bottom: 20px;
+		width: 140px;
+		height: 50px;
+	}
+	.content{
+		width:1200px; 
+		margin:0 auto;
+		text-align: center;
+	}
+	ul, li{list-style:none;}
+	.tab{padding:0;}
+	.tab li{
+		float:left;
+		width:calc(100% / 4); 
+		font-size:16px;
+		font-weight:bold;
+		height:40px;
+	}
+	.tab li a{
+		display:block;
+		color:#222;
+		text-align:center;
+		text-decoration:none;
+		line-height:40px;
+		border:1px solid;
+	}
+	.tab_con{
+		clear:both;
+		border-top:0;
+		padding:0;
+	}
+	.tab_con li{
+		padding:10px;
+		font-size:14px;
+		color:#333;
+	}
+	.tab_con li strong{display:block; margin-bottom:10px;}
 </style>
 <body>
 	<h2 align="center">수영</h2>
+	<div id="div1">
+		<table class="table-centered">
+			<tr>
+				<td><img id="swim" src="${ path }/resources/images/swim.jpg"></td>
+			</tr>
+		</table>	
+		
+		<br><br>
+		
+		<button id="btn1">온라인 수강신청</button>
+	</div>
+	<div class="content">
+		<ul class="tab">
+			<li><a href="#mu1" class="selected">강좌소개</a></li>
+			<li><a href="#mu2">강사소개</a></li>
+			<li><a href="#mu3">요금/시간안내</a></li>
+			<li><a href="#mu4">수강신청 안내</a></li>
+		</ul>
+		<ul class="tab_con">
+			<li id="mu1">
+				<strong>강좌소개</strong>
+				
+			</li>
+			<li id="mu2">
+				<strong>강사소개</strong>
+				
+			</li>
+			<li id="mu3">
+				<strong>요금/시간안내</strong>
+				
+			</li>
+			<li id="mu4">
+				<img id="guide" src="${ path }/resources/images/guide.png">
+			</li>		
+		</ul>
+	</div>
 
+<script>
+	$(function(){
+		$("ul.tab_con li:not("+$(".tab li a.selected").attr("href")+")").hide();
+		$(".tab li a").click(function(){
+			$(".tab li a").removeClass("selected");
+			$(this).addClass("selected");
+			$(".tab_con li").hide();
+			$($(this).attr("href")).fadeIn();
+		});
+	});
+</script>
 </body>
 </html>
 <jsp:include page="/views/common/footer.jsp" />

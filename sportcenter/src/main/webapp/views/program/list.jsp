@@ -4,20 +4,20 @@
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 <jsp:include page="/views/common/header.jsp" />
 <style>
- #box {	
-    display: flex;
-    justify-content: center;
- }
- img {
- 	width: 300px;
- 	height: 250px;
- }
- table {
- 	margin-left: 30px;
- }
- h2 {
- 	margin-bottom: 50px;
- }
+	#box {	
+    	display: flex;
+    	justify-content: center;
+ 	}
+ 	img {
+ 		width: 300px;
+ 		height: 250px;
+	}
+	table {
+ 		margin-left: 30px;
+ 	}
+ 	h2 {
+ 		margin-bottom: 50px;
+ 	}
 </style>
  <section id="content">
  	<h2 align="center">프로그램 안내</h2>
