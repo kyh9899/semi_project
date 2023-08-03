@@ -62,70 +62,63 @@
       }
     </style>
 <section id="content" style="display: flex; align-items: center;">
-    <nav style="width: 200px; height: 400px; background-color: #f2f2f2; padding: 10px;">
-        <ul style="display: flex; flex-direction: column;">
-            <li style="margin-bottom: 10px;"><a href="#greeting">인사말</a></li>
-            <li style="margin-bottom: 10px;"><a href="#map">오시는 길</a></li>
-            <li style="margin-bottom: 10px;"><a href="#instructors">강사소개</a></li>
-            <li><a href="#facilities">시설 안내</a></li>
-        </ul>
-    </nav>
+    <ul style="display: flex; flex-direction: column;">
+    </ul>
+
     
     <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
     <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
       <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-      <span class="fs-5 fw-semibold">Collapsible</span>
+      <span class="fs-5 fw-semibold">MENU</span>
     </a>
     <ul class="list-unstyled ps-0">
       <li class="mb-1">
         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-          Home
+          센터 소개
         </button>
         <div class="collapse show" id="home-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Updates</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Reports</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">인사말</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">오시는 길</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">강사 소개</a></li>
           </ul>
         </div>
       </li>
-      <li class="mb-1">
+      <li class="greeting">
         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-          Dashboard
+          프로그램 안내
         </button>
         <div class="collapse" id="dashboard-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Weekly</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Monthly</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Annually</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">시설 안내</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">이용 시간표</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">요금</a></li>
           </ul>
         </div>
       </li>
       <li class="mb-1">
         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-          Orders
+          수강 신청 
         </button>
         <div class="collapse" id="orders-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Processed</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Shipped</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Returned</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">프로그램</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">이용 시간</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">요금</a></li>
           </ul>
         </div>
       </li>
       <li class="border-top my-3"></li>
       <li class="mb-1">
         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-          Account
+          고객 센터
         </button>
         <div class="collapse" id="account-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Sign out</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Q&A</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">자주 묻는 질문</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">고객 문의</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">분실물</a></li>
           </ul>
         </div>
       </li>
@@ -136,10 +129,6 @@
     <div style="width: 700px;">
         <h2>센터 소개 페이지</h2>
         
-        <h3 id="greeting">인사말</h3>
-        <!-- 인사말 내용 추가 -->
-        
-
 	<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
         <body>
             <div id="map" style="width:1500px;height:550px;margin: 0 auto;" align="center">
@@ -158,11 +147,7 @@
         </body>
 </html>
 
-        <h3 id="instructors">강사소개</h3>
-        <!-- 강사소개 내용 추가 -->
 
-        <h3 id="facilities">시설 안내</h3>
-        <!-- 시설 안내 내용 추가 -->
     </div>
 </section>
 
