@@ -1,93 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="/views/common/header.jsp" />
 
-<style>
-   #menuBar {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 150px;
-  background-color: #f9f9f9;
-  padding: 20px 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#menuBar a {
-  display: block;
-  color: black;
-  text-decoration: none;
-  padding: 8px 16px;
-  margin-bottom: 10px;
-}
-
-#menuBar a:hover,
-#menuBar a.active {
-  background-color: #4CAF50;
-  color: #f9f9f9;
-}
-#registrationButton {
-  font-size: larger;
-  padding: 12px 24px;
-  cursor: pointer;
-}
-
-#content {
-  margin-left: 180px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* 추가된 스타일 */
-#courseList table {
-  border-collapse: collapse;
-  width: 100%;
-}
-#courseList {
-  width: 80%;
-  margin: 0 auto;
-}
-
-#courseList th,
-#courseList td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
-}
-
-#courseList tbody tr:nth-child(odd) {
-  background-color: #f2f2f2;
-}
-
-#courseList tbody tr:hover {
-  background-color: #ddd;
-}
-
-#courseList th {
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
+<!DOCTYPE html>
+<html>
+<head>	
+</head>
+<body>
 
 
-
-<div id="menuBar">
-    <a href="/sportcenter/">메인페이지</a>
-    <a href="/sportcenter/views/introduce/intro.jsp" >센터소개</a>
-    <a href="/sportcenter/views/board/list.jsp" >고객 센터</a>
-    <a href="/sportcenter/views/member/myPage.jsp" >마이 페이지</a>
-</div>
-
-<section id="content">
-    <h1 align="center">수강신청 페이지</h1>
-    <h3 align="center">로그인시에만 수강신청이 가능합니다.</h3>
+<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-5 fw-semibold">MENU</span>
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+          센터 소개
+        </button>
+        <div class="collapse show" id="home-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">인사말</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">오시는 길</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">강사 소개</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="greeting">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          프로그램 안내
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">시설 안내</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">이용 시간표</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">요금</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+          수강 신청 
+        </button>
+        <div class="collapse" id="orders-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">프로그램</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">이용 시간</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">요금</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="border-top my-3"></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+          고객 센터
+        </button>
+        <div class="collapse" id="account-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Q&A</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">자주 묻는 질문</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">고객 문의</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">분실물</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
   
-  
-    <p align="center">
+  <section id="content">
+    <section id="content" style="display: flex; flex-direction: column; align-items: center;">
+    <h1>수강신청 페이지</h1>
+    <h3>로그인시에만 수강신청이 가능합니다.</h3>
+    <p style="text-align: center;">
         <button type="button" id="registrationButton" onclick="registerCourse();">
             수강신청
         </button>
-    </p>
     
     <script>
         let isLoggedIn = <%= (session.getAttribute("loginMember") != null) ? "true" : "false" %>;
@@ -100,11 +87,24 @@
             }
         }
     </script>
-    
 
-    
 </section>
+  
+ <div style="width: 700px;">
+ 
 
+
+
+
+
+
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
+
+<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
+</body>
 
+
+</html>
 
