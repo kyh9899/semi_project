@@ -17,12 +17,14 @@
 	/*페이지바*/
 	div#pageBar{ margin-top:10px; text-align:center; background-color:rgba(0, 188, 212, 0.3);}
 	#div-title { margin:auto; }
-	#div-menubar { margin:20px 50px 0px 100px;  float:left; }
+	#div-menubar { margin:20px 50px 0px 150px;  float:left; }
 	#div-notice1 { margin-top: 40px; }
+	
 </style>
 
 </head>
 <body>
+<section id="content">
 	<div id="div-title">	
 	<h2 align="center">고객센터</h2>    
 	</div>
@@ -47,7 +49,6 @@
 	  </ul>
 	</div>
   
-<section id="content">
     
     <div id="div-notice1">
      <h4>분실물센터</h4>

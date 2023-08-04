@@ -27,13 +27,14 @@ public class BoardWriteServlet extends HttpServlet {
     	HttpSession session = request.getSession();
     	Member loginMember = (Member) session.getAttribute("loginMember");
     	
-    	if (loginMember != null) {			
-    		request.getRequestDispatcher("/views/board/write.jsp").forward(request, response);
-		} else {
-			request.setAttribute("msg", "로그인 후 작성해 주세요.");
-			request.setAttribute("location", "/");
-			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
-		}
+    	
+//    	if (loginMember != null) {			
+//    		request.getRequestDispatcher("/views/board/write.jsp").forward(request, response);
+//		} else {
+//			request.setAttribute("msg", "로그인 후 작성해 주세요.");
+//			request.setAttribute("location", "/");
+//			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
+//		}
 	}
     
     @Override

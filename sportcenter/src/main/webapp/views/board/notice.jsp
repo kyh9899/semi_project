@@ -16,16 +16,27 @@
 	input#btn-add{float:right; margin: 0 0 15px;}
 	/*페이지바*/
 	div#pageBar{margin-top:10px; text-align:center; background-color:rgba(0, 188, 212, 0.3);}
-	#div-title { margin:auto; }
-	#div-menubar { margin:20px 50px 0px 100px;  float:left; }
+	#div-title { align: center; }
+	#div-menubar { align:center; margin:20px 50px 0px 150px;  float:left; } 
 	#div-notice1 { margin-top: 40px; }
+	#content { align: center; }
+	#notice-write { float:left; font-size: 13px;}
+	.btn-outline-secondary { float:left; margin-bottom: 5px;}
+	.btn-secondary { width:50px; margin-bottom:5px; }
+	.search-wrapper { width: 100%; height:50%; margin-bottom: 10px; background-color: lightgray; }
+	.sort { width: 10%; margin: 13px 0px 13px 150px; float:left; align: center; }
+	.form-control me-2 { width: 400px;  background-color:yellow; align:center; }
+	#btn-search { width: 80px; margin-top: 3px;}
+
 </style>
 
 </head>
 <body>
+	<section id="content">
 	<div id="div-title">	
 	<h2 align="center">고객센터</h2>    
 	</div>
+	
 	<div id="div-menubar" class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
 	  <a href="javascript:" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
 	    <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
@@ -47,19 +58,52 @@
 	  </ul>
 	</div>
   
-<section id="content">
-    
+
     <div id="div-notice1">
      <h4>공지사항</h4>
      <p>새로운 소식을 알려드립니다.</p>
     </div>
     
-       
+    <br>      
     
 	<div id="board-list-container">
+		 <%--  
 		<c:if test="${ not empty loginMember }">
-			<button type="button" class="btn btn-primary" onclick="location.href='${ path }/board/write'">글쓰기</button>
+			<button class="btn btn-sm btn-outline-secondary" type="button">글쓰기</button><br>
 		</c:if>
+		--%>
+			
+			<%-- 검색기능_필요시 활성화
+            <div class="search-wrapper">
+                <fieldset class="search">
+                    
+                    <select class="sort" title="검색조건">
+                        <option value="1">전체</option>
+                        <option value="1">제목</option>
+                        <option value="1">내용</option>
+                        <option value="1">작성자</option>
+                    </select>
+                    
+                    <nav class="navbar bg-body-tertiary">
+					  <div class="container-fluid">
+					    <form class="d-flex" role="search">
+					      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+					      <button type="button" id="btn-search" class="btn btn-secondary btn-sm">검색</button>
+					    </form>
+					  </div>
+					</nav>
+					
+                </fieldset>
+            </div>
+             --%>
+       
+
+		
+		
+		<button class="btn btn-sm btn-outline-secondary" type="button">글쓰기</button>
+				
+		<br>
+		
 		<table id="tbl-board">
 			<tr>
 				<th>번호</th>
