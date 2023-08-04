@@ -1,41 +1,65 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<jsp:include page="/views/common/header.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 
-<jsp:include page="/views/common/header.jsp" />
+<!DOCTYPE html>
+<html>
+<head>	
 
 <style>
-	section #board-list-container{width:800px; height:100%; margin:10px auto; text-align:center;  float:left;}
+	section #board-list-container{width:700px; height:100%; margin:10px auto; text-align:center;  float:left;}
 	section #board-list-container h2{margin:0px 0;}
 	table#tbl-board{width:100%;  margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
-	table#tbl-board th, table#tbl-board td {border:1px solid; padding: 5px 0; text-align:center;} 
+	table#tbl-board th, table#tbl-board td {border:1px solid transparent; border-top:1px solid black; padding: 5px 0; text-align:center;} 
 	/*글쓰기버튼*/
 	input#btn-add{float:right; margin: 0 0 15px;}
 	/*페이지바*/
 	div#pageBar{margin-top:10px; text-align:center; background-color:rgba(0, 188, 212, 0.3);}
+	#div-title { margin:auto; }
+	#div-menubar { margin:20px 50px 0px 100px;  float:left; }
+	#div-notice1 { margin-top: 40px; }
 </style>
+
+</head>
+<body>
+	<div id="div-title">	
+	<h2 align="center">고객센터</h2>    
+	</div>
+	<div id="div-menubar" class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+	  <a href="javascript:" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+	    <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+	    <span class="fs-5 fw-semibold">MENU</span>
+	  </a>
+	  <ul class="list-unstyled ps-0">
+	    <li class="mb-1">
+	      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+	        고객 센터
+	      </button>
+	      <div class="collapse show" id="home-collapse">
+	        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+	          <li><a href="${ path }/views/board/notice.jsp" class="link-dark d-inline-flex text-decoration-none rounded">공지사항</a></li>
+	          <li><a href="${ path }/views/board/lost.jsp" class="link-dark d-inline-flex text-decoration-none rounded">분실물센터</a></li>
+	          <li><a href="${ path }/views/board/faq.jsp" class="link-dark d-inline-flex text-decoration-none rounded">자주하는질문(FAQ)</a></li>
+	        </ul>
+	      </div>
+	    </li>
+	  </ul>
+	</div>
+  
 <section id="content">
-	<h2 align="center">고객센터</h2>
-	 <nav style="width: 200px; height: 500px; background-color: #f2f2f2; padding: 10px; margin: 0 50px 0 200px; float:left">
-        <ul style="display: flex; flex-direction: column;">
-            <li style="margin-bottom: 10px; list-style:none"><a href="#greeting">공지사항</a></li>
-            <li style="margin-bottom: 10px;"><a href="#map">분실물센터</a></li>
-            <li style="margin-bottom: 10px;"><a href="#instructors">자주하는질문(FAQ)</a></li>
-            <li><a href="#facilities">시설 안내</a></li>
-        </ul>
-    </nav>
     
-    <div>
-     <h3>공지사항</h3>
+    <div id="div-notice1">
+     <h4>공지사항</h4>
      <p>새로운 소식을 알려드립니다.</p>
     </div>
     
+       
+    
 	<div id="board-list-container">
 		<c:if test="${ not empty loginMember }">
-			<button type="button" onclick="location.href='${ path }/board/write'">글쓰기</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='${ path }/board/write'">글쓰기</button>
 		</c:if>
-
 		<table id="tbl-board">
 			<tr>
 				<th>번호</th>
@@ -106,4 +130,11 @@
 	</div>
 </section>
 
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
+<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
+</body>
+
+
+</html>

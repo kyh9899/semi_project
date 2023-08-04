@@ -4,89 +4,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Sport Center</title>
-  <style>
-  html, body {
-      margin: 0;
-      padding: 0;
+<style>
+   
+      #courseList {
+      margin: 0 auto; /* Center the element with auto margin on left and right */
+      padding-left: 160px; /* Add padding to the left */
+      padding-right: 160px; /* Add padding to the right */
+      font-family: "Arial", sans-serif;
+    }
+    table {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        border-collapse: collapse;
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+      font-size: 14px;
+    }
+    th {
+      background-color: #A3A3A3;
+      color: white;
+    }
+    tr:nth-child(odd) {
+      background-color: #ECECEC;
+    }
+    tr:nth-child(even) {
+      background-color: #F8F8F8;
+    }
+    input[type="submit"] {
+      background-color: #449D44;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    html, body {
       height: 100%;
     }
-    
-        #footer {
+    #wrapper {
+      min-height: 100%;
+      position: relative;
+    } 
+   
+    #footer {
       position: absolute;
       bottom: 0;
       width: 100%;
     }
-    
-       #content {
-      min-height: 100%;
-      position: relative;
-      flex-grow: 1;
-    }
-    #main {
-      padding-bottom: 60px;
-    }
-    #menuBar {
-      position: fixed;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 150px;
-      background-color: #f9f9f9;
-      padding: 20px 0;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    #menuBar a {
-      display: block;
-      color: black;
-      text-decoration: none;
-      padding: 8px 16px;
-      margin-bottom: 10px;
-    }
-    #menuBar a:hover,
-    #menuBar a.active {
-      background-color: #4CAF50;
-      color: #f9f9f9;
-    }
-    #courseList table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    #courseList {
-      width: 80%;
-      margin: 0 auto;
-    }
-    #courseList th,
-    #courseList td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: center;
-    }
-    #courseList tbody tr:nth-child(odd) {
-      background-color: #f2f2f2;
-    }
-    #courseList tbody tr:hover {
-      background-color: #ddd;
-    }
-    #courseList th {
-      background-color: #4CAF50;
-      color: white;
-    }
   </style>
 </head>
 <body>
-  <div id="menuBar">
-    <a href="/sportcenter/">메인페이지</a>
-    <a href="/sportcenter/views/introduce/intro.jsp">센터소개</a>
-    <a href="/sportcenter/views/program/list.jsp">프로그램 안내 페이지</a>
-    <a href="/sportcenter/views/board/list.jsp">고객 센터</a>
-    <a href="/sportcenter/views/member/myPage.jsp">마이 페이지</a>
-  </div>
+  <div id="wrapper">
+
+  
 
  <section id="courseList">
         <h2>강좌 목록</h2>
-        <table>
+        <form method="GET" action="/search">
+      <input type="text" name="query" placeholder="강좌 검색" />
+      <button type="submit">검색</button>
+      <input type="reset" value="초기화">
+    	</form>
+    	
+        <table class="table table-bordered table-striped">
+        <br><br>
             <thead>
                 <tr>
                     <th>강좌명</th>
@@ -110,7 +93,7 @@
                     <td>30명</td>
                     <td>모집중</td>
                     <td>
-                        <form method="POST" action="신청URL">
+                        <form method="POST" action="/sportcenter/views/application/cation.jsp">
                             <input type="hidden" name="courseId" value="코스ID">
                             <input type="submit" value="신청">
                         </form>
@@ -126,7 +109,7 @@
                     <td>20명</td>
                     <td>모집중</td>
                     <td>
-                        <form method="POST" action="신청URL">
+                        <form method="POST" action="/sportcenter/views/application/cation.jsp">
                             <input type="hidden" name="courseId" value="코스ID">
                             <input type="submit" value="신청">
                         </form>
@@ -142,7 +125,7 @@
                     <td>20명</td>
                     <td>모집중</td>
                     <td>
-                        <form method="POST" action="신청URL">
+                        <form method="POST" action="/sportcenter/views/application/cation.jsp">
                             <input type="hidden" name="courseId" value="코스ID">
                             <input type="submit" value="신청">
                         </form>
@@ -158,7 +141,23 @@
                     <td>40명</td>
                     <td>모집중</td>
                     <td>
-                        <form method="POST" action="신청URL">
+                        <form method="POST" action="/sportcenter/views/application/cation.jsp">
+                            <input type="hidden" name="courseId" value="코스ID">
+                            <input type="submit" value="신청">
+                        </form>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>배드민턴</td>
+                    <td>강의실5</td>
+                    <td>이웅대</td>
+                    <td>16:00-19:00</td>
+                    <td>70,000원</td>
+                    <td>10명</td>
+                    <td>모집완료</td>
+                    <td>
+                        <form method="POST" action="/sportcenter/views/application/cation.jsp">
                             <input type="hidden" name="courseId" value="코스ID">
                             <input type="submit" value="신청">
                         </form>
@@ -167,14 +166,14 @@
                 
                   <tr>
                     <td>야구</td>
-                    <td>강의실5</td>
+                    <td>강의실6</td>
                     <td>왕홈런</td>
                     <td>13:00-16:00</td>
                     <td>150,000원</td>
                     <td>30명</td>
                     <td>모집중</td>
                     <td>
-                        <form method="POST" action="신청URL">
+                        <form method="POST" action="/sportcenter/views/application/cation.jsp">
                             <input type="hidden" name="courseId" value="코스ID">
                             <input type="submit" value="신청">
                         </form>
@@ -185,6 +184,8 @@
         </table>
     </section>
   
+  
+
   <footer id="footer">
   <jsp:include page="/views/common/footer.jsp" />
 </body>
