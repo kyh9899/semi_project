@@ -20,7 +20,7 @@
 	}
 	
 	/* 글쓰기 폼 내부 */
-	.deco { width: 80%; float:left; }	
+	.deco { width: 90%; float:left; }	
 		
 		
 	table#tbl-board{width:100%;  margin:0 auto;border-collapse:collapse; clear:both; }
