@@ -23,6 +23,7 @@
 
 </head>
 <body>
+
 	<div id="div-title">	
 	<h2 align="center">고객센터</h2>    
 	</div>
