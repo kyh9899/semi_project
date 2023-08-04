@@ -153,7 +153,7 @@
 
 <jsp:include page="/views/common/header.jsp" />
 
-  <form method="post" action="">
+  <form name="memberEnrollFrm" action="${ path }/member/enroll" method="POST">
       <div class="container">
     <div class="insert">
     

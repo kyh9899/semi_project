@@ -37,6 +37,9 @@ div.container {
 
 .container .contents {
   padding: 50px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 #form__wrap {
@@ -124,7 +127,7 @@ label.required::after {
  	<br><br>
       </div>
       <div class="contents">
-        <form action="/" method="POST" id="form__wrap">
+        <form name="memberEnrollFrm" action="enrollCertification.jsp" method="POST">
           <ul class="terms__list">
             <li class="terms__box">
               <div class="input__check">
@@ -149,46 +152,50 @@ label.required::after {
             <li>
             <div class="terms__check__all">
             <input type="checkbox" name="checkAll" id="checkAll" />
-            <label for="checkAll">이용약관, 개인정보 수집 및 이용에<br>모두 동의합니다.</label>
+            <label for="checkAll">이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</label>
           	</div>
           </li>
           </ul>
-          <button type="submit" class="next-button" onclick="location.href='enrollCertification.jsp'">확인</button>
+          <button type="submit" class="next-button" onclick="formCheck()">확인</button>
         </form>
       </div>
     </div>
+    
+    <script>
+function formCheck() {
+    const termsOfService = document.getElementById("termsOfService");
+    const privacyPolicy = document.getElementById("privacyPolicy");
+    const checkAll = document.getElementById("checkAll");
+    const nextButton = document.querySelector(".next-button");
+    
+    termsOfService.checked = checkAll.checked;
+    privacyPolicy.checked = checkAll.checked;
+
+    if (termsOfService.checked && privacyPolicy.checked) {
+        nextButton.disabled = false;
+    } else {
+        alert("이용약관과 개인정보 수집 및 이용에 동의해야 합니다.");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const termsOfService = document.getElementById("termsOfService");
+    const privacyPolicy = document.getElementById("privacyPolicy");
+    const checkAll = document.getElementById("checkAll");
+
+    function updateCheckAll() {
+        checkAll.checked = termsOfService.checked && privacyPolicy.checked;
+    }
+
+    termsOfService.addEventListener("change", updateCheckAll);
+    privacyPolicy.addEventListener("change", updateCheckAll);
+    checkAll.addEventListener("change", function () {
+        termsOfService.checked = checkAll.checked;
+        privacyPolicy.checked = checkAll.checked;
+    });
+
+    updateCheckAll();
+});
+</script>
 
 <jsp:include page="/views/common/footer.jsp" /> 
-
-<script>
-  'use strict';
-
-  const form = document.querySelector('#form__wrap');
-  const checkAll = document.querySelector('.terms__check__all input');
-  const checkBoxes = document.querySelectorAll('.input__check input');
-  const submitButton = document.querySelector('button');
-
-  form.addEventListener('submit', (e) => e.preventDefault()); // 버튼 클릭 시 폼 제출 방지
-
-  checkBoxes.forEach((item) => item.addEventListener('change', toggleCheckbox));
-  checkAll.addEventListener('change', toggleCheckAll);
-
-  function toggleCheckbox() {
-    const areAllChecked = [...checkBoxes].every((item) => item.checked);
-    checkAll.checked = areAllChecked;
-    toggleSubmitButton();
-  }
-
-  function toggleCheckAll() {
-    const { checked } = checkAll;
-    checkBoxes.forEach((item) => {
-      item.checked = checked;
-    });
-    toggleSubmitButton();
-  }
-
-  function toggleSubmitButton() {
-    const allChecked = [...checkBoxes].every((item) => item.checked);
-    submitButton.disabled = !allChecked;
-  }
-</script>
