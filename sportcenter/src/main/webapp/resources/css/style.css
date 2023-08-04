@@ -100,4 +100,18 @@ ul.main-nav li:hover{
 ul.main-nav li:hover > a{
 	color:#FFF; /* 글자색*/
 }
+/* ... */
+/* Set fixed height for the menu bar */
+.flex-shrink-0 {
+    height: 100vh; /* Change the value as per your preference */
+    overflow-y: auto; /* Add scrollbar when content overflows */
+}
+
+/* Set fixed height for the submenu content */
+.collapse {
+    max-height: 200px; /* Change the value as per your preference */
+    overflow-y: auto; /* Add scrollbar when content overflows */
+}
+
+/* ... */
 

@@ -96,11 +96,5 @@
         <button type="button" class="btn btn-primary">회원가입</button>
 		 
       </ul>
-
-      <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/member/signin'">Login</button>
-        <button type="button" class="btn btn-primary">Sign-up</button>
->>>>>>> b6e7e627c522837f310d72fba70621dfd01331fd
-      </div>
     </header>
   </div>
