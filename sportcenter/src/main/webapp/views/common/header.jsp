@@ -83,5 +83,10 @@
         <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
       </ul>
 
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/views/member/signin.jsp'">로그인</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='${ path }/views/member/enrollAgreement.jsp'">회원가입</button>
+
+      </div>
     </header>
   </div>
