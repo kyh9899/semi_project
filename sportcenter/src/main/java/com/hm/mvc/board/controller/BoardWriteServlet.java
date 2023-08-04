@@ -86,7 +86,8 @@ public class BoardWriteServlet extends HttpServlet {
 //			request.setAttribute("msg", "로그인 후 작성해 주세요.");
 //			request.setAttribute("location", "/");
 //		}
-    	request.setAttribute("location", "/board/write2.jsp");
+		request.setAttribute("msg", "게시글 등록 성공");
+    	request.setAttribute("location", "/board/notice");
     	request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
     }
 }

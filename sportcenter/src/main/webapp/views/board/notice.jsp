@@ -10,8 +10,9 @@
 <style>
 	section #board-list-container{width:700px; height:100%; margin:10px auto; text-align:center;  float:left;}
 	section #board-list-container h2{margin:0px 0;}
-	table#tbl-board{width:100%;  margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
-	table#tbl-board th, table#tbl-board td {border:1px solid transparent; border-top:1px solid black; padding: 5px 0; text-align:center;} 
+	table#tbl-board{width:100%;  margin:0 auto; border-collapse:collapse; border-top: 2px solid black; clear:both; }
+	table#tbl-board th {  background-color: #f9f9f9; }
+	table#tbl-board th, table#tbl-board td {border:1px solid transparent; padding: 5px 0; text-align:center;} 
 
 	/*페이지바*/
 	div#pageBar{margin-top:10px; text-align:center; background-color:rgba(0, 188, 212, 0.3);}
@@ -28,6 +29,7 @@
 	.sort { width: 10%; margin: 13px 0px 13px 150px; float:left; align: center; }
 	.form-control me-2 { width: 400px;  background-color:yellow; align:center; }
 	#btn-search { width: 80px; margin-top: 3px;}
+	#content-none { height: 300px;}
 
 </style>
 
@@ -98,7 +100,7 @@
 	            </div>
 	             --%>  		
 			
-			<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/views/board/write.jsp'">글쓰기</button>
+			<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write'">글쓰기</button>
 					
 			<br>
 			
@@ -114,7 +116,7 @@
 				
 				<c:if test="${ empty list }">			
 					<tr>
-						<td colspan="6">
+						<td colspan="6" id="content-none">
 							조회된 게시글이 없습니다.
 						</td>
 					</tr>	
@@ -146,7 +148,7 @@
 			</table>
 			<div id="pageBar">
 				<!-- 맨 처음으로 -->
-				<button onclick="location.href='${ path }/board/notice?page=1'">&lt;&lt;</button>
+				<button onclick="location.href='${ path }/views/board/notice?page=1'">&lt;&lt;</button>
 	
 				<!-- 이전 페이지로 -->
 				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.prevPage }'">&lt;</button>
