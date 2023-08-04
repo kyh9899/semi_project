@@ -44,15 +44,14 @@
 		margin-bottom: 20px;
 	}
 	.content{
-		width:1200px; 
+		width:1000px; 
 		margin:0 auto;
-		text-align: center;
 	}
 	ul, li{list-style:none;}
 	.tab{padding:0;}
 	.tab li{
 		float:left;
-		width:calc(100% / 4); 
+		width:calc(100% / 3); 
 		font-size:16px;
 		font-weight:bold;
 		height:40px;
@@ -75,7 +74,9 @@
 		font-size:14px;
 		color:#333;
 	}
-	.tab_con li strong{display:block; margin-bottom:10px;}
+	#swimmingprogram {
+		width: 100%;
+	}
 </style>
 <body>
 	<h2 align="center">수영</h2>
@@ -94,13 +95,28 @@
 		<ul class="tab">
 			<li><a href="#mu1" class="selected">강좌소개</a></li>
 			<li><a href="#mu2">강사소개</a></li>
-			<li><a href="#mu3">요금/시간안내</a></li>
 			<li><a href="#mu4">수강신청 안내</a></li>
 		</ul>
 		<ul class="tab_con">
 			<li id="mu1">
-				<strong>강좌소개</strong>
-				
+				<h5>▣ 강좌 개요</h5>
+				<p>
+					수영은 육상에서 하는 운동과 달리 “자기 체중의 대부분을 지지할 필요가 없으므로 체격 제한이 없고,<br>
+					스포츠 종목 중 비교적 운동으로서의 숙달 방법이 단순한 편”(출처 : 스포츠 백과, 2008., 국민생활체육회)이어서 남녀노소 누구나 즐길 수 있는 운동입니다.
+				</p>
+				<h5>▣ 프로그램 안내</h5>
+				<img id="swimmingprogram" src="${ path }/resources/images/swimmingprogram.png">
+				<p>
+					► 개인준비물 : 수영복, 수영보자, 수경, 샤워도구, 수건 <br>
+					► 강습시간 이외 자유수영 없음 <br>
+					► 강습시간 30분 전 입장/종료시간 30분 전 입장 마감 <br>
+					► 강습 종료 후 30분 내 퇴장 <br>
+					► 개인운동장비(킥판,헬퍼,오리발,구명조끼,튜브,비치볼 등) 사용금지 <br>
+					► 신청한 강습과 등급이 상이한 경우 환불 규정에 따라 환불처리(반 변경 불가) <br>
+					► 강습 개시 후 반 변경 불가 <br>
+					► 어린이반의 경우 매월 마지막 강습일은 안전교육 및 테스트 <br>
+					► 어린이 프로그램 등록 시 연령확인 서류 반드시 지참 <br>
+				</p>
 			</li>
 			<li id="mu2">
 				<strong>강사소개</strong>

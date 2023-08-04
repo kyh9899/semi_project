@@ -27,6 +27,9 @@
   
 
 <body>
+  
+<section id="content" style="display: flex; align-items: center;">
+    <ul style="display: flex; flex-direction: column;"></ul>
 
 
 <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">

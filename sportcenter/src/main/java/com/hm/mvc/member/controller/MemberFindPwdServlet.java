@@ -16,7 +16,7 @@ public class MemberFindPwdServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.getRequestDispatcher("/views/member/findpwd.jsp").forward(request, response);
 	}
 
 	@Override
