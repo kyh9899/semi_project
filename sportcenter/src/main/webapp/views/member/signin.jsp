@@ -50,7 +50,7 @@
 				<td>
 				<label>비밀번호 : </label>
 					<input type="password" name="userPwd" id="userPwd" placeholder="비밀번호" required>
-					<input type="button" value="로그인" >						
+					<input type="submit" value="로그인" >						
 				</td>
 			</tr>
 			<tr>
