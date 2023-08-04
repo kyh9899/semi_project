@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<c:set var="path" value="${ pageContext.request.contextPath }"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +11,37 @@
 </head>
 <body>
 <jsp:include page="/views/common/header.jsp" />
-	<div style="text-align: center;">
 
-	<h4>아이디 찾기</h4> 
-	
+<script>
+	function findIDbtn(){
+		document.fm.action="'${ path }/member/findid'";
+		document.fm.method="post";
+	}
+</script>
+
+		<h4 align="center">아이디 찾기</h4> 
+	<div  align="center">
+		<form name="idfindscreen" method = "POST" >
+			<table>
+		    <tr>
+		      <td>이름 : </td>
+		      <td><input type="text" name="userName" required></td>
+		    </tr>
+		    <tr>
+		      <td>번호 : </td>
+		      <td><input type="tel" name="phone" required></td>
+		    </tr>
+		    <tr> 
+		      <td colspan="2" align="center"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		        <button type="submit" id="findid" onclick="'${ path }/member/findid'"><span>아이디 찾기</span></button> &nbsp; &nbsp; &nbsp;
+		        <input type="button"  value="취소" onClick="history.back()">
+		      </td>
+		    </tr>
+		</table>
+		</form>
+	</div>
+		
+	<%-- 
 		<c:if test="${ empty loginMember }">
 		<form name="idfindscreen" method = "POST">
 		<section class = "form-search">
@@ -33,8 +62,8 @@
  	</div>
  </form>
 		</c:if>
-	</div>
-	
+	--%>
+	<script src="${ path }/member/findid"></script>
 	<script>
 		function findUserId(event) {
 			event.preventDefault(); 

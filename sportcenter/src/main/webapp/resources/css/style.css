@@ -46,11 +46,6 @@ header div.login-container {
 }
 
 #loginFrm input[type=submit] {
-	width:60px; 
-	height:50px; 
-	color:white; 
-	background:orange; 
-	position:absolute; 
 	top:10px;
 }
 
