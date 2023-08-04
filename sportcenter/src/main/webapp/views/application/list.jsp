@@ -4,7 +4,28 @@
 <!DOCTYPE html>
 <html>
 <head>	
+<style >
+
+    html, body {
+      height: 100%;
+    }
+    #wrapper {
+      min-height: 100%;
+      position: relative;
+    } 
+   
+    #footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
 </head>
+
+
+  <div id="wrapper">
+  
+
 <body>
 
 
@@ -105,7 +126,7 @@
 
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
-
+  <footer id="footer">
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
 </body>

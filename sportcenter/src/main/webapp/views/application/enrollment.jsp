@@ -8,12 +8,12 @@
    
       #courseList {
       margin: 0 auto; /* Center the element with auto margin on left and right */
-      padding-left: 160px; /* Add padding to the left */
-      padding-right: 160px; /* Add padding to the right */
+      padding-left: 200px; /* Add padding to the left */
+      padding-right: 200px; /* Add padding to the right */
       font-family: "Arial", sans-serif;
     }
     table {
-        width: 90%;
+        width: 90%;	
         margin-left: auto;
         margin-right: auto;
         border-collapse: collapse;
@@ -52,7 +52,41 @@
       position: absolute;
       bottom: 0;
       width: 100%;
+      
     }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 20px;
+        }
+
+        .pagination li {
+            margin: 0 5px;
+        }
+
+        .pagination a {
+            background-color: #fff;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: #449d44;
+            border-radius: 4px;
+            border: 1px solid #a3a3a3;
+        }
+
+        .pagination a:hover {
+            background-color: #449d44;
+            color: #fff;
+        }
+
+        .pagination .active a {
+            background-color: #449d44;
+            color: #fff;
+            cursor: default;
+        }  
+      
+    
   </style>
 </head>
 <body>
@@ -63,12 +97,16 @@
  <section id="courseList">
         <h2>강좌 목록</h2>
         <form method="GET" action="/search">
-      <input type="text" name="query" placeholder="강좌 검색" />
-      <button type="submit">검색</button>
+      <input type="text" name="query" id="searchInput" placeholder="강좌 검색" />
+     <%--<button type="submit">검색</button> --%> 
       <input type="reset" value="초기화">
     	</form>
-    	
-        <table class="table table-bordered table-striped">
+    	<br>
+    	   <p style="font-size: 14px; color: gray;">원하시는 종목 및 강습반을 선택해 주세요.</p>
+		   <p style="font-size: 14px; color: gray;">강습명 검색시 선택된 종목, 강습반은 초기화 됩니다.</p>
+		   <p style="font-size: 14px; color: gray;">마감 된 강좌를 제외하고 잔여자리가 있는 강좌만 조회 가능합니다.</p>
+	
+        <table class="table table-bordered table-striped" id="courseTable">
         <br><br>
             <thead>
                 <tr>
@@ -113,6 +151,9 @@
                             <input type="hidden" name="courseId" value="코스ID">
                             <input type="submit" value="신청">
                         </form>
+                     
+                  
+                        
                     </td>
                 </tr>
                 
@@ -179,9 +220,20 @@
                         </form>
                     </td>
                 </tr>
-                
             </tbody>
         </table>
+         <nav aria-label="Table page navigation">
+                <ul class="pagination">
+                    <li><a href="?page=1" aria-label="Previous">&laquo;</a></li>
+                    <li><a href="?page=1">1</a></li>
+                    <li><a href="?page=2">2</a></li>
+                    <li><a href="?page=3">3</a></li>
+                    <li><a href="?page=4">4</a></li>
+                    <li><a href="?page=5">5</a></li>
+                    <li><a href="?page=2" aria-label="Next">&raquo;</a></li>
+                </ul>
+            </nav>
+       
     </section>
   
   
@@ -189,6 +241,28 @@
   <footer id="footer">
   <jsp:include page="/views/common/footer.jsp" />
 </body>
+<script>
+document.getElementById('searchInput').addEventListener('input', function () {
+  const searchText = this.value.toLowerCase(); // Get the search text in lower case
+  const table = document.getElementById('courseTable'); // Get the table element
+  const rows = table.getElementsByTagName('tr'); // Get all the table rows
+
+  // Loop through all table rows, and hide those that don't match the search query
+  for (let i = 1; i < rows.length; i++) { // Start from 1 to skip the header row
+    let td = rows[i].getElementsByTagName('td')[0]; // Get the first cell (강좌명) of the row
+    if (td) {
+      let txtValue = td.textContent || td.innerText;
+      if (txtValue.toLowerCase().indexOf(searchText) > -1) {
+        rows[i].style.display = ''; // Show the row if it matches
+      } else {
+        rows[i].style.display = 'none'; // Hide the row if it doesn't match
+      }
+    }
+  }
+});
+</script>
+
+
 </html>
 
 
