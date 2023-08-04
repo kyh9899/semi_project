@@ -75,12 +75,11 @@
   </div>
     
     
-    <div style="width: 700px;">
-        <h2>센터 소개 페이지</h2>
         
+    <h2>오시는 길</h2>
 	<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
         <body>
-            <div id="map" style="width:1500px;height:550px;margin: 0 auto;" align="center">
+            <div id="map" style="width:1200px;height:700px; margin: 10 auto;" align="center" >
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c570a4bb062a63d6e8c95aa274b0531"></script>
             <script>
                 var container = document.getElementById('map');
