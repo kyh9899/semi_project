@@ -199,7 +199,9 @@
                 <tr>
                     <td class="col1">주소</td>
                     <td class="col2">
-                        <input type="text" name="address">
+                       <input type="text"  id="zip_code" name="zip_code" onclick="openZipSearch();" readonly="readonly" placeholder="우편번호" style="width:250px;">
+					   <input type="text"  id="addr" name="addr" onclick="openZipSearch();" readonly="readonly" placeholder="기본주소"  style="width:250px;">
+					   <input type="text"  id="addr_dtl" name="addr_dtl" placeholder="상세주소"  style="width:250px;">
                     </td>
                 </tr>
     <tr>
@@ -264,11 +266,6 @@
             form.mailid.focus() ;
             return ;
         }
-        if(form.mailid.value == "") {
-            alert('e-mail을 입력하세요.');
-            form.mailid.focus() ;
-            return ;
-        }
         if(form.email.value == "" && form.mailslc.selectedIndex == 0) {
             alert('e-mail을 입력하세요.');
             form.mailslc.focus() ;
@@ -283,9 +280,25 @@
  
         form.reset();
         }
+    
+    function openZipSearch() {
+        new daum.Postcode({
+        	oncomplete: function(data) {     
+    		var addr = ''; 
+    		if (data.userSelectedType === 'R') { 
+    			addr = data.roadAddress;
+    		} else {
+    			addr = data.jibunAddress;
+    		}
+
+    		$("#zip_code").val(data.zonecode);
+    		$("#addr").val(addr);
+    		$("#addr_dtl").val("");
+    		$("#addr_dtl").focus();
+            }
+        }).open();
+    }
  
   </script>
-
-
-    
-<jsp:include page="/views/common/footer.jsp" /> 
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <jsp:include page="/views/common/footer.jsp" /> 
