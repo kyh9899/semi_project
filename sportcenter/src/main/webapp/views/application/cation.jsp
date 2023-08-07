@@ -87,7 +87,7 @@
   white-space: nowrap;
   position: absolute;
   top: 50%;
-  right: 240px;
+  right: 280px;
   transform: translateY(-50%);
 }
       .form-container {
@@ -140,7 +140,7 @@
       </div>
       <div class="form-group">
         <label for="amount">결제 금액</label>
-        <input type="number" id="amount" min="1000" required>
+        <input type="number" id="amount" min="50000" step="10000" required>
       </div>
       <div class="form-group">
         <button type="submit">결제하기</button>
