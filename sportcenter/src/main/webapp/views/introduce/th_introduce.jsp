@@ -28,9 +28,8 @@
 </head>
 <body>
   <header>
-    <h1>강사 소개</h1>
+<h1 align="left"> &nbsp;강사 소개</h1> <br>
   </header>
-
 <div class="instructor-card" style="width: 150px; align-content: center;">
   <img style="width: 110px; height: 100px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사1">
   <div class="instructor-info">
