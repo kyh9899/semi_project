@@ -66,7 +66,7 @@
 </ul>
  	
  	
- 	 <button type="submit" class="next-button" onclick="location.href='enroll.jsp'">확인</button>
+ 	 <button type="submit" class="next-button" onclick="location.href='${ path }/member/enroll'">확인</button>
 
 
 </div>
