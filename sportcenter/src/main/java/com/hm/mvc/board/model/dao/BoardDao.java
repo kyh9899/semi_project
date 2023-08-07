@@ -124,7 +124,7 @@ public class BoardDao {
 	public int insertBoard(Connection connection, Board board) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT)";
+		String query = "INSERT INTO POST VALUES(SEQ_POST_NO.NEXTVAL,?,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT,?)";
 		
 		try {
 			pstmt = connection.prepareStatement(query);
@@ -134,6 +134,8 @@ public class BoardDao {
 			pstmt.setString(3, board.getContent());
 			pstmt.setString(4, board.getOriginalFilename());
 			pstmt.setString(5, board.getRenamedFilename());
+			pstmt.setInt(6, board.getReadCount());
+			pstmt.setString(7, board.getWriterId());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -172,7 +174,7 @@ public class BoardDao {
 	public int updateStatus(Connection connection, int no, String status) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "UPDATE BOARD SET STATUS=? WHERE NO=?";
+		String query = "UPDATE POST SET P_STATUS=? WHERE P_NO=?";
 		
 		try {
 			pstmt = connection.prepareStatement(query);
