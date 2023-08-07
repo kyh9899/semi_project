@@ -76,11 +76,11 @@
       
       
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li class="home"><a href="${ path }/views/introduce/intro.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
+        <li class="home"><a href="${ path }/" class="nav-link px-2 link-secondary">센터소개</a></li>
         <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
         <li><a href="${ path }/views/application/list.jsp" class="nav-link px-2 link-dark">수강신청</a></li>
-        <li><a href="${ path }/views/board/notice.jsp" class="nav-link px-2 link-dark">고객센터</a></li>
-        <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
+        <li><a href="${ path }/board/notice" class="nav-link px-2 link-dark">고객센터</a></li>
+        <li><a href="${ path }/member/myPage" class="nav-link px-2 link-dark">마이페이지</a></li>
       </ul>
 
       <div class="col-md-3 text-end">

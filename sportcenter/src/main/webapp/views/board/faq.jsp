@@ -39,7 +39,7 @@
 	      </button>
 	      <div class="collapse show" id="home-collapse">
 	        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-	          <li><a href="${ path }/views/board/notice.jsp" class="link-dark d-inline-flex text-decoration-none rounded">공지사항</a></li>
+	          <li><a href="${ path }/board/notice" class="link-dark d-inline-flex text-decoration-none rounded">공지사항</a></li>
 	          <li><a href="${ path }/views/board/lost.jsp" class="link-dark d-inline-flex text-decoration-none rounded">분실물센터</a></li>
 	          <li><a href="${ path }/views/board/faq.jsp" class="link-dark d-inline-flex text-decoration-none rounded">자주하는질문(FAQ)</a></li>
 	        </ul>

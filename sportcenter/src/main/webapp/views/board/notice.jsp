@@ -2,6 +2,7 @@
 <jsp:include page="/views/common/header.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
+<jsp:include page="/views//MenuBar.jsp" />
 
 <!DOCTYPE html>
 <html>
@@ -52,7 +53,7 @@
 		      </button>
 		      <div class="collapse show" id="home-collapse">
 		        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-		          <li><a href="${ path }/views/board/notice.jsp" class="link-dark d-inline-flex text-decoration-none rounded">공지사항</a></li>
+		          <li><a href="${ path }/board/notice" class="link-dark d-inline-flex text-decoration-none rounded">공지사항</a></li>
 		          <li><a href="${ path }/views/board/lost.jsp" class="link-dark d-inline-flex text-decoration-none rounded">분실물센터</a></li>
 		          <li><a href="${ path }/views/board/faq.jsp" class="link-dark d-inline-flex text-decoration-none rounded">자주하는질문(FAQ)</a></li>
 		        </ul>
@@ -174,10 +175,11 @@
 		</div>
 	</section>
 
+
+</body>
+</html>
+
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
-
-</body>
-</html>
