@@ -3,13 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 <jsp:include page="/views/common/header.jsp" />
-
 <style>
   #box {  
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 100%;
+    width: 1200px;
   }
   .image-container {
     display: flex;
@@ -21,7 +20,11 @@
     height: 250px;
   }
   table {
+  	float: left;
     margin-left: 30px;
+  }
+  h2 {
+  	margin-bottom: 50px;
   }
 </style>
 <body>
@@ -55,8 +58,7 @@
 							</td>
 						</tr>
 					</table>
-		 		</div>
-				<div>
+		 		
 					<table>
 						<tr>
 							<td class="image-container">
@@ -74,8 +76,6 @@
 							</td>
 						</tr>
 					</table>
-				</div>
-				<div>
 					<table>
 						<tr>
 							<td class="image-container">
