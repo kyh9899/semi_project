@@ -16,6 +16,7 @@
 	#swim {
 		width: 400px;
 		height: 250px;
+		margin-bottom: 30px;
 	}
 	#guide {
 		width: 100%;
@@ -76,9 +77,13 @@
 	}
 	#swimmingprogram {
 		width: 100%;
+		margin-bottom: 10px;
 	}
 	#img1{
 		margin-top: 30px;
+	}
+	h5{
+		font-weight: bold;
 	}
 </style>
 <body>
@@ -89,8 +94,6 @@
 				<td><img id="swim" src="${ path }/resources/images/swim.jpg"></td>
 			</tr>
 		</table>	
-		
-		<br><br>
 		
 		<button id="btn1" onclick="location.href='${ path }/views/application/list.jsp'">온라인 수강신청</button>
 	</div>
@@ -129,10 +132,6 @@
 			<li id="mu2">
 				<img src="${ path }/resources/images/swimteacher.png">
 				<img id="img1" src="${ path }/resources/images/swimteacher2.png">
-			</li>
-			<li id="mu3">
-				<strong>요금/시간안내</strong>
-				
 			</li>
 			<li id="mu4">
 				<img id="guide" src="${ path }/resources/images/guide.png">

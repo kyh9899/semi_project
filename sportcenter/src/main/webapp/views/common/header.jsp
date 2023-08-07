@@ -76,7 +76,7 @@
       
       
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li class="home"><a href="${ path }/views/introduce/intro.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
+        <li class="home"><a href="${ path }/views/introduce/intro_hello.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
         <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
         <li><a href="${ path }/application/enrollment" class="nav-link px-2 link-dark">수강신청</a></li>
         <li><a href="${ path }/views/board/notice.jsp" class="nav-link px-2 link-dark">고객센터</a></li>
@@ -85,7 +85,7 @@
 
       <div class="col-md-3 text-end">
         <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/views/member/signin.jsp'">로그인</button>
-        <button type="button" class="btn btn-primary" onclick="location.href='${ path }/views/member/enrollAgreement.jsp'">회원가입</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='${ path }/member/enrollAgreement">회원가입</button>
 
       </div>
     </header>
