@@ -13,9 +13,10 @@
 	h2 {
 		margin-bottom: 30px;
 	}
-	#swim {
+	#health {
 		width: 400px;
 		height: 250px;
+		margin-bottom: 30px;
 	}
 	#guide {
 		width: 100%;
@@ -77,17 +78,18 @@
 	#healthprogram{
 		width: 100%;
 	}
+	h5, h6 {
+		font-weight: bold;
+	}
 </style>
 <body>
 	<h2 align="center">헬스</h2>
 	<div id="div1">
 		<table class="table-centered">
 			<tr>
-				<td><img id="swim" src="${ path }/resources/images/health.jpg"></td>
+				<td><img id="health" src="${ path }/resources/images/health.jpg"></td>
 			</tr>
 		</table>	
-		
-		<br><br>
 		
 		<button id="btn1" onclick="location.href='${ path }/views/application/list.jsp'">온라인 수강신청</button>
 	</div>
@@ -116,9 +118,29 @@
 					● 관절의 안정성과 모든 운동기능의 향상으로 일상생활에서의 피로 해소<br>
 					● 유연성, 심폐지구력 등 심폐기능 향상, 체중조절, 혈당량 감소, 자세교정, 체형개선, 골다공증 및 성인병 예방에 큰 효과<br>
 				</p>
+				<h6>유연성 운동</h6>
+				<p>
+					● 체조,스트레칭<br>
+					● 운동상해 예방<br>
+					● 근육의 스트레스에 의한 운동상해 예방 및 회복<br>
+				</p>
+				<h6>심폐지구력 운동</h6>
+				<p>
+					● 사이클,트레드밀<br>
+					● 스포츠심장 강화(심장 좌심실 근육증대)<br>
+					● 심박출량, 체지방량, 폐활량, 지구력, 최대 산소 섭취능력 증가<br>
+					● 산소 부채량 증가(빠른 회복 능력)<br>
+				</p>
+				<h6>근력 운동</h6>
+				<p>
+					● 기구운동<br>
+					● 근육의 증대<br>
+					● 자세 및 체형 교정<br>
+					● 힘, 순발력, 근지구력 증가<br>
+				</p>
 			</li>
 			<li id="mu2">
-				<strong>강사소개</strong>
+				<img src="${ path }/resources/images/healthteacher.png">
 				
 			</li>
 			<li id="mu3">
