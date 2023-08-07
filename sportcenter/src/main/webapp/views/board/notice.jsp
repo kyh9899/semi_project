@@ -2,13 +2,13 @@
 <jsp:include page="/views/common/header.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
-<jsp:include page="/views//MenuBar.jsp" />
 
 <!DOCTYPE html>
 <html>
 <head>	
 
 <style>
+
 	section #board-list-container{width:700px; height:100%; margin:10px auto; text-align:center;  float:left;}
 	section #board-list-container h2{margin:0px 0;}
 	table#tbl-board{width:100%;  margin:0 auto; border-collapse:collapse; border-top: 2px solid black; clear:both; }
@@ -16,11 +16,12 @@
 	table#tbl-board th, table#tbl-board td {border:1px solid transparent; padding: 5px 0; text-align:center;} 
 
 	/*페이지바*/
-	div#pageBar{margin-top:10px; text-align:center; background-color:rgba(0, 188, 212, 0.3);}
+	div#pageBar{margin-top:10px; text-align:center; }
 	#div-title { align: center; }
 	#div-menubar { align:center; margin:20px 50px 0px 150px;  float:left; } 
-	#div-notice1 { margin-top: 40px; }
-	#content { align: center; }
+	
+	#div-notice1 { margin-top: 40px; float:left; align: center; }
+	#content { align: center;  background-color:yellow;  }
 	#notice-write { float:left; font-size: 13px;}
 	
 	/* 글쓰기 버튼 */ 
@@ -39,7 +40,7 @@
 	<section id="content">
 		<div id="div-title">	
 		<h2 align="center">고객센터</h2>    
-		</div>
+		
 		
 		<div id="div-menubar" class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
 		  <a href="javascript:" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
@@ -54,8 +55,8 @@
 		      <div class="collapse show" id="home-collapse">
 		        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 		          <li><a href="${ path }/board/notice" class="link-dark d-inline-flex text-decoration-none rounded">공지사항</a></li>
-		          <li><a href="${ path }/views/board/lost.jsp" class="link-dark d-inline-flex text-decoration-none rounded">분실물센터</a></li>
-		          <li><a href="${ path }/views/board/faq.jsp" class="link-dark d-inline-flex text-decoration-none rounded">자주하는질문(FAQ)</a></li>
+		          <li ><a href="${ path }/board/lost" class="link-dark d-inline-flex text-decoration-none rounded">분실물센터</a></li>
+		          <li><a href="${ path }/board/faq" class="link-dark d-inline-flex text-decoration-none rounded">자주하는질문(FAQ)</a></li>
 		        </ul>
 		      </div>
 		    </li>
@@ -66,9 +67,7 @@
 	    <div id="div-notice1">
 	     <h4>공지사항</h4>
 	     <p>새로운 소식을 알려드립니다.</p>
-	    </div>
-	    
-	    <br>      
+    
 	    
 		<div id="board-list-container">
 			 <%--  
@@ -127,8 +126,8 @@
 						<tr>
 							<td>${ board.rowNum }</td>
 							<td>
-								<a href="${ path }/board/view?no=${ board.no}">
-									${ board.title }
+								<a href="${ path }/board/view?no=${ board.no }">
+									${ board.title } 
 								</a>
 							</td>
 							<td>${ board.writerId }</td>
@@ -149,7 +148,7 @@
 			</table>
 			<div id="pageBar">
 				<!-- 맨 처음으로 -->
-				<button onclick="location.href='${ path }/views/board/notice?page=1'">&lt;&lt;</button>
+				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.prevPage }'">&lt;&lt;</button>
 	
 				<!-- 이전 페이지로 -->
 				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.prevPage }'">&lt;</button>
@@ -172,6 +171,8 @@
 				<!-- 맨 끝으로 -->
 				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.maxPage }'">&gt;&gt;</button>
 			</div>
+		</div>
+		</div>
 		</div>
 	</section>
 

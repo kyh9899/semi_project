@@ -19,7 +19,7 @@ public class BoardDao {
 		int count = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String query = "SELECT COUNT(*) FROM BOARD WHERE STATUS='Y'";
+		String query = "SELECT COUNT(*) FROM POST WHERE P_STATUS='Y'";
 		
 		try {
 			pstmt = connection.prepareStatement(query);
@@ -42,29 +42,13 @@ public class BoardDao {
 		List<Board> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String query = "SELECT RNUM, NO, TITLE, ID, CREATE_DATE, ORIGINAL_FILENAME, READCOUNT, STATUS "
-				    + "FROM ("
-				    +    "SELECT ROWNUM AS RNUM, "
-				    +           "NO, "
-				    + 			"TITLE, "
-				    + 			"ID, "
-				    + 			"CREATE_DATE, "
-				    + 			"ORIGINAL_FILENAME, "
-				    +  			"READCOUNT, "
-				    +     		"STATUS "
-				    + 	 "FROM ("
-				    + 	    "SELECT B.NO, "
-				    + 			   "B.TITLE, "
-				    +  			   "M.ID, "
-				    + 			   "B.CREATE_DATE, "
-				    + 			   "B.ORIGINAL_FILENAME, "
-				    + 			   "B.READCOUNT, "
-				    + 	   		   "B.STATUS "
-				    + 		"FROM BOARD B "
-				    + 		"JOIN MEMBER M ON(B.WRITER_NO = M.NO) "
-				    + 		"WHERE B.STATUS = 'Y' ORDER BY B.NO DESC"
-				    + 	 ")"
-				    + ") WHERE RNUM BETWEEN ? and ?";
+		String query = "SELECT RNUM, P_NO, P_TITLE, MB_ID, P_CREATE_DATE, P_ORG_FILENAME, P_RDCOUNT, P_STATUS "
+					 + "FROM (SELECT P.P_NO, P.P_TITLE, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
+					 + "FROM POST P "
+					 + "JOIN MEMBER M ON (P.MB_ID = M.MB_ID) "
+					 + "WHERE P.P_STATUS = 'Y' "
+					 + "ORDER BY P.P_NO DESC) "
+					 + "WHERE RNUM BETWEEN ? AND ? ";
 
 		try {
 			pstmt = connection.prepareStatement(query);
@@ -77,14 +61,14 @@ public class BoardDao {
 			while (rs.next()) {
 				Board board = new Board();
 				
-				board.setNo(rs.getInt("NO"));
+				board.setNo(rs.getInt("P_NO"));
 				board.setRowNum(rs.getInt("RNUM"));
-				board.setWriterId(rs.getString("ID"));
-				board.setTitle(rs.getString("TITLE"));
-				board.setCreateDate(rs.getDate("CREATE_DATE"));
-				board.setOriginalFilename(rs.getString("ORIGINAL_FILENAME"));
-				board.setReadCount(rs.getInt("READCOUNT"));
-				board.setStatus(rs.getString("STATUS"));
+				board.setWriterId(rs.getString("MB_ID"));
+				board.setTitle(rs.getString("P_TITLE"));
+				board.setCreateDate(rs.getDate("P_CREATE_DATE"));
+				board.setOriginalFilename(rs.getString("P_ORG_FILENAME"));
+				board.setReadCount(rs.getInt("P_RDCOUNT"));
+				board.setStatus(rs.getString("P_STATUS"));
 				
 				list.add(board);
 			}			
@@ -102,18 +86,8 @@ public class BoardDao {
 		Board board = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String query = "SELECT  B.NO, "
-							 + "B.TITLE, "
-							 + "M.ID, "
-							 + "B.READCOUNT, "
-							 + "B.ORIGINAL_FILENAME, "
-							 + "B.RENAMED_FILENAME, "
-							 + "B.CONTENT, "
-							 + "B.CREATE_DATE, "
-							 + "B.MODIFY_DATE "
-					 + "FROM BOARD B "
-					 + "INNER JOIN MEMBER M ON(B.WRITER_NO = M.NO) "
-					 + "WHERE B.STATUS = 'Y' AND B.NO=?";
+		String query = "SELECT P.P_NO, P.P_TITLE, P.MB_ID, P.P_RDCOUNT, P.P_ORG_FILENAME, P.P_RND_FILENAME, P.P_CONTENT, P.P_CREATE_DATE, P.P_MODIFY_DATE "
+		       + "FROM POST P INNER JOIN MEMBER M ON (P.MB_ID = M.MB_ID) WHERE P.P_STATUS = 'Y' AND P.P_NO=? ";
 		
 		try {
 			pstmt = connection.prepareStatement(query);
@@ -125,17 +99,17 @@ public class BoardDao {
 			if (rs.next()) {
 				board = new Board();
 				
-				board.setNo(rs.getInt("NO"));
-				board.setTitle(rs.getString("TITLE"));
-				board.setWriterId(rs.getString("ID"));
-				board.setReadCount(rs.getInt("READCOUNT"));
-				board.setOriginalFilename(rs.getString("ORIGINAL_FILENAME"));
-				board.setRenamedFilename(rs.getString("RENAMED_FILENAME"));
-				board.setContent(rs.getString("CONTENT"));
+				board.setTitle(rs.getString("P_TITLE"));
+				board.setNo(rs.getInt("P_NO"));
+				board.setWriterId(rs.getString("MB_ID"));
+				board.setReadCount(rs.getInt("P_RDCOUNT"));
+				board.setOriginalFilename(rs.getString("P_ORG_FILENAME"));
+				board.setRenamedFilename(rs.getString("P_RND_FILENAME"));
+				board.setContent(rs.getString("P_CONTENT"));
 				// 댓글 조회
 				board.setReplies(this.getRepliesByNo(connection, no));
-				board.setCreateDate(rs.getDate("CREATE_DATE"));
-				board.setModifyDate(rs.getDate("MODIFY_DATE"));
+				board.setCreateDate(rs.getDate("P_CREATE_DATE"));
+				board.setModifyDate(rs.getDate("P_MODIFY_DATE"));
 			}			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -174,7 +148,7 @@ public class BoardDao {
 	public int updateBoard(Connection connection, Board board) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "UPDATE BOARD SET TITLE=?,CONTENT=?,ORIGINAL_FILENAME=?,RENAMED_FILENAME=?,MODIFY_DATE=SYSDATE WHERE NO=?";
+		String query = "UPDATE POST SET P_TITLE=?,P_CONTENT=?,P_ORG_FILENAME=?,P_RND_FILENAME=?,P_MODIFY_DATE=SYSDATE WHERE P_NO=?";
 		
 		try {
 			pstmt = connection.prepareStatement(query);

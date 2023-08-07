@@ -55,7 +55,7 @@ public class BoardWriteServlet extends HttpServlet {
 //        	
 //        	// DefaultFileRenamePolicy : 중복되는 파일 이름 뒤에 1 ~ 9999 붙인다.
 //        	MultipartRequest mr = 
-////    			new MultipartRequest(request, path, maxSize, encoding, new DefaultFileRenamePolicy());
+//    			new MultipartRequest(request, path, maxSize, encoding, new DefaultFileRenamePolicy());
 //        		new MultipartRequest(request, path, maxSize, encoding, new FileRename());
 //        	
 //        	Board board = new Board();
@@ -76,7 +76,7 @@ public class BoardWriteServlet extends HttpServlet {
 //        	if (result > 0) {
 //        		// 게시글 등록 성공
 //        		request.setAttribute("msg", "게시글 등록 성공");
-//        		request.setAttribute("location", "/board/list");
+//        		request.setAttribute("location", "/board/notice");
 //        	} else {
 //        		// 게시글 등록 실패
 //        		request.setAttribute("msg", "게시글 등록 실패");

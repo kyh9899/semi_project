@@ -11,14 +11,18 @@
 <style>
 	div#board-write-container {
 		background-color: #f9f9f9;
-		width:650px;
+		width:700px;
 		margin:0 auto;
 		padding-top:5px;
 		text-align:center;
+		align:left;
 		border-top: 2px solid black;
 		float: left;
 	}
 	
+	div#rightContent {
+		float:left;
+	}
 	/* 글쓰기 폼 내부 */
 	.deco { width: 90%; float:left; }	
 		
@@ -32,7 +36,7 @@
 	div#pageBar{margin-top:10px; text-align:center; background-color:rgba(0, 188, 212, 0.3);}
 	#div-title { align: center; }
 	#div-menubar { align:center; margin:20px 50px 0px 150px;  float:left; } 
-	#div-notice1 { margin-top: 40px; }
+	#div-notice1 { margin-top: 40px; float:left; }
 	#content { align: center; }
 	#notice-write { float:left; font-size: 13px;}
 	.btn-outline-secondary { float:left; margin-bottom: 5px;}
@@ -51,35 +55,33 @@
 			</div>
 		
 			<div id="div-menubar" class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
-			  <a href="javascript:" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-			    <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-			    <span class="fs-5 fw-semibold">MENU</span>
-			  </a>
-			  <ul class="list-unstyled ps-0">
-			    <li class="mb-1">
-			      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-			        고객 센터
-			      </button>
-			      
-			      <%-- 좌측 메뉴바 --%>
-			      <div class="collapse show" id="home-collapse">
-			        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-			          <li><a href="${ path }/board/notice" class="link-dark d-inline-flex text-decoration-none rounded">공지사항</a></li>
-			          <li><a href="${ path }/views/board/lost.jsp" class="link-dark d-inline-flex text-decoration-none rounded">분실물센터</a></li>
-			          <li><a href="${ path }/views/board/faq.jsp" class="link-dark d-inline-flex text-decoration-none rounded">자주하는질문(FAQ)</a></li>
-			        </ul>
-			      </div>
-			    </li>
-			  </ul>
-			</div>
+		  <a href="javascript:" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+		    <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+		    <span class="fs-5 fw-semibold">MENU</span>
+		  </a>
+		  <ul class="list-unstyled ps-0">
+		    <li class="mb-1">
+		      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+		        고객 센터
+		      </button>
+		      <div class="collapse show" id="home-collapse">
+		        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+		          <li><a href="${ path }/board/notice" class="link-dark d-inline-flex text-decoration-none rounded">공지사항</a></li>
+		          <li ><a href="${ path }/board/lost" class="link-dark d-inline-flex text-decoration-none rounded">분실물센터</a></li>
+		          <li><a href="${ path }/board/faq" class="link-dark d-inline-flex text-decoration-none rounded">자주하는질문(FAQ)</a></li>
+		        </ul>
+		      </div>
+		    </li>
+		  </ul>
+		</div>
 	  
-	
-		    <div id="div-notice1">
+		<div id="rightContent">
+		   <div id="div-notice1">
 		     <h4>공지사항 > 게시글 작성</h4>
-		    </div> 
+		   </div> 
 			
 			<%-- 게시글 작성 폼 --%>
-			<section id="content">
+			<section id="content" style="margin:0px;">
 				<div id='board-write-container'>
 					<form action="${ path }/board/write" method="POST"  enctype="multipart/form-data">
 						<table id='tbl-board'>
@@ -101,22 +103,23 @@
 							</tr>
 							<tr>
 								<th colspan="2">
-									<input type="button" value="뒤로가기" onclick="location.href='${ path }/board/notice'"> 
-									&nbsp;&nbsp;
 									<input type="submit" value="등록"> 
 									&nbsp;&nbsp;
-									<input type="reset" value="지우기">
+									<input type="reset" value="취소">
+									&nbsp;&nbsp;
+									<input type="button" value="목록으로" onclick="location.href='${ path }/board/notice'"> 
 								</th>
 							</tr>
 						</table>
 					</form>
 				</div>
+				 
 			</section>
+		</div>
 
+</body>
+</html>
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
-
-</body>
-</html>
