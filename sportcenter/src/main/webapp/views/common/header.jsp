@@ -85,7 +85,7 @@
 
       <div class="col-md-3 text-end">
         <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/views/member/signin.jsp'">로그인</button>
-        <button type="button" class="btn btn-primary" onclick="location.href='${ path }/member/enrollAgreement">회원가입</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='${ path }/member/enrollAgreement'">회원가입</button>
 
       </div>
     </header>
