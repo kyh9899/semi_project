@@ -7,102 +7,96 @@
 <html>
 <head>
 <style>
-    body, html {
-        height: 100%;
-        margin: 0;
-    }
-    .content-wrap {
-  min-height: 60vh;
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: right;
-}
- div.content-text {
-    font-family: 'Source Sans Pro', Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333333;
-    text-align: right;
-  }
-
-.detail-content {
-  position: relative;
-}
-
-h2, h3 {
-  margin-bottom: 15px;
-}
-
-p {
-  line-height: 24px;
-  
-}
+  /* Added Google font */
+  @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
    
-    
-    #footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
-    .row {
-        display: flex;
-    }
-    .column {
-        flex: 1;
-          padding: 4.2rem;
-        box-sizing: border-box;
-    }
-    h3 {
-        cursor: pointer;
-        color: #333;
-        font-size: 1.5rem;
-        padding: 0.5rem;
-        margin: 0;
-        border-radius: 5px;
-        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-        text-align: center;
-    }
-    h3:hover {
-        background-color: #6f6f6f;
-        color: #FFF;
-    }
-     .button-group {
-    position: absolute;
-    display: flex;
-    top: 50;
-    right: 405px;
-}
-
-    .button-group button {
-      display: inline-block;
-      margin-top: 5px;
-      margin: 5px;
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      font-size: 14px;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .button-group button:hover {
-      background-color: #45a049;
-    }
-
-  .back-button:hover {
-    background-color: #e1e1e1;
+   
+  
+  /* Updated styling */
+  body, html {
+      font-family: 'Nanum Gothic', arial, sans-serif;
+      height: 100%;
+      margin: 0;
   }
-     
+  
+  main {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  h1 {
+      font-size: 2.5em;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+      color: #333333;
+  }
+  
+  form {
+      border: 2px solid #2A9D8F;
+      border-radius: 5px;
+      padding: 2rem 4rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+  }
+  
+  label {
+      font-size: 1.1em;
+      margin-bottom: 0.5rem;
+  }
+  
+  input {
+      font-size: 1em;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      transition: border-color 0.2s ease-in-out;
+  }
+  
+  input:focus {
+      border-color: #55CCA7;
+  }
+  
+  button {
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 0.5rem 2rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #2A9D8F;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+      background-color: #55CCA7;
+  }
 
-    .img {
-        max-width: 50%; /* adjust this value based on the desired width */
-        position: relative;
-    }
+   .course-information {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+  position: absolute;
+  top: 50%;
+  right: 240px;
+  transform: translateY(-50%);
+}
+      .form-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+  } 
+     
+     
    #footer {
       position: absolute;
       bottom: 0;
@@ -112,79 +106,63 @@ p {
     #wrapper {
       min-height: 60%;
       position: relative;
-    } 
+    }
 </style>
 <div id="wrapper">
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<script>
-    function toggleDisplay(id) {
-        let element = document.getElementById(id);
-        if (element.style.display === "none") {
-            element.style.display = "block";
-        } else {
-            element.style.display = "none";
-        }
-    }
-</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결제 페이지</title>
 </head>
 <body>
-    <h2 style="text-align: center;">신청완료 상세 페이지</h2>
-    <br>
+  <main>
+    <h1>결제 페이지</h1>
+    <div class="form-container">
+    <form id="payment-form">
+      <div class="form-group">
+        <label for="name">이름</label>
+        <input type="text" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">이메일 주소</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="card-number">카드 번호</label>
+        <input type="text" id="card-number" maxlength="19" required>
+      </div>
+      <div class="form-group">
+        <label for="expiration">유효기간</label>
+        <input type="text" id="expiration" maxlength="5" required>
+      </div>
+      <div class="form-group">
+        <label for="cvc">CVC 번호</label>
+        <input type="text" id="cvc" maxlength="4" required>
+      </div>
+      <div class="form-group">
+        <label for="amount">결제 금액</label>
+        <input type="number" id="amount" min="1000" required>
+      </div>
+      <div class="form-group">
+        <button type="submit">결제하기</button>
+      </div>
+	</form>
+
      <br><br>
-    <div class="image-and-text">
-        <img class="img" src="${ path }/resources/images/runsport.jpg">
-        <div class="content-text">
-  <h3 style="text-align: center; font-weight: bold; font-size: 28px; margin-bottom: 15px;">에어로빅 A</h3>
-    
-  <br><br>
-
-   
-       
-<p style="font-size: 17px; line-height: 1.8;"> <strong>에어로빅 A</strong><span style="display:inline-block; width: 182px;"></span> <br> 
-<strong style="color: #2A9D8F;">강습장소:</strong> 강의실1<span style="display:inline-block; width: 157px;"></span><br>
-<strong style="color: #2A9D8F;">강사명:</strong> 김강사<span style="display:inline-block; width: 172px;"></span><br>
-<strong style="color: #2A9D8F;">강습기간:</strong> (01개월)<span style="display:inline-block; width: 148px;"></span><br>
-<strong style="color: #2A9D8F;">강습시간:</strong> 18:00-19:00<span style="display:inline-block; width: 146px;"></span><br>
-<strong style="color: #2A9D8F;">수강요금:</strong> ₩100,000<span style="display:inline-block; width: 146px;"></span><br>
-<strong style="color: #2A9D8F;">정원   :</strong> 30명<span style="display:inline-block; width: 185px;"></span><br>
-<strong style="color: #2A9D8F;">접수기간:</strong> 접수 중<span style="display:inline-block; width: 151px;"></span> </p>
-  
+   <%--  <div class="image-and-text">
+        <img class="img" src="${ path }/resources/images/runsport.jpg"> --%>
+        
+<div class="course-information"> 
+ 	<strong>에어로빅 A</strong><br>   
+	<strong style="color: #2A9D8F;">강습장소:</strong> 강의실1<span style="display:inline-block; width: 30px;"></span><br>
+	<strong style="color: #2A9D8F;">강사명:</strong> 김강사<span style="display:inline-block; width: 172px;"></span><br>
+	<strong style="color: #2A9D8F;">강습기간:</strong> (01개월)<span style="display:inline-block; width: 148px;"></span><br>
+	<strong style="color: #2A9D8F;">강습시간:</strong> 18:00-19:00<span style="display:inline-block; width: 146px;"></span><br>
+	<strong style="color: #2A9D8F;">수강요금:</strong> ₩100,000<span style="display:inline-block; width: 146px;"></span><br>
+	<strong style="color: #2A9D8F;">정원   :</strong> 30명<span style="display:inline-block; width: 185px;"></span><br>
+	<strong style="color: #2A9D8F;">접수기간:</strong> 접수 중<span style="display:inline-block; width: 151px;"></span> 
 </div>
 </div>
-            <div class="button-group">
-        <button onclick="window.location.href='enrollment.jsp'">목록으로</button>
-        <button onclick="window.location.href='cation.jsp'">신청하기</button>
-          </div>
-         </div>
-		</div>
-        <!-- 강좌소개, 강좌신청내역, 강좌신청안내 및 주의사항 sections -->
-        <div class="row">
-
-            <!-- 강좌소개 section -->	
-            <div id="course-introduction" class="column">
-                <h3 onclick="toggleDisplay('course-intro-text')">강좌소개</h3>
-                <p id="course-intro-text" style="display:none;">남녀노소 성인,청소년,유아까지 모두 쉽게 배울 수 있는 스포츠.<br>
-                   기초 수업 : 매주 월요일 / 총 프로그램 : 16회 진행됩니다. </p>
-            </div>
-
-            <!-- 강좌세부내역 section -->
-            <div id="course-details" class="column">
-                <h3 onclick="toggleDisplay('course-details-text')">강좌세부내용</h3>
-                <p id="course-details-text" style="display:none;">강의시간은 보통2~3시간 어렵지않은 난이도로 배울 수 있음.<br>
-                   준비물 개인 지참, 기타 대여 가능 (단, 수업시간만) </p>
-            </div>
-
-            <!--  주의사항 section -->
-            <div id="course-application-info" class="column">
-                <h3 onclick="toggleDisplay('course-application-info-text')"> 주의사항</h3>
-                <p id="course-application-info-text" style="display:none;">강좌 신청시에는 중복 신청이 불가하며 <br>
-                외국인등록증 발급 회원은 행정정보공동이용시스템 자동 인증 불가로 성동구민 우선등록 시 현장접수만 가능합니다.</p>
-            </div>
-
-        </div>
-
-    </div>
+ </main>    
     <jsp:include page="/views/common/footer.jsp" />
 </body>
 </html>
