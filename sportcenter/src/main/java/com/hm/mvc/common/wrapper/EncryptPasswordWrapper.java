@@ -22,13 +22,6 @@ public class EncryptPasswordWrapper extends HttpServletRequestWrapper {
 			return super.getParameter(name);
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
 }
