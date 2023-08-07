@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:include page="/views/common/header.jsp" />
-
-<!DOCTYPE html>
 <html>
 <head>
+<jsp:include page="/views/common/header.jsp" />
+<jsp:include page="/views//MenuBar.jsp" />
 <style>
    
       #courseList {
       margin: 0 auto; /* Center the element with auto margin on left and right */
-      padding-left: 200px; /* Add padding to the left */
-      padding-right: 200px; /* Add padding to the right */
+      padding-left: 500px; /* Add padding to the left */
+      padding-right: 300px; /* Add padding to the right */
       font-family: "Arial", sans-serif;
+    	
     }
     table {
         width: 90%;	
@@ -86,15 +86,16 @@
             cursor: default;
         }  
       
+      
+      
     
   </style>
 </head>
 <body>
   <div id="wrapper">
 
-  
-
  <section id="courseList">
+ 
         <h2>강좌 목록</h2>
         <form method="GET" action="/search">
       <input type="text" name="query" id="searchInput" placeholder="강좌 검색" />
@@ -222,6 +223,7 @@
                 </tr>
             </tbody>
         </table>
+        
          <nav aria-label="Table page navigation">
                 <ul class="pagination">
                     <li><a href="?page=1" aria-label="Previous">&laquo;</a></li>
@@ -236,33 +238,19 @@
        
     </section>
   
-  
 
   <footer id="footer">
   <jsp:include page="/views/common/footer.jsp" />
+     </footer>
+  </div>
+
+<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
+
+
+
 </body>
-<script>
-document.getElementById('searchInput').addEventListener('input', function () {
-  const searchText = this.value.toLowerCase(); // Get the search text in lower case
-  const table = document.getElementById('courseTable'); // Get the table element
-  const rows = table.getElementsByTagName('tr'); // Get all the table rows
-
-  // Loop through all table rows, and hide those that don't match the search query
-  for (let i = 1; i < rows.length; i++) { // Start from 1 to skip the header row
-    let td = rows[i].getElementsByTagName('td')[0]; // Get the first cell (강좌명) of the row
-    if (td) {
-      let txtValue = td.textContent || td.innerText;
-      if (txtValue.toLowerCase().indexOf(searchText) > -1) {
-        rows[i].style.display = ''; // Show the row if it matches
-      } else {
-        rows[i].style.display = 'none'; // Hide the row if it doesn't match
-      }
-    }
-  }
-});
-</script>
-
-
 </html>
 
 

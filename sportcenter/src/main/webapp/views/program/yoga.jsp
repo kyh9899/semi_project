@@ -52,7 +52,7 @@
 	.tab{padding:0;}
 	.tab li{
 		float:left;
-		width:calc(100% / 4); 
+		width:calc(100% / 3); 
 		font-size:16px;
 		font-weight:bold;
 		height:40px;
@@ -94,7 +94,6 @@
 		<ul class="tab">
 			<li><a href="#mu1" class="selected">강좌소개</a></li>
 			<li><a href="#mu2">강사소개</a></li>
-			<li><a href="#mu3">요금/시간안내</a></li>
 			<li><a href="#mu4">수강신청 안내</a></li>
 		</ul>
 		<ul class="tab_con">

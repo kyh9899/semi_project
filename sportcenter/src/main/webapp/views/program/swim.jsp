@@ -16,6 +16,7 @@
 	#swim {
 		width: 400px;
 		height: 250px;
+		margin-bottom: 30px;
 	}
 	#guide {
 		width: 100%;
@@ -76,6 +77,13 @@
 	}
 	#swimmingprogram {
 		width: 100%;
+		margin-bottom: 10px;
+	}
+	#img1{
+		margin-top: 30px;
+	}
+	h5{
+		font-weight: bold;
 	}
 </style>
 <body>
@@ -86,8 +94,6 @@
 				<td><img id="swim" src="${ path }/resources/images/swim.jpg"></td>
 			</tr>
 		</table>	
-		
-		<br><br>
 		
 		<button id="btn1" onclick="location.href='${ path }/views/application/list.jsp'">온라인 수강신청</button>
 	</div>
@@ -104,6 +110,11 @@
 					수영은 육상에서 하는 운동과 달리 “자기 체중의 대부분을 지지할 필요가 없으므로 체격 제한이 없고,<br>
 					스포츠 종목 중 비교적 운동으로서의 숙달 방법이 단순한 편”(출처 : 스포츠 백과, 2008., 국민생활체육회)이어서 남녀노소 누구나 즐길 수 있는 운동입니다.
 				</p>
+				<h5>▣ 종합적인 체력단련에 적합한 전신운동</h5>
+				<p>
+					수영은 물의 저항을 극복하며 앞으로 나아가기 위해 상당한 수준의 근력이나 에너지가 필요한 전신운동으로서,<br>
+					“큰 호흡운동을 요구하기 때문에 근육이나 심폐의 발달에 좋으며”(출처 : 스포츠 백과, 2008., 국민생활체육회) 종합적인 체력단련에 적합한 운동입니다.
+				</p>
 				<h5>▣ 프로그램 안내</h5>
 				<img id="swimmingprogram" src="${ path }/resources/images/swimmingprogram.png">
 				<p>
@@ -119,12 +130,8 @@
 				</p>
 			</li>
 			<li id="mu2">
-				<strong>강사소개</strong>
-				
-			</li>
-			<li id="mu3">
-				<strong>요금/시간안내</strong>
-				
+				<img src="${ path }/resources/images/swimteacher.png">
+				<img id="img1" src="${ path }/resources/images/swimteacher2.png">
 			</li>
 			<li id="mu4">
 				<img id="guide" src="${ path }/resources/images/guide.png">
