@@ -32,5 +32,6 @@
 </html>
 
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
+<jsp:include page="/views/common/footer.jsp" />
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>

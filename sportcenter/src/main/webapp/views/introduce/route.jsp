@@ -35,6 +35,6 @@
 
 
 </html>
-
+<jsp:include page="/views/common/footer.jsp" />
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
