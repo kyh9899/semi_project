@@ -9,12 +9,12 @@
 <head>
 <title>Insert title here</title>
 
-<section id="content" style="display: flex; align-items: center;">
-    <ul style="display: flex; flex-direction: column;"></ul>
+<section id="content"  align-items: center  style=" width: 1300px;">
+    <ul flex-direction: column; float:left;"></ul>
 
  <h2 align="center">오시는 길</h2>
 	<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
-            <div id="map" style="width:1300px;height:800px; margin:10 auto;" align="center" >
+            <div id="map" style="width:1000px; float:center; height:700px; margin:10 auto;" align="center" >
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c570a4bb062a63d6e8c95aa274b0531"></script>
             <script>
                 var container = document.getElementById('map');
