@@ -2,7 +2,24 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/views/common/header.jsp" />
 <jsp:include page="/views//MenuBar.jsp" />
-
+<style>
+    .instructor-card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 20px;
+      width: 140px;
+      float: left;
+      display: flex;
+  	  flex-direction: column;
+  	  align-items: center;
+    }
+    .instructor-name {
+      display: flex;
+  	  flex-direction: column;
+  	  align-items: center;
+    }
+</style>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +27,63 @@
 <title>Teacher Introduce</title>
 </head>
 <body>
-<img style="width: 1000px; height: 900px; border: 1px solid white;" alt="th_intro" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fmodo-phinf.pstatic.net%2F20220822_50%2F1661171660374z4CQn_JPEG%2FmosapLxsI5.jpeg&type=sc960_832">
-	
+  <header>
+    <h1>강사 소개</h1>
+  </header>
+
+<div class="instructor-card" style="width: 150px; align-content: center;">
+  <img style="width: 110px; height: 100px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사1">
+  <div class="instructor-info">
+    <div class="instructor-name">홍길동</div>
+    <div class="instructor-specialty">수영 강사</div>
+  </div>
+</div>
+
+<div class="instructor-card" style="width: 150px; align-content: center;">
+  <img style="width: 110px; height: 100px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사1">
+  <div class="instructor-info">
+    <div class="instructor-name">이몽룡</div>
+    <div class="instructor-specialty">헬스 강사</div>
+  </div>
+</div>
+
+<div class="instructor-card" style="width: 150px; align-content: center;">
+  <img style="width: 110px; height: 100px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사1">
+  <div class="instructor-info">
+    <div class="instructor-name">성춘향</div>
+    <div class="instructor-specialty">필라테스 강사</div>
+  </div>
+</div>
+
+<div class="instructor-card" style="width: 150px; align-content: center;">
+  <img style="width: 110px; height: 100px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사1">
+  <div class="instructor-info">
+    <div class="instructor-name">홍백호</div>
+    <div class="instructor-specialty">탁구 강사</div>
+  </div>
+</div>
+
+<div class="instructor-card" style="width: 150px; align-content: center;">
+  <img style="width: 110px; height: 100px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사1">
+  <div class="instructor-info">
+    <div class="instructor-name">황선명</div>
+    <div class="instructor-specialty">요가 강사</div>
+  </div>
+</div>
+
+<div class="instructor-card" style="width: 150px; align-content: center;">
+  <img style="width: 110px; height: 100px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사1">
+  <div class="instructor-info">
+    <div class="instructor-name">이용대</div>
+    <div class="instructor-specialty">배드민턴 강사</div>
+  </div>
+</div>
+
+
+
+  <!-- Add more instructor cards as needed -->
+
+  <div class="clear"></div>
 </body>
 </html>
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
