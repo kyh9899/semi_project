@@ -92,7 +92,7 @@
 			
 			<tr>
 				<td id="pwd">
-				<label>비밀번호&nbsp; : </label>
+				<label>비밀&nbsp;번호&nbsp; : </label>
 					<input type="password" name="userPwd" id="userPwd" placeholder="비밀번호" required>
 
 				</td>
@@ -102,11 +102,11 @@
 					<label><input type="checkbox" name="saveId" id="saveId"
 								${ empty cookie.saveId ? "" : "checked" }>아이디 저장</label> 
 					<br>
+					<%-- 
 						<a href="#" onClick="alert('로그인 성공!!')">
 					<button id="btn1" type="button" onclick="location.href='/sportcenter/views/introduce/intro_hello.jsp'">로그인</button>
-					<%-- 
-					<input id="btn1" type="submit" value="로그인" >
 					--%>
+					<input id="btn1" type="submit" value="로그인" >
 				</td>
 			</tr>
        
@@ -145,3 +145,4 @@
 </div>
  	</div>
 </section>
+  <jsp:include page="/views/common/footer.jsp" /> 

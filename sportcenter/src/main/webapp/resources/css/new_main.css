@@ -87,6 +87,10 @@ input {
 }
 
 .step_url {
+<<<<<<< HEAD
+=======
+    /*@naver.com*/
+>>>>>>> 11fef1a7f9d32448fe2a8706e934e0404e7438b6
     position: absolute;
     top: 16px;
     right: 13px;
