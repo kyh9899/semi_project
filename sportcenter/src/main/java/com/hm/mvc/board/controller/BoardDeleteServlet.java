@@ -28,7 +28,7 @@ public class BoardDeleteServlet extends HttpServlet {
     	if (result > 0) {
 			// 삭제 성공
     		request.setAttribute("msg", "게시글 삭제 성공");
-    		request.setAttribute("location", "/board/list");
+    		request.setAttribute("location", "/board/notice");
 		} else {
 			// 삭제 실패
 			request.setAttribute("msg", "게시글 삭제 실패");
