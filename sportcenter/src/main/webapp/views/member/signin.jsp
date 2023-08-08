@@ -27,49 +27,101 @@
 		padding:0 10px; 
 		text-align:left;
 	}
-	
+	#btn1 {
+		border-color: white;
+		width: 280px;
+ 		height: 30px;
+ 		margin-left: 20px;
+ 		display :inline-block;
+ 		box-shadow: none;
+		border:none;
+	}
+	#btn2 {
+		border-color: white;
+		background-color: white;
+		box-shadow: none;
+		border:none;
+	}
+	#btn3 {
+		border-color: white;
+		background-color: white;
+		box-shadow: none;
+		border:none;
+	}
+	#signin-container {
+		margin-top: 70px;
+	}
+	#loginFrm {
+		margin-top: 50px;
+		text-align: center;
+	}
+	#userPwd {
+		margin-bottom: 50px;
+	}
+	#id {
+		padding-left: 5px;
+	}
+	#pwd {
+		padding-left: 3px;
+	}
 </style>
-
 <section id="content">
 	<div id="signin-container">
-	<h2 align="center">로그인</h2>
+	<h1 align="center">로그인</h1>
 
-<div class="login-container">
+<div class="signin-container">
+
 <c:if test="${ empty loginMember }">
+
+
 	<form id="loginFrm" action="${ path }/login" method="post">
+	
+
 		<table>
 			<tr>
-				<td>
-				<label> 아이디 : &nbsp;&nbsp;&nbsp;</label>
+				<td id="id">
+					<label> 아 &nbsp; 이 &nbsp; 디 : </label>
 					<input type="text" name="userId" id="userId" placeholder="아이디" 
 							value="${ cookie.saveId.value }" required>
 				</td>
-				<td></td>
 			</tr>
+			
 			<tr>
-				<td>
-				<label>비밀번호 : </label>
+				<td id="pwd">
+				<label>비밀번호&nbsp; : </label>
 					<input type="password" name="userPwd" id="userPwd" placeholder="비밀번호" required>
-					<input type="submit" value="로그인" >						
+<%--
+					<input id="btn1" type="submit" value="로그인" >						
+ --%>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					<label><input type="checkbox" name="saveId"
-								${ empty cookie.saveId ? "" : "checked" }>아이디 저장</label> &nbsp; 
-					<input type="button" value="회원가입" onclick="location.href = '${ path }/member/enroll';"> 
+				<td colspan="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					<label><input type="checkbox" name="saveId" id="saveId"
+								${ empty cookie.saveId ? "" : "checked" }>아이디 저장</label> 
+					<br>
+						<a href="#" onClick="alert('로그인 성공!!')">
+					<button id="btn1" type="button" onclick="location.href='/sportcenter/views/introduce/intro_hello.jsp'">로그인</button>
+					<%-- 
+					<input id="btn1" type="submit" value="로그인" >
+					--%>
 				</td>
 			</tr>
+       
 			<tr>
-				<td>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-					<input type="button" value="아이디 찾기" onclick="location.href = '${ path }/member/findid'"> 
-					<input type="button" value="비밀번호 찾기" onclick="location.href='${ path }/member/findpwd'">
+				<td>  &nbsp; &nbsp; &nbsp; &nbsp;  
+					<input id="btn2" type="button" value="아이디 찾기" onclick="location.href = '${ path }/member/findid'"> |
+					<input id="btn3" type="button" value="비밀번호 찾기" onclick="location.href='${ path }/member/findpwd'">
 				</td>
 			</tr>
 		</table>
 	</form>
 </c:if>
 
+
+
+
+<%-- 
 <c:if test="${ not empty loginMember }">
 	<table>
 		<tr>
@@ -87,6 +139,7 @@
 		</tr>
 	</table>
 </c:if>
+--%>
 </div>
  	</div>
 </section>

@@ -127,7 +127,7 @@ label.required::after {
  	<br><br>
       </div>
       <div class="contents">
-        <form name="memberEnrollFrm" action="enrollCertification.jsp" method="POST">
+        <form name="memberEnrollFrm" action="${ path }/member/enrollAgreement" method="POST">
           <ul class="terms__list">
             <li class="terms__box">
               <div class="input__check">
@@ -172,7 +172,7 @@ function formCheck() {
     privacyPolicy.checked = checkAll.checked;
 
     if (termsOfService.checked && privacyPolicy.checked) {
-        nextButton.disabled = false;
+    	
     } else {
         alert("이용약관과 개인정보 수집 및 이용에 동의해야 합니다.");
     }
