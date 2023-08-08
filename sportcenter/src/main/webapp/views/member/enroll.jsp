@@ -174,16 +174,19 @@
         </td>
     </tr>
     <tr>
-        <td class="col1">비밀번호<br><br></td>
-        <td class="col2">
-            <input type="password" name="pwd" maxlength="16">
-            <p style="margin:0">※비밀번호는 <span class="num">문자, 숫자, 특수문자(~!@#$%^&*)의 조합 10 ~ 16자리</span>로 입력이 가능합니다.</p>
-        </td>
-    </tr>
-    <tr>
-        <td class="col1">비밀번호 확인</td>
-        <td class="col2"><input type="password" name="pwdCheck" maxlength="16"></td>
-    </tr>
+            <td class="col1">비밀번호<br><br></td>
+            <td class="col2">
+                <input type="password" name="pwd" id="pwd" maxlength="16" onkeyup="checkPassword()">
+                <p style="margin:0" id="passwordRequirements">※비밀번호는 <span class="num">문자, 숫자, 특수문자(~!@#$%^&*)의 조합 10 ~ 16자리</span>로 입력이 가능합니다.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="col1">비밀번호 확인</td>
+            <td class="col2">
+                <input type="password" name="pwdCheck" id="pwdCheck" maxlength="16" onkeyup="checkPassword()">
+                <span id="passwordMatch" style="color:red;"></span>
+            </td>
+        </tr>
  	<tr>
 		<td class="col1">주민등록번호</td>
  		<td class="col2">
@@ -237,6 +240,29 @@
   </form>
 
 <script>
+	function checkPassword() {
+	    var password = document.getElementById("pwd").value;
+	    var passwordCheck = document.getElementById("pwdCheck").value;
+	    var passwordMatchSpan = document.getElementById("passwordMatch");
+	    var passwordRequirements = document.getElementById("passwordRequirements");
+	    var regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*])[A-Za-z\d~!@#$%^&*]{10,16}$/;
+	
+	    if (password === "" && passwordCheck === "") {
+	        passwordMatchSpan.innerHTML = "";
+	    } else if (password === passwordCheck) {
+	        passwordMatchSpan.innerHTML = "비밀번호 일치";
+	        passwordMatchSpan.style.color = "green";
+	    } else {
+	        passwordMatchSpan.innerHTML = "비밀번호 불일치";
+	        passwordMatchSpan.style.color = "red";
+	    }
+	
+	    if (regex.test(password)) {
+	        passwordRequirements.style.color = "green";
+	    } else {
+	        passwordRequirements.style.color = "red";
+	    }
+	}
 
     function formCheck(form) {
         //유효성 검사
