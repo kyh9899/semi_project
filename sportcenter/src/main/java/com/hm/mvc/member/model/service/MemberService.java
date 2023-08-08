@@ -12,10 +12,10 @@ import com.hm.mvc.member.model.vo.Member;
 
 public class MemberService {
 
-	public Member login(String id, String userPwd) {
+	public Member login(String id, String pwd) {
 		Member member = this.findMemberById(id);
 		
-		if (member == null || !member.getPwd().equals(userPwd)) {
+		if (member == null || !member.getPwd().equals(pwd)) {
 			return null;
 		}
 		
@@ -45,16 +45,16 @@ public class MemberService {
 		return result;
 	}
 
-	public boolean isDuplicateId(String userId) {
+	public boolean isDuplicateId(String id) {
 		
-		return this.findMemberById(userId) != null;
+		return this.findMemberById(id) != null;
 	}
 
-	public Member findMemberById(String userId) {
+	public Member findMemberById(String id) {
 		Member member = null;
 		Connection connection = getConnection();
 		
-		member = new MemberDao().findMemberById(connection, userId);
+		member = new MemberDao().findMemberById(connection, id);
 		
 		close(connection);
 		
