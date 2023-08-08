@@ -8,6 +8,47 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
+<style>
+
+	section #findpwd-container {
+		text-align:center;
+	}
+	
+	section #findpwd-container input {
+		margin:3px ;
+	}
+	
+	section #findpwd-container table {
+		margin:0 auto;
+	}
+	
+	section #findpwd-container table th {
+		padding:0 10px; 
+		text-align:right;
+	}
+	
+	section #findpwd-container table td {
+		padding:0 10px; 
+		text-align:left;
+	}
+	#findpwd {
+		border-color: white;
+		background-color: white;
+		box-shadow: none;
+		border:none;
+	}
+	#btn1 {
+		border-color: white;
+		background-color: white;
+		box-shadow: none;
+		border:none;
+	}
+	td {
+ 	 padding-bottom: 15px;
+ 	 padding-left: 10px;
+	}
+</style>
 <body>
 <jsp:include page="/views/common/header.jsp" />
 
@@ -19,49 +60,59 @@
 	}
 </script>
 
+
+<h4 align="center">비밀번호 찾기</h4> <br>
+	<div id="findpwd-container" align="center">
+		<form name="pwdfindscreen" method = "POST" >
+			<table>
+		    <tr>
+		      <td>아이디 : </td> 
+		      <td><input type="text" name="userId" required></td>
+		    </tr>
+		    <tr>
+		      <td>번 &nbsp; 호 : </td>
+		      <td><input type="tel" name="phone" required></td>
+		    </tr>
+		    <tr> 
+		      <td colspan="2" align="center"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
+		      <a href="#" onClick="alert('비밀번호 찾기 성공!!')">
+					<button id="btn1" type="findpwd" onclick="location.href='/sportcenter/views/introduce/intro_hello.jsp'"><span>비밀번호 찾기</span></button> 
+		      <%-- 
+		        <button type="submit" id="findpwd" onclick="'${ path }/member/findpwd'"><span>비밀번호 찾기</span></button> --%>  |
+		      
+		        <input id="btn1" type="button"  value="취소" onClick="history.back()">
+		      </td>
+		    </tr>
+		</table>
+		</form>
+	</div>
+
+
+
+	<%-- 
 	<h4>비밀번호 찾기</h4>
 	<div style="text-align: center;">
 	<form name=fm>
 		<table>
 		    <tr>
-		      <td>아이디 :</td>
+		      <td>아이디 : </td>
 		      <td><input type="text" name="name" required></td>
 		    </tr>
 		    <tr>
-		      <td>번호 :</td>
+		      <td>번호 : </td>
 		      <td><input type="tel" name="phone" required></td>
 		    </tr>
 		    <tr>
 		      <td colspan="2">
-		        <button type="submit" id="findID-btn" onclick="findIDbtn()">비밀번호 찾기</button>
+		        <button type="submit" id="findpwd-btn" onclick="findpwd-btn()">비밀번호 찾기</button>
 		        <input type="button" name="cancle" value="취소" onClick="history.back()">
 		      </td>
 		    </tr>
 		</table>
 		</form>
 	</div>
-	<%-- 
-	<form name="pwfindscreen" method = "POST">
-			<div class = "search-title">
-			</div>
-		<section class = "form-search">
-			<div class = "find-id">
-				<label>아이디 : </label>
-				<input type="text" name="member_mid" class = "btn-name" placeholder = "아이디 입력">
-			<br>
-			</div>
-		
-		 <div class = "find-phone">
-				<label>번호 :  &nbsp;</label>
-				<input type="text" onKeyup = "addHypen(this);" name="member_phone" class = "btn-phone" placeholder = "휴대폰번호 입력">
-			</div> 
-			<br>
-	</section>
-	<div class ="btnSearch">
-		<input type="button" name="enter" value="찾기"  onClick="pw_search()">
-		<input type="button" name="cancle" value="취소" onClick="history.back()">
- 	</div>
- </form>
+	
+	
 	--%>
 
 </body>

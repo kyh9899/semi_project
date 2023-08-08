@@ -70,23 +70,22 @@
 <body>
 	<div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <a class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-      	<img src="${ path }/resources/images/logo.png" style="margin-left:50px; width: 110px; height:110px; cursor:pointer;" onclick="location.href='${ path }/'">
-        
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
       </a>
       
       
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li class="home"><a href="${ path }/" class="nav-link px-2 link-secondary">센터소개</a></li>
+        <li class="home"><a href="${ path }/views/introduce/intro_hello.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
         <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
-        <li><a href="${ path }/views/application/list.jsp" class="nav-link px-2 link-dark">수강신청</a></li>
-        <li><a href="${ path }/board/notice" class="nav-link px-2 link-dark">고객센터</a></li>
-        <li><a href="${ path }/member/myPage" class="nav-link px-2 link-dark">마이페이지</a></li>
+        <li><a href="${ path }/application/enrollment" class="nav-link px-2 link-dark">수강신청</a></li>
+        <li><a href="${ path }/views/board/notice.jsp" class="nav-link px-2 link-dark">고객센터</a></li>
+        <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
       </ul>
 
       <div class="col-md-3 text-end">
         <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/views/member/signin.jsp'">로그인</button>
-        <button type="button" class="btn btn-primary" onclick="location.href='${ path }/views/member/enrollAgreement.jsp'">회원가입</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='${ path }/member/enrollAgreement'">회원가입</button>
 
       </div>
     </header>

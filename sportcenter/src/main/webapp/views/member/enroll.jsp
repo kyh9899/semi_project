@@ -153,7 +153,7 @@
 
 <jsp:include page="/views/common/header.jsp" />
 
-  <form method="post" action="">
+  <form name="memberEnrollFrm" action="${ path }/member/enroll" method="POST">
       <div class="container">
     <div class="insert">
     
@@ -201,10 +201,15 @@
                     <td class="col2">
                        <input type="text"  id="zip_code" name="zip_code" onclick="openZipSearch();" readonly="readonly" placeholder="우편번호" style="width:250px;">
 					   <input type="text"  id="addr" name="addr" onclick="openZipSearch();" readonly="readonly" placeholder="기본주소"  style="width:250px;">
-					   <input type="text"  id="addr_dtl" name="addr_dtl" placeholder="상세주소"  style="width:250px;">
+					   
                     </td>
                 </tr>
-    <tr>
+                
+                <tr>
+                <td class="col1"></td>
+                	<td class="col2"><input type="text"  id="addr_dtl" name="addr_dtl" placeholder="상세주소"  style="width:250px;"></td>
+                </tr>
+    	<tr>
         <td class="col1">이메일</td>
         <td class="col2">
             <input type="text" name="mailid">
