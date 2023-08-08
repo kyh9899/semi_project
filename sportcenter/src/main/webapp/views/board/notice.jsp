@@ -130,7 +130,7 @@
 						<tr>
 							<td>${ board.no }</td>
 							<td>
-								<a href="${ path }/board/view?no=${ board.no }">
+								<a href="${ path }/board/view?no=${ board.no }" class="updateCount">
 									${ board.title } 
 								</a>
 							</td>
@@ -179,8 +179,16 @@
 		</div>
 		</div>
 	</section>
-
-
+	<script>
+		$(document).ready(() => {
+			$('.updateCount').on('click', () => {
+				if (confirm('조회수를 증가 하시겠습니까?')) {
+					location.assign('${ path }/board/view');
+			      
+			    }		
+			}		
+		});
+	</script>
 </body>
 </html>
 
