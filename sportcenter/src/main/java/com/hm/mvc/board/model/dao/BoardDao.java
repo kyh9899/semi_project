@@ -53,8 +53,8 @@ public class BoardDao {
 		try {
 			pstmt = connection.prepareStatement(query);
 			
-			pstmt.setInt(1, pageInfo.getStartList());
-			pstmt.setInt(2, pageInfo.getEndList());
+			pstmt.setInt(1, pageInfo.getEndList());
+			pstmt.setInt(2, pageInfo.getStartList());
 			
 			rs = pstmt.executeQuery();
 			

@@ -27,7 +27,6 @@ public class BoardViewServlet extends HttpServlet {
     	
     	Board board = new BoardService().getBoardByNo(no);
     	
-    	System.out.println(board);
     	
     	request.setAttribute("board", board);
     	request.getRequestDispatcher("/views/board/view.jsp").forward(request, response);

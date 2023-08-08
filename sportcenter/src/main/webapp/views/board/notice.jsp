@@ -114,6 +114,7 @@
 					<th>조회수</th>
 				</tr>
 				
+				<%-- 게시글이 없는 경우 --%>
 				<c:if test="${ empty list }">			
 					<tr>
 						<td colspan="6" id="content-none">
@@ -121,10 +122,13 @@
 						</td>
 					</tr>	
 				</c:if>
+				
+				<%-- 게시글이 있는 경우 --%>
 				<c:if test="${ not empty list }">
+					<%-- 조회수를 역순으로 출력 --%>
 					<c:forEach var="board" items="${ list }">
 						<tr>
-							<td>${ board.rowNum }</td>
+							<td>${ board.no }</td>
 							<td>
 								<a href="${ path }/board/view?no=${ board.no }">
 									${ board.title } 
@@ -148,7 +152,7 @@
 			</table>
 			<div id="pageBar">
 				<!-- 맨 처음으로 -->
-				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.prevPage }'">&lt;&lt;</button>
+				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.startPage }'">&lt;&lt;</button>
 	
 				<!-- 이전 페이지로 -->
 				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.prevPage }'">&lt;</button>
