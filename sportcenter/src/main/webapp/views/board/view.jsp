@@ -184,7 +184,7 @@
 						--%>
 							<input type="button" value="수정" onclick="location.href='${ path }/board/update?no=${ board.no }'">
 							<input type="button" value="삭제" id="btnDelete">
-							<input type="button" value="목록으로" id="goBack">			
+							<input type="button" value="목록으로" id="goBack">
 						</th>
 					</tr>
 				</table>
@@ -223,11 +223,14 @@
 	</section>
 	
 	<script>
-		$(document).ready(() => {			
+		$(document).ready(() => {	
 			$('#goBack').on('click', () => {
+				alert('clci');
 				history.back();
+				location.reload(true);
+				
 			});
-			 
+			
 			$('#fileDown').on('click', () => {
 				let oname = encodeURIComponent('${ board.originalFilename }');
 				let rname = encodeURIComponent('${ board.renamedFilename }');
