@@ -82,9 +82,6 @@
 		width: 900px;
 		margin-bottom: 10px;
 	}
-	#img1{
-		margin-top: 30px;
-	}
 	h5{
 		font-weight: bold;
 	}

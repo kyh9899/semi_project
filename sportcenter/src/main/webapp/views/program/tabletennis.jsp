@@ -78,12 +78,9 @@
 		font-size:14px;
 		color:#333;
 	}
-	#swimmingprogram {
+	#tabletennisprogram {
 		width: 900px;
 		margin-bottom: 10px;
-	}
-	#img1{
-		margin-top: 30px;
 	}
 	h5{
 		font-weight: bold;
@@ -109,32 +106,44 @@
 				</div>
 				<div class="content">
 					<ul class="tab">
-			<li><a href="#mu1" class="selected">강좌소개</a></li>
-			<li><a href="#mu2">강사소개</a></li>
-			<li><a href="#mu4">수강신청 안내</a></li>
-		</ul>
-		<ul class="tab_con">
-			<li id="mu1">
-				<h5>▣ 강좌 개요</h5>
-				<p>
-					탁구는 부상위험이 적은 안전한 운동 중 하나로 공의 방향과 속도를 가늠하는 두뇌 운동이기 때문에 순발력과 반응시간, 판단력이 좋아져 치매 예방에 도움을 줍니다.<br> 
-					또한 전신 운동으로서 근지구력을 기르는데 탁월한 운동입니다.
-				</p>
-				<h5>▣ 프로그램 안내</h5>
-				<img src="${ path }/resources/images/tabletennisprogram.png">				
-			</li>
-			<li id="mu2">
-				
-				
-			</li>
-			<li id="mu3">
-				
-				
-			</li>
-			<li id="mu4">
-				<img id="guide" src="${ path }/resources/images/guide.png">
-			</li>		
-		</ul>
+						<li><a href="#mu1" class="selected">강좌소개</a></li>
+						<li><a href="#mu2">강사소개</a></li>
+						<li><a href="#mu4">수강신청 안내</a></li>
+					</ul>
+					<ul class="tab_con">
+						<li id="mu1">
+							<h5>▣ 강좌 개요</h5>
+							<p>
+								탁구는 부상위험이 적은 안전한 운동 중 하나로 공의 방향과 속도를 가늠하는 두뇌 운동이기 때문에 순발력과 반응시간, 판단력이 좋아져 치매 예방에 도움을 줍니다.<br> 
+								또한 전신 운동으로서 근지구력을 기르는데 탁월한 운동입니다.
+							</p>
+							<h5>▣ 프로그램 안내</h5>
+							<img id="tabletennisprogram" src="${ path }/resources/images/tabletennisprogram.png">
+							<h5>▣ 운동효과, 건강은 물론 생활에 활력을 더해주는 라켓 스포츠</h5>
+							<p>
+								과격하지 않아 연령과 성별에 관계없이 누구나 즐길 수 있는 탁구는 육체적으로는 심폐지구력과 근력, 근지구력 발달 및 순발력과 유연성, 민첩성 향상에 좋습니다.<br> 
+								또한 정신적으로는 집중력을 길러주고 스트레스를 해소하는 데 큰 도움을 주는 스포츠로, 건강을 유지하고 생활에 활력을 불어넣어주는 레크리에이션 종목으로 제격입니다.
+							</p>
+							<h6>육체적 효과</h6>
+							<p>
+								● 심폐지구력(안정시 맥박수 감소) 및 근력,근지구력 증가<br>
+								● 순발력, 유연성, 민첩성, 조정력 발달(반사신경 기능 향상)<br>
+							</p>				
+							<h6>정신적 효과</h6>
+							<p>
+								● 스트레스 해소 및 집중력 강화<br>
+								● 소속감, 성취감(만족감),생활에 활기와 즐거움<br>
+								● 치매 및 우울증 예방<br>
+							</p>				
+						</li>
+						<li id="mu2">
+							
+							
+						</li>
+						<li id="mu4">
+							<img id="guide" src="${ path }/resources/images/guide.png">
+						</li>		
+					</ul>
 				</div>
 				<div id="div2">	
 					<button id="btn2" onclick="location.href='${ path }/views/program/list.jsp'">목록으로</button>
