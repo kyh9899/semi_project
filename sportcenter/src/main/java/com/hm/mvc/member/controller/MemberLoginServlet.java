@@ -36,22 +36,24 @@ public class MemberLoginServlet extends HttpServlet {
 //    	System.out.println(EncryptUtil.oneWayEnc(userPwd, "SHA-256"));
 //    	System.out.println(EncryptUtil.oneWayEnc(userPwd, "SHA-512"));
     	
-    	if(saveId != null) {
-    		// 전달된 아이디를 쿠키에 저장
-    		// 1. 쿠키 생성
-    		Cookie cookie = new Cookie("saveId", id);
-    		
-    		cookie.setMaxAge(259200); // 3일 동안 유지
-    		
-    		// 2. response 객체에 쿠키 추가
-    		response.addCookie(cookie);
-    	} else {
-    		// 기존 쿠키 값을 삭제
-    		Cookie cookie = new Cookie("saveId", "");
-    		
-    		cookie.setMaxAge(0);
-    		response.addCookie(cookie);
-    	}
+    	
+    	// 로그인 조회 기능이 성공하고 나서 '아이디 기억하기' 기능 활성화시 주석 풀기
+//    	if(saveId != null) {
+//    		// 전달된 아이디를 쿠키에 저장
+//    		// 1. 쿠키 생성
+//    		Cookie cookie = new Cookie("saveId", id);
+//    		
+//    		cookie.setMaxAge(259200); // 3일 동안 유지
+//    		
+//    		// 2. response 객체에 쿠키 추가
+//    		response.addCookie(cookie);
+//    	} else {
+//    		// 기존 쿠키 값을 삭제
+//    		Cookie cookie = new Cookie("saveId", "");
+//    		
+//    		cookie.setMaxAge(0);
+//    		response.addCookie(cookie);
+//    	}
     	
     	
     	Member loginMember = new MemberService().login(id, pwd);
@@ -60,15 +62,19 @@ public class MemberLoginServlet extends HttpServlet {
     	
     	if (loginMember != null) {
 			// loginMember 세션에 저장
+    		// 로그인 성공 시
+    		System.out.println("로긴 성공!");
     		HttpSession session = request.getSession();
     		
     		session.setAttribute("loginMember", loginMember);
     		
     		response.sendRedirect(request.getContextPath() + "/");
 		} else {
-			// 로그인 실패에 대한 메시지를 띄워주고 홈 화면으로 이동
+			// 로그인 실패 시
+			// 메시지를 띄워주고 홈 화면으로 이동
 			// 1. 공용으로 사용하는 에러 메시지 출력 페이지에
 			//    전달할 메시지와 메시지 출력 후 이동할 페이지를 request 객체에 저장한다.
+			System.out.println("로긴 실패!");
 			request.setAttribute("msg", "아이디나 비밀번호가 일치하지 않습니다.");
 			request.setAttribute("location", "/login");
 			

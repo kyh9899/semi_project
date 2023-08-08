@@ -28,6 +28,10 @@
 		padding:0 10px; 
 		text-align:left;
 	}
+	
+	#space1 { letter-spacing:18.7px; }
+	#space2 { letter-spacing:10px; }
+	
 	#btn1 {
 		border-color: white;
 		width: 280px;
@@ -85,7 +89,7 @@
 		
 			<tr>
 				<td id="id">
-					<label> 아 &nbsp; 이 &nbsp; 디 : </label>
+					<label><span id="space1">아이디</span>:</label>
 					<input type="text" name="id" id="id" placeholder="아이디" 
 							value="${ cookie.saveId.value }" required>
 				</td>
@@ -93,7 +97,7 @@
 			
 			<tr>
 				<td id="pwd">
-				<label>비밀&nbsp;번호&nbsp; : </label>
+				<label><span id="space2">비밀번호</span>:</label>
 					<input type="password" name="pwd" id="pwd" placeholder="비밀번호" required>
 
 				</td>
