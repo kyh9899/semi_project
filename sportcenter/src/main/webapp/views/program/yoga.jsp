@@ -44,9 +44,8 @@
 		margin-bottom: 20px;
 	}
 	.content{
-		width:1200px; 
+		width:1000px; 
 		margin:0 auto;
-		text-align: center;
 	}
 	ul, li{list-style:none;}
 	.tab{padding:0;}
@@ -98,8 +97,10 @@
 		</ul>
 		<ul class="tab_con">
 			<li id="mu1">
-				<strong>강좌소개</strong>
-				
+				<h5>▣ 강좌 개요</h5>
+				<p>“요가는 명상과 호흡, 스트레칭 등이 결합된 복합적인 심신 수련 방법”(출처 : 스포츠 백과, 2008., 국민생활체육회)으로,<br>
+				    5천여 년 전 인도에서 유래되었지만 오늘날에는 일상에 지친 현대인들이 긴장과 스트레스를 해소하고 <br>
+				    몸과 마음의 건강을 유지할 수 있도록 도와주는 생활스포츠로 인기가 높습니다.</p>
 			</li>
 			<li id="mu2">
 				<strong>강사소개</strong>

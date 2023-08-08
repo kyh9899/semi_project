@@ -87,6 +87,7 @@ input {
 }
 
 .step_url {
+    /*@naver.com*/
     position: absolute;
     top: 16px;
     right: 13px;

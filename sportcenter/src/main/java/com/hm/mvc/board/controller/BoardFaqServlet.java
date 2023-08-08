@@ -13,11 +13,11 @@ import com.hm.mvc.board.model.service.BoardService;
 import com.hm.mvc.board.model.vo.Board;
 import com.hm.mvc.common.util.PageInfo;
 
-@WebServlet(name = "boardList", urlPatterns = { "/board/list" })
-public class BoardListServlet extends HttpServlet {
+@WebServlet(name = "boardFaq", urlPatterns = { "/board/faq" })
+public class BoardFaqServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public BoardListServlet() {
+  
+    public BoardFaqServlet() {
     }
 
     @Override
@@ -39,6 +39,6 @@ public class BoardListServlet extends HttpServlet {
     	
     	request.setAttribute("pageInfo", pageInfo);
     	request.setAttribute("list", list);
-		request.getRequestDispatcher("/views/board/list.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/board/faq.jsp").forward(request, response);
 	}
 }
