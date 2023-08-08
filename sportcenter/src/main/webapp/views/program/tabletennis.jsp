@@ -79,10 +79,10 @@
 		color:#333;
 	}
 	#tabletennisprogram {
-		width: 900px;
+		width: 1200px;
 		margin-bottom: 10px;
 	}
-	h5{
+	h5, h6{
 		font-weight: bold;
 	}
 </style>
@@ -137,8 +137,7 @@
 							</p>				
 						</li>
 						<li id="mu2">
-							
-							
+							<img src="${ path }/resources/images/tabletennisteacher.png">
 						</li>
 						<li id="mu4">
 							<img id="guide" src="${ path }/resources/images/guide.png">

@@ -79,7 +79,7 @@
 		color:#333;
 	}
 	#swimmingprogram {
-		width: 900px;
+		width: 1200px;
 		margin-bottom: 10px;
 	}
 	#img1{

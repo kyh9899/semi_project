@@ -79,10 +79,10 @@
 		color:#333;
 	}
 	#healthprogram {
-		width: 900px;
+		width: 1200px;
 		margin-bottom: 10px;
 	}
-	h5{
+	h5, h6{
 		font-weight: bold;
 	}
 </style>
