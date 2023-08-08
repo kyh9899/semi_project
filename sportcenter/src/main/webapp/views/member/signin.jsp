@@ -64,6 +64,9 @@
 	#pwd {
 		padding-left: 3px;
 	}
+	td {
+ 	 margin-bottom: 10px;
+	}
 </style>
 <section id="content">
 	<div id="signin-container">
@@ -78,6 +81,7 @@
 	
 
 		<table>
+		
 			<tr>
 				<td id="id">
 					<label> 아 &nbsp; 이 &nbsp; 디 : </label>
@@ -90,9 +94,7 @@
 				<td id="pwd">
 				<label>비밀번호&nbsp; : </label>
 					<input type="password" name="userPwd" id="userPwd" placeholder="비밀번호" required>
-<%--
-					<input id="btn1" type="submit" value="로그인" >						
- --%>
+
 				</td>
 			</tr>
 			<tr>

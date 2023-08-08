@@ -28,23 +28,29 @@ public class BoardUpdateServlet extends HttpServlet {
     	HttpSession session = request.getSession();
     	Member loginMember = (Member) session.getAttribute("loginMember");
     	
-    	if (loginMember != null) {			
-    		no = Integer.parseInt(request.getParameter("no"));
-    		board = new BoardService().getBoardByNo(no);
-    		
-    		if (board != null && loginMember.getId().equals(board.getWriterId())) {
-    			request.setAttribute("board", board);
-    			request.getRequestDispatcher("/views/board/update.jsp").forward(request, response);    			
-    		} else {
-    			request.setAttribute("msg", "잘못된 접근입니다.");
-    			request.setAttribute("location", "/board/list");
-    			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);	
-    		}    		
-		} else {
-			request.setAttribute("msg", "로그인 후 수정해 주세요.");
-			request.setAttribute("location", "/");
-			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
-		}
+    	no = Integer.parseInt(request.getParameter("no"));
+		board = new BoardService().getBoardByNo(no);
+		
+		request.setAttribute("board", board);
+		request.getRequestDispatcher("/views/board/update.jsp").forward(request, response);   
+		
+//    	if (loginMember != null) {			
+//    		no = Integer.parseInt(request.getParameter("no"));
+//    		board = new BoardService().getBoardByNo(no);
+//    		
+//    		if (board != null && loginMember.getId().equals(board.getWriterId())) {
+//    			request.setAttribute("board", board);
+//    			request.getRequestDispatcher("/views/board/update.jsp").forward(request, response);    			
+//    		} else {
+//    			request.setAttribute("msg", "잘못된 접근입니다.");
+//    			request.setAttribute("location", "/board/notice");
+//    			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);	
+//    		}    		
+//		} else {
+//			request.setAttribute("msg", "로그인 후 수정해 주세요.");
+//			request.setAttribute("location", "/");
+//			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
+//		}
 	}
 
     @Override
@@ -54,46 +60,86 @@ public class BoardUpdateServlet extends HttpServlet {
     	HttpSession session = request.getSession();
     	Member loginMember = (Member) session.getAttribute("loginMember");
     	
-    	if (loginMember != null) {		
-        	String path = getServletContext().getRealPath("/resources/upload/board");
-        	int maxSize = 10485760;
-        	String encoding = "UTF-8";    	
-        	MultipartRequest mr = new MultipartRequest(request, path, maxSize, encoding, new FileRename());
-    		
-    		no = Integer.parseInt(mr.getParameter("no"));
-    		board = new BoardService().getBoardByNo(no);
-    		
-    		if (board != null && loginMember.getId().equals(board.getWriterId())) {
-    			board.setTitle(mr.getParameter("title"));
-    			board.setContent(mr.getParameter("content"));
-    			
-    			String originalFileName = mr.getOriginalFileName("upfile");
-    			String filesystemName = mr.getFilesystemName("upfile");
-    			
-    			if (originalFileName != null && filesystemName != null) {
-    				board.setOriginalFilename(originalFileName);
-					board.setRenamedFilename(filesystemName);
-				}
-    			
-    			int result = new BoardService().save(board);
-    			
-    			if (result > 0) {
-					// 게시글 수정 성공
-    				request.setAttribute("msg", "게시글 수정 성공");
-    				request.setAttribute("location", "/board/view?no=" + board.getNo());
-				} else {
-					// 게시글 수정 실패
-					request.setAttribute("msg", "게시글 수정 실패");
-					request.setAttribute("location", "/board/update?no=" + board.getNo());
-				}
-    		} else {
-    			request.setAttribute("msg", "잘못된 접근입니다.");
-    			request.setAttribute("location", "/board/list");
-    		}    		
-		} else {
-			request.setAttribute("msg", "로그인 후 수정해 주세요.");
-			request.setAttribute("location", "/");
+    	
+    	
+    	
+    	String path = getServletContext().getRealPath("/resources/upload/board");
+    	int maxSize = 10485760;
+    	String encoding = "UTF-8";    	
+    	MultipartRequest mr = new MultipartRequest(request, path, maxSize, encoding, new FileRename());
+		
+		no = Integer.parseInt(mr.getParameter("no"));
+		board = new BoardService().getBoardByNo(no);
+		
+		board.setTitle(mr.getParameter("title"));
+		board.setContent(mr.getParameter("content"));
+		
+		String originalFileName = mr.getOriginalFileName("upfile");
+		String filesystemName = mr.getFilesystemName("upfile");
+		
+		if (originalFileName != null && filesystemName != null) {
+			board.setOriginalFilename(originalFileName);
+			board.setRenamedFilename(filesystemName);
 		}
+		
+		int result = new BoardService().save(board);
+		
+		if (result > 0) {
+			// 게시글 수정 성공
+			request.setAttribute("msg", "게시글 수정 성공");
+			request.setAttribute("location", "/board/view?no=" + board.getNo());
+		} else {
+			// 게시글 수정 실패
+			request.setAttribute("msg", "게시글 수정 실패");
+			request.setAttribute("location", "/board/update?no=" + board.getNo());
+		}
+		
+		
+		
+		
+    	
+    	
+    	
+//    	if (loginMember != null) {		
+//        	String path = getServletContext().getRealPath("/resources/upload/board");
+//        	int maxSize = 10485760;
+//        	String encoding = "UTF-8";    	
+//        	MultipartRequest mr = new MultipartRequest(request, path, maxSize, encoding, new FileRename());
+//    		
+//    		no = Integer.parseInt(mr.getParameter("no"));
+//    		board = new BoardService().getBoardByNo(no);
+//    		
+//    		if (board != null && loginMember.getId().equals(board.getWriterId())) {
+//    			board.setTitle(mr.getParameter("title"));
+//    			board.setContent(mr.getParameter("content"));
+//    			
+//    			String originalFileName = mr.getOriginalFileName("upfile");
+//    			String filesystemName = mr.getFilesystemName("upfile");
+//    			
+//    			if (originalFileName != null && filesystemName != null) {
+//    				board.setOriginalFilename(originalFileName);
+//					board.setRenamedFilename(filesystemName);
+//				}
+//    			
+//    			int result = new BoardService().save(board);
+//    			
+//    			if (result > 0) {
+//					// 게시글 수정 성공
+//    				request.setAttribute("msg", "게시글 수정 성공");
+//    				request.setAttribute("location", "/board/view?no=" + board.getNo());
+//				} else {
+//					// 게시글 수정 실패
+//					request.setAttribute("msg", "게시글 수정 실패");
+//					request.setAttribute("location", "/board/update?no=" + board.getNo());
+//				}
+//    		} else {
+//    			request.setAttribute("msg", "잘못된 접근입니다.");
+//    			request.setAttribute("location", "/board/notice");
+//    		}    		
+//		} else {
+//			request.setAttribute("msg", "로그인 후 수정해 주세요.");
+//			request.setAttribute("location", "/");
+//		}
     	
     	request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 	}

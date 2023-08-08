@@ -23,7 +23,7 @@ public class Board {
 	
 	private String content;
 	
-	private String originalFilename;
+	private String originalFilename; 
 	
 	private String renamedFilename;
 	
