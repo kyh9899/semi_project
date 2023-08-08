@@ -18,7 +18,7 @@
 		width: 400px;
 		height: 250px;
 		margin-bottom: 30px;
-		float: left;
+		margin-right: 380px;
 	}
 	#guide {
 		width: 100%;
@@ -40,6 +40,7 @@
 		margin-bottom: 20px;
 		width: 140px;
 		height: 50px;
+		margin-right: 380px;
 	}
 	#btn2 {
 		width: 140px;
@@ -153,8 +154,6 @@
             </div>
         </div>
     </div>
-	
-
 <script>
 	$(function(){
 		$("ul.tab_con li:not("+$(".tab li a.selected").attr("href")+")").hide();

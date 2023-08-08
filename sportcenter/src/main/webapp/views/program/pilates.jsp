@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 <jsp:include page="/views/common/header.jsp" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +14,11 @@
 	h2 {
 		margin-bottom: 30px;
 	}
-	#swim {
+	#pilates {
 		width: 400px;
 		height: 250px;
-		
+		margin-bottom: 30px;
+		margin-right: 380px;
 	}
 	#guide {
 		width: 100%;
@@ -38,6 +40,7 @@
 		margin-bottom: 20px;
 		width: 140px;
 		height: 50px;
+		margin-right: 380px;
 	}
 	#btn2 {
 		width: 140px;
@@ -45,7 +48,7 @@
 		margin-bottom: 20px;
 	}
 	.content{
-		width:1000px; 
+		width:1200px; 
 		margin:0 auto;
 	}
 	ul, li{list-style:none;}
@@ -56,6 +59,7 @@
 		font-size:16px;
 		font-weight:bold;
 		height:40px;
+		margin-bottom: 15px;
 	}
 	.tab li a{
 		display:block;
@@ -66,7 +70,6 @@
 		border:1px solid;
 	}
 	.tab_con{
-		clear:both;
 		border-top:0;
 		padding:0;
 	}
@@ -75,35 +78,43 @@
 		font-size:14px;
 		color:#333;
 	}
-	#swimmingprogram {
-		width: 100%;
-		margin-bottom: 5px;
+	#pilatesprogram {
+		width: 900px;
+		margin-bottom: 10px;
 	}
-	
-	.tab_con li strong{display:block; margin-bottom:10px;}
+	#img1{
+		margin-top: 30px;
+	}
+	h5{
+		font-weight: bold;
+	}
 </style>
 <body>
-	<h2 align="center">필라테스</h2>
-	<div id="div1">
-		<table class="table-centered">
-			<tr>
-				<td><img id="swim" src="${ path }/resources/images/pilates.jpg"></td>
-			</tr>
-		</table>	
-		
-		<br><br>
-		
-		<button id="btn1" onclick="location.href='${ path }/views/application/list.jsp'">온라인 수강신청</button>
-	</div>
-	<div class="content">
-		<ul class="tab">
-			<li><a href="#mu1" class="selected">강좌소개</a></li>
-			<li><a href="#mu2">강사소개</a></li>
-			<li><a href="#mu4">수강신청 안내</a></li>
-		</ul>
-		<ul class="tab_con">
-			<li id="mu1">
-				<strong>강좌소개</strong>
+	 <div class="w-[1200px], h-[800px], m-1">
+        <div class="w-full, h-1/5, flex, flex-col">      
+			<h2 align="center">수영</h2>		
+        </div>
+        <div class="w-full h-4/5 flex-row flex">
+            <div class="h-full w-1/5">
+            	<jsp:include page="/views//MenuBar.jsp" />
+            </div>
+            <div class="h-full w-full">
+            	<div id="div1">
+            		<table class="table-centered">
+						<tr>
+							<td><img id="pilates" src="${ path }/resources/images/pilates.jpg"></td>
+						</tr>
+					</table>	
+					<button id="btn1" onclick="location.href='${ path }/views/application/list.jsp'">온라인 수강신청</button>
+				</div>
+				<div class="content">
+					<ul class="tab">
+						<li><a href="#mu1" class="selected">강좌소개</a></li>
+						<li><a href="#mu2">강사소개</a></li>
+						<li><a href="#mu4">수강신청 안내</a></li>
+					</ul>
+					<ul class="tab_con">
+						<li id="mu1">
 				<h5>▣ 강좌 개요</h5>
 				<p>
 					필라테스(pilates)는 제1차 세계대전 당시 영국 랭커스터 포로수용소에서 인턴으로 근무하던 독일의 스포츠 연구가,<br> 
@@ -115,7 +126,7 @@
 					또한 일상생활에서 오는 긴장과 스트레스도 해소할 수 있습니다.<br>
 					자세교정 및 구체적인 근력강화, 유연성 향상	상해방지 및 재활에 효과적 입니다.</p>
 				<h5>▣ 프로그램 안내</h5>	
-				<img id="swimmingprogram" src="${ path }/resources/images/pilatesprogram1.png">	
+				<img id="pilatesprogram" src="${ path }/resources/images/pilatesprogram1.png">	
 				
 				<h5>▣ 강습 방법</h5>
 				<p>
@@ -125,25 +136,22 @@
 				 ● 몸의 중심이 되는 척추를 바로잡기 위하여 파워하우스 중심으로 운동합니다.<br><br>
 				 ● 또, 동작마다 고유의 호흡 패턴이 있어 이를 따라야 운동효과를 최대화할 수 있습니다.<br><br>
 				 ● 각 동작을 할 때에는 정신을 집중하며, 한 동작에서 다음 동작으로 연결할 때에는 부드럽고 유연하게 흐름을 따라 움직입니다.
-				 </p>
-								
+				 </p>		
 			</li>
 			<li id="mu2">
 				<img src="${ path }/resources/images/pilatesprogram2.png">
 			</li>
-			<li id="mu3">
-				<strong>요금/시간안내</strong>
-				
-			</li>
-			<li id="mu4">
-				<img id="guide" src="${ path }/resources/images/guide.png">
-			</li>		
-		</ul>
-	</div>
-	<div id="div2">	
-	<button id="btn2" onclick="location.href='${ path }/views/program/list.jsp'">목록으로</button>
-	</div>
-
+						<li id="mu4">
+							<img id="guide" src="${ path }/resources/images/guide.png">
+						</li>		
+					</ul>
+				</div>
+				<div id="div2">	
+					<button id="btn2" onclick="location.href='${ path }/views/program/list.jsp'">목록으로</button>
+				</div>
+            </div>
+        </div>
+    </div>
 <script>
 	$(function(){
 		$("ul.tab_con li:not("+$(".tab li a.selected").attr("href")+")").hide();
@@ -157,4 +165,7 @@
 </script>
 </body>
 </html>
+<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
 <jsp:include page="/views/common/footer.jsp" />

@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 <jsp:include page="/views/common/header.jsp" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +14,11 @@
 	h2 {
 		margin-bottom: 30px;
 	}
-	#health {
+	#swim {
 		width: 400px;
 		height: 250px;
 		margin-bottom: 30px;
+		margin-right: 380px;
 	}
 	#guide {
 		width: 100%;
@@ -38,6 +40,7 @@
 		margin-bottom: 20px;
 		width: 140px;
 		height: 50px;
+		margin-right: 380px;
 	}
 	#btn2 {
 		width: 140px;
@@ -56,6 +59,7 @@
 		font-size:16px;
 		font-weight:bold;
 		height:40px;
+		margin-bottom: 15px;
 	}
 	.tab li a{
 		display:block;
@@ -66,7 +70,6 @@
 		border:1px solid;
 	}
 	.tab_con{
-		clear:both;
 		border-top:0;
 		padding:0;
 	}
@@ -75,33 +78,43 @@
 		font-size:14px;
 		color:#333;
 	}
-	#healthprogram{
-		width: 100%;
+	#healthprogram {
+		width: 900px;
+		margin-bottom: 10px;
 	}
-	h5, h6 {
+	#img1{
+		margin-top: 30px;
+	}
+	h5{
 		font-weight: bold;
 	}
 </style>
 <body>
-	<h2 align="center">헬스</h2>
-	<div id="div1">
-		<table class="table-centered">
-			<tr>
-				<td><img id="health" src="${ path }/resources/images/health.jpg"></td>
-			</tr>
-		</table>	
-		
-		<button id="btn1" onclick="location.href='${ path }/views/application/list.jsp'">온라인 수강신청</button>
-	</div>
-	<div class="content">
-		<ul class="tab">
-			<li><a href="#mu1" class="selected">강좌소개</a></li>
-			<li><a href="#mu2">강사소개</a></li>
-			<li><a href="#mu4">수강신청 안내</a></li>
-		</ul>
-		<ul class="tab_con">
-			<li id="mu1">
-				<h5>▣ 강좌 개요</h5>
+	 <div class="w-[1200px], h-[800px], m-1">
+        <div class="w-full, h-1/5, flex, flex-col">      
+			<h2 align="center">헬스</h2>		
+        </div>
+        <div class="w-full h-4/5 flex-row flex">
+            <div class="h-full w-1/5">
+            	<jsp:include page="/views//MenuBar.jsp" />
+            </div>
+            <div class="h-full w-full">
+            	<div id="div1">
+            		<table class="table-centered">
+						<tr>
+							<td><img id="swim" src="${ path }/resources/images/health.jpg"></td>
+						</tr>
+					</table>	
+					<button id="btn1" onclick="location.href='${ path }/views/application/list.jsp'">온라인 수강신청</button>
+				</div>
+				<div class="content">
+					<ul class="tab">
+						<li><a href="#mu1" class="selected">강좌소개</a></li>
+						<li><a href="#mu2">강사소개</a></li>
+						<li><a href="#mu4">수강신청 안내</a></li>
+					</ul>
+					<ul class="tab_con">
+						<h5>▣ 강좌 개요</h5>
 				<p>
 					헬스는 유연성 향상 및 운동상해 예방을 위한 스트레칭과 체조, 무산소 운동인 웨이트 트레이닝(weight training), 그리고 조깅, 사이클 등의 유산소 운동을 병행함으로써 건강하고 균형 잡힌<br>
 					신체를 가꾸는 데 기본이 되는 운동입니다.
@@ -143,19 +156,17 @@
 				<img src="${ path }/resources/images/healthteacher.png">
 				
 			</li>
-			<li id="mu3">
-				<strong>요금/시간안내</strong>
-				
-			</li>
-			<li id="mu4">
-				<img id="guide" src="${ path }/resources/images/guide.png">
-			</li>		
-		</ul>
-	</div>
-	<div id="div2">	
-	<button id="btn2" onclick="location.href='${ path }/views/program/list.jsp'">목록으로</button>
-	</div>
-
+						<li id="mu4">
+							<img id="guide" src="${ path }/resources/images/guide.png">
+						</li>		
+					</ul>
+				</div>
+				<div id="div2">	
+					<button id="btn2" onclick="location.href='${ path }/views/program/list.jsp'">목록으로</button>
+				</div>
+            </div>
+        </div>
+    </div>
 <script>
 	$(function(){
 		$("ul.tab_con li:not("+$(".tab li a.selected").attr("href")+")").hide();
@@ -169,4 +180,7 @@
 </script>
 </body>
 </html>
+<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
 <jsp:include page="/views/common/footer.jsp" />
