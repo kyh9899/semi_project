@@ -81,7 +81,7 @@ public class MemberDao {
 	public int updateMember(Connection connection, Member member) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "UPDATE MEMBER SET NAME=?,PHONE=?,EMAIL=?,ADDRESS=?,MODIFY_DATE=SYSDATE WHERE NO=?";
+		String query = "UPDATE MEMBER SET NAME=?,PHONE=?,EMAIL=?,ADDRESS=?,JOIN_DATE=SYSDATE WHERE NO=?";
 		
 		try {
 			pstmt = connection.prepareStatement(query);

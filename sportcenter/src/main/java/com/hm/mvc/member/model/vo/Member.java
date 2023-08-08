@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Member {
+	
+	private int no;
+	
 	private String name;
 	
 	private String id;

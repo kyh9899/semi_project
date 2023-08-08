@@ -12,8 +12,8 @@ import com.hm.mvc.member.model.vo.Member;
 
 public class MemberService {
 
-	public Member login(String userId, String userPwd) {
-		Member member = this.findMemberById(userId);
+	public Member login(String id, String userPwd) {
+		Member member = this.findMemberById(id);
 		
 		if (member == null || !member.getPwd().equals(userPwd)) {
 			return null;
