@@ -81,11 +81,10 @@ function checkPw() {
         pwMsg.innerHTML = "사용불가";
         pwMsgArea.style.paddingRight = "93px";
         error[1].style.display = "block";
-        
         pwMsg.style.display = "block";
         pwImg1.src = "../resources/images/m_icon_not_use.png";
     } else {
-        error[1].style.display = "none";
+		error[1].style.display = "none";
         pwMsg.innerHTML = "사용가능";
         pwMsg.style.display = "block";
         pwMsg.style.color = "#03c75a";

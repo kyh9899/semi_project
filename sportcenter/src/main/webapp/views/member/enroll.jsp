@@ -209,31 +209,29 @@
                 <td class="col1"></td>
                 	<td class="col2"><input type="text"  id="addr_dtl" name="addr_dtl" placeholder="상세주소"  style="width:250px;"></td>
                 </tr>
-    	<tr>
-        <td class="col1">이메일</td>
-        <td class="col2">
-            <input type="text" name="mailid">
-            <span class="a">@</span>
-            <input type="text" name="email">
-            <select name="mailslc">
-                <option value="self" selected>직접입력</option>
-                <option value="naver">naver.com</option>
-                <option value="gm">gmail.com</option>
-                <option value="da">daum.com</option>
-                <option value="yah">yahoo.com</option>
-            </select>
-            <input class='but2' type="button" value="이메일 중복확인" onclick="">
-        </td>
-    </tr>
+    <tr>
+	    <td class="col1">이메일</td>
+	    <td class="col2">
+	        <input type="text" name="mailid">
+	        <span class="a">@</span>
+	        <input type="text" name="email" id="emailInput">
+	        <select name="mailslc" onchange="updateEmailDomain()">
+	            <option value="self" selected>직접입력</option>
+	            <option value="naver">naver.com</option>
+	            <option value="gm">gmail.com</option>
+	            <option value="da">daum.com</option>
+	            <option value="yah">yahoo.com</option>
+	        </select>
+	        <input class='but2' type="button" value="이메일 중복확인" onclick="">
+	    </td>
+</tr>
     </table>
     
   </div>
  
   <div class="create">
-    
-        <input class="but3" type="button" value="가입취소" onclick="">
-        <input class="but4" type="button" value="회원가입" onclick="formCheck(this.form)">
-    
+    	<button class="but3" type="reset">가입취소</button>
+    	<button class="but4" type="submit" onclick="formCheck(this.form)">회원가입</button>    
   </div>
   </div>
   </form>
@@ -302,6 +300,18 @@
     		$("#addr_dtl").focus();
             }
         }).open();
+        
+        function updateEmailDomain() {
+            var mailslc = document.getElementsByName("mailslc")[0];
+            var emailInput = document.getElementById("emailInput");
+            var selectedOption = mailslc.options[mailslc.selectedIndex].value;
+
+            if (selectedOption !== "self") {
+                emailInput.value = selectedOption;
+            } else {
+                emailInput.value = "";
+            }
+        }
     }
  
   </script>

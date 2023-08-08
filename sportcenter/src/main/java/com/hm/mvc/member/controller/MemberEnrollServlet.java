@@ -31,19 +31,15 @@ public class MemberEnrollServlet extends HttpServlet {
     	
     	Member member = new Member();
     	
-    	member.setId(request.getParameter("userId"));
-    	member.setPassword(request.getParameter("userPwd"));
     	member.setName(request.getParameter("userName"));
-    	member.setJumin1(request.getParameter("jumin1"));
-    	member.setJumin2(request.getParameter("jumin2"));
+    	member.setId(request.getParameter("userId"));
+    	member.setPwd(request.getParameter("userPwd"));
+    	member.setSSN1(request.getParameter("SSN1"));
+    	member.setSSN2(request.getParameter("SSN2"));
     	member.setPhone(request.getParameter("phone"));
+    	member.setAddress2(request.getParameter("address2"));
+    	member.setAddress1(request.getParameter("address1"));
     	member.setEmail(request.getParameter("email"));
-    	member.setAddress(request.getParameter("address"));
-    	
-    	String hobby = request.getParameterValues("hobby") != null 
-    			? String.join(",", request.getParameterValues("hobby")) : null;
-    	
-    	member.setHobby(hobby);
     	
     	System.out.println(member);
     	

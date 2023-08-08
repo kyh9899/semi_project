@@ -15,7 +15,7 @@ public class MemberService {
 	public Member login(String userId, String userPwd) {
 		Member member = this.findMemberById(userId);
 		
-		if (member == null || !member.getPassword().equals(userPwd)) {
+		if (member == null || !member.getPwd().equals(userPwd)) {
 			return null;
 		}
 		

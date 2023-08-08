@@ -7,7 +7,7 @@
   });
 })();
 
-document.getElementById("toggleButton").addEventListener("click", function() {
+document.getElementById("toggleButton").addEventListener("click", function()  {
   var content = document.querySelector(".intro_wrap");
   if (content.classList.contains("hidden")) {
     content.classList.remove("hidden");

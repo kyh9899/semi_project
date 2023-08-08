@@ -46,7 +46,6 @@
 	.content{
 		width:1200px; 
 		margin:0 auto;
-		text-align: center;
 	}
 	ul, li{list-style:none;}
 	.tab{padding:0;}
@@ -74,6 +73,10 @@
 		padding:10px;
 		font-size:14px;
 		color:#333;
+	}
+	#swimmingprogram {
+		width: 100%;
+		margin-bottom: 10px;
 	}
 	.tab_con li strong{display:block; margin-bottom:10px;}
 </style>
