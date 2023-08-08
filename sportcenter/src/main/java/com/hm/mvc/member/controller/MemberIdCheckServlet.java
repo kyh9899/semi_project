@@ -24,9 +24,9 @@ public class MemberIdCheckServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	// ID 값을 가져와서 DB에 있는 값인지 확인하고 결과(JSON)를 전달한다.
     	Map<String, Boolean> map = new HashMap<>();
-    	String userId = request.getParameter("userId");
+    	String id = request.getParameter("id");
     	
-    	map.put("duplicate", new MemberService().isDuplicateId(userId));
+    	map.put("duplicate", new MemberService().isDuplicateId(id));
     	
     	response.setContentType("application/json;charset=UTF-8");
     	response.getWriter().write(new Gson().toJson(map));    	
