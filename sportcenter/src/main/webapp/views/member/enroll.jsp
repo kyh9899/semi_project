@@ -169,25 +169,28 @@
     <tr>
         <td class="col1">아이디</td>
         <td class="col2">
-            <input type="text" name="id" maxlength="10">
-            <input class='but1' type="button" value="중복확인" onclick="">
+            <input type="text" name="id" id="newId" maxlength="10">
+            <input class='but1' id="checkDuplicate" type="button" value="중복확인">
         </td>
     </tr>
     <tr>
-        <td class="col1">비밀번호<br><br></td>
-        <td class="col2">
-            <input type="password" name="pwd" maxlength="16">
-            <p style="margin:0">※비밀번호는 <span class="num">문자, 숫자, 특수문자(~!@#$%^&*)의 조합 10 ~ 16자리</span>로 입력이 가능합니다.</p>
-        </td>
-    </tr>
-    <tr>
-        <td class="col1">비밀번호 확인</td>
-        <td class="col2"><input type="password" name="pwdCheck" maxlength="16"></td>
-    </tr>
+            <td class="col1">비밀번호<br><br></td>
+            <td class="col2">
+                <input type="password" name="pwd" id="pwd" maxlength="16" onkeyup="checkPassword()">
+                <p style="margin:0" id="passwordRequirements">※비밀번호는 <span class="num">문자, 숫자, 특수문자(~!@#$%^&*)의 조합 10 ~ 16자리</span>로 입력이 가능합니다.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="col1">비밀번호 확인</td>
+            <td class="col2">
+                <input type="password" name="pwdCheck" id="pwdCheck" maxlength="16" onkeyup="checkPassword()">
+                <span id="passwordMatch" style="color:red;"></span>
+            </td>
+        </tr>
  	<tr>
 		<td class="col1">주민등록번호</td>
  		<td class="col2">
-			<input type="text" name="residentNum" maxlength="6"> <a>-</a> <input type="text" name="residentNum" maxlength="1" style="width:20px">******
+			<input type="text" name="SSN1" maxlength="6"> <a>-</a> <input type="text" name="SSN2" maxlength="1" style="width:20px">******
    	 	</td>
     </tr>
     <tr>
@@ -237,6 +240,30 @@
   </form>
 
 <script>
+	function checkPassword() {
+	    var password = document.getElementById("pwd").value;
+	    var passwordCheck = document.getElementById("pwdCheck").value;
+	    var passwordMatchSpan = document.getElementById("passwordMatch");
+	    var passwordRequirements = document.getElementById("passwordRequirements");
+	    var regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*])[A-Za-z\d~!@#$%^&*]{10,16}$/;
+	
+	    if (password === "" && passwordCheck === "") {
+	        passwordMatchSpan.innerHTML = "";
+	    } else if (password === passwordCheck) {
+	        passwordMatchSpan.innerHTML = "비밀번호 일치";
+	        passwordMatchSpan.style.color = "green";
+	    } else {
+	        passwordMatchSpan.innerHTML = "비밀번호 불일치";
+	        passwordMatchSpan.style.color = "red";
+	    }
+	
+	    if (regex.test(password)) {
+	        passwordRequirements.style.color = "green";
+	    } else {
+	        passwordRequirements.style.color = "red";
+	    }
+	}
+
     function formCheck(form) {
         //유효성 검사
         if(form.name.value == "") {
@@ -274,14 +301,14 @@
             form.mailslc.focus() ;
             return ;
         }
-        if (form.residentNum.value == "" || isNaN(form.residentNum.value) || parseInt(form.residentNum.value) < 0 || parseInt(form.residentNum.value) > 9) {
-            alert('주민등록번호 뒷자리를 입력해주세요.');
-            form.residentNum.focus();
-            return;
-        }
-        alert('회원가입이 완료되었습니다.') ;
+        if (form.SSN1.value === "" || isNaN(form.SSN1.value) || form.SSN1.value.length !== 6 ||
+       	    form.SSN2.value === "" || isNaN(form.SSN2.value) || form.SSN2.value.length !== 1) {
+       	    alert('올바른 주민등록번호를 입력해주세요.');
+       	    form.residentNum1.focus();
+       	    return;
+        	}
  
-        form.reset();
+
         }
     
     function openZipSearch() {
@@ -313,7 +340,40 @@
             }
         }
     }
+    
+    $(document).ready(() => {
+    	$('#checkDuplicate').on('click', () => {
+    		let id = $('#newId').val().trim();
+    		
+    		if(id === '') {
+    			alert('아이디를 입력해 주세요.');
+    		} else {
+    			$.ajax({
+    				type: 'GET',
+    				url: '${ path }/member/idCheck',
+    				dataType: 'json',
+    				data: {
+    					id
+    				},
+    				success: (obj) => {
+    					console.log(obj);
+    					
+    					if(obj.duplicate) {
+    						alert('이미 사용중인 아이디 입니다.');
+    					} else {
+    						alert('사용 가능한 아이디 입니다.');
+    					}
+    				},
+    				error: (error) => {
+    					console.log(error);
+    				}
+    			});
+    		}
+    	});
+    });
  
+    
+    
   </script>
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <jsp:include page="/views/common/footer.jsp" /> 

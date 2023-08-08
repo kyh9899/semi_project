@@ -28,18 +28,18 @@ public class MemberLoginServlet extends HttpServlet {
     
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String userId = request.getParameter("userId");
-    	String userPwd = request.getParameter("userPwd");
+    	String id = request.getParameter("id");
+    	String pwd = request.getParameter("pwd");
     	String saveId = request.getParameter("saveId");
     	
-    	System.out.println(userId + ", " + userPwd + ", " + saveId);
+    	System.out.println(id + ", " + pwd + ", " + saveId);
 //    	System.out.println(EncryptUtil.oneWayEnc(userPwd, "SHA-256"));
 //    	System.out.println(EncryptUtil.oneWayEnc(userPwd, "SHA-512"));
     	
     	if(saveId != null) {
     		// 전달된 아이디를 쿠키에 저장
     		// 1. 쿠키 생성
-    		Cookie cookie = new Cookie("saveId", userId);
+    		Cookie cookie = new Cookie("saveId", id);
     		
     		cookie.setMaxAge(259200); // 3일 동안 유지
     		
@@ -54,7 +54,7 @@ public class MemberLoginServlet extends HttpServlet {
     	}
     	
     	
-    	Member loginMember = new MemberService().login(userId, userPwd);
+    	Member loginMember = new MemberService().login(id, pwd);
     	
     	System.out.println(loginMember);
     	
@@ -70,7 +70,7 @@ public class MemberLoginServlet extends HttpServlet {
 			// 1. 공용으로 사용하는 에러 메시지 출력 페이지에
 			//    전달할 메시지와 메시지 출력 후 이동할 페이지를 request 객체에 저장한다.
 			request.setAttribute("msg", "아이디나 비밀번호가 일치하지 않습니다.");
-			request.setAttribute("location", "/");
+			request.setAttribute("location", "/login");
 			
 			// 2. reqeust 객체의 데이터를 유지해서 에러 메시지를 전달하기 위해 forward를 실행한다.
 			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);

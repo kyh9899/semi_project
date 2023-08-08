@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 
@@ -85,15 +86,15 @@
 			<tr>
 				<td id="id">
 					<label> 아 &nbsp; 이 &nbsp; 디 : </label>
-					<input type="text" name="userId" id="userId" placeholder="아이디" 
+					<input type="text" name="id" id="id" placeholder="아이디" 
 							value="${ cookie.saveId.value }" required>
 				</td>
 			</tr>
 			
 			<tr>
 				<td id="pwd">
-				<label>비밀번호&nbsp; : </label>
-					<input type="password" name="userPwd" id="userPwd" placeholder="비밀번호" required>
+				<label>비밀&nbsp;번호&nbsp; : </label>
+					<input type="password" name="pwd" id="pwd" placeholder="비밀번호" required>
 
 				</td>
 			</tr>
@@ -102,11 +103,11 @@
 					<label><input type="checkbox" name="saveId" id="saveId"
 								${ empty cookie.saveId ? "" : "checked" }>아이디 저장</label> 
 					<br>
+					<%-- 
 						<a href="#" onClick="alert('로그인 성공!!')">
 					<button id="btn1" type="button" onclick="location.href='/sportcenter/views/introduce/intro_hello.jsp'">로그인</button>
-					<%-- 
-					<input id="btn1" type="submit" value="로그인" >
 					--%>
+					<input id="btn1" type="submit" value="로그인" >
 				</td>
 			</tr>
        
@@ -145,3 +146,4 @@
 </div>
  	</div>
 </section>
+  <jsp:include page="/views/common/footer.jsp" /> 
