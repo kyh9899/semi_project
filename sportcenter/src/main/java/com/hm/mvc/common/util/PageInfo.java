@@ -103,11 +103,11 @@ public class PageInfo {
 	}
 	
 	/**
-	 * 
+ 
 	 * @return 페이지의 시작 리스트 
 	 */ 	
 	public int getStartList() {
-		return (this.getCurrentPage() - 1) * this.listLimit + 1;
+		return listCount - ((this.getCurrentPage() - 1) * this.listLimit) ;
 	}
 	
 	/**
@@ -115,7 +115,7 @@ public class PageInfo {
 	 * @return 페이지의 마지막 리스트
 	 */ 	
 	public int getEndList() {
-		int endList = this.getStartList() + this.listLimit - 1;
+		int endList = this.getStartList() - this.listLimit + 1;
 		
 		return endList > this.listCount ? this.listCount : endList;
 	}

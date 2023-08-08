@@ -29,12 +29,13 @@ public class MemberUpdateServlet extends HttpServlet {
     		// 2. 사용자가 수정한 내용을 가지고 Member 객체를 생성
     		member = new Member();
     		
-    		member.setNo(loginMember.getNo());
+    		member.setNo(request.getParameter("userNo"));
     		member.setId(request.getParameter("userId"));
         	member.setName(request.getParameter("userName"));
         	member.setPhone(request.getParameter("phone"));
         	member.setEmail(request.getParameter("email"));
-        	member.setAddress(request.getParameter("address"));
+        	member.setAddress1(request.getParameter("address1"));
+        	member.setAddress2(request.getParameter("address2"));
         	
         	String hobby = request.getParameterValues("hobby") != null 
         			? String.join(",", request.getParameterValues("hobby")) : null;

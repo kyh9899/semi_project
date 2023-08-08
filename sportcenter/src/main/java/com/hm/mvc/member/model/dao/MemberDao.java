@@ -15,7 +15,7 @@ public class MemberDao {
 		Member member = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		String query = "SELECT * FROM MEMBER WHERE ID=? AND STATUS='Y'";
+		String query = "SELECT * FROM MEMBER WHERE MG_ONF='Y'";
 		
 		try {
 			stmt = connection.prepareStatement(query);
@@ -27,19 +27,20 @@ public class MemberDao {
 			if(rs.next()) {
 				member = new Member();
 				
-				member.setName(rs.getString("NAME"));
-				member.setId(rs.getString("ID"));
-				member.setPwd(rs.getString("PASSWORD"));
-				member.setSSN1(rs.getString("SSN1"));
-				member.setSSN2(rs.getString("SSN2"));			    
-				member.setPhone(rs.getString("PHONE"));
-				member.setAddress1(rs.getString("ADDRESS1"));
-				member.setAddress2(rs.getString("ADDRESS2"));
-				member.setEmail(rs.getString("EMAIL"));
-				member.setStatus(rs.getString("STATUS"));
+				member.setNo(rs.getInt("MB_NO"));
+				member.setId(rs.getString("MB_ID"));
+				member.setPwd(rs.getString("MB_PASSWORD"));
+				member.setName(rs.getString("MB_NAME"));
+				member.setSSN1(rs.getString("MB_SSN1"));
+				member.setSSN2(rs.getString("MB_SSN2"));			    
+				member.setPhone(rs.getString("MB_PHONE"));
+				member.setAddress1(rs.getString("MB_ADDRESS1"));
+				member.setAddress2(rs.getString("MB_ADDRESS2"));
+				member.setEmail(rs.getString("MB_EMAIL"));
+				member.setStatus(rs.getString("MB_STATUS"));
 				member.setJoinDate(rs.getDate("JOIN_DATE"));
 				member.setQuitDate(rs.getDate("QUIT_DATE"));
-				member.setONF(rs.getString("ONF"));
+				member.setONF(rs.getString("MB_ONF"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -54,19 +55,20 @@ public class MemberDao {
 	public int insertMember(Connection connection, Member member) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "INSERT INTO MEMBER VALUES(SEQ_UNO.NEXTVAL,?,?,DEFAULT,?,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT)";
+		String query = "INSERT INTO MEMBER VALUES(?,?,?,?,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT,Y)";
 		
 		try {			
 			pstmt = connection.prepareStatement(query);
 			
-			pstmt.setString(1, member.getName());
+			pstmt.setInt(1, member.getNo());
 			pstmt.setString(2, member.getId());
 			pstmt.setString(3, member.getPwd());
-			pstmt.setString(4, member.getSSN1());
-			pstmt.setString(5, member.getSSN2());
-			pstmt.setString(6, member.getPhone());
-			pstmt.setString(7, member.getEmail());
-			pstmt.setString(8, member.getAddress1() + member.getAddress2());
+			pstmt.setString(4, member.getName());
+			pstmt.setString(5, member.getSSN1());
+			pstmt.setString(6, member.getSSN2());
+			pstmt.setString(7, member.getPhone());
+			pstmt.setString(8, member.getEmail());
+			pstmt.setString(9, member.getAddress1() + member.getAddress2());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {

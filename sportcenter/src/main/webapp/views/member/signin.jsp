@@ -102,11 +102,11 @@
 					<label><input type="checkbox" name="saveId" id="saveId"
 								${ empty cookie.saveId ? "" : "checked" }>아이디 저장</label> 
 					<br>
+					<%-- 
 						<a href="#" onClick="alert('로그인 성공!!')">
 					<button id="btn1" type="button" onclick="location.href='/sportcenter/views/introduce/intro_hello.jsp'">로그인</button>
-					<%-- 
-					<input id="btn1" type="submit" value="로그인" >
 					--%>
+					<input id="btn1" type="submit" value="로그인" >
 				</td>
 			</tr>
        

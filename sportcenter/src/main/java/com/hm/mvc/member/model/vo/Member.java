@@ -10,11 +10,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Member {
-	private String name;
+	private int no;
 	
 	private String id;
 	
 	private String pwd;
+	
+	private String name;
 	
 	private String SSN1;
 	
