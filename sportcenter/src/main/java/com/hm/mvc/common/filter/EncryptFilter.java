@@ -34,17 +34,5 @@ public class EncryptFilter implements Filter {
 		chain.doFilter(wrapper, response);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

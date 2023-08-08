@@ -9,8 +9,56 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
 <jsp:include page="/views/common/header.jsp" />
+
+<style>
+	section #findid-container {
+		text-align:center;
+	}
+	
+	section #findid-container input {
+		margin:10px ;
+	}
+	
+	section #findid-container table {
+		margin:0 auto;
+	}
+	
+	section #findid-container table th {
+		padding:0 10px; 
+		text-align:right;
+	}
+	
+	section #findid-container table td {
+		padding:0 10px; 
+		text-align:left;
+	}
+	#findid-container {
+		margin-top: 50px;
+	}
+	#findid {
+		margin-top: 10px;
+	}
+	#findid {
+		border-color: white;
+		background-color: white;
+		box-shadow: none;
+		border:none;
+	}
+	#btn1 {
+		border-color: white;
+		background-color: white;
+		box-shadow: none;
+		border:none;
+	}
+	td {
+ 	 padding-bottom: 15px;
+ 	 padding-left: 10px;
+	}
+	
+</style>
+
+<body>
 
 <script>
 	function findIDbtn(){
@@ -19,27 +67,32 @@
 	}
 </script>
 
+
 		<h4 align="center">아이디 찾기</h4> 
-	<div  align="center">
-		<form name="idfindscreen" method = "POST" >
-			<table>
-		    <tr>
-		      <td>이름 : </td>
-		      <td><input type="text" name="userName" required></td>
-		    </tr>
-		    <tr>
-		      <td>번호 : </td>
-		      <td><input type="tel" name="phone" required></td>
-		    </tr>
-		    <tr> 
-		      <td colspan="2" align="center"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-		        <button type="submit" id="findid" onclick="'${ path }/member/findid'"><span>아이디 찾기</span></button> &nbsp; &nbsp; &nbsp;
-		        <input type="button"  value="취소" onClick="history.back()">
-		      </td>
-		    </tr>
-		</table>
-		</form>
-	</div>
+			<div id="findid-container"  align="center">
+			<form name="idfindscreen" method = "POST"  >
+				<table>
+			    <tr>
+			      <td>이름 : </td>
+			      <td><input type="text" name="userName" id="userName" required ></td>
+			    </tr> 
+			    <tr>
+			      <td>번호 : </td>
+			      <td><input type="tel" name="phone" id="phone"  required></td>
+			    </tr>
+			    <tr id="ttr3"> 
+			      <td colspan="2" align="center"> &nbsp; &nbsp; &nbsp; 
+			      <a href="#" onClick="alert('아이디 찾기 성공!!')">
+					<button id="btn1" type="findid" onclick="location.href='/sportcenter/views/introduce/intro_hello.jsp'">아이디 찾기</button>  
+			      <%-- 
+			        <button  type="submit" id="findid" onclick="'${ path }/member/findid'"><span>아이디 찾기</span></button> --%>  | &nbsp; &nbsp; 
+			      
+			        <input id="btn1" type="button"  value="취소" onClick="history.back()">
+			      </td>
+			    </tr>
+			</table>
+			</form>
+		</div>
 		
 	<%-- 
 		<c:if test="${ empty loginMember }">

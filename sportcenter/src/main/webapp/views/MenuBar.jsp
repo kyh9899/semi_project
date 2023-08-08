@@ -21,7 +21,7 @@
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="http://localhost:8087/sportcenter/views/introduce/intro_hello.jsp" class="link-dark d-inline-flex text-decoration-none rounded">인사말</a></li>
  			<li><a href="http://localhost:8087/sportcenter/views/introduce/route.jsp" class="link-dark d-inline-flex text-decoration-none rounded">오시는 길</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">강사 소개</a></li>
+            <li><a href="http://localhost:8087/sportcenter/views/introduce/th_introduce.jsp" class="link-dark d-inline-flex text-decoration-none rounded">강사 소개</a></li>
           </ul>
         </div>
       </li>
@@ -56,10 +56,9 @@
         </button>
         <div class="collapse" id="account-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Q&A</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">자주 묻는 질문</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">고객 문의</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">분실물</a></li>
+            <li><a href="${  pageContext.request.contextPath }/views/board/notice.jsp" class="link-dark d-inline-flex text-decoration-none rounded">공지사항(Q&A)</a></li>
+            <li><a href="${ pageContext.request.contextPath }/views/board/lost.jsp" class="link-dark d-inline-flex text-decoration-none rounded">분실물 센터</a></li>
+            <li><a href="${ pageContext.request.contextPath }/views/board/faq.jsp" class="link-dark d-inline-flex text-decoration-none rounded">자주 묻는 질문(FAQ)</a></li>
           </ul>
         </div>
       </li>

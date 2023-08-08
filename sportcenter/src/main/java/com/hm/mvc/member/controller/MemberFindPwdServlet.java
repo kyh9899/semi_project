@@ -6,6 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.hm.mvc.member.model.service.MemberService;
+import com.hm.mvc.member.model.vo.Member;
 
 @WebServlet(name = "memberFindPwd", urlPatterns = { "/member/findpwd" })
 public class MemberFindPwdServlet extends HttpServlet {
@@ -22,6 +26,26 @@ public class MemberFindPwdServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String userId = request.getParameter("userId");
+		String phone = request.getParameter("phone");
+		
+		Member loginMember = new MemberService().login(userId, phone);
+    	
+    	System.out.println(loginMember);
+    	
+    	if (loginMember != null) {
+			
+    		HttpSession session = request.getSession();
+    		
+    		session.setAttribute("loginMember", loginMember);
+    		
+    		response.sendRedirect(request.getContextPath() + "/");
+		} else {
+			
+			request.setAttribute("msg",  "정보가 없습니다.");
+			request.setAttribute("location", "/");
+			
+			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
+		}    	
 	}
-
-}
+	}
