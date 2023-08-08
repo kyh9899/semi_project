@@ -27,8 +27,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Teacher Introduce</title>
 </head>
 <body>
   <header>

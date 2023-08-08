@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 </head>
+
 <body>
     <div class="flex-shrink-0 p-3 bg-white" style="width: 280px ;">
     <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
@@ -64,6 +63,8 @@
       </li>
     </ul>
   </div>
+  
+
 
 </body>
 </html>
