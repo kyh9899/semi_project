@@ -18,7 +18,7 @@
 		width: 400px;
 		height: 250px;
 		margin-bottom: 30px;
-		margin-right: 380px;
+		margin-right: 360px;
 	}
 	#guide {
 		width: 100%;
@@ -40,7 +40,7 @@
 		margin-bottom: 20px;
 		width: 140px;
 		height: 50px;
-		margin-right: 380px;
+		margin-right: 360px;
 	}
 	#btn2 {
 		width: 140px;
@@ -102,13 +102,13 @@
 							<td><img id="swim" src="${ path }/resources/images/tabletennis.jpg"></td>
 						</tr>
 					</table>	
-					<button id="btn1" onclick="location.href='${ path }/views/application/list.jsp'">온라인 수강신청</button>
+					<button id="btn1" onclick="location.href='${ path }/application/enrollment'">온라인 수강신청</button>
 				</div>
 				<div class="content">
 					<ul class="tab">
 						<li><a href="#mu1" class="selected">강좌소개</a></li>
 						<li><a href="#mu2">강사소개</a></li>
-						<li><a href="#mu4">수강신청 안내</a></li>
+						<li><a href="#mu3">수강신청 안내</a></li>
 					</ul>
 					<ul class="tab_con">
 						<li id="mu1">
@@ -139,13 +139,13 @@
 						<li id="mu2">
 							<img src="${ path }/resources/images/tabletennisteacher.png">
 						</li>
-						<li id="mu4">
+						<li id="mu3">
 							<img id="guide" src="${ path }/resources/images/guide.png">
 						</li>		
 					</ul>
 				</div>
 				<div id="div2">	
-					<button id="btn2" onclick="location.href='${ path }/views/program/list.jsp'">목록으로</button>
+					<button id="btn2" onclick="location.href='${ path }/program/info'">목록으로</button>
 				</div>
             </div>
         </div>
