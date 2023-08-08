@@ -3,156 +3,317 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 
+<style type="text/css">
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+	h1 {
+	  text-align: center;
+	  }
+	  
+	#root {
+	  font-size:30px;
+	  color: lightgray;
+	  text-align: center;
+	  }
+	#root > strong{
+		color : black;
+	}
+	 
+      div.container{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+ 
+      div.insert{
+    }
+ 
+    div.create{
+    width: 800px;
+    text-align: center;
+    padding: 30px;
+    border-bottom: 1px solid black;
+    margin: auto;
+    }
+ 
+    table{
+    height: 300px;
+    width: 900px;
+    border-top: 3px solid black;
+    margin-right: auto;
+    margin-left: auto;
+    }
+ 
+    td{
+    border-bottom: 1px dotted black;
+    }
+ 
+    caption{
+    text-align: left;
+    }
+ 
+    .col1 {
+    background-color: #e8e8e8;
+    padding: 10px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 0.8em;
+    border: 0;
+    margin: 0;
+    margin-bottom: 5px;
+    }
+ 
+    .col2 {
+    text-align: left;
+    padding: 5px;
+    border: 0;
+    margin: 0;
+    }
+ 
+    .but1 {
+    height: 28px;
+    width: 80px;
+    color: white;
+    background-color: black;
+    border-color: black;
+    font-size : 15px;
+    }
+ 
+    .but2 {
+    height: 28px;
+    width: 120px;
+    color: white;
+    background-color: black;
+    border-color: black;
+    font-size : 13px;
+    }
+ 
+    .but3 {
+    height: 35px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+    }
+ 
+    .but4{
+    height: 35px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+    }
+    
+    .but1:hover {
+    background-color: #b9b9b9;
+    color: black;
+    border: 2px solid black;
+    }
+ 
+    .but2:hover {
+    background-color: #b9b9b9;
+    color: black;
+    border: 2px solid black;
+    }
+ 
+    .but3:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    }
+ 
+    .but4:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    }
+    
+    p{
+    font-size: 0.7em;
+    }
+    
+    a{
+    font-size: 2em;
+    }
+ 
+    .g{
+    font-size: 0.7em;
+    }
+ 
+    .c{
+    font-size: 0.7em;
+    }
+ 
+    .a{
+    font-size: 0.7em;
+    }
+    
+    .num{
+    color: red;
+    }
+ 
+  </style>
+
 <jsp:include page="/views/common/header.jsp" />
 
-<link rel="stylesheet" href="${ path }/resources/css/new_main.css">
-        
-    </head>
-    <body>
-        <form name="memberEnrollFrm" action="${path}/member/enroll" method="POST">
-        <!-- header -->
-        <div id="header">
-        </div>
-
-
-        <!-- wrapper -->
-        <div id="wrapper">
-
-            <!-- content-->
-            <div id="content">
-
-                <!-- ID -->
-                <div>
-                    <h3 class="join_title">
-                        <label for="id">아이디</label>
-                    </h3>
-                    <span class="box int_id">
-                        <input type="text" id="id" class="int" maxlength="20">
-                    </span>
-                    <span class="error_next_box"></span>
-                </div>
-
-                <!-- PW1 -->
-                <div>
-                    <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
-                    <span class="box int_pass">
-                        <input type="password" id="pswd1" class="int" maxlength="20">
-                        <span id="alertTxt">사용불가</span>
-                        <img src="${ path }/resources/images/m_icon_pass.png" id="pswd1_img1" class="pswdImg">
-                    </span>
-                    <span class="error_next_box"></span>
-                </div>
-
-                <!-- PW2 -->
-                <div>
-                    <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
-                    <span class="box int_pass_check">
-                        <input type="password" id="pswd2" class="int" maxlength="20">
-                        <img src="${ path }/resources/images/m_icon_check_disable.png" id="pswd2_img1" class="pswdImg">
-                    </span>
-                    <span class="error_next_box"></span>
-                </div>
-
-                <!-- NAME -->
-                <div>
-                    <h3 class="join_title"><label for="name">이름</label></h3>
-                    <span class="box int_name">
-                        <input type="text" id="name" class="int" maxlength="20">
-                    </span>
-                    <span class="error_next_box"></span>
-                </div>
-
-                <!-- BIRTH -->
-                <div>
-                    <h3 class="join_title"><label for="yy">생년월일</label></h3>
-
-                    <div id="bir_wrap">
-                        <!-- BIRTH_YY -->
-                        <div id="bir_yy">
-                            <span class="box">
-                                <input type="text" id="yy" class="int" maxlength="4" placeholder="년(4자)">
-                            </span>
-                        </div>
-
-                        <!-- BIRTH_MM -->
-                        <div id="bir_mm">
-                            <span class="box">
-                                <select id="mm" class="sel">
-                                    <option>월</option>
-                                    <option value="01">1</option>
-                                    <option value="02">2</option>
-                                    <option value="03">3</option>
-                                    <option value="04">4</option>
-                                    <option value="05">5</option>
-                                    <option value="06">6</option>
-                                    <option value="07">7</option>
-                                    <option value="08">8</option>
-                                    <option value="09">9</option>                                    
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                            </span>
-                        </div>
-
-                        <!-- BIRTH_DD -->
-                        <div id="bir_dd">
-                            <span class="box">
-                                <input type="text" id="dd" class="int" maxlength="2" placeholder="일">
-                            </span>
-                        </div>
-
-                    </div>
-                    <span class="error_next_box"></span>    
-                </div>
-
-                <!-- GENDER -->
-                <div>
-                    <h3 class="join_title"><label for="gender">성별</label></h3>
-                    <span class="box gender_code">
-                        <select id="gender" class="sel">
-                            <option>성별</option>
-                            <option value="M">남자</option>
-                            <option value="F">여자</option>
-                        </select>                            
-                    </span>
-                    <span class="error_next_box">필수 정보입니다.</span>
-                </div>
-
-                <!-- EMAIL -->
-                <div>
-                    <h3 class="join_title"><label for="email">본인확인 이메일<span class="optional">(선택)</span></label></h3>
-                    <span class="box int_email">
-                        <input type="text" id="email" class="int" maxlength="100" placeholder="선택입력">
-                    </span>
-                    <span class="error_next_box">이메일 주소를 다시 확인해주세요.</span>    
-                </div>
-
-                <!-- MOBILE -->
-                <div>
-                    <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
-                    <span class="box int_mobile">
-                        <input type="tel" id="mobile" class="int" maxlength="16" placeholder="전화번호 입력">
-                    </span>
-                    <span class="error_next_box"></span>    
-                </div>
-
-
-                <!-- JOIN BTN-->
-                <div class="btn_area">
-                    <button type="button" id="btnJoin">
-                        <span>가입하기</span>
-                    </button>
-                </div>
-
+  <form name="memberEnrollFrm" action="${ path }/member/enroll" method="POST">
+      <div class="container">
+    <div class="insert">
+    
+    <table>
+ 	<h1>회원가입</h1>
+ 	<br><br>
+ 	<p id="root">01약관동의 ➝ 02본인인증 ➝ <strong>03정보입력 ➝</strong> 04가입완료</p>
+ 	<br><br>
+    <tr>
+        <td class="col1">이름</td>
+        <td class="col2"><input type="text" name="name" maxlength="5"></td>
+    </tr>
+    <tr>
+        <td class="col1">아이디</td>
+        <td class="col2">
+            <input type="text" name="id" maxlength="10">
+            <input class='but1' type="button" value="중복확인" onclick="">
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">비밀번호<br><br></td>
+        <td class="col2">
+            <input type="password" name="pwd" maxlength="16">
+            <p style="margin:0">※비밀번호는 <span class="num">문자, 숫자, 특수문자(~!@#$%^&*)의 조합 10 ~ 16자리</span>로 입력이 가능합니다.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">비밀번호 확인</td>
+        <td class="col2"><input type="password" name="pwdCheck" maxlength="16"></td>
+    </tr>
+ 	<tr>
+		<td class="col1">주민등록번호</td>
+ 		<td class="col2">
+			<input type="text" name="residentNum" maxlength="6"> <a>-</a> <input type="text" name="residentNum" maxlength="1" style="width:20px">******
+   	 	</td>
+    </tr>
+    <tr>
+    	<td class="col1">연락처</td>
+    	<td class="col2">
+    <input type="text" name="contactNumber">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">주소</td>
+                    <td class="col2">
+                       <input type="text"  id="zip_code" name="zip_code" onclick="openZipSearch();" readonly="readonly" placeholder="우편번호" style="width:250px;">
+					   <input type="text"  id="addr" name="addr" onclick="openZipSearch();" readonly="readonly" placeholder="기본주소"  style="width:250px;">
+					   
+                    </td>
+                </tr>
                 
+                <tr>
+                <td class="col1"></td>
+                	<td class="col2"><input type="text"  id="addr_dtl" name="addr_dtl" placeholder="상세주소"  style="width:250px;"></td>
+                </tr>
+    <tr>
+	    <td class="col1">이메일</td>
+	    <td class="col2">
+	        <input type="text" name="mailid">
+	        <span class="a">@</span>
+	        <input type="text" name="email" id="emailInput">
+	        <select name="mailslc" onchange="updateEmailDomain()">
+	            <option value="self" selected>직접입력</option>
+	            <option value="naver">naver.com</option>
+	            <option value="gm">gmail.com</option>
+	            <option value="da">daum.com</option>
+	            <option value="yah">yahoo.com</option>
+	        </select>
+	        <input class='but2' type="button" value="이메일 중복확인" onclick="">
+	    </td>
+</tr>
+    </table>
+    
+  </div>
+ 
+  <div class="create">
+    	<button class="but3" type="reset">가입취소</button>
+    	<button class="but4" type="submit" onclick="formCheck(this.form)">회원가입</button>    
+  </div>
+  </div>
+  </form>
 
-            </div> 
-            <!-- content-->
+<script>
+    function formCheck(form) {
+        //유효성 검사
+        if(form.name.value == "") {
+            alert('이름을 입력하세요.');
+            form.name.focus() ;
+            return ;
+        }
+        if(form.id.value == "") {
+            alert('아이디를 입력하세요.');
+            form.id.focus() ;
+            return ;
+        }
+        if(form.pwd.value == "") {
+            alert('비밀번호를 입력하세요.');
+            form.pwd.focus() ;
+            return ;
+        }
+        if(form.pwd.value.length < 10 || form.pwd.value.length > 16) {
+            alert('비밀번호는 10 ~ 16자 사이로 입력하세요.');
+            form.pwd.focus() ;
+            return ;
+        }
+        if(form.pwdCheck.value == "") {
+            alert('비밀번호 확인을 입력하세요.');
+            form.pwdCheck.focus() ;
+            return ;
+        }
+        if(form.mailid.value == "") {
+            alert('e-mail을 입력하세요.');
+            form.mailid.focus() ;
+            return ;
+        }
+        if(form.email.value == "" && form.mailslc.selectedIndex == 0) {
+            alert('e-mail을 입력하세요.');
+            form.mailslc.focus() ;
+            return ;
+        }
+        if (form.residentNum.value == "" || isNaN(form.residentNum.value) || parseInt(form.residentNum.value) < 0 || parseInt(form.residentNum.value) > 9) {
+            alert('주민등록번호 뒷자리를 입력해주세요.');
+            form.residentNum.focus();
+            return;
+        }
+        alert('회원가입이 완료되었습니다.') ;
+ 
+        form.reset();
+        }
+    
+    function openZipSearch() {
+        new daum.Postcode({
+        	oncomplete: function(data) {     
+    		var addr = ''; 
+    		if (data.userSelectedType === 'R') { 
+    			addr = data.roadAddress;
+    		} else {
+    			addr = data.jibunAddress;
+    		}
 
-        </div> 
-        <!-- wrapper -->
-    </form>
-    <script src="${ path }/resources/js/main.js"></script>
+    		$("#zip_code").val(data.zonecode);
+    		$("#addr").val(addr);
+    		$("#addr_dtl").val("");
+    		$("#addr_dtl").focus();
+            }
+        }).open();
+        
+        function updateEmailDomain() {
+            var mailslc = document.getElementsByName("mailslc")[0];
+            var emailInput = document.getElementById("emailInput");
+            var selectedOption = mailslc.options[mailslc.selectedIndex].value;
 
-<jsp:include page="/views/common/footer.jsp" /> 
+            if (selectedOption !== "self") {
+                emailInput.value = selectedOption;
+            } else {
+                emailInput.value = "";
+            }
+        }
+    }
+ 
+  </script>
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <jsp:include page="/views/common/footer.jsp" /> 

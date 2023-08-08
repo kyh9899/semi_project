@@ -1,4 +1,4 @@
-package com.hm.mvc.member.model.vo;
+package com.hm.mvc.member.model.vo;	
 
 import java.util.Date;
 
@@ -10,31 +10,29 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Member {
-	private int no;
+	private String name;
 	
 	private String id;
 	
-	private String password;
+	private String pwd;
 	
-	private String role;
+	private String SSN1;
 	
-	private String name;
-	
-	private String jumin1;
-	
-	private String jumin2;
+	private String SSN2;
 	
 	private String phone;
 	
+	private String address1;
+	
+	private String address2;
+	
 	private String email;
-	
-	private String address;
-	
-	private String hobby;
 	
 	private String status;
 	
-	private Date enrollDate;
+	private Date joinDate;
 	
-	private Date modifyDate;
+	private Date quitDate;
+	
+	private String ONF;
 }
