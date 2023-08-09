@@ -27,7 +27,7 @@ public class MemberDao {
 			if(rs.next()) {
 				member = new Member();
 				
-//				member.setNo(rs.getInt("MB_CODE"));
+				member.setNo(rs.getInt("MB_CODE"));
 				member.setId(rs.getString("MB_ID"));
 				member.setPwd(rs.getString("MB_PWD"));
 				member.setName(rs.getString("MB_NAME"));
@@ -138,7 +138,7 @@ public class MemberDao {
 	public int updateMemberStatus(Connection connection, int no, String status) {
 		int result = 0; 
 		PreparedStatement pstmt = null;
-		String query = "UPDATE MEMBER SET MB_STATUS=? WHERE NO=?";
+		String query = "UPDATE MEMBER SET MB_STATUS=? WHERE MB_CODE=?";
 		
 		try {
 			pstmt = connection.prepareStatement(query);
