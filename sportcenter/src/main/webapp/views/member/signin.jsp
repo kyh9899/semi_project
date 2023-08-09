@@ -31,11 +31,12 @@
 	
 	#space1 { letter-spacing:18.7px; }
 	#space2 { letter-spacing:10px; }
+	#space3 { margin-left: 112px;}
 	
 	#btn1 {
 		border-color: white;
-		width: 280px;
- 		height: 30px;
+		width: 310px;
+ 		height: 40px;
  		margin-left: 20px;
  		display :inline-block;
  		box-shadow: none;
@@ -103,8 +104,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					<label><input type="checkbox" name="saveId" id="saveId"
+				<td colspan="2">
+					<label id="space3"><input type="checkbox" name="saveId" id="saveId"
 								${ empty cookie.saveId ? "" : "checked" }>아이디 저장</label> 
 					<br>
 					<%-- 
