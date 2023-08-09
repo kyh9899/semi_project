@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
 
-<body>
     <div class="flex-shrink-0 p-3 bg-white" style="width: 280px ;">
     <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
       <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
@@ -52,9 +49,7 @@
         </button>
         <div class="collapse" id="orders-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">프로그램</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">이용 시간</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">요금</a></li>
+            <li><a href="http://localhost:8087/sportcenter/views/application/enrollment.jsp" class="link-dark d-inline-flex text-decoration-none rounded">목록</a></li>
           </ul>
         </div>
       </li>
@@ -77,13 +72,22 @@
       </li>
     </ul>
   </div>
-</body>
+
 
 <script>
 	const page = '<%= request.getRequestURI() %>';
 	console.log(page);
 	
 	if(page === '/sportcenter/views/introduce/intro.jsp'){		
+		 $('#home-collapse').addClass("show");
+		 $('#introId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/introduce/route.jsp'){		
+		 $('#home-collapse').addClass("show");
+		 $('#introId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/introduce/intro_hello.jsp'){		
+		 $('#home-collapse').addClass("show");
+		 $('#introId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/introduce/th_introduce.jsp'){		
 		 $('#home-collapse').addClass("show");
 		 $('#introId').attr("aria-expanded", "true");
 	} else if(page === '/sportcenter/views/program/list.jsp'){
@@ -95,6 +99,11 @@
 	} else if(page === '/sportcenter/views/board/notice.jsp'){
 		$('#account-collapse').addClass("show");	
 		$('#noticeId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/board/faq.jsp'){
+		$('#account-collapse').addClass("show");	
+		$('#noticeId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/board/lost.jsp'){
+		$('#account-collapse').addClass("show");	
+		$('#noticeId').attr("aria-expanded", "true");
 	};
 </script>
-</html>

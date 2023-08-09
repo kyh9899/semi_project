@@ -130,7 +130,6 @@
 
 
 <%-- 
---%>
 <c:if test="${ not empty loginMember }">
 	<table>
 		<tr>
@@ -145,6 +144,7 @@
 		</tr>
 	</table>
 </c:if>
+--%>
 </div>
  	</div>
 </section>
