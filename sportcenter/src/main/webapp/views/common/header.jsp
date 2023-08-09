@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="${ path }/resources/css/bootstrap.min.css">
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+		div.container {
+		  font-family: 'Noto Sans KR', sans-serif;
+		  margin: auto;
+		}
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -65,6 +71,19 @@
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
       }
+      
+      button {
+      	border-color: white;
+		background-color: white;
+		box-shadow: none;
+		border:none;
+		padding-bottom: 20px;
+      }
+      
+      #space1 { 
+      letter-spacing:3px; 
+      padding-bottom: 10px;
+      }
     </style>
 </head>
 <body>
@@ -94,14 +113,14 @@
     
 	<table>
 		<tr>
-			<td colspan="2">
+			<td id="space1" colspan="2">
 				${ loginMember.name }님 안녕하세요.
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<button onclick="location.href='${ path }/views/member/myPage.jsp'">마이페이지</button>
-				<button onclick="location.href='${ path }/logout'">로그아웃</button>						
+				<button id="btn1" onclick="location.href='${ path }/views/member/myPage.jsp'">마이페이지</button> |
+				<button id="btn2" onclick="location.href='${ path }/logout'">로그아웃</button>						
 			</td>
 		</tr>
 	</table>
