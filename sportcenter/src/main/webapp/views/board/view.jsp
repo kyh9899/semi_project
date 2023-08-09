@@ -225,10 +225,7 @@
 	<script>
 		$(document).ready(() => {	
 			$('#goBack').on('click', () => {
-				alert('clci');
-				history.back();
-				location.reload(true);
-				
+				history.back();				
 			});
 			
 			$('#fileDown').on('click', () => {
