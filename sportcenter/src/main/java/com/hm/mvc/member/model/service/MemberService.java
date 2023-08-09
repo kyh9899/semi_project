@@ -22,6 +22,7 @@ public class MemberService {
 			
 			return null;
 		}
+		System.out.println("1번 member 객체 담아오기 성공");
 		return member;
 	}
 
@@ -63,7 +64,7 @@ public class MemberService {
 		
 		close(connection);
 		
-		System.out.println("4번 성공!");
+		System.out.println("4번 member 객체 담아오기 성공!");
 		return member;
 	}
 

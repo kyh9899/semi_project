@@ -129,6 +129,7 @@
 
 
 <%-- 
+--%>
 <c:if test="${ not empty loginMember }">
 	<table>
 		<tr>
@@ -138,15 +139,11 @@
 		</tr>
 		<tr>
 			<td>
-				<button onclick="location.href='${ path }/member/myPage'">내 정보</button>
-			</td>
-			<td>
 				<button onclick="location.href='${ path }/logout'">로그아웃</button>						
 			</td>
 		</tr>
 	</table>
 </c:if>
---%>
 </div>
  	</div>
 </section>
