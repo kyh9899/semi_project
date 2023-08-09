@@ -42,7 +42,7 @@
 	}
 	
 	.input {
-		outline: none;
+		border: none;
 	}
 </style>
 <section id="content">
@@ -79,7 +79,8 @@
 	            <tr>
 	                <th>주소  </th>
 						<td>
-							<input type="text" name="address" id="address" value="${ loginMember.address }">
+							<input type="text" name="address" id="address" value="${ loginMember.address1 }">
+							<input type="text" name="address" id="address" value="${ loginMember.address2 }">
 						</td> 	
 	            </tr>
 	        </table>
