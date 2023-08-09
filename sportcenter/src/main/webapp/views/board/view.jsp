@@ -184,7 +184,7 @@
 						--%>
 							<input type="button" value="수정" onclick="location.href='${ path }/board/update?no=${ board.no }'">
 							<input type="button" value="삭제" id="btnDelete">
-							<input type="button" value="목록으로" onclick="location.href='${ path }/board/notice'">
+							<input type="button" value="목록으로" id="goBack">
 						</th>
 					</tr>
 				</table>
@@ -221,32 +221,37 @@
 	    </div>
 	     
 	</section>
-<script>
-	$(document).ready(() => {
-		$('#fileDown').on('click', () => {
-			let oname = encodeURIComponent('${ board.originalFilename }');
-			let rname = encodeURIComponent('${ board.renamedFilename }');
+	
+	<script>
+		$(document).ready(() => {	
+			$('#goBack').on('click', () => {
+				history.back();				
+			});
 			
-			console.log(oname, rname);
+			$('#fileDown').on('click', () => {
+				let oname = encodeURIComponent('${ board.originalFilename }');
+				let rname = encodeURIComponent('${ board.renamedFilename }');
 				
-			location.assign('${ path }/board/fileDown?oname=' + oname + '&rname=' + rname);
+				console.log(oname, rname);
+					
+				location.assign('${ path }/board/fileDown?oname=' + oname + '&rname=' + rname);
+			});
+			
+			$('#btnDelete').on('click', () => {
+				if (confirm('게시글을 삭제 하시겠습니까?')) {
+					location.replace('${ path }/board/delete?no=${ board.no }');
+				}
+			});
+			
+			$('#replyContent').on('click', () => {
+				if(${ empty loginMember }) {
+					alert("로그인 후 이용해주세요!");
+					
+					$("#userId").focus();				
+				}
+			});
 		});
-		
-		$('#btnDelete').on('click', () => {
-			if (confirm('게시글을 삭제 하시겠습니까?')) {
-				location.replace('${ path }/board/delete?no=${ board.no }');
-			}
-		});
-		
-		$('#replyContent').on('click', () => {
-			if(${ empty loginMember }) {
-				alert("로그인 후 이용해주세요!");
-				
-				$("#userId").focus();				
-			}
-		});
-	});
-</script>
+	</script>
 
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>

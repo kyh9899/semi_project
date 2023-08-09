@@ -259,4 +259,24 @@ public class BoardDao {
 		
 		return result;
 	}
+
+	public int updateReadCount(Connection connection, int no) {
+		int updateCount = 0;
+	    PreparedStatement pstmt = null;
+	    String query = "UPDATE POST SET P_RDCOUNT = P_RDCOUNT + 1 WHERE P_NO = ?";
+
+	    try {
+	        pstmt = connection.prepareStatement(query);
+	        pstmt.setInt(1, no);
+	        
+	        updateCount = pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        close(pstmt);
+	    }
+
+	    return updateCount;
+	}
+	
 }
