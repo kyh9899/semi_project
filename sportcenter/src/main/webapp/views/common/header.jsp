@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="${ path }/resources/css/bootstrap.min.css">
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+		div.container {
+		  font-family: 'Noto Sans KR', sans-serif;
+		  margin: auto;
+		}
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -84,7 +90,7 @@
       </ul>
 
       <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/views/member/signin.jsp'">로그인</button>
+        <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/login'">로그인</button>
         <button type="button" class="btn btn-primary" onclick="location.href='${ path }/member/enrollAgreement'">회원가입</button>
 
       </div>

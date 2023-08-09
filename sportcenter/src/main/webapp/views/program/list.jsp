@@ -9,6 +9,7 @@
     justify-content: center;
     flex-wrap: wrap;
     width: 1200px;
+    margin-left: 330px;
   }
   .image-container {
     display: flex;
@@ -16,7 +17,7 @@
     width: 100%;
   }
   img {
-    width: 300px;
+    width: 350px;
     height: 250px;
   }
   table {
@@ -44,12 +45,12 @@
 					<table>
 						<tr>
 							<td class="image-container">
-								<a href="${ path }/views/program/swim.jsp"><img src="${ path }/resources/images/swim.jpg"></a>
+								<a href="${ path }/swim/info"><img src="${ path }/resources/images/swim.jpg"></a>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<a href="${ path }/views/program/swim.jsp">
+								<a href="${ path }/swim/info">
 									<p><span>수영</span></p>
 								</a>
 								<p>
@@ -62,12 +63,12 @@
 					<table>
 						<tr>
 							<td class="image-container">
-								<a href="${ path }/views/program/health.jsp"><img src="${ path }/resources/images/health.jpg"></a>
+								<a href="${ path }/health/info"><img src="${ path }/resources/images/health.jpg"></a>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<a href="${ path }/views/program/health.jsp">
+								<a href="${ path }/health/info">
 									<p><span>헬스</span></p>
 								</a>
 								<p>
@@ -79,12 +80,12 @@
 					<table>
 						<tr>
 							<td class="image-container">
-								<a href="${ path }/views/program/pilates.jsp"><img src="${ path }/resources/images/pilates.jpg"></a>
+								<a href="${ path }/pilates/info"><img src="${ path }/resources/images/pilates.jpg"></a>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<a href="${ path }/views/program/pilates.jsp">
+								<a href="${ path }/pilates/info">
 									<p><span>필라테스</span></p>
 								</a>
 								<p>
@@ -100,12 +101,12 @@
 						<table>
 							<tr>
 								<td class="image-container">
-									<a href="${ path }/views/program/tabletennis.jsp"><img src="${ path }/resources/images/tabletennis.jpg"></a>
+									<a href="${ path }/tabletennis/info"><img src="${ path }/resources/images/tabletennis.jpg"></a>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<a href="${ path }/views/program/tabletennis.jsp">
+									<a href="${ path }/tabletennis/info">
 										<p><span>탁구</span></p>
 									</a>
 									<p>
@@ -119,12 +120,12 @@
 						<table>
 							<tr>
 								<td class="image-container">
-									<a href="${ path }/views/program/yoga.jsp"><img src="${ path }/resources/images/yoga.jpg"></a>
+									<a href="${ path }/yoga/info"><img src="${ path }/resources/images/yoga.jpg"></a>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<a href="${ path }/views/program/yoga.jsp">
+									<a href="${ path }/yoga/info">
 										<p><span>요가</span></p>
 									</a>
 									<p>
@@ -138,12 +139,12 @@
 						<table>
 							<tr>
 								<td class="image-container">
-									<a href="${ path }/views/program/badminton.jsp"><img src="${ path }/resources/images/badminton.jpg"></a>
+									<a href="${ path }/badminton/info"><img src="${ path }/resources/images/badminton.jpg"></a>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<a href="${ path }/views/program/badminton.jsp">
+									<a href="${ path }/badminton/info">
 										<p><span>배드민턴</span></p>
 									</a>
 									<p>
@@ -156,11 +157,8 @@
 			</div>
 		    </section>
             </div>
-        </div>
-        
+        </div> 
     </div>
-
- 
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>

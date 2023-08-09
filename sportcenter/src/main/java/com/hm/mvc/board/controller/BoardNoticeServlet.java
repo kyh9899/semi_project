@@ -33,13 +33,11 @@ public class BoardNoticeServlet extends HttpServlet {
     		page = 1;
 		}
     	
-    	listCount = new BoardService().getBoardCount();
-    	pageInfo = new PageInfo(page, 10, listCount, 10);
-    	list = new BoardService().getBoardList(pageInfo);
-
-        System.out.println(listCount);
-        System.out.println(pageInfo.getCurrentPage());
+    	listCount = new BoardService().getBoardCount(); // 게시글 개수
+    	pageInfo = new PageInfo(page, 10, listCount, 10); // page 정보
+    	list = new BoardService().getBoardList(pageInfo); // 게시글 list 
     	
+
     	request.setAttribute("pageInfo", pageInfo);
     	request.setAttribute("list", list);
 		request.getRequestDispatcher("/views/board/notice.jsp").forward(request, response);
