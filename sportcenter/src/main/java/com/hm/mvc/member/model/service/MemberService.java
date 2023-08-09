@@ -7,6 +7,7 @@ import static com.hm.mvc.common.jdbc.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
+
 import com.hm.mvc.member.model.dao.MemberDao;
 import com.hm.mvc.member.model.vo.Member;
 
@@ -47,6 +48,18 @@ public class MemberService {
 		
 		return result;
 	}
+	
+	public  Member findid(String name, String phone) {
+		Member member = null;
+		Connection connection = getConnection();
+		
+		member = new MemberDao().findid(connection, name, phone);
+		
+		close(connection);
+		
+		return member;
+	}
+	
 
 	// 3. 회원가입 시, 아이디가 중복인지 체크 
 	public boolean isDuplicateId(String id) {
