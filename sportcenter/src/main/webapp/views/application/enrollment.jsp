@@ -44,12 +44,12 @@
             <thead>
                 <tr>
                     <th>강좌명</th>
-                    <th>강의실</th>
+                    <th>강의장명</th>
                     <th>강사명</th>
-                    <th>교육시간</th>
+                    <th>강습시간</th>
                     <th>수강료</th>
-                    <th>정원</th>
-                    <th>상태</th>
+                    <th>수강인원</th>
+                    <th>사용가능 여부</th>
                     <th>신청</th>
                 </tr>
             </thead>
