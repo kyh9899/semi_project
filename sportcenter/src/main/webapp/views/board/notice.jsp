@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="/views/common/header.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<jsp:include page="/views//MenuBar.jsp" />
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 
 <!DOCTYPE html>
@@ -42,27 +43,7 @@
 		<h2 align="center">고객센터</h2>    
 		
 		
-		<div id="div-menubar" class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
-		  <a href="javascript:" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-		    <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-		    <span class="fs-5 fw-semibold">MENU</span>
-		  </a>
-		  <ul class="list-unstyled ps-0">
-		    <li class="mb-1">
-		      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-		        고객 센터
-		      </button>
-		      <div class="collapse show" id="home-collapse">
-		        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-		          <li><a href="${ path }/board/notice" class="link-dark d-inline-flex text-decoration-none rounded">공지사항</a></li>
-		          <li ><a href="${ path }/board/lost" class="link-dark d-inline-flex text-decoration-none rounded">분실물센터</a></li>
-		          <li><a href="${ path }/board/faq" class="link-dark d-inline-flex text-decoration-none rounded">자주하는질문(FAQ)</a></li>
-		        </ul>
-		      </div>
-		    </li>
-		  </ul>
-		</div>
-	  
+	
 	
 	    <div id="div-notice1">
 	     <h4>공지사항</h4>
@@ -114,6 +95,7 @@
 					<th>조회수</th>
 				</tr>
 				
+				<%-- 게시글이 없는 경우 --%>
 				<c:if test="${ empty list }">			
 					<tr>
 						<td colspan="6" id="content-none">
@@ -121,12 +103,15 @@
 						</td>
 					</tr>	
 				</c:if>
+				
+				<%-- 게시글이 있는 경우 --%>
 				<c:if test="${ not empty list }">
+					<%-- 조회수를 역순으로 출력 --%>
 					<c:forEach var="board" items="${ list }">
 						<tr>
-							<td>${ board.rowNum }</td>
+							<td>${ board.no }</td>
 							<td>
-								<a href="${ path }/board/view?no=${ board.no }">
+								<a href="${ path }/board/view?no=${ board.no }" class="updateCount">
 									${ board.title } 
 								</a>
 							</td>
@@ -148,7 +133,7 @@
 			</table>
 			<div id="pageBar">
 				<!-- 맨 처음으로 -->
-				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.prevPage }'">&lt;&lt;</button>
+				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.startPage }'">&lt;&lt;</button>
 	
 				<!-- 이전 페이지로 -->
 				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.prevPage }'">&lt;</button>
@@ -175,8 +160,16 @@
 		</div>
 		</div>
 	</section>
-
-
+	<script>
+		$(document).ready(() => {
+			$('.updateCount').on('click', () => {
+				if (confirm('조회수를 증가 하시겠습니까?')) {
+					location.assign('${ path }/board/view');
+			      
+			    }		
+			}		
+		});
+	</script>
 </body>
 </html>
 

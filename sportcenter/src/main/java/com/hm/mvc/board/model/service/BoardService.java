@@ -104,4 +104,22 @@ public class BoardService {
 		
 		return result;
 	}
+
+	// 조회수 증가 및 업데이트 메소드 호출
+	public int updateCount(int no) {
+		int updateCount = 0;
+		Connection connection = getConnection();
+		
+		updateCount = new BoardDao().updateReadCount(connection, no);
+		
+		if (updateCount > 0) {
+		    commit(connection);
+		} else {
+		    rollback(connection);
+		}
+		
+		close(connection);
+		
+		return updateCount;
+	}
 }

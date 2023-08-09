@@ -53,8 +53,8 @@ public class BoardDao {
 		try {
 			pstmt = connection.prepareStatement(query);
 			
-			pstmt.setInt(1, pageInfo.getStartList());
-			pstmt.setInt(2, pageInfo.getEndList());
+			pstmt.setInt(1, pageInfo.getEndList());
+			pstmt.setInt(2, pageInfo.getStartList());
 			
 			rs = pstmt.executeQuery();
 			
@@ -124,19 +124,21 @@ public class BoardDao {
 	public int insertBoard(Connection connection, Board board) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "INSERT INTO POST VALUES(SEQ_POST_NO.NEXTVAL,?,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT,?)";
+		String query = "INSERT INTO POST VALUES(SEQ_POST_NO.NEXTVAL,null,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT,?)";
+		
 		
 		try {
 			pstmt = connection.prepareStatement(query);
+				
+			pstmt.setString(1, board.getTitle());
+			pstmt.setString(2, board.getContent());
+			pstmt.setString(3, board.getOriginalFilename());
+			pstmt.setString(4, board.getRenamedFilename());
+			pstmt.setInt(5, board.getReadCount());
+			pstmt.setString(6, board.getWriterId());
 			
-			pstmt.setInt(1, board.getWriterNo());
-			pstmt.setString(2, board.getTitle());
-			pstmt.setString(3, board.getContent());
-			pstmt.setString(4, board.getOriginalFilename());
-			pstmt.setString(5, board.getRenamedFilename());
-			pstmt.setInt(6, board.getReadCount());
-			pstmt.setString(7, board.getWriterId());
-			
+			System.out.println(board.getWriterId());
+			System.out.println(board.getWriterNo());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -259,4 +261,24 @@ public class BoardDao {
 		
 		return result;
 	}
+
+	public int updateReadCount(Connection connection, int no) {
+		int updateCount = 0;
+	    PreparedStatement pstmt = null;
+	    String query = "UPDATE POST SET P_RDCOUNT = P_RDCOUNT + 1 WHERE P_NO = ?";
+
+	    try {
+	        pstmt = connection.prepareStatement(query);
+	        pstmt.setInt(1, no);
+	        
+	        updateCount = pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        close(pstmt);
+	    }
+
+	    return updateCount;
+	}
+	
 }

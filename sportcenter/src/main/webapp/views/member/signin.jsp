@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 
@@ -27,10 +28,15 @@
 		padding:0 10px; 
 		text-align:left;
 	}
+	
+	#space1 { letter-spacing:18.7px; }
+	#space2 { letter-spacing:10px; }
+	#space3 { margin-left: 112px;}
+	
 	#btn1 {
 		border-color: white;
-		width: 280px;
- 		height: 30px;
+		width: 310px;
+ 		height: 40px;
  		margin-left: 20px;
  		display :inline-block;
  		box-shadow: none;
@@ -84,29 +90,29 @@
 		
 			<tr>
 				<td id="id">
-					<label> 아 &nbsp; 이 &nbsp; 디 : </label>
-					<input type="text" name="userId" id="userId" placeholder="아이디" 
+					<label><span id="space1">아이디</span>:</label>
+					<input type="text" name="id" id="id" placeholder="아이디" 
 							value="${ cookie.saveId.value }" required>
 				</td>
 			</tr>
 			
 			<tr>
 				<td id="pwd">
-				<label>비밀번호&nbsp; : </label>
-					<input type="password" name="userPwd" id="userPwd" placeholder="비밀번호" required>
+				<label><span id="space2">비밀번호</span>:</label>
+					<input type="password" name="pwd" id="pwd" placeholder="비밀번호" required>
 
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					<label><input type="checkbox" name="saveId" id="saveId"
+				<td colspan="2">
+					<label id="space3"><input type="checkbox" name="saveId" id="saveId"
 								${ empty cookie.saveId ? "" : "checked" }>아이디 저장</label> 
 					<br>
+					<%-- 
 						<a href="#" onClick="alert('로그인 성공!!')">
 					<button id="btn1" type="button" onclick="location.href='/sportcenter/views/introduce/intro_hello.jsp'">로그인</button>
-					<%-- 
-					<input id="btn1" type="submit" value="로그인" >
 					--%>
+					<input id="btn1" type="submit" value="로그인" >
 				</td>
 			</tr>
        
@@ -133,9 +139,6 @@
 		</tr>
 		<tr>
 			<td>
-				<button onclick="location.href='${ path }/member/myPage'">내 정보</button>
-			</td>
-			<td>
 				<button onclick="location.href='${ path }/logout'">로그아웃</button>						
 			</td>
 		</tr>
@@ -145,3 +148,4 @@
 </div>
  	</div>
 </section>
+  <jsp:include page="/views/common/footer.jsp" /> 

@@ -233,7 +233,7 @@ document.getElementById('searchInput').addEventListener('input', function () {
 
 <footer id="footer">
   <jsp:include page="/views/common/footer.jsp" />
-     </footer>
+    </footer>
 
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
