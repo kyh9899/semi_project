@@ -1,14 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/views/common/header.jsp" />
-<jsp:include page="/views//MenuBar.jsp" />
 
-
-<!DOCTYPE html>
-<html>
-<head>
-<title>Insert title here</title>
-
+<article class="art1" style="width: 60%;"> 
 <section id="content"  align-items: center;  style=" width: 1300px;">
     <ul flex-direction: column; float:left;"></ul>
 
@@ -29,12 +23,12 @@
 	<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 
 </section>
+</article>
+<article class="art2" style="width: 20%;">
 
-</head>
 
 
 
-</html>
 <jsp:include page="/views/common/footer.jsp" />
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>

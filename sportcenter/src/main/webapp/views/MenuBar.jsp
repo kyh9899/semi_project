@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
 
-<body>
     <div class="flex-shrink-0 p-3 bg-white" style="width: 280px ;">
     <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
       <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
@@ -75,7 +72,7 @@
       </li>
     </ul>
   </div>
-</body>
+
 
 <script>
 	const page = '<%= request.getRequestURI() %>';
@@ -110,4 +107,3 @@
 		$('#noticeId').attr("aria-expanded", "true");
 	};
 </script>
-</html>

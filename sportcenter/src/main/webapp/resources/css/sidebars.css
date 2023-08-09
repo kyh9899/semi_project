@@ -4,7 +4,7 @@ body {
 }
 
 .flex-shrink-0 {
-  margin-left: 85px; /* You can adjust this value as needed */
+  margin-left: 35px; /* You can adjust this value as needed */
   height: calc(100vh - 150px); /* You can adjust the 20px value as needed */
   float:left;
 }

@@ -119,24 +119,12 @@
     <div class="form-container">
     <form id="payment-form">
       <div class="form-group">
-        <label for="name">이름</label>
+        <label for="name">회원 아이디</label>
         <input type="text" id="name" required>
       </div>
       <div class="form-group">
-        <label for="email">이메일 주소</label>
-        <input type="email" id="email" required>
-      </div>
-      <div class="form-group">
-        <label for="card-number">카드 번호</label>
-        <input type="text" id="card-number" maxlength="19" required>
-      </div>
-      <div class="form-group">
-        <label for="expiration">유효기간</label>
-        <input type="text" id="expiration" maxlength="5" required>
-      </div>
-      <div class="form-group">
-        <label for="cvc">CVC 번호</label>
-        <input type="text" id="cvc" maxlength="4" required>
+        <label for="pay_date">결제 일자</label>
+        <input type="text" id="pay_date" maxlength="19" required>
       </div>
       <div class="form-group">
         <label for="amount">결제 금액</label>

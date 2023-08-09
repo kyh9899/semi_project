@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <jsp:include page="/views/common/header.jsp" />
-<jsp:include page="/views//MenuBar.jsp" />
 
 <style>
   .course-list-container {
@@ -23,8 +22,8 @@
 </style>
 
   
-  
-  <div id="wrapper">
+<article class="art1" style="width: 60%;">   
+<div id="wrapper">
 
  <section id="courseList">
         <h2>강좌 목록</h2>
@@ -44,12 +43,12 @@
             <thead>
                 <tr>
                     <th>강좌명</th>
-                    <th>강의실</th>
+                    <th>강의장명</th>
                     <th>강사명</th>
-                    <th>교육시간</th>
+                    <th>강습시간</th>
                     <th>수강료</th>
-                    <th>정원</th>
-                    <th>상태</th>
+                    <th>수강인원</th>
+                    <th>사용가능 여부</th>
                     <th>신청</th>
                 </tr>
             </thead>
@@ -231,11 +230,13 @@ document.getElementById('searchInput').addEventListener('input', function () {
 });
 </script>
 
-<footer id="footer">
-  <jsp:include page="/views/common/footer.jsp" />
-     </footer>
+</article>
+<article class="art2" style="width: 20%;">
+
+
 
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
+<jsp:include page="/views/common/footer.jsp" />
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
 

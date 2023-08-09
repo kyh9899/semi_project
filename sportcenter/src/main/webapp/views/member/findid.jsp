@@ -74,7 +74,7 @@
 				<table>
 			    <tr>
 			      <td>이름 : </td>
-			      <td><input type="text" name="userName" id="userName" required ></td>
+			      <td><input type="text" name="name" id="name" required ></td>
 			    </tr> 
 			    <tr>
 			      <td>번호 : </td>
@@ -82,10 +82,11 @@
 			    </tr>
 			    <tr id="ttr3"> 
 			      <td colspan="2" align="center"> &nbsp; &nbsp; &nbsp; 
-			      <a href="#" onClick="alert('아이디 찾기 성공!!')">
-					<button id="btn1" type="findid" onclick="location.href='/sportcenter/views/introduce/intro_hello.jsp'">아이디 찾기</button>  
 			      <%-- 
-			        <button  type="submit" id="findid" onclick="'${ path }/member/findid'"><span>아이디 찾기</span></button> --%>  | &nbsp; &nbsp; 
+			      <a href="#" onClick="alert('아이디 찾기 성공!!')">
+					<button id="btn1" type="findid" onclick="location.href='/sportcenter/">아이디 찾기</button>  
+					--%> 
+			        <button  type="submit" id="findid" onclick="'${ path }/member/findid'"><span>아이디 찾기</span></button>  | &nbsp; &nbsp; 
 			      
 			        <input id="btn1" type="button"  value="취소" onClick="history.back()">
 			      </td>
@@ -116,39 +117,7 @@
  </form>
 		</c:if>
 	--%>
-	<script src="${ path }/member/findid"></script>
-	<script>
-		function findUserId(event) {
-			event.preventDefault(); 
-
-			const userName = document.getElementById("userName").value;
-			const phone = document.getElementById("phone").value;
-
-			const data = {
-				member_name: userName,
-				member_phone: phone
-			};
-
-			fetch("/find_user", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify(data)
-			})
-			.then(response => response.json())
-			.then(data => {
-				if (data.username) {
-					alert("찾은 아이디: " + data.username);
-				} else {
-					alert("일치하는 사용자를 찾을 수 없습니다.");
-				}
-			})
-			.catch(error => {
-				console.error("오류 발생:", error);
-			});
-		}
-	</script>
+	
 	
 	
 </body>
