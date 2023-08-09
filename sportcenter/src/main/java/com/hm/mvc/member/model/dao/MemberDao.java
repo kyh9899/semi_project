@@ -11,35 +11,36 @@ import com.hm.mvc.member.model.vo.Member;
 
 public class MemberDao {
 
-	public Member findMemberById(Connection connection, String userId) {
+	public Member findMemberById(Connection connection, String id) {
 		Member member = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		String query = "SELECT * FROM MEMBER WHERE ID=? AND STATUS='Y'";
+		String query = "SELECT * FROM MEMBER WHERE MB_ID=? AND MB_STATUS='Y'";
 		
 		try {
 			stmt = connection.prepareStatement(query);
 
-			stmt.setString(1, userId);
+			stmt.setString(1, id);
 			
 			rs = stmt.executeQuery();
 			
 			if(rs.next()) {
 				member = new Member();
 				
-				member.setName(rs.getString("NAME"));
-				member.setId(rs.getString("ID"));
-				member.setPwd(rs.getString("PASSWORD"));
-				member.setSSN1(rs.getString("SSN1"));
-				member.setSSN2(rs.getString("SSN2"));			    
-				member.setPhone(rs.getString("PHONE"));
-				member.setAddress1(rs.getString("ADDRESS1"));
-				member.setAddress2(rs.getString("ADDRESS2"));
-				member.setEmail(rs.getString("EMAIL"));
-				member.setStatus(rs.getString("STATUS"));
+//				member.setNo(rs.getInt("MB_CODE"));
+				member.setId(rs.getString("MB_ID"));
+				member.setPwd(rs.getString("MB_PWD"));
+				member.setName(rs.getString("MB_NAME"));
+				member.setSSN1(rs.getString("MB_SSN"));
+				member.setSSN2(rs.getString("MB_SSN"));
+				member.setPhone(rs.getString("MB_PHONE"));
+				member.setAddress1(rs.getString("MB_ADDRESS"));
+				member.setAddress2(rs.getString("MB_ADDRESS"));
+				member.setEmail(rs.getString("MB_EMAIL"));
+				member.setStatus(rs.getString("MB_STATUS"));
 				member.setJoinDate(rs.getDate("JOIN_DATE"));
 				member.setQuitDate(rs.getDate("QUIT_DATE"));
-				member.setONF(rs.getString("ONF"));
+				member.setONF(rs.getString("MG_ONF"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -54,19 +55,18 @@ public class MemberDao {
 	public int insertMember(Connection connection, Member member) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "INSERT INTO MEMBER VALUES(SEQ_UNO.NEXTVAL,?,?,DEFAULT,?,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT)";
+		String query = "INSERT INTO MEMBER VALUES(SEQ_MB_NO.NEXTVAL,?,?,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT)";
 		
 		try {			
 			pstmt = connection.prepareStatement(query);
 			
-			pstmt.setString(1, member.getName());
-			pstmt.setString(2, member.getId());
-			pstmt.setString(3, member.getPwd());
-			pstmt.setString(4, member.getSSN1());
-			pstmt.setString(5, member.getSSN2());
-			pstmt.setString(6, member.getPhone());
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPwd());
+			pstmt.setString(3, member.getName());
+			pstmt.setString(4, member.getSSN1() + "-" + member.getSSN2() + "******");
+			pstmt.setString(5, member.getPhone());
+			pstmt.setString(6, member.getAddress1() + " " + member.getAddress2());
 			pstmt.setString(7, member.getEmail());
-			pstmt.setString(8, member.getAddress1() + member.getAddress2());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -81,7 +81,7 @@ public class MemberDao {
 	public int updateMember(Connection connection, Member member) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "UPDATE MEMBER SET NAME=?,PHONE=?,EMAIL=?,ADDRESS=?,MODIFY_DATE=SYSDATE WHERE NO=?";
+		String query = "UPDATE MEMBER SET MB_NAME=?,MB_PHONE=?,MB_EMAIL=?,MB_ADDRESS=?,JOIN_DATE=SYSDATE WHERE MB_CODE=?";
 		
 		try {
 			pstmt = connection.prepareStatement(query);
@@ -90,6 +90,7 @@ public class MemberDao {
 			pstmt.setString(2, member.getPhone());
 			pstmt.setString(3, member.getEmail());
 			pstmt.setString(4, member.getAddress1() + member.getAddress2());
+			pstmt.setInt(5, member.getNo());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -104,7 +105,7 @@ public class MemberDao {
 	public int updateMemberStatus(Connection connection, int no, String status) {
 		int result = 0; 
 		PreparedStatement pstmt = null;
-		String query = "UPDATE MEMBER SET STATUS=? WHERE NO=?";
+		String query = "UPDATE MEMBER SET MB_STATUS=? WHERE NO=?";
 		
 		try {
 			pstmt = connection.prepareStatement(query);

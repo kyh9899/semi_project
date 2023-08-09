@@ -1,5 +1,8 @@
 package com.hm.mvc.board.controller;
 
+import static com.hm.mvc.common.jdbc.JDBCTemplate.commit;
+import static com.hm.mvc.common.jdbc.JDBCTemplate.rollback;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +37,8 @@ public class BoardUpdateServlet extends HttpServlet {
 		request.setAttribute("board", board);
 		request.getRequestDispatcher("/views/board/update.jsp").forward(request, response);   
 		
+		
+		
 //    	if (loginMember != null) {			
 //    		no = Integer.parseInt(request.getParameter("no"));
 //    		board = new BoardService().getBoardByNo(no);
@@ -59,9 +64,7 @@ public class BoardUpdateServlet extends HttpServlet {
     	Board board = null;
     	HttpSession session = request.getSession();
     	Member loginMember = (Member) session.getAttribute("loginMember");
-    	
-    	
-    	
+  
     	
     	String path = getServletContext().getRealPath("/resources/upload/board");
     	int maxSize = 10485760;
@@ -94,10 +97,7 @@ public class BoardUpdateServlet extends HttpServlet {
 			request.setAttribute("location", "/board/update?no=" + board.getNo());
 		}
 		
-		
-		
-		
-    	
+   	
     	
     	
 //    	if (loginMember != null) {		

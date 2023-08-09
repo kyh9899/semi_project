@@ -54,7 +54,7 @@
 			<h2 align="center">고객센터</h2>    
 			</div>
 		
-			<div id="div-menubar" class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+		<div id="div-menubar" class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
 		  <a href="javascript:" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
 		    <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
 		    <span class="fs-5 fw-semibold">MENU</span>
@@ -104,9 +104,7 @@
 							<tr>
 								<th colspan="2">
 									<input type="submit" value="등록"> 
-									&nbsp;&nbsp;
 									<input type="reset" value="취소">
-									&nbsp;&nbsp;
 									<input type="button" value="목록으로" onclick="location.href='${ path }/board/notice'"> 
 								</th>
 							</tr>

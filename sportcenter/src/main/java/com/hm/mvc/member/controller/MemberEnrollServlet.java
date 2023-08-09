@@ -31,14 +31,15 @@ public class MemberEnrollServlet extends HttpServlet {
     	
     	Member member = new Member();
     	
-    	member.setName(request.getParameter("userName"));
-    	member.setId(request.getParameter("userId"));
-    	member.setPwd(request.getParameter("userPwd"));
+    	
+    	member.setName(request.getParameter("name"));
+    	member.setId(request.getParameter("id"));
+    	member.setPwd(request.getParameter("pwd"));
     	member.setSSN1(request.getParameter("SSN1"));
     	member.setSSN2(request.getParameter("SSN2"));
-    	member.setPhone(request.getParameter("phone"));
-    	member.setAddress2(request.getParameter("address2"));
-    	member.setAddress1(request.getParameter("address1"));
+    	member.setPhone(request.getParameter("contactNumber"));
+    	member.setAddress1(request.getParameter("addr"));
+    	member.setAddress2(request.getParameter("addr_dtl"));
     	member.setEmail(request.getParameter("email"));
     	
     	System.out.println(member);
