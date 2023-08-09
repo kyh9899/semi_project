@@ -27,24 +27,25 @@ public class MemberFindIdservlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String username = request.getParameter("username");
+		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
 		
-		Member loginMember = new MemberService().login(username, phone);
+		Member findMemberByName  = new MemberService().findid(name, phone);
     	
-    	System.out.println(loginMember);
+    	System.out.println(findMemberByName );
     	
-    	if (loginMember != null) {
+    	if (findMemberByName  != null) {
 			
     		HttpSession session = request.getSession();
     		
-    		session.setAttribute("loginMember", loginMember);
+    		session.setAttribute("loginMember", findMemberByName );
     		
-    		response.sendRedirect(request.getContextPath() + "/");
+    		
+    		response.sendRedirect(request.getContextPath() + "/login");
 		} else {
 			
-			request.setAttribute("msg",  "정보가 없습니다.");
-			request.setAttribute("location", "/");
+			request.setAttribute("msg",  "아이디 정보가 없습니다.");
+			request.setAttribute("location", "/member/findid");
 			
 			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 		}    	

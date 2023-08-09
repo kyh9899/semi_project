@@ -39,11 +39,11 @@ public class MemberFindPwdServlet extends HttpServlet {
     		
     		session.setAttribute("loginMember", loginMember);
     		
-    		response.sendRedirect(request.getContextPath() + "/");
+    		response.sendRedirect(request.getContextPath() + "/login");
 		} else {
 			
 			request.setAttribute("msg",  "정보가 없습니다.");
-			request.setAttribute("location", "/");
+			request.setAttribute("location", "/member/findpwd");
 			
 			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 		}    	

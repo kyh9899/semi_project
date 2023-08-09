@@ -48,9 +48,42 @@ public class MemberDao {
 			close(rs);
 			close(pstmt);
 		}
-		System.out.println(member);
+		
 		return member;
 	}
+	
+	
+	public Member findid(Connection connection, String name, String phone) {
+	    Member member = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    String query = "SELECT * FROM MEMBER WHERE MB_NAME = ? AND MB_PHONE = ?";
+	    
+	    try {
+	        pstmt = connection.prepareStatement(query);
+
+	        pstmt.setString(1, name);
+	        pstmt.setString(2, phone);
+	        
+	        rs = pstmt.executeQuery();
+
+	        if (rs.next()) {
+	            member = new Member();
+
+	            member.setName(rs.getString("MB_NAME"));
+	            member.setPhone(rs.getString("MB_PHONE"));
+	            
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        close(rs);
+	        close(pstmt);
+	    }
+	    
+	    return member;
+	}
+
 
 	public int insertMember(Connection connection, Member member) {
 		int result = 0;
