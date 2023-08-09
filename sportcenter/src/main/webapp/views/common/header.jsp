@@ -5,6 +5,7 @@
 
 <!DOCTYPE html>
 <html>
+<div class="full" style="width: 100%; height: 100%;">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -18,15 +19,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 @media (min-width: 1200px) {
-  .container, .container-lg, .container-md, .container-sm, .container-xl {
-    max-width: 100%;
-  }
-}
+	  .container, .container-lg, .container-md, .container-sm, .container-xl {
+	    max-width: 100%;
+	  	}
+	  }
+	  
 		div.container {
 		  font-family: 'Noto Sans KR', sans-serif;
 		  margin-right : 0;
 		  margin-left : 0;
-		   width: 100%;
+		  width: 100%;
 		}
       }
 
@@ -79,6 +81,18 @@
       letter-spacing:3px; 
       padding-bottom: 10px;
       }
+      
+	   section {
+            width: 100%;
+            height: 60%;
+        }
+        aside {
+            width: 20%;
+            height: 65%;
+            float: left;
+        }
+        
+        
     </style>
 </head>
 <body>
@@ -122,3 +136,9 @@
 </c:if>
     </header>
   </div>
+
+
+  
+<div>
+	<section style="display:flex;">
+		<aside><jsp:include page="/views//MenuBar.jsp" /></aside>
