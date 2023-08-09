@@ -34,8 +34,8 @@ public class MemberDao {
 				member.setSSN1(rs.getString("MB_SSN"));
 				member.setSSN2(rs.getString("MB_SSN"));
 				member.setPhone(rs.getString("MB_PHONE"));
-				member.setAddress1(rs.getString("MB_ADDRESS"));
-				member.setAddress2(rs.getString("MB_ADDRESS"));
+				member.setAddress1(rs.getString("MB_ADDRESS1"));
+				member.setAddress2(rs.getString("MB_ADDRESS2"));
 				member.setEmail(rs.getString("MB_EMAIL"));
 				member.setStatus(rs.getString("MB_STATUS"));
 				member.setJoinDate(rs.getDate("JOIN_DATE"));
@@ -88,7 +88,7 @@ public class MemberDao {
 	public int insertMember(Connection connection, Member member) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "INSERT INTO MEMBER VALUES(SEQ_MB_NO.NEXTVAL,?,?,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT)";
+		String query = "INSERT INTO MEMBER VALUES(SEQ_MB_NO.NEXTVAL,?,?,?,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT)";
 		
 		try {			
 			pstmt = connection.prepareStatement(query);
@@ -98,8 +98,9 @@ public class MemberDao {
 			pstmt.setString(3, member.getName());
 			pstmt.setString(4, member.getSSN1() + "-" + member.getSSN2() + "******");
 			pstmt.setString(5, member.getPhone());
-			pstmt.setString(6, member.getAddress1() + " " + member.getAddress2());
-			pstmt.setString(7, member.getEmail());
+			pstmt.setString(6, member.getAddress1());
+			pstmt.setString(7, member.getAddress2());
+			pstmt.setString(8, member.getEmail());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -114,7 +115,7 @@ public class MemberDao {
 	public int updateMember(Connection connection, Member member) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "UPDATE MEMBER SET MB_NAME=?,MB_PHONE=?,MB_EMAIL=?,MB_ADDRESS=?,JOIN_DATE=SYSDATE WHERE MB_CODE=?";
+		String query = "UPDATE MEMBER SET MB_NAME=?,MB_PHONE=?,MB_EMAIL=?,MB_ADDRESS1=?,MB_ADDRESS2=?,JOIN_DATE=SYSDATE WHERE MB_CODE=?";
 		
 		try {
 			pstmt = connection.prepareStatement(query);
@@ -122,8 +123,9 @@ public class MemberDao {
 			pstmt.setString(1, member.getName());
 			pstmt.setString(2, member.getPhone());
 			pstmt.setString(3, member.getEmail());
-			pstmt.setString(4, member.getAddress1() + member.getAddress2());
-			pstmt.setInt(5, member.getNo());
+			pstmt.setString(4, member.getAddress1());
+			pstmt.setString(5, member.getAddress2());
+			pstmt.setInt(6, member.getNo());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
