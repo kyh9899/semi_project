@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="${ path }/resources/css/bootstrap.min.css">
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+		div.container {
+		  font-family: 'Noto Sans KR', sans-serif;
+		  margin: auto;
+		}
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -83,10 +89,28 @@
         <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
       </ul>
 
+	<c:if test="${ empty loginMember }">
       <div class="col-md-3 text-end">
         <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/login'">로그인</button>
         <button type="button" class="btn btn-primary" onclick="location.href='${ path }/member/enrollAgreement'">회원가입</button>
 
       </div>
+	</c:if>
+    <c:if test="${ not empty loginMember }">
+    
+	<table>
+		<tr>
+			<td colspan="2">
+				${ loginMember.name }님 안녕하세요.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="location.href='${ path }/views/member/myPage.jsp'">마이페이지</button>
+				<button onclick="location.href='${ path }/logout'">로그아웃</button>						
+			</td>
+		</tr>
+	</table>
+</c:if>
     </header>
   </div>
