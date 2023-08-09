@@ -3,7 +3,7 @@
 <jsp:include page="/views/common/header.jsp" />
 
 
-<article class="art1" style="border: 1px solid; width: 60%;"> 
+<article class="art1" style="width: 60%;"> 
 <table>
 	<div>
         <td><div style="margin-bottom: 20px;"> <!-- Add margin to create space between image and text -->
@@ -21,7 +21,7 @@
 </div>
 </table>
 </article>
-<article class="art2" style="border: 1px solid; width: 20%;">
+<article class="art2" style="width: 20%;">
 
 
 
