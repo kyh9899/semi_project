@@ -18,7 +18,7 @@ public class MemberService {
 		
 		// 사용자가 입력한 아이디/비번과 member 객체에 담긴 아디/비번이 일치하는지 확인(불일치시 null 반환)
 		if (member == null || !member.getPwd().equals(pwd)) {
-			System.out.println("1번 null 반환중!");
+			
 			
 			return null;
 		}
@@ -63,7 +63,7 @@ public class MemberService {
 		
 		close(connection);
 		
-		System.out.println("4번 성공!");
+		
 		return member;
 	}
 

@@ -13,16 +13,16 @@ public class MemberDao {
 
 	public Member findMemberById(Connection connection, String id) {
 		Member member = null;
-		PreparedStatement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String query = "SELECT * FROM MEMBER WHERE MB_ID=? AND MB_STATUS='Y'";
 		
 		try {
-			stmt = connection.prepareStatement(query);
+			pstmt = connection.prepareStatement(query);
 
-			stmt.setString(1, id);
+			pstmt.setString(1, id);
 			
-			rs = stmt.executeQuery();
+			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
 				member = new Member();
@@ -46,9 +46,9 @@ public class MemberDao {
 			e.printStackTrace();
 		} finally {
 			close(rs);
-			close(stmt);
+			close(pstmt);
 		}
-		
+		System.out.println(member);
 		return member;
 	}
 
