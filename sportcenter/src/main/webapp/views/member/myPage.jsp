@@ -24,10 +24,12 @@
 	}
 	
 	section #view-container table th {	
-		text-align:left;
+		text-align: center;
 		padding: 20px 0 15px 20px;
 		border-bottom: 1px solid #ccc;
 		border-top: 1px solid #ccc;
+		background-color: gray;
+		width: 200px;
 	}
 
 	section #view-container table td {	 
@@ -35,6 +37,7 @@
 		padding: 20px 0 15px 20px;
 		border-bottom: 1px solid #ccc;
 		border-top: 1px solid #ccc;
+		width: 500px;
 	}
 	
 	h2 {
@@ -43,7 +46,9 @@
 	
 	.input {
 		border: none;
+		font-size: 1.2em;
 	}
+
 </style>
 <section id="content">
 	<h2 align="center">회원 정보 수정</h2>
@@ -52,35 +57,34 @@
 			<table>
 				<div>
 					<tr>
-		                <th>아이디  </th>
+		                <th>아이디</th>
 						<td>
 							<input type="text" name="userId" class="input" id="newId" value="${ loginMember.id }" readonly required >
 						</td> 	
 		            </tr>
 				</div>
 	            <tr>
-	                <th>이름  </th>
+	                <th>이름</th>
 					<td>
-						<input type="text" name="userName" id="userName" value="${ loginMember.name }" required>				
+						<input type="text" name="userName" class="input" id="userName" value="${ loginMember.name }" required>				
 					</td> 	
 	            </tr>
       	        <tr>
-	                <th>전화번호  </th>
+	                <th>전화번호</th>
 	                <td>
-	                    <input type="tel" placeholder="(-없이)01012345678" value="${ loginMember.phone }" name="phone" id="phone" maxlength="11">
+	                    <input type="tel" class="input" placeholder="(-없이)01012345678" value="${ loginMember.phone }" name="phone" id="phone" maxlength="11">
 	                </td>
 	            </tr>
 	            <tr>
-	                <th>이메일  </th>
+	                <th>이메일</th>
 					<td>
-						<input type="email" placeholder="abc@abc.com" value="${ loginMember.email }" name="email" id="email">												
+						<input type="email" class="input" placeholder="abc@abc.com" value="${ loginMember.email }" name="email" id="email">												
 					</td> 	
 	            </tr>
 	            <tr>
-	                <th>주소  </th>
+	                <th>주소</th>
 						<td>
-							<input type="text" name="address" id="address" value="${ loginMember.address1 }">
-							<input type="text" name="address" id="address" value="${ loginMember.address2 }">
+							<input type="text" class="input" name="address" id="address" value="${ loginMember.address1 }">
 						</td> 	
 	            </tr>
 	        </table>
