@@ -52,9 +52,7 @@
         </button>
         <div class="collapse" id="orders-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">프로그램</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">이용 시간</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">요금</a></li>
+            <li><a href="http://localhost:8087/sportcenter/views/application/enrollment.jsp" class="link-dark d-inline-flex text-decoration-none rounded">목록</a></li>
           </ul>
         </div>
       </li>
@@ -86,6 +84,15 @@
 	if(page === '/sportcenter/views/introduce/intro.jsp'){		
 		 $('#home-collapse').addClass("show");
 		 $('#introId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/introduce/route.jsp'){		
+		 $('#home-collapse').addClass("show");
+		 $('#introId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/introduce/intro_hello.jsp'){		
+		 $('#home-collapse').addClass("show");
+		 $('#introId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/introduce/th_introduce.jsp'){		
+		 $('#home-collapse').addClass("show");
+		 $('#introId').attr("aria-expanded", "true");
 	} else if(page === '/sportcenter/views/program/list.jsp'){
 		$('#dashboard-collapse').addClass("show");	
 		$('#programId').attr("aria-expanded", "true");
@@ -93,6 +100,12 @@
 		$('#orders-collapse').addClass("show");	
 		$('#enrollId').attr("aria-expanded", "true");
 	} else if(page === '/sportcenter/views/board/notice.jsp'){
+		$('#account-collapse').addClass("show");	
+		$('#noticeId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/board/faq.jsp'){
+		$('#account-collapse').addClass("show");	
+		$('#noticeId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/board/lost.jsp'){
 		$('#account-collapse').addClass("show");	
 		$('#noticeId').attr("aria-expanded", "true");
 	};
