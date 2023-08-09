@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.hm.mvc.board.model.vo.Board;
@@ -45,9 +46,9 @@ public class BoardDao {
 		String query = "SELECT RNUM, P_NO, P_TITLE, MB_ID, P_CREATE_DATE, P_ORG_FILENAME, P_RDCOUNT, P_STATUS "
 					 + "FROM (SELECT P.P_NO, P.P_TITLE, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
 					 + "FROM POST P "
-					 + "JOIN MEMBER M ON (P.MB_ID = M.MB_ID) "
+					 + "JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) "
 					 + "WHERE P.P_STATUS = 'Y' "
-					 + "ORDER BY P.P_NO DESC) "
+					 + "ORDER BY P.P_NO DESC) SUBQ "
 					 + "WHERE RNUM BETWEEN ? AND ? ";
 
 		try {
@@ -86,8 +87,8 @@ public class BoardDao {
 		Board board = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String query = "SELECT P.P_NO, P.P_TITLE, P.MB_ID, P.P_RDCOUNT, P.P_ORG_FILENAME, P.P_RND_FILENAME, P.P_CONTENT, P.P_CREATE_DATE, P.P_MODIFY_DATE "
-		       + "FROM POST P INNER JOIN MEMBER M ON (P.MB_ID = M.MB_ID) WHERE P.P_STATUS = 'Y' AND P.P_NO=? ";
+		String query = "SELECT P.P_NO, P.P_TITLE, M.MB_ID, P.P_RDCOUNT, P.P_ORG_FILENAME, P.P_RND_FILENAME, P.P_CONTENT, P.P_CREATE_DATE, P.P_MODIFY_DATE "
+		       + "FROM POST P INNER JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) WHERE P.P_STATUS = 'Y' AND P.P_NO=? ";
 		
 		try {
 			pstmt = connection.prepareStatement(query);
@@ -124,21 +125,25 @@ public class BoardDao {
 	public int insertBoard(Connection connection, Board board) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "INSERT INTO POST VALUES(SEQ_POST_NO.NEXTVAL,null,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT,?)";
+//		Date sqlCreateDate = new Date(board.getCreateDate().getTime());
+		
+		String query = "INSERT INTO POST VALUES(SEQ_POST_NO.NEXTVAL,DEFAULT,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT)";
 		
 		
 		try {
 			pstmt = connection.prepareStatement(query);
 				
-			pstmt.setString(1, board.getTitle());
-			pstmt.setString(2, board.getContent());
-			pstmt.setString(3, board.getOriginalFilename());
-			pstmt.setString(4, board.getRenamedFilename());
-			pstmt.setInt(5, board.getReadCount());
-			pstmt.setString(6, board.getWriterId());
+			pstmt.setInt(1, board.getWriterNo());
+			pstmt.setString(2, board.getTitle());
+			pstmt.setString(3, board.getContent());
+			pstmt.setString(4, board.getOriginalFilename());
+			pstmt.setString(5, board.getRenamedFilename());
+//			pstmt.setInt(6, board.getReadCount());
+//			pstmt.setDate(7, (java.sql.Date) sqlCreateDate);
 			
-			System.out.println(board.getWriterId());
-			System.out.println(board.getWriterNo());
+			
+			System.out.println(board);
+						
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

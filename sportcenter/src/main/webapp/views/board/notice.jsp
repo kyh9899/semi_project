@@ -24,9 +24,12 @@
 	#content { align: center;  background-color:yellow;  }
 	#notice-write { float:left; font-size: 13px;}
 	
+	#searchbar { width:90%; float:left; height:30px; padding-left:250px; margin-bottom: 20px;  }
+	
 	/* 글쓰기 버튼 */ 
-	.btn-outline-secondary { float:left; margin-bottom: 5px;}
-	.btn-secondary { width:50px; margin-bottom:5px; }
+	#writebutton { width:10%; float:left; }
+	.btn-outline-secondary { margin-top:5px; }
+	.btn-secondary { width:60px; }
 	.search-wrapper { width: 100%; height:50%; margin-bottom: 10px; background-color: lightgray; }
 	.sort { width: 10%; margin: 13px 0px 13px 150px; float:left; align: center; }
 	.form-control me-2 { width: 400px;  background-color:yellow; align:center; }
@@ -100,7 +103,32 @@
 	            </div>
 	             --%>  		
 			
-			<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write'">글쓰기</button>
+			
+			
+			
+			<div>
+				<div id="writebutton">
+				<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write'">글쓰기</button>
+				</div>
+				<div id="searchbar">
+					<form method="post" name="search" action="searchbbs.jsp" style="margin-right:0px;">
+						<table class="pull-right">
+							<tr>
+								<td><select class="form-control" name="searchField">
+										<option value="0">선택</option>
+										<option value="bbsTitle">제목</option>
+										<option value="userID">작성자</option>
+								</select></td>
+								<td><input type="text" class="form-control"
+									placeholder="검색어 입력" name="searchText" maxlength="100"></td>
+								<td><button type="submit" class="btn btn-secondary ">검색</button></td>
+								
+							</tr>
+		
+						</table>
+					</form>
+				</div>
+			</div>
 					
 			<br>
 			

@@ -37,6 +37,8 @@ public class BoardNoticeServlet extends HttpServlet {
     	pageInfo = new PageInfo(page, 10, listCount, 10); // page 정보
     	list = new BoardService().getBoardList(pageInfo); // 게시글 list 
     	
+    	System.out.println(listCount);
+    	System.out.println(list);
 
     	request.setAttribute("pageInfo", pageInfo);
     	request.setAttribute("list", list);

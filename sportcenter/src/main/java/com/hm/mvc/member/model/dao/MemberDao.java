@@ -27,7 +27,7 @@ public class MemberDao {
 			if(rs.next()) {
 				member = new Member();
 				
-//				member.setNo(rs.getInt("MB_CODE"));
+				member.setNo(rs.getInt("MB_CODE"));
 				member.setId(rs.getString("MB_ID"));
 				member.setPwd(rs.getString("MB_PWD"));
 				member.setName(rs.getString("MB_NAME"));

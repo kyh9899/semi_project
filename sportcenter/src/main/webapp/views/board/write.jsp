@@ -83,7 +83,7 @@
 			<%-- 게시글 작성 폼 --%>
 			<section id="content" style="margin:0px;">
 				<div id='board-write-container'>
-					<form action="${ path }/board/write" method="POST"  enctype="multipart/form-data">
+					<form action="${ path }/board/write" method="POST" enctype="multipart/form-data">
 						<table id='tbl-board'>
 							<tr>
 								<th>제목</th>
@@ -114,7 +114,6 @@
 				 
 			</section>
 		</div>
-
 </body>
 </html>
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
