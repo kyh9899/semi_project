@@ -67,18 +67,18 @@
 			<table>
 		    <tr>
 		      <td>아이디 : </td> 
-		      <td><input type="text" name="userId" required></td>
+		      <td><input type="text" name="id" id="id" required></td>
 		    </tr>
 		    <tr>
 		      <td>번 &nbsp; 호 : </td>
-		      <td><input type="tel" name="phone" required></td>
+		      <td><input type="tel" name="phone" id="phone"></td>
 		    </tr>
 		    <tr> 
 		      <td colspan="2" align="center"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
-		      <a href="#" onClick="alert('비밀번호 찾기 성공!!')">
-					<button id="btn1" type="findpwd" onclick="location.href='/sportcenter/views/introduce/intro_hello.jsp'"><span>비밀번호 찾기</span></button> 
 		      <%-- 
-		        <button type="submit" id="findpwd" onclick="'${ path }/member/findpwd'"><span>비밀번호 찾기</span></button> --%>  |
+		      <a href="#" onClick="alert('비밀번호 찾기 성공!!')">
+					<button id="btn1" type="findpwd" onclick="location.href='/sportcenter/views/introduce/intro_hello.jsp'"><span>비밀번호 찾기</span></button> --%> 
+		        <button type="submit" id="findpwd" onclick="'${ path }/member/findpwd'"><span>비밀번호 찾기</span></button>  |
 		      
 		        <input id="btn1" type="button"  value="취소" onClick="history.back()">
 		      </td>
