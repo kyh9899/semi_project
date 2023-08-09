@@ -4,13 +4,6 @@
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 <jsp:include page="/views/common/header.jsp" />
 <style>
-  #box {  
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 1200px;
-    margin-left: 330px;
-  }
   .image-container {
     display: flex;
     justify-content: center;
@@ -28,19 +21,11 @@
   	margin-bottom: 50px;
   }
 </style>
-<body>
-	<div class="w-[1000px], h-[800px], m-1">
-		<div class="w-full, h-1/5, flex, flex-col">
- 		 	<h2 align="center">프로그램 안내</h2>
-       	</div>
-        <div class="w-full h-4/5 flex-row flex">
-        <div class="h-full w-1/5">
-        	<jsp:include page="/views//MenuBar.jsp" />
-        </div>
-        <div class="h-full w-full">
-			<section id="content">
+<article class="art1" style="width: 60%;"> 
+<h2 align="center">프로그램 안내</h2>
+
 		      <!-- Content -->
-		      <div id="box">
+
 		 		<div> 		
 					<table>
 						<tr>
@@ -95,8 +80,7 @@
 						</tr>
 					</table>
 				</div>
-			</div>
-			<div id="box">
+
 					<div>
 						<table>
 							<tr>
@@ -154,11 +138,13 @@
 							</tr>
 						</table>
 					</div>
-			</div>
-		    </section>
-            </div>
+
+
         </div> 
     </div>
+</article>
+<article class="art2" style="width: 20%;">    
+
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
