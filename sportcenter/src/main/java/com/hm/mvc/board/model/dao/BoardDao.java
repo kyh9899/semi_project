@@ -20,7 +20,7 @@ public class BoardDao {
 		int count = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String query = "SELECT COUNT(*) FROM POST WHERE P_STATUS='Y'";
+		String query = "SELECT COUNT(*) FROM POST WHERE P_STATUS='Y' AND B_ID=''";
 		
 		try {
 			pstmt = connection.prepareStatement(query);
@@ -43,11 +43,11 @@ public class BoardDao {
 		List<Board> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String query = "SELECT RNUM, P_NO, P_TITLE, MB_ID, P_CREATE_DATE, P_ORG_FILENAME, P_RDCOUNT, P_STATUS "
-					 + "FROM (SELECT P.P_NO, P.P_TITLE, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
+		String query = "SELECT RNUM, B_ID, P_NO, P_TITLE, MB_ID, P_CREATE_DATE, P_ORG_FILENAME, P_RDCOUNT, P_STATUS "
+					 + "FROM (SELECT B.B_ID, P.P_NO, P.P_TITLE, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
 					 + "FROM POST P "
-					 + "JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) "
-					 + "WHERE P.P_STATUS = 'Y' "
+					 + "JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) JOIN BOARD B ON (P.B_ID = B.B_ID) "
+					 + "WHERE P.P_STATUS = 'Y' AND B.B_ID='notice1' "
 					 + "ORDER BY P.P_NO DESC) SUBQ "
 					 + "WHERE RNUM BETWEEN ? AND ? ";
 
@@ -64,6 +64,7 @@ public class BoardDao {
 				
 				board.setNo(rs.getInt("P_NO"));
 				board.setRowNum(rs.getInt("RNUM"));
+				board.setBoardId(rs.getString("B_ID"));
 				board.setWriterId(rs.getString("MB_ID"));
 				board.setTitle(rs.getString("P_TITLE"));
 				board.setCreateDate(rs.getDate("P_CREATE_DATE"));

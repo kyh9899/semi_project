@@ -17,6 +17,8 @@ public class Board {
 	
 	private int writerNo;
 	
+	private String boardId;
+	
 	private String writerId;
 	
 	private String title;
