@@ -80,7 +80,7 @@
 <script>
 	const page = '<%= request.getRequestURI() %>';
 	console.log(page);
-	
+// introduce	
 	if(page === '/sportcenter/views/introduce/intro.jsp'){		
 		 $('#home-collapse').addClass("show");
 		 $('#introId').attr("aria-expanded", "true");
@@ -93,12 +93,33 @@
 	} else if(page === '/sportcenter/views/introduce/th_introduce.jsp'){		
 		 $('#home-collapse').addClass("show");
 		 $('#introId').attr("aria-expanded", "true");
+// program		 
 	} else if(page === '/sportcenter/views/program/list.jsp'){
 		$('#dashboard-collapse').addClass("show");	
 		$('#programId').attr("aria-expanded", "true");
-	} else if(page === '/sportcenter/views/application/enrollment.jsp'){
+	} else if(page === '/sportcenter/views/program/swim.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/health.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/pilates.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/tabletennis.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/badminton.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/yoga.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+// 수강신청		
+	} else if(page === '/sportcenter/views/application/enroll.jsp'){
 		$('#orders-collapse').addClass("show");	
 		$('#enrollId').attr("aria-expanded", "true");
+// 고객센터		
 	} else if(page === '/sportcenter/views/board/notice.jsp'){
 		$('#account-collapse').addClass("show");	
 		$('#noticeId').attr("aria-expanded", "true");
