@@ -67,20 +67,23 @@
         </button>
         <div class="collapse" id="account-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="${ pageContext.request.contextPath }/board/notice" class="link-dark d-inline-flex text-decoration-none rounded">공지사항(Q&A)</a></li>
-            <li><a href="${ pageContext.request.contextPath }/board/lost" class="link-dark d-inline-flex text-decoration-none rounded">분실물 센터</a></li>
-            <li><a href="${ pageContext.request.contextPath }/board/faq" class="link-dark d-inline-flex text-decoration-none rounded">자주 묻는 질문(FAQ)</a></li>
+            <li><a href="${ pageContext.request.contextPath }/board/notice?boardId=notice1" class="link-dark d-inline-flex text-decoration-none rounded">공지사항(Q&A)</a></li>
+            <li><a href="${ pageContext.request.contextPath }/board/lost?boardId=lost" class="link-dark d-inline-flex text-decoration-none rounded">분실물 센터</a></li>
+            <li><a href="${ pageContext.request.contextPath }/board/faq?boardId=faq" class="link-dark d-inline-flex text-decoration-none rounded">자주 묻는 질문(FAQ)</a></li>
           </ul>
         </div>
       </li>
     </ul>
   </div>
+ 
+
+<button id="scrollButton" onclick="scrollToTop()">위로</button>
 
 
 <script>
 	const page = '<%= request.getRequestURI() %>';
 	console.log(page);
-	
+// introduce	
 	if(page === '/sportcenter/views/introduce/intro.jsp'){		
 		 $('#home-collapse').addClass("show");
 		 $('#introId').attr("aria-expanded", "true");
@@ -93,12 +96,33 @@
 	} else if(page === '/sportcenter/views/introduce/th_introduce.jsp'){		
 		 $('#home-collapse').addClass("show");
 		 $('#introId').attr("aria-expanded", "true");
+// program		 
 	} else if(page === '/sportcenter/views/program/list.jsp'){
 		$('#dashboard-collapse').addClass("show");	
 		$('#programId').attr("aria-expanded", "true");
-	} else if(page === '/sportcenter/views/application/enrollment.jsp'){
+	} else if(page === '/sportcenter/views/program/swim.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/health.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/pilates.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/tabletennis.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/badminton.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/yoga.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+// 수강신청		
+	} else if(page === '/sportcenter/views/application/enroll.jsp'){
 		$('#orders-collapse').addClass("show");	
 		$('#enrollId').attr("aria-expanded", "true");
+// 고객센터		
 	} else if(page === '/sportcenter/views/board/notice.jsp'){
 		$('#account-collapse').addClass("show");	
 		$('#noticeId').attr("aria-expanded", "true");
@@ -108,5 +132,22 @@
 	} else if(page === '/sportcenter/views/board/lost.jsp'){
 		$('#account-collapse').addClass("show");	
 		$('#noticeId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/board/write.jsp'){
+		$('#account-collapse').addClass("show");	
+		$('#noticeId').attr("aria-expanded", "true");
 	};
+    // 스크롤 버튼 보이기/숨기기
+    window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("scrollButton").style.display = "block";
+        } else {
+            document.getElementById("scrollButton").style.display = "none";
+        }
+    };
+
+    // 위로 스크롤 이동
+    function scrollToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }	
 </script>

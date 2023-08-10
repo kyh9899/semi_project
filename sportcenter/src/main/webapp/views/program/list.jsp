@@ -10,7 +10,7 @@
     width: 100%;
   }
   img {
-    width: 350px;
+    width: 380px;
     height: 250px;
   }
   table {

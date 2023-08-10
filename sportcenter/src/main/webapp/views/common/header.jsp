@@ -27,7 +27,7 @@
         font-family: 'Noto Sans KR', sans-serif;
         margin-right : 0;
         margin-left : 0;
-         width: 100%;
+        width: 100%;
       }
       }
 
@@ -78,6 +78,14 @@
             height: 65%;
             float: left;
         }
+      .scroll-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
     </style>
 </head>
 <body>
@@ -89,11 +97,11 @@
       
       
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" style="font-size:25px; text-align : center;">
-        <li class="home"><a href="${ path }/views/introduce/intro.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
+        <li class="home"><a href="${ path }/views/introduce/intro_hello.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
         <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
         <li><a href="${ path }/application/enrollment" class="nav-link px-2 link-dark">수강신청</a></li>
-        <li><a href="${ path }/board/notice" class="nav-link px-2 link-dark">고객센터</a></li>
-        <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
+        <li><a href="${ path }/board/notice?boardId=notice1" class="nav-link px-2 link-dark">고객센터</a></li>
+        <li><a href="${ path }/member/myPage" class="nav-link px-2 link-dark">마이페이지</a></li>
       </ul>
 
  <c:if test="${ empty loginMember }">
