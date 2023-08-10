@@ -111,7 +111,7 @@
 								<th colspan="2">
 									<input type="submit" value="수정">
 									<input type="reset" value="취소">
-									<input type="button" onclick="location.replace('${path}/board/notice')" value="목록으로">
+									<input type="button" value="목록으로" id="goBack" >
 								</th>
 							</tr>
 						</table>
@@ -119,6 +119,14 @@
 				</div>
 				 </div> 
 			</section>
+		<script>
+			$(document).ready(() => {	
+				$('#goBack').on('click', () => {
+					history.go(-3);
+					location.href = document.referrer;
+				});
+			});				
+		</script>
 </body>
 </html>
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>

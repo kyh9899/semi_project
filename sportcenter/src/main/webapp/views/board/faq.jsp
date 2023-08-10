@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="/views/common/header.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:include page="/views//MenuBar.jsp" />
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
-
-<!DOCTYPE html>
-<html>
-<head>	
 
 <style>
 
@@ -36,8 +31,7 @@
 
 </style>
 
-</head>
-<body>
+<article class="art1" style="width: 60%;"> 
 	<section id="content">
 		<div id="div-title">	
 		<h2 align="center">고객센터</h2>    
@@ -155,9 +149,8 @@
 		</div>
 	</section>
 
-
-</body>
-</html>
+<article class="art2" style="width: 20%;">
+</article>
 
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
