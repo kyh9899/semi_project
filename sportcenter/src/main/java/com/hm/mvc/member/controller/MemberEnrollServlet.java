@@ -38,12 +38,12 @@ public class MemberEnrollServlet extends HttpServlet {
         String rawPassword = request.getParameter("pwd");
         String encryptedPassword = encryptSHA256(rawPassword);
         member.setPwd(encryptedPassword);
-
         member.setSSN1(request.getParameter("SSN1"));
         member.setSSN2(request.getParameter("SSN2"));
         member.setPhone(request.getParameter("contactNumber"));
         member.setAddress1(request.getParameter("addr"));
         member.setAddress2(request.getParameter("addr_dtl"));
+        member.setEmailId(request.getParameter("mailid"));
         member.setEmail(request.getParameter("email"));
 
         System.out.println(member);

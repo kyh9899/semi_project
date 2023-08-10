@@ -100,7 +100,7 @@ public class MemberDao {
 			pstmt.setString(5, member.getPhone());
 			pstmt.setString(6, member.getAddress1());
 			pstmt.setString(7, member.getAddress2());
-			pstmt.setString(8, member.getEmail());
+			pstmt.setString(8, member.getEmailId() + "@" + member.getEmail());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -122,7 +122,7 @@ public class MemberDao {
 			
 			pstmt.setString(1, member.getName());
 			pstmt.setString(2, member.getPhone());
-			pstmt.setString(3, member.getEmail());
+			pstmt.setString(3, member.getEmailId() + "@" + member.getEmail());
 			pstmt.setString(4, member.getAddress1());
 			pstmt.setString(5, member.getAddress2());
 			pstmt.setInt(6, member.getNo());
