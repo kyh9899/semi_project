@@ -5,4 +5,5 @@ import com.hm.mvc.model.enrollment.*;
 
 public interface EnrollService {
     List<Enroll> findAllEnroll();
+    List<Enroll> searchCourses(String query);
 }
