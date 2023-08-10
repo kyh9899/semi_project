@@ -184,7 +184,7 @@
 						--%>
 							<input type="button" value="수정" onclick="location.href='${ path }/board/update?no=${ board.no }'">
 							<input type="button" value="삭제" id="btnDelete">
-							<input type="button" value="목록으로" id="goBack">
+							<input type="button" value="목록으로" id="goBack" >
 						</th>
 					</tr>
 				</table>
@@ -225,7 +225,7 @@
 	<script>
 		$(document).ready(() => {	
 			$('#goBack').on('click', () => {
-				history.back();				
+				location.href = document.referrer;
 			});
 			
 			$('#fileDown').on('click', () => {
