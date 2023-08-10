@@ -25,11 +25,14 @@ public class concurrentusers extends HttpServlet {
                 userInfo = MB_ID; // 로그인한 사용자의 이름으로 설정
             }
         }
+        System.out.println("doGet 요청 받음");
 
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(userInfo);
     }
+    
+    
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

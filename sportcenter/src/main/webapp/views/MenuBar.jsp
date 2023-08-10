@@ -75,6 +75,9 @@
       </li>
     </ul>
   </div>
+ 
+
+<button id="scrollButton" onclick="scrollToTop()">위로</button>
 
 
 <script>
@@ -129,5 +132,22 @@
 	} else if(page === '/sportcenter/views/board/lost.jsp'){
 		$('#account-collapse').addClass("show");	
 		$('#noticeId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/board/write.jsp'){
+		$('#account-collapse').addClass("show");	
+		$('#noticeId').attr("aria-expanded", "true");
 	};
+    // 스크롤 버튼 보이기/숨기기
+    window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("scrollButton").style.display = "block";
+        } else {
+            document.getElementById("scrollButton").style.display = "none";
+        }
+    };
+
+    // 위로 스크롤 이동
+    function scrollToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }	
 </script>

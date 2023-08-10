@@ -78,6 +78,14 @@
             height: 65%;
             float: left;
         }
+      .scroll-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
     </style>
 </head>
 <body>
