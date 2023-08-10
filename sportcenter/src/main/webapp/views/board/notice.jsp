@@ -19,7 +19,7 @@
 	/*페이지바*/
 	div#pageBar{margin-top:10px; text-align:center; }
 	#div-title { align: center; }
-	#div-menubar { align:center; margin:20px 50px 0px 150px;  float:left; } 
+	
 	
 	#div-notice1 { margin-top: 40px; float:left; align: center; }
 	#content { align: center;  background-color:yellow;  }
@@ -44,9 +44,6 @@
 	<section id="content">
 		<div id="div-title">	
 		<h2 align="center">고객센터</h2>    
-		
-		
-	
 	
 	    <div id="div-notice1">
 	     <h4>공지사항</h4>
@@ -60,7 +57,7 @@
 			</c:if>
 			--%>
 				
-				<%-- 검색기능_필요시 활성화
+				<%-- 검색기능_필요시 활성화 
 	            <div class="search-wrapper">
 	                <fieldset class="search">
 	                    
@@ -82,7 +79,7 @@
 						
 	                </fieldset>
 	            </div>
-	             --%>  		
+	            --%> 	
 			
 			
 			
@@ -105,7 +102,6 @@
 								<td><button type="submit" class="btn btn-secondary ">검색</button></td>
 								
 							</tr>
-		
 						</table>
 					</form>
 				</div>
@@ -139,7 +135,7 @@
 						<tr>
 							<td>${ board.no }</td>
 							<td>
-								<a href="${ path }/board/view?no=${ board.no }" class="updateCount">
+								<a href="${ path }/board/view?no=${ board.no }">
 									${ board.title } 
 								</a>
 							</td>
@@ -188,16 +184,7 @@
 		</div>
 		</div>
 	</section>
-	<script>
-		$(document).ready(() => {
-			$('.updateCount').on('click', () => {
-				if (confirm('조회수를 증가 하시겠습니까?')) {
-					location.assign('${ path }/board/view');
-			      
-			    }		
-			}		
-		});
-	</script>
+
 </body>
 </html>
 
