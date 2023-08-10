@@ -67,9 +67,9 @@
         </button>
         <div class="collapse" id="account-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="${ pageContext.request.contextPath }/board/notice" class="link-dark d-inline-flex text-decoration-none rounded">공지사항(Q&A)</a></li>
-            <li><a href="${ pageContext.request.contextPath }/board/lost" class="link-dark d-inline-flex text-decoration-none rounded">분실물 센터</a></li>
-            <li><a href="${ pageContext.request.contextPath }/board/faq" class="link-dark d-inline-flex text-decoration-none rounded">자주 묻는 질문(FAQ)</a></li>
+            <li><a href="${ pageContext.request.contextPath }/board/notice?boardId=notice1" class="link-dark d-inline-flex text-decoration-none rounded">공지사항(Q&A)</a></li>
+            <li><a href="${ pageContext.request.contextPath }/board/lost?boardId=lost" class="link-dark d-inline-flex text-decoration-none rounded">분실물 센터</a></li>
+            <li><a href="${ pageContext.request.contextPath }/board/faq?boardId=faq" class="link-dark d-inline-flex text-decoration-none rounded">자주 묻는 질문(FAQ)</a></li>
           </ul>
         </div>
       </li>
