@@ -6,10 +6,41 @@
 <jsp:include page="/views/common/header.jsp" />
 
 <style>
+
    section#board-list-container{width:600px; margin:0 auto; text-align:center;}
    section#board-list-container h2{margin:10px 0;}
    table#tbl-board{width:100%; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
    table#tbl-board th, table#tbl-board td {border:1px solid; padding: 5px 0; text-align:center;} 
+   section#board-list-container {
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  section#board-list-container h2 {
+    margin: 10px 0;
+  }
+  table#tbl-board {
+    width: 75%;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    clear: both;
+    font-family: Arial, sans-serif; /* Change the font to Arial */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Add a boxShadow */
+  }
+  table#tbl-board th, table#tbl-board td {
+    border: 1px solid;
+    padding: 6px 5px;
+    text-align: center;
+    background-color: #f8f8f8; /* Add a light gray background color */
+  }
+  table#tbl-board th {
+    background-color: #24648F; /* Add a dark blue background color */
+    color: white; /* Set the text color to white */
+  }
+  table#tbl-board tr:hover td {
+    background-color: #ddd; /* Change the background color on hover */
+  }
    /*글쓰기버튼*/
    input#btn-add{float:right; margin: 0 0 15px;}
    /*페이지바*/
@@ -18,6 +49,8 @@
    
    
 </style>
+<article class="art1" style="width: 60%;"> 
+<div>
 <section id="content">
    <h1 align="center">수강 신청</h1>
    <div id="board-list-container">
@@ -33,7 +66,9 @@
     	   <p style="font-size: 14px; color: gray;">원하시는 종목 및 강습반을 선택해 주세요.</p>
 		   <p style="font-size: 14px; color: gray;">강습명 검색시 선택된 종목, 강습반은 초기화 됩니다.</p>
 		   <p style="font-size: 14px; color: gray;">마감 된 강좌를 제외하고 잔여자리가 있는 강좌만 조회 가능합니다.</p>
-   
+      </section>
+	   			<br><br>
+   				
    <c:if test="${ not empty loginMember }">
    	<button type="button" onclick="location.href='${ path }/board/write'">신청</button>
    <div class="course-list-container">
@@ -47,13 +82,14 @@
             <th>강사명</th>
             <th>강습시간</th>
             <th>수강료</th>
+            <th>정원</th>
             <th>수강인원</th>
-            <th>사용가능 여부</th>
-
+            <th>수강신청</th>
+			
          </tr>
          <c:if test="${ empty list }">
             <tr>
-               <td colspan="7">
+               <td colspan="9">
                   조회된 강습목록이 없습니다.
                </td>
             </tr>            
@@ -67,13 +103,16 @@
                <td>${ enroll.chName }</td>
                <td>${ enroll.pgTime }</td>
                <td>${ enroll.pgFee }</td>
+               <td>${ enroll.pgMax }</td> 
                <td>${ enroll.pgNum }</td>
-               <td>${ enroll.ermCode }</td>
+               <td><form method="POST" action="/sportcenter/views/application/cation.jsp" onsubmit="return checkLoginStatus()">
+                            <input type="hidden" name="courseId" value="코스ID">
+                            <input type="submit" value="신청">
+                        </form></td> 
             </tr>         
          	</c:forEach>
          </c:if>
       </table>
-      </section>
       </div>
       <div id="pageBar">
          <!-- 맨 처음으로 -->
@@ -116,6 +155,8 @@
    </div>
 </section>
 
+<article class="art2" style="width: 20%;">
+</article>
 <script>
 document.getElementById('searchInput').addEventListener('input', function () {
   const searchText = this.value.toLowerCase(); // Get the search text in lower case
@@ -136,5 +177,10 @@ document.getElementById('searchInput').addEventListener('input', function () {
   }
 });
 </script>
+</div>
 
+
+<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>

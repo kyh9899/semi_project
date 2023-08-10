@@ -1,4 +1,4 @@
-package com.hm.mvc.member.controller;
+package com.hm.mvc.model.enrollment;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
