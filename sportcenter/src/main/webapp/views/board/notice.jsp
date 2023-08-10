@@ -36,14 +36,14 @@
 </style>
 
 <article class="art1" style="width: 60%;"> 
-	<section id="content">
+	
 		<div id="div-title">	
 		<h2 align="center">고객센터</h2>    
 		
 		
 	
 	
-	    <div id="div-notice1">
+	    <div id="div-notice1" align="center">
 	     <h4>공지사항</h4>
 	     <p>새로운 소식을 알려드립니다.</p>
     

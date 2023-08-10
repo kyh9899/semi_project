@@ -33,9 +33,12 @@
         </button>
         <div class="collapse" id="dashboard-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">시설 안내</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">이용 시간표</a></li>
-            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">요금</a></li>
+            <li><a href="http://localhost:8087/sportcenter/swim/info" class="link-dark d-inline-flex text-decoration-none rounded">수영</a></li>
+            <li><a href="http://localhost:8087/sportcenter/health/info" class="link-dark d-inline-flex text-decoration-none rounded">헬스</a></li>
+            <li><a href="http://localhost:8087/sportcenter/pilates/info" class="link-dark d-inline-flex text-decoration-none rounded">필라테스</a></li>
+            <li><a href="http://localhost:8087/sportcenter/tabletennis/info" class="link-dark d-inline-flex text-decoration-none rounded">탁구</a></li>
+            <li><a href="http://localhost:8087/sportcenter/yoga/info" class="link-dark d-inline-flex text-decoration-none rounded">요가</a></li>
+            <li><a href="http://localhost:8087/sportcenter/badminton/info" class="link-dark d-inline-flex text-decoration-none rounded">배드민턴</a></li>
           </ul>
         </div>
       </li>
@@ -49,7 +52,7 @@
         </button>
         <div class="collapse" id="orders-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="http://localhost:8087/sportcenter/views/application/enrollment.jsp" class="link-dark d-inline-flex text-decoration-none rounded">목록</a></li>
+            <li><a href="http://localhost:8087/sportcenter/application/enrollment" class="link-dark d-inline-flex text-decoration-none rounded">목록</a></li>
           </ul>
         </div>
       </li>
@@ -64,9 +67,9 @@
         </button>
         <div class="collapse" id="account-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="${ pageContext.request.contextPath }/views/board/notice.jsp" class="link-dark d-inline-flex text-decoration-none rounded">공지사항(Q&A)</a></li>
-            <li><a href="${ pageContext.request.contextPath }/views/board/lost.jsp" class="link-dark d-inline-flex text-decoration-none rounded">분실물 센터</a></li>
-            <li><a href="${ pageContext.request.contextPath }/views/board/faq.jsp" class="link-dark d-inline-flex text-decoration-none rounded">자주 묻는 질문(FAQ)</a></li>
+            <li><a href="${ pageContext.request.contextPath }/board/notice" class="link-dark d-inline-flex text-decoration-none rounded">공지사항(Q&A)</a></li>
+            <li><a href="${ pageContext.request.contextPath }/board/lost" class="link-dark d-inline-flex text-decoration-none rounded">분실물 센터</a></li>
+            <li><a href="${ pageContext.request.contextPath }/board/faq" class="link-dark d-inline-flex text-decoration-none rounded">자주 묻는 질문(FAQ)</a></li>
           </ul>
         </div>
       </li>
@@ -77,7 +80,7 @@
 <script>
 	const page = '<%= request.getRequestURI() %>';
 	console.log(page);
-	
+// introduce	
 	if(page === '/sportcenter/views/introduce/intro.jsp'){		
 		 $('#home-collapse').addClass("show");
 		 $('#introId').attr("aria-expanded", "true");
@@ -90,12 +93,33 @@
 	} else if(page === '/sportcenter/views/introduce/th_introduce.jsp'){		
 		 $('#home-collapse').addClass("show");
 		 $('#introId').attr("aria-expanded", "true");
+// program		 
 	} else if(page === '/sportcenter/views/program/list.jsp'){
 		$('#dashboard-collapse').addClass("show");	
 		$('#programId').attr("aria-expanded", "true");
-	} else if(page === '/sportcenter/views/application/enrollment.jsp'){
+	} else if(page === '/sportcenter/views/program/swim.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/health.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/pilates.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/tabletennis.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/badminton.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/program/yoga.jsp'){
+		$('#dashboard-collapse').addClass("show");	
+		$('#programId').attr("aria-expanded", "true");
+// 수강신청		
+	} else if(page === '/sportcenter/views/application/enroll.jsp'){
 		$('#orders-collapse').addClass("show");	
 		$('#enrollId').attr("aria-expanded", "true");
+// 고객센터		
 	} else if(page === '/sportcenter/views/board/notice.jsp'){
 		$('#account-collapse').addClass("show");	
 		$('#noticeId').attr("aria-expanded", "true");
