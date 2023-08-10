@@ -14,7 +14,6 @@ public class EnrollServiceImpl implements EnrollService {
 
     @Override
     public List<Enroll> findAllEnroll() {
-    	System.out.println("들어옴");
         Connection conn = getConnection();
         List<Enroll> list = dao.findAllEnroll(conn);
         close(conn);

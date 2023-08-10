@@ -17,6 +17,8 @@
       font-family: 'Nanum Gothic', arial, sans-serif;
       height: 100%;
       margin: 0;
+     
+  
   }
   
   main {
@@ -87,7 +89,7 @@
   white-space: nowrap;
   position: absolute;
   top: 50%;
-  right: 280px;
+  right: 0px;
   transform: translateY(-50%);
 }
       .form-container {

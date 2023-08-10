@@ -37,6 +37,8 @@ public class MemberUpdateServlet extends HttpServlet {
         	member.setAddress1(request.getParameter("address1"));
         	member.setAddress2(request.getParameter("address2"));
         	
+        	System.out.println(member);
+        	
         	// 3. 회원 정보 수정
         	int result = new MemberService().save(member);
         	
