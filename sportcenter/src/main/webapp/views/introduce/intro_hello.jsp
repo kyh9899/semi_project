@@ -23,23 +23,21 @@
 </article>
 
  <article class="art2" style="width: 20%;">
-        <p>현재 접속중인 관리자: <span id="adminName"></span></p>
+        <p>현재 접속중인 사용자: <span id="MB_ID"></span></p>
     </article>
 
     <script>
-        // 서버에서 현재 접속중인 관리자 정보를 가져오는 함수
-        function getCurrentAdmin() {
+        // 서버에서 현재 접속중인 사용자 정보를 가져오는 함수
+        function getCurrentUser() {
             // 실제 서버 URL을 여기에 입력하세요.
-            const serverUrl = "";
+            const serverUrl = "/CCU";
 
             $.ajax({
                 url: serverUrl,
                 type: "GET",
                 success: function(response) {
-                    // 서버 응답에서 관리자 정보 추출
-                    const adminName = response.adminName;
-                    const adminNameElement = document.getElementById("adminName");
-                    adminNameElement.textContent = adminName;
+                    const userNameElement = document.getElementById("MB_ID");
+                    userNameElement.textContent = response;
                 },
                 error: function() {
                     console.error("서버와의 통신 중 오류 발생");
@@ -47,9 +45,9 @@
             });
         }
 
-        // 페이지 로딩 시 현재 접속중인 관리자 표시
+        // 페이지 로딩 시 현재 접속중인 사용자 표시
         $(document).ready(function() {
-            getCurrentAdmin();
+            getCurrentUser();
         });
     </script>
 
