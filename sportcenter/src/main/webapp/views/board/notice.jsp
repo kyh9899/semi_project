@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="/views/common/header.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:include page="/views//MenuBar.jsp" />
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 
-<!DOCTYPE html>
-<html>
-<head>	
 
 <style>
 
@@ -19,7 +15,7 @@
 	/*페이지바*/
 	div#pageBar{margin-top:10px; text-align:center; }
 	#div-title { align: center; }
-	
+	#div-menubar { align:center; margin:20px 50px 0px 150px;  float:left; } 
 	
 	#div-notice1 { margin-top: 40px; float:left; align: center; }
 	#content { align: center;  background-color:yellow;  }
@@ -39,11 +35,13 @@
 
 </style>
 
-</head>
-<body>
+<article class="art1" style="width: 60%;"> 
 	<section id="content">
 		<div id="div-title">	
 		<h2 align="center">고객센터</h2>    
+		
+		
+	
 	
 	    <div id="div-notice1">
 	     <h4>공지사항</h4>
@@ -57,7 +55,7 @@
 			</c:if>
 			--%>
 				
-				<%-- 검색기능_필요시 활성화 
+				<%-- 검색기능_필요시 활성화
 	            <div class="search-wrapper">
 	                <fieldset class="search">
 	                    
@@ -79,7 +77,7 @@
 						
 	                </fieldset>
 	            </div>
-	            --%> 	
+	             --%>  		
 			
 			
 			
@@ -102,6 +100,7 @@
 								<td><button type="submit" class="btn btn-secondary ">검색</button></td>
 								
 							</tr>
+		
 						</table>
 					</form>
 				</div>
@@ -135,7 +134,7 @@
 						<tr>
 							<td>${ board.no }</td>
 							<td>
-								<a href="${ path }/board/view?no=${ board.no }">
+								<a href="${ path }/board/view?no=${ board.no }" class="updateCount">
 									${ board.title } 
 								</a>
 							</td>
@@ -184,9 +183,19 @@
 		</div>
 		</div>
 	</section>
-
-</body>
-</html>
+	<script>
+		$(document).ready(() => {
+			$('.updateCount').on('click', () => {
+				if (confirm('조회수를 증가 하시겠습니까?')) {
+					location.assign('${ path }/board/view');
+			      
+			    }		
+			}		
+		});
+	</script>
+<article class="art2" style="width: 20%;">
+       
+</article>
 
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
