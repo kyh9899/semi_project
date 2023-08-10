@@ -7,7 +7,7 @@ import static com.hm.mvc.common.jdbc.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
-
+import com.hm.mvc.common.jdbc.JDBCTemplate;
 import com.hm.mvc.member.model.dao.MemberDao;
 import com.hm.mvc.member.model.vo.Member;
 
@@ -49,16 +49,29 @@ public class MemberService {
 		return result;
 	}
 	
-	public  Member findid(String name, String phone) {
-		Member member = null;
-		Connection connection = getConnection();
-		
-		member = new MemberDao().findid(connection, name, phone);
-		
-		close(connection);
-		
-		return member;
-	}
+//	public  Member findid(String name, String phone) {
+//		Member member = null;
+//		Connection connection = getConnection();
+//		
+//		member = new MemberDao().findid(connection, name, phone);
+//		
+//		close(connection);
+//		
+//		return member;
+//	}
+	
+	//아이디 찾기
+		public Member findid(String name, String phone) {
+			
+			Connection connection = JDBCTemplate.getConnection();
+			MemberDao dao = new MemberDao();
+			Member member = new MemberDao().searchId(connection, name, phone);
+			JDBCTemplate.close(connection);
+			
+			System.out.println("member : " + member);
+			return member;
+		}
+	
 	
 
 	// 3. 회원가입 시, 아이디가 중복인지 체크 

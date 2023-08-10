@@ -1,6 +1,8 @@
 package com.hm.mvc.member.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,14 +36,36 @@ public class MemberFindIdservlet extends HttpServlet {
     	
     	System.out.println(findMemberByName );
     	
-    	if (findMemberByName  != null) {
-			
-    		HttpSession session = request.getSession();
+//    	if (findMemberByName  != null) {
+//			
+//    		HttpSession session = request.getSession();
+//    		
+//    		session.setAttribute("loginMember", findMemberByName );
+    	
+    	//1.인코딩
+		request.setCharacterEncoding("utf-8");
+		//2.변수저장
+//		String name = request.getParameter("name");
+//		String phone = request.getParameter("phone");
+		//3.비지니스로직
+		MemberService service = new MemberService();
+		Member member = service.findid(name,phone);
+		
+		System.out.println("member : " + member);
+
+		//4.뷰 처리
+//		if(member != null) {
+//			RequestDispatcher rd = request.getRequestDispatcher("/views/member/idsearch.jsp");
+//			request.setAttribute("members", member);
+//			rd.forward(request, response);
+		
+		 if (member != null) {
+		        RequestDispatcher rd = request.getRequestDispatcher("'${ path }/member/findid'");
+		        request.setAttribute("members", member);
+		        rd.forward(request, response);
     		
-    		session.setAttribute("loginMember", findMemberByName );
     		
-    		
-    		response.sendRedirect(request.getContextPath() + "/");
+//    		response.sendRedirect(request.getContextPath() + "/");
 		} else {
 			
 			request.setAttribute("msg",  "아이디 정보가 없습니다.");

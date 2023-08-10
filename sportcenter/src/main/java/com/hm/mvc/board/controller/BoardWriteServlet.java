@@ -64,15 +64,20 @@ public class BoardWriteServlet extends HttpServlet {
         	// 게시글을 작성한 작성자의 NO 값
         	board.setWriterNo(loginMember.getNo());
         	
+        	System.out.println(loginMember.toString());
+        	
         	// 폼 파라미터로 넘어온 값들
         	board.setTitle(mr.getParameter("title"));
         	board.setContent(mr.getParameter("content"));
+        	
         	
         	// 파일에 대한 정보
         	board.setRenamedFilename(mr.getFilesystemName("upfile"));
         	board.setOriginalFilename(mr.getOriginalFileName("upfile"));
         	
         	int result = new BoardService().save(board);
+        	
+        	System.out.println(board);
         	
         	if (result > 0) {
         		// 게시글 등록 성공

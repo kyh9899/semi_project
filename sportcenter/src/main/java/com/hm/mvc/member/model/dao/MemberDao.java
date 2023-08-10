@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.hm.mvc.common.jdbc.JDBCTemplate;
 import com.hm.mvc.member.model.vo.Member;
 
 public class MemberDao {
@@ -53,36 +54,77 @@ public class MemberDao {
 	}
 	
 	
-	public Member findid(Connection connection, String name, String phone) {
-	    Member member = null;
-	    PreparedStatement pstmt = null;
-	    ResultSet rs = null;
-	    String query = "SELECT * FROM MEMBER WHERE MB_NAME = ? AND MB_PHONE = ?";
-	    
-	    try {
-	        pstmt = connection.prepareStatement(query);
-
-	        pstmt.setString(1, name);
-	        pstmt.setString(2, phone);
-	        
-	        rs = pstmt.executeQuery();
-
-	        if (rs.next()) {
-	            member = new Member();
-
-	            member.setName(rs.getString("MB_NAME"));
-	            member.setPhone(rs.getString("MB_PHONE"));
-	            
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    } finally {
-	        close(rs);
-	        close(pstmt);
-	    }
-	    
-	    return member;
-	}
+//	public Member findid(Connection connection, String name, String phone) {
+//	    Member member = null;
+//	    PreparedStatement pstmt = null;
+//	    ResultSet rs = null;
+//	    String query = "SELECT * FROM MEMBER WHERE MB_NAME = ? AND MB_PHONE = ?";
+//	    
+//	    try {
+//	        pstmt = connection.prepareStatement(query);
+//
+//	        pstmt.setString(1, name);
+//	        pstmt.setString(2, phone);
+//	        
+//	        rs = pstmt.executeQuery();
+//
+//	        if (rs.next()) {
+//	            member = new Member();
+//
+//	            member.setName(rs.getString("MB_NAME"));
+//	            member.setPhone(rs.getString("MB_PHONE"));
+//	            
+//	        }
+//	    } catch (Exception e) {
+//	        e.printStackTrace();
+//	    } finally {
+//	        close(rs);
+//	        close(pstmt);
+//	    }
+//	    
+//	    return member;
+//	}
+	
+	
+	//아이디 찾기(분실시)
+		public Member searchId(Connection conn, String name, String phone) {
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String query = "SELECT * FROM MEMBER WHERE MB_NAME = ? AND MB_PHONE = ?";
+			Member member = null;
+			try {
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, name);
+				pstmt.setString(2, phone);
+				rs = pstmt.executeQuery();
+				while(rs.next()){
+					member = new Member();
+					member.setNo(rs.getInt("MB_CODE"));
+					member.setId(rs.getString("MB_ID"));
+					member.setPwd(rs.getString("MB_PWD"));
+					member.setName(rs.getString("MB_NAME"));
+					member.setSSN1(rs.getString("MB_SSN"));
+					member.setSSN2(rs.getString("MB_SSN"));
+					member.setPhone(rs.getString("MB_PHONE"));
+					member.setAddress1(rs.getString("MB_ADDRESS1"));
+					member.setAddress2(rs.getString("MB_ADDRESS2"));
+					member.setEmail(rs.getString("MB_EMAIL"));
+					member.setStatus(rs.getString("MB_STATUS"));
+					member.setJoinDate(rs.getDate("JOIN_DATE"));
+					member.setQuitDate(rs.getDate("QUIT_DATE"));
+					member.setONF(rs.getString("MG_ONF"));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally{
+				JDBCTemplate.close(pstmt);
+				JDBCTemplate.close(rs);
+		}	
+		
+			return member;
+		}
 
 
 	public int insertMember(Connection connection, Member member) {
@@ -157,4 +199,7 @@ public class MemberDao {
 		
 		return result;
 	}
+
+
+	
 }
