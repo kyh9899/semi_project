@@ -37,7 +37,7 @@
     	   <p style="font-size: 14px; color: gray;">원하시는 종목 및 강습반을 선택해 주세요.</p>
 		   <p style="font-size: 14px; color: gray;">강습명 검색시 선택된 종목, 강습반은 초기화 됩니다.</p>
 		   <p style="font-size: 14px; color: gray;">마감 된 강좌를 제외하고 잔여자리가 있는 강좌만 조회 가능합니다.</p>
-	
+	<br><br>
  <div class="course-list-container">
         <table class="table table-bordered table-striped" id="courseTable">
         <br><br>

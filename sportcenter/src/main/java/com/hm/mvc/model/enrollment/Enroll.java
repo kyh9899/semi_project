@@ -13,7 +13,9 @@ public class Enroll {
     private String chName;
     private String pgTime;
     private String pgFee;
+    private int pgMax;
     private int pgNum;
-    private String ermCode;
-    private String status;
+    private String ermAva;
+    
 }
+
