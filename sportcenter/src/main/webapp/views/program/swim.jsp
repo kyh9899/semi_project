@@ -4,12 +4,6 @@
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 <jsp:include page="/views/common/header.jsp" />
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 <style>
 	h2 {
 		margin-bottom: 30px;
@@ -18,7 +12,7 @@
 		width: 400px;
 		height: 250px;
 		margin-bottom: 30px;
-		margin-right: 360px;
+		
 	}
 	#guide {
 		width: 100%;
@@ -40,7 +34,6 @@
 		margin-bottom: 20px;
 		width: 140px;
 		height: 50px;
-		margin-right: 360px;
 	}
 	#btn2 {
 		width: 140px;
@@ -92,14 +85,14 @@
 		font-size: 1.2em;
 	}
 </style>
-<body>
+
+<article class="art1" style="width: 60%;"> 
 	 <div class="w-[1200px], h-[800px], m-1">
         <div class="w-full, h-1/5, flex, flex-col">      
 			<h2 align="center">수영</h2>		
         </div>
         <div class="w-full h-4/5 flex-row flex">
             <div class="h-full w-1/5">
-            	<jsp:include page="/views//MenuBar.jsp" />
             </div>
             <div class="h-full w-full">
             	<div id="div1">
@@ -157,6 +150,8 @@
             </div>
         </div>
     </div>
+<article class="art2" style="width: 20%;">
+</article>
 <script>
 	$(function(){
 		$("ul.tab_con li:not("+$(".tab li a.selected").attr("href")+")").hide();
@@ -168,9 +163,8 @@
 		});
 	});
 </script>
-</body>
-</html>
+
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
+<jsp:include page="/views/common/footer.jsp" />
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
-<jsp:include page="/views/common/footer.jsp" />

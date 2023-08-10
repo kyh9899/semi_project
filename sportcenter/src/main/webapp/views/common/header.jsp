@@ -93,7 +93,7 @@
         <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
         <li><a href="${ path }/application/enrollment" class="nav-link px-2 link-dark">수강신청</a></li>
         <li><a href="${ path }/board/notice" class="nav-link px-2 link-dark">고객센터</a></li>
-        <li><a href="${ path }/views/member/myPage.jsp" class="nav-link px-2 link-dark">마이페이지</a></li>
+        <li><a href="${ path }/member/myPage" class="nav-link px-2 link-dark">마이페이지</a></li>
       </ul>
 
  <c:if test="${ empty loginMember }">
