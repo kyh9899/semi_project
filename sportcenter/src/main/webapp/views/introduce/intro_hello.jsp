@@ -21,9 +21,37 @@
 </div>
 </table>
 </article>
-<article class="art2" style="width: 20%;">
 
+ <article class="art2" style="width: 20%;">
+        <p>현재 접속중인 관리자: <span id="adminName"></span></p>
+    </article>
 
+    <script>
+        // 서버에서 현재 접속중인 관리자 정보를 가져오는 함수
+        function getCurrentAdmin() {
+            // 실제 서버 URL을 여기에 입력하세요.
+            const serverUrl = "";
+
+            $.ajax({
+                url: serverUrl,
+                type: "GET",
+                success: function(response) {
+                    // 서버 응답에서 관리자 정보 추출
+                    const adminName = response.adminName;
+                    const adminNameElement = document.getElementById("adminName");
+                    adminNameElement.textContent = adminName;
+                },
+                error: function() {
+                    console.error("서버와의 통신 중 오류 발생");
+                }
+            });
+        }
+
+        // 페이지 로딩 시 현재 접속중인 관리자 표시
+        $(document).ready(function() {
+            getCurrentAdmin();
+        });
+    </script>
 
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />

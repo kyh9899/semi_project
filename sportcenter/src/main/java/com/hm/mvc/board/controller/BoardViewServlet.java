@@ -45,7 +45,7 @@ public class BoardViewServlet extends HttpServlet {
         Board board = new BoardService().getBoardByNo(no);
         request.setAttribute("board", board);
         
-		System.out.println(board.getReadCount());
+	
     	board.setReadCount(board.getReadCount());
 
         // JSP 페이지로 포워드

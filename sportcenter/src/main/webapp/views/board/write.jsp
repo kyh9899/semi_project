@@ -53,28 +53,7 @@
 			<div id="div-title">	
 			<h2 align="center">고객센터</h2>    
 			</div>
-		
-		<div id="div-menubar" class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
-		  <a href="javascript:" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-		    <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-		    <span class="fs-5 fw-semibold">MENU</span>
-		  </a>
-		  <ul class="list-unstyled ps-0">
-		    <li class="mb-1">
-		      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-		        고객 센터
-		      </button>
-		      <div class="collapse show" id="home-collapse">
-		        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-		          <li><a href="${ path }/board/notice" class="link-dark d-inline-flex text-decoration-none rounded">공지사항</a></li>
-		          <li ><a href="${ path }/board/lost" class="link-dark d-inline-flex text-decoration-none rounded">분실물센터</a></li>
-		          <li><a href="${ path }/board/faq" class="link-dark d-inline-flex text-decoration-none rounded">자주하는질문(FAQ)</a></li>
-		        </ul>
-		      </div>
-		    </li>
-		  </ul>
-		</div>
-	  
+			  
 		<div id="rightContent">
 		   <div id="div-notice1">
 		     <h4>공지사항 > 게시글 작성</h4>
@@ -83,7 +62,7 @@
 			<%-- 게시글 작성 폼 --%>
 			<section id="content" style="margin:0px;">
 				<div id='board-write-container'>
-					<form action="${ path }/board/write" method="POST"  enctype="multipart/form-data">
+					<form action="${ path }/board/write" method="POST" enctype="multipart/form-data">
 						<table id='tbl-board'>
 							<tr>
 								<th>제목</th>
@@ -114,7 +93,6 @@
 				 
 			</section>
 		</div>
-
 </body>
 </html>
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
