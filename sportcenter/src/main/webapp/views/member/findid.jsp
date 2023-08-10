@@ -52,9 +52,11 @@
 		border:none;
 	}
 	td {
- 	 padding-bottom: 15px;
- 	 padding-left: 10px;
+ 		padding-bottom: 15px;
+    	padding-left: 10px;
 	}
+	
+	
 	
 </style>
 
