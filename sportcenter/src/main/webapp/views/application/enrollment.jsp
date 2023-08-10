@@ -231,7 +231,6 @@ document.getElementById('searchInput').addEventListener('input', function () {
 </script>
 
 </article>
-<article class="art2" style="width: 20%;">
 
 
 
@@ -239,5 +238,3 @@ document.getElementById('searchInput').addEventListener('input', function () {
 <jsp:include page="/views/common/footer.jsp" />
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
-
-  

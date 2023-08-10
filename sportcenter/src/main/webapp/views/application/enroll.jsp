@@ -49,6 +49,8 @@
    
    
 </style>
+<article class="art1" style="width: 60%;"> 
+<div>
 <section id="content">
    <h1 align="center">수강 신청</h1>
    <div id="board-list-container">
@@ -153,6 +155,8 @@
    </div>
 </section>
 
+<article class="art2" style="width: 20%;">
+</article>
 <script>
 document.getElementById('searchInput').addEventListener('input', function () {
   const searchText = this.value.toLowerCase(); // Get the search text in lower case
@@ -173,5 +177,10 @@ document.getElementById('searchInput').addEventListener('input', function () {
   }
 });
 </script>
+</div>
 
+
+<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
