@@ -7,10 +7,6 @@
 
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>회원 정보 수정</title>
 
@@ -59,8 +55,8 @@
         font-size: 1.2em;
     }
   </style>
-</head>
-<body>
+  
+<article class="art1" style="width: 60%;"> 
 <section id="content">
     <h2 align="center">회원 정보 수정</h2>
     <div id="view-container">
@@ -129,10 +125,12 @@
           <div class="form-group">
             <label for="newPassword">새 비밀번호</label>
             <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+            <p style="margin:0" id="passwordRequirements"><span class="num">문자, 숫자, 특수문자(~!@#$%^&*)의 조합 10 ~ 16자리</span>로 입력하세요.</p>
           </div>
           <div class="form-group">
             <label for="confirmPassword">비밀번호 확인</label>
             <input type="password" class="form-control" id="confirmPassword" required>
+            <span id="passwordMatch" style="color:red;"></span>
           </div>
         </form>
       </div>
@@ -144,6 +142,8 @@
   </div>
 </div>
 
+<article class="art2" style="width: 20%;">
+</article>
 <script>
    // 회원 탈퇴
     $(document).ready(() => {
@@ -166,6 +166,8 @@
         });
     });
 </script>
-</body>
-<jsp:include page="/views/common/footer.jsp" /> 
-</html>
+
+<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
+<jsp:include page="/views/common/footer.jsp" />
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
