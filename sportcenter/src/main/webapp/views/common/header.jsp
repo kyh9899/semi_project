@@ -27,7 +27,7 @@
         font-family: 'Noto Sans KR', sans-serif;
         margin-right : 0;
         margin-left : 0;
-         width: 100%;
+        width: 100%;
       }
       }
 
