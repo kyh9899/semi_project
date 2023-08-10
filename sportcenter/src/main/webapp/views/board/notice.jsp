@@ -35,7 +35,7 @@
 
 </style>
 
-<article class="art1" style="width: 60%;"> 
+<article class="art1" style="width: 60%;" items="notice1"> 
 	
 		<div id="div-title">	
 		<h2 align="center">고객센터</h2>    
@@ -79,21 +79,18 @@
 	            </div>
 	             --%>  		
 			
-			
-			
-			
 			<div>
 				<div id="writebutton">
 				<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write'">글쓰기</button>
 				</div>
 				<div id="searchbar">
-					<form method="post" name="search" action="searchbbs.jsp" style="margin-right:0px;">
+					<form action="${ path }/board/search" method="POST" name="search" style="margin-right:0px;">
 						<table class="pull-right">
 							<tr>
 								<td><select class="form-control" name="searchField">
 										<option value="0">선택</option>
 										<option value="bbsTitle">제목</option>
-										<option value="userID">작성자</option>
+										<option value="userId">작성자</option>
 								</select></td>
 								<td><input type="text" class="form-control"
 									placeholder="검색어 입력" name="searchText" maxlength="100"></td>
@@ -132,7 +129,7 @@
 					<%-- 조회수를 역순으로 출력 --%>
 					<c:forEach var="board" items="${ list }">
 						<tr>
-							<td>${ board.no }</td>
+							<td>${ board.boardId }</td>
 							<td>
 								<a href="${ path }/board/view?no=${ board.no }" class="updateCount">
 									${ board.title } 
