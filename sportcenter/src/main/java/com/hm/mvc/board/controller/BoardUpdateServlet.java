@@ -142,23 +142,7 @@ public class BoardUpdateServlet extends HttpServlet {
 //		}
     	
     	request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
-	}
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+	}    
     
     
 }

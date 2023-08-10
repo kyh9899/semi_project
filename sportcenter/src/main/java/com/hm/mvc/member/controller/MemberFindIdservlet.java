@@ -41,7 +41,7 @@ public class MemberFindIdservlet extends HttpServlet {
     		session.setAttribute("loginMember", findMemberByName );
     		
     		
-    		response.sendRedirect(request.getContextPath() + "/login");
+    		response.sendRedirect(request.getContextPath() + "/");
 		} else {
 			
 			request.setAttribute("msg",  "아이디 정보가 없습니다.");

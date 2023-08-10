@@ -225,7 +225,6 @@
 	            <option value="da">daum.com</option>
 	            <option value="yah">yahoo.com</option>
 	        </select>
-	        <input class='but2' type="button" value="이메일 중복확인" onclick="">
 	    </td>
 </tr>
     </table>
