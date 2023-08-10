@@ -84,7 +84,8 @@
 	            <tr>
 	                <th>주소</th>
 						<td>
-							<input type="text" class="input" name="address" id="address" value="${ loginMember.address1 }">
+							<input type="text" class="input" name="address1" id="address" value="${ loginMember.address1 }" size="50">
+							<input type="text" class="input" name="address2" id="address" value="${ loginMember.address2 }">
 						</td> 	
 	            </tr>
 	        </table>
