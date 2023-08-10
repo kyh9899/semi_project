@@ -8,7 +8,8 @@
 
 	section #board-list-container{width:700px; height:100%; margin:10px auto; text-align:center;  float:left;}
 	section #board-list-container h2{margin:0px 0;}
-	table#tbl-board{width:100%;  margin:0 auto; border-collapse:collapse; border-top: 2px solid black; clear:both; }
+	/* 게시글 목록 표 */
+	table#tbl-board{ width:100%;  margin:0 auto; border-collapse:collapse; border-top: 2px solid black; clear:both; }
 	table#tbl-board th {  background-color: #f9f9f9; }
 	table#tbl-board th, table#tbl-board td {border:1px solid transparent; padding: 5px 0; text-align:center;} 
 
@@ -21,6 +22,7 @@
 	#content { align: center;  background-color:yellow;  }
 	#notice-write { float:left; font-size: 13px;}
 	
+	/* 검색 바 */	
 	#searchbar { width:90%; float:left; height:30px; padding-left:250px; margin-bottom: 20px;  }
 	
 	/* 글쓰기 버튼 */ 
@@ -129,7 +131,7 @@
 					<%-- 조회수를 역순으로 출력 --%>
 					<c:forEach var="board" items="${ list }">
 						<tr>
-							<td>${ board.boardId }</td>
+							<td>${ board.no }</td>
 							<td>
 								<a href="${ path }/board/view?no=${ board.no }" class="updateCount">
 									${ board.title } 
@@ -152,11 +154,16 @@
 				</c:if>
 			</table>
 			<div id="pageBar">
-				<!-- 맨 처음으로 -->
-				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.startPage }'">&lt;&lt;</button>
-	
+			    
+			
+			</div>
+			
+			<div id="pageBar">
+			<!-- 맨 처음으로 -->
+			    <button onclick="location.href='${ path }/board/notice?boardId=notice1&page=${ pageInfo.startPage }'">&lt;&lt;</button>
+			    	
 				<!-- 이전 페이지로 -->
-				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.prevPage }'">&lt;</button>
+				<button onclick="location.href='${ path }/board/notice?boardId=notice1&page=${ pageInfo.prevPage }'">&lt;</button>
 	
 				<!--  10개 페이지 목록 -->
 				<c:forEach var="current" begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }">
@@ -165,16 +172,16 @@
 							<button disabled>${ current }</button>			
 						</c:when>
 						<c:otherwise>
-							<button onclick="location.href='${ path }/board/notice?page=${ current }'">${ current }</button>			
+							<button onclick="location.href='${ path }/board/notice?boardId=notice1&page=${ current }'">${ current }</button>			
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 	
 				<!-- 다음 페이지로 -->
-				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.nextPage }'">&gt;</button>
+				<button onclick="location.href='${ path }/board/notice?boardId=notice1&page=${ pageInfo.nextPage }'">&gt;</button>
 	
 				<!-- 맨 끝으로 -->
-				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.maxPage }'">&gt;&gt;</button>
+				<button onclick="location.href='${ path }/board/notice?boardId=notice1&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
 			</div>
 		</div>
 		</div>

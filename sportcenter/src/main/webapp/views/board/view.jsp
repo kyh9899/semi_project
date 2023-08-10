@@ -14,6 +14,7 @@
 		width:700px;
 		margin:0 auto;
 		padding-top:20px;
+		padding-bottom:50px;
 		text-align:center;
 		align:left;
 		border-top: 2px solid black;
@@ -166,7 +167,7 @@
 					</tr>
 				</table>
 				
-				
+				<%-- 
 				<div id="comment-container">
 			    	<div class="comment-editor">
 			    		<form action="${ path }/board/reply" method="POST">
@@ -194,6 +195,7 @@
 				    	</tr>
 			    	</c:forEach>
 			    </table>
+	     		--%>
 		    </div>
 	    </div>
 	     
