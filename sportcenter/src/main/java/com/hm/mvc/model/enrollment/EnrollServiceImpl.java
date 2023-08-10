@@ -1,13 +1,10 @@
 package com.hm.mvc.model.enrollment;
 
+import static com.hm.mvc.common.jdbc.JDBCTemplate.close;
+import static com.hm.mvc.common.jdbc.JDBCTemplate.getConnection;
+
 import java.sql.Connection;
 import java.util.List;
-
-import com.hm.mvc.model.enrollment.EnrollDao;
-import com.hm.mvc.model.enrollment.Enroll;
-
-import static com.hm.mvc.common.jdbc.JDBCTemplate.getConnection;
-import static com.hm.mvc.common.jdbc.JDBCTemplate.close;
 
 public class EnrollServiceImpl implements EnrollService {
     private EnrollDao dao = new EnrollDao();
@@ -19,4 +16,13 @@ public class EnrollServiceImpl implements EnrollService {
         close(conn);
         return list;
     }
+    @Override
+    public List<Enroll> searchCourses(String query) {
+        Connection conn = getConnection();
+        List<Enroll> list = dao.searchCourses(conn, query);
+        close(conn);
+        return list;
+    }
+    
 }
+

@@ -29,6 +29,8 @@ public class Member {
 	
 	private String address2;
 	
+	private String emailId;
+	
 	private String email;
 	
 	private String status;
