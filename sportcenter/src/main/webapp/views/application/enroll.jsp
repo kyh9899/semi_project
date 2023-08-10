@@ -20,7 +20,7 @@
     margin: 10px 0;
   }
   table#tbl-board {
-    width: 100%;
+    width: 75%;
     margin: 0 auto;
     border: 1px solid black;
     border-collapse: collapse;
@@ -30,7 +30,7 @@
   }
   table#tbl-board th, table#tbl-board td {
     border: 1px solid;
-    padding: 6px 60px;
+    padding: 6px 5px;
     text-align: center;
     background-color: #f8f8f8; /* Add a light gray background color */
   }

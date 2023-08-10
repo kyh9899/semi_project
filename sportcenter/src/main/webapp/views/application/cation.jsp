@@ -26,7 +26,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center; /* 추가: 수직축에서 가운데 정렬 */
+  
   }
+  
   
   h1 {
       font-size: 2.5em;
@@ -90,7 +93,7 @@
   position: absolute;
   top: 50%;
   right: 0px;
-  transform: translateY(-50%);
+ /* transform: translateY(-50%);*/
 }
       .form-container {
       display: flex;
