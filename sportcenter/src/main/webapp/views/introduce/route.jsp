@@ -8,7 +8,7 @@
 
  <h2 align="center">오시는 길</h2>
 	<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
-            <div id="map" style="width:1230px; float:center; height:700px; margin:10 auto;" align="right" >
+            <div id="map" style="width:1330px; float:center; height:700px; margin:10 auto;" align="right" >
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c570a4bb062a63d6e8c95aa274b0531"></script>
             <script>
                 var container = document.getElementById('map');
