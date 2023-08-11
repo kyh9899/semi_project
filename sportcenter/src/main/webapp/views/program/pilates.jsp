@@ -37,7 +37,7 @@
 		height: 50px;
 		
 	}
-	#btn2 {
+	#button {
 		width: 140px;
 		height: 50px;
 		margin-bottom: 20px;
