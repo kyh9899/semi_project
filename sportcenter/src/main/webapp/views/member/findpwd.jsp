@@ -33,6 +33,8 @@
 		background-color: white;
 		box-shadow: none;
 		border:none;
+		margin-top: 30px;
+		padding-left: 30px;
 	}
 	#btn1 {
 		border-color: white;
@@ -43,7 +45,10 @@
 	td {
  	 padding-bottom: 15px;
  	 padding-left: 10px;
+ 	 padding-top: 
 	}
+	
+	
 </style>
 
 

@@ -38,7 +38,8 @@ public class MemberFindIdservlet extends HttpServlet {
 			
     		HttpSession session = request.getSession();
     		
-    		session.setAttribute("loginMember", findMemberByName );
+    		session.setAttribute("loginMember", findMemberByName ); // loginNember를 findid로 바꾸면 로그인 X 메인 화면을 이동
+    		
     		
     		
     		response.sendRedirect(request.getContextPath() + "/");
