@@ -38,13 +38,14 @@ public class MemberFindIdservlet extends HttpServlet {
 			
     		HttpSession session = request.getSession();
     		
-    		session.setAttribute("loginMember", findMemberByName );
+    		session.setAttribute("loginMember", findMemberByName ); // loginNember를 findid로 바꾸면 로그인 X 메인 화면을 이동
+    		
     		
     		
     		response.sendRedirect(request.getContextPath() + "/");
 		} else {
 			
-			request.setAttribute("msg",  "아이디 정보가 없습니다.");
+			request.setAttribute("msg",  "회원 정보가 없습니다.");
 			request.setAttribute("location", "/member/findid");
 			
 			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);

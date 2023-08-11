@@ -36,6 +36,7 @@ public class MemberDao {
 				member.setPhone(rs.getString("MB_PHONE"));
 				member.setAddress1(rs.getString("MB_ADDRESS1"));
 				member.setAddress2(rs.getString("MB_ADDRESS2"));
+				member.setEmailId(rs.getString("MB_EMAIL"));
 				member.setEmail(rs.getString("MB_EMAIL"));
 				member.setStatus(rs.getString("MB_STATUS"));
 				member.setJoinDate(rs.getDate("JOIN_DATE"));
@@ -83,6 +84,37 @@ public class MemberDao {
 	    
 	    return member;
 	}
+	
+	public Member findpwd(Connection connection, String id, String phone) {
+	    Member member = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    String query = "SELECT * FROM MEMBER WHERE MB_ID = ? AND MB_PHONE = ?";
+	    
+	    try {
+	        pstmt = connection.prepareStatement(query);
+
+	        pstmt.setString(1, id);
+	        pstmt.setString(2, phone);
+	        
+	        rs = pstmt.executeQuery();
+
+	        if (rs.next()) {
+	            member = new Member();
+
+	            member.setName(rs.getString("MB_ID"));
+	            member.setPhone(rs.getString("MB_PHONE"));
+	            
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        close(rs);
+	        close(pstmt);
+	    }
+	    
+	    return member;
+	}
 
 
 	public int insertMember(Connection connection, Member member) {
@@ -100,7 +132,7 @@ public class MemberDao {
 			pstmt.setString(5, member.getPhone());
 			pstmt.setString(6, member.getAddress1());
 			pstmt.setString(7, member.getAddress2());
-			pstmt.setString(8, member.getEmail());
+			pstmt.setString(8, member.getEmailId() + "@" + member.getEmail());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -122,7 +154,7 @@ public class MemberDao {
 			
 			pstmt.setString(1, member.getName());
 			pstmt.setString(2, member.getPhone());
-			pstmt.setString(3, member.getEmail());
+			pstmt.setString(3, member.getEmailId() + "@" + member.getEmail());
 			pstmt.setString(4, member.getAddress1());
 			pstmt.setString(5, member.getAddress2());
 			pstmt.setInt(6, member.getNo());
@@ -156,5 +188,27 @@ public class MemberDao {
 		}		
 		
 		return result;
+	}
+
+	public int updateMemberPwd(Connection connection, int no, String pwd) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String query = "UPDATE MEMBER SET MB_PWD=? WHERE MB_CODE=?";
+		
+		try {
+			pstmt = connection.prepareStatement(query);
+			
+			pstmt.setString(1, pwd);
+			pstmt.setInt(2, no);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+		
 	}
 }

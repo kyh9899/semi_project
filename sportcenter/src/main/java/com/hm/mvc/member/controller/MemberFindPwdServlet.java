@@ -26,23 +26,25 @@ public class MemberFindPwdServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String userId = request.getParameter("userId");
+		String id = request.getParameter("id");
 		String phone = request.getParameter("phone");
 		
-		Member loginMember = new MemberService().login(userId, phone);
+		Member findMemberById = new MemberService().findpwd(id, phone);
     	
-    	System.out.println(loginMember);
+    	System.out.println(findMemberById);
     	
-    	if (loginMember != null) {
+    	if (findMemberById != null) {
 			
     		HttpSession session = request.getSession();
     		
-    		session.setAttribute("loginMember", loginMember);
+    		session.setAttribute("loginMember", findMemberById);
     		
-    		response.sendRedirect(request.getContextPath() + "/login");
+    		response.sendRedirect(request.getContextPath() + "/");
+    		
+    		
 		} else {
 			
-			request.setAttribute("msg",  "정보가 없습니다.");
+			request.setAttribute("msg",  "회원 정보가 없습니다.");
 			request.setAttribute("location", "/member/findpwd");
 			
 			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);

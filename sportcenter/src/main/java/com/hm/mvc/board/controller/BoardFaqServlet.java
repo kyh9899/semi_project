@@ -13,7 +13,7 @@ import com.hm.mvc.board.model.service.BoardService;
 import com.hm.mvc.board.model.vo.Board;
 import com.hm.mvc.common.util.PageInfo;
 
-@WebServlet(name = "boardFaq", urlPatterns = { "/board/faq" })
+@WebServlet(name = "boardFaq", urlPatterns = { "/board/none" })
 public class BoardFaqServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
@@ -26,16 +26,16 @@ public class BoardFaqServlet extends HttpServlet {
     	int listCount = 0;
     	PageInfo pageInfo = null;  
     	List<Board> list = null;
-    	
+//    	 필요없는 서블릿?
     	try {    		
     		page = Integer.parseInt(request.getParameter("page"));
     	} catch (NumberFormatException e) {
     		page = 1;
 		}
     	
-    	listCount = new BoardService().getBoardCount();
+//    	listCount = new BoardService().getBoardCount();
     	pageInfo = new PageInfo(page, 10, listCount, 10);
-    	list = new BoardService().getBoardList(pageInfo);
+//    	list = new BoardService().getBoardList(pageInfo);
     	
     	request.setAttribute("pageInfo", pageInfo);
     	request.setAttribute("list", list);

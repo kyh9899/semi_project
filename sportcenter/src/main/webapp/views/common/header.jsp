@@ -23,12 +23,25 @@
         }
       }
       
+      .center-content {
+          display: flex;
+          align-items: center;
+        }
+      
+      .nav {
+            margin: 0; /* Reset margin for ul.nav */
+        }
+
+       .nav li {
+           margin: 0 10px; /* Adjust margin for li items */
+       }
+       
       div.container {
         font-family: 'Noto Sans KR', sans-serif;
         margin-right : 0;
         margin-left : 0;
         width: 100%;
-      }
+      	}
       }
 
       .b-example-divider {
@@ -86,17 +99,21 @@
             flex-direction: column;
             align-items: flex-end;
         }
+	    .col-md-3 {
+	    max-width:15%;
+		}
+		
     </style>
 </head>
 <body>
    <div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
-      <a href="${ path }" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <svg class="bi me-2" width="20" height="32" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+      <a href="${ path }" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none center-content">
+                <svg class="bi me-2" width="30%" height="32" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
       </a>
       
       
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" style="font-size:25px; text-align : center;">
+       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 center-content" style="font-size:25px;">
         <li class="home"><a href="${ path }/views/introduce/intro_hello.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
         <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
         <li><a href="${ path }/application/enrollment" class="nav-link px-2 link-dark">수강신청</a></li>
@@ -105,7 +122,7 @@
       </ul>
 
  <c:if test="${ empty loginMember }">
-      <div class="col-md-3 text-end">
+      <div class="col-md-3 text-end center-content" style="max-width: 30%; align:center;">
         <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/login'">로그인</button>
         <button type="button" class="btn btn-primary" onclick="location.href='${ path }/member/enrollAgreement'">회원가입</button>
 
