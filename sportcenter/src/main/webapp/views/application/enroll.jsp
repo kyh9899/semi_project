@@ -57,12 +57,11 @@
    
     <section id="courseList">
         <h2>강좌 목록</h2>
-     
-      <input type="text" name="query" id="searchInput" placeholder="강좌 검색" />
-     <button type="submit" id="search">검색</button>
-      <input type="reset" value="초기화">
-    	</form>
-    	<br>
+      	<input type="text" name="query" id="searchInput" placeholder="강좌 검색" />
+     	<%-- <button type="submit" id="search" onclick="location.href='${path}/application/enrollment?query">검색</button>--%>
+    	<button type="submit" id="searchButton" onclick="searchCourses();">검색</button>
+    	<button type="button" id="resetButton" onclick="resetCourses();">초기화</button>
+    	<br><br>
     	   <p style="font-size: 14px; color: gray;">원하시는 종목 및 강습반을 선택해 주세요.</p>
 		   <p style="font-size: 14px; color: gray;">강습명 검색시 선택된 종목, 강습반은 초기화 됩니다.</p>
 		   <p style="font-size: 14px; color: gray;">마감 된 강좌를 제외하고 잔여자리가 있는 강좌만 조회 가능합니다.</p>
@@ -70,21 +69,21 @@
 	   			<br><br>
    				
    <c:if test="${ not empty loginMember }">
-   	<button type="button" onclick="location.href='${ path }/board/write'">신청</button>
+   	
    <div class="course-list-container">
    <table class="table table-bordered table-striped" id="courseTable">
    </c:if>
      
       <table id="tbl-board">
          <tr>
-            <th>강좌명</th>
-            <th>강의장명</th>
-            <th>강사명</th>
-            <th>강습시간</th>
-            <th>수강료</th>
-            <th>정원</th>
-            <th>수강인원</th>
-            <th>수강신청</th>
+            <th class="course-title">강좌명</th>
+            <th class="course-title">강의장명</th>
+            <th class="course-title">강사명</th>
+            <th class="course-title">강습시간</th>
+            <th class="course-title">수강료</th>
+            <th class="course-title">정원</th>
+            <th class="course-title">수강인원</th>
+            <th class="course-title">수강신청</th>
 			
          </tr>
          <c:if test="${ empty list }">
@@ -105,16 +104,18 @@
                <td>${ enroll.pgFee }</td>
                <td>${ enroll.pgMax }</td> 
                <td>${ enroll.pgNum }</td>
-               <td><form method="POST" action="/sportcenter/views/application/cation.jsp" onsubmit="return checkLoginStatus()">
+            <%-- <td>   <button type="button" onclick="location.href='${ path }/application/payment'">신청</button></td>--%>
+             <td> <button type="button" onclick="checkLogin();">신청</button></td>
+              <%--  <td><form method="POST" action="/sportcenter/views/application/cation.jsp" onsubmit="return checkLoginStatus()">
                             <input type="hidden" name="courseId" value="코스ID">
                             <input type="submit" value="신청">
-                        </form></td> 
+                        </form></td> --%>
             </tr>         
          	</c:forEach>
          </c:if>
       </table>
       </div>
-      <div id="pageBar">
+      <%-- <div id="pageBar">
          <!-- 맨 처음으로 -->
          <button onclick="location.href='${path}/board/list?page=1'">&lt;&lt;</button>
 
@@ -151,7 +152,7 @@
 
          <!-- 맨 끝으로 -->
          <button onclick="location.href='${path}/board/list?page=${pageInfo.maxPage}'">&gt;&gt;</button>
-      </div>
+      </div>--%>
    </div>
 </section>
 
@@ -160,6 +161,33 @@
 
 </div>
 
+<script>
+function searchCourses() {
+  const searchInput = document.getElementById("searchInput");
+  const search = searchInput.value;
+  location.href = '${path}/application/enrollment?search=' + encodeURIComponent(search);
+  
+}
+function resetCourses() {
+	  const searchInput = document.getElementById("searchInput");
+	  searchInput.value = '';
+	  location.href = '${path}/application/enrollment';
+	}
+function submitEnrollment() {
+    location.href = '${path}/application/payment';
+  }
+function checkLogin() {
+    <c:choose>
+      <c:when test="${ not empty loginMember }">
+        submitEnrollment(); // 신청하기 전 로그인 상태를 확인하고 신청 진행
+      </c:when>
+      <c:otherwise>
+        alert("로그인한 회원만 가능합니다. 로그인 해주세요!");
+      </c:otherwise>
+    </c:choose>
+}
+	
+</script>
 
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
