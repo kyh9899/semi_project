@@ -36,6 +36,7 @@ public class MemberDao {
 				member.setPhone(rs.getString("MB_PHONE"));
 				member.setAddress1(rs.getString("MB_ADDRESS1"));
 				member.setAddress2(rs.getString("MB_ADDRESS2"));
+				member.setEmailId(rs.getString("MB_EMAIL"));
 				member.setEmail(rs.getString("MB_EMAIL"));
 				member.setStatus(rs.getString("MB_STATUS"));
 				member.setJoinDate(rs.getDate("JOIN_DATE"));
