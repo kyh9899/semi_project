@@ -2,13 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 <jsp:include page="/views/common/header.jsp" />
+
 <style>
     body {
         background-color: white;
     }
 
-    .container {
-        max-width: 600px;
+    .container1 {
         margin-top: 80px;
     }
 
@@ -27,14 +27,13 @@
         color: #0077B5;
         text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
     }
-
-
 </style>
 
 
 
+<article class="art1" style="width: 60%;"> 
 
-<div class="container">
+<div class="container1">
   <h2 class="text-center my-4">결제 페이지</h2>
 
   <div class="col-md-6 mx-auto">
@@ -71,10 +70,13 @@
     </div>
   </div>
 </div>
-<jsp:include page="/views/common/footer.jsp" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+<article class="art2" style="width: 20%;">
+</article>
+
+<%-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">--%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js" defer></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
+<jsp:include page="/views/common/footer.jsp" />
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
