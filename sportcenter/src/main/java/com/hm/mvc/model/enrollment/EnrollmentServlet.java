@@ -24,7 +24,7 @@ public class EnrollmentServlet extends HttpServlet {
 
     @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	 String keyword = request.getParameter("keyword");
+    	 String keyword = request.getParameter("search");
     	 List<Enroll> list;
     	    if (keyword != null && !keyword.trim().isEmpty()) {
     	        list = service.searchCourses(keyword);
