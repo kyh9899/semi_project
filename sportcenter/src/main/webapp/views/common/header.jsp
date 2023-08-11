@@ -113,22 +113,25 @@
         <svg class="bi me-2" width="30%" height="32" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
       </a>
       
-   
-       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 center-content" style="font-size:25px;">
+   <div class="d-flex justify-content-between align-items-center mb-2">
+    <ul class="nav col-md-auto mb-md-0 center-content" style="font-size: 25px;">
         <li class="home"><a href="${ path }/views/introduce/intro_hello.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
         <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
         <li><a href="${ path }/application/enrollment" class="nav-link px-2 link-dark">수강신청</a></li>
         <li><a href="${ path }/board/notice?boardId=notice1" class="nav-link px-2 link-dark">고객센터</a></li>
-        <li><a href="${ path }/member/myPage" class="nav-link px-2 link-dark">마이페이지</a></li>
-      </ul>
+    </ul>
 
- <c:if test="${ empty loginMember }">
-      <div class="col-md-3 text-end center-content" style="max-width: 30%; align:center;">
-        <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/login'">로그인</button>
-        <button type="button" class="btn btn-primary" onclick="location.href='${ path }/member/enrollAgreement'">회원가입</button>
+    <c:if test="${ empty loginMember }">
+    <div class="col-md-3 text-end center-content" style="max-width: 40%;">
+        <div class="d-flex" style="width: 250px;">
+            <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/login'">로그인</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='${ path }/member/enrollAgreement'">회원가입</button>
+        </div>
+    </div>
+</c:if>
 
-      </div>
-   </c:if>
+</div>
+
     <c:if test="${ not empty loginMember }">
       </div>
 
