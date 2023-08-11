@@ -27,8 +27,8 @@
 
 <article class="art1" style="width: 60%;"> 
 <h1 style="font-size: 50px;"> &nbsp;강사 소개</h1>
-<div class="instructor-card" style="width: 200px; align-content: center;" onclick="toggleDescription('instructor1')">
-  <img style="width: 110px; height: 100px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사1">
+<div class="instructor-card" style="width: 380px; align-content: center;" onclick="toggleDescription('instructor1')">
+  <img style="width: 200px; height: 150px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사1">
   <div class="instructor-info">
     <div class="instructor-name" >홍길동</div>
     <div class="instructor-specialty">수영 강사</div><br>
@@ -45,8 +45,8 @@
   </div>
 </div>
 
-<div class="instructor-card" style="width: 200px; align-content: center;" onclick="toggleDescription('instructor2')">
-  <img style="width: 110px; height: 100px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사2">
+<div class="instructor-card" style="width: 380px; align-content: center;" onclick="toggleDescription('instructor2')">
+  <img style="width: 200px; height: 150px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사2">
   <div class="instructor-info">
     <div class="instructor-name" >성춘향</div>
     <div class="instructor-specialty">요가 강사</div><br>
@@ -62,8 +62,8 @@
   </div>
 </div>
 
-<div class="instructor-card" style="width: 200px; align-content: center;" onclick="toggleDescription('instructor3')">
-  <img style="width: 110px; height: 100px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">
+<div class="instructor-card" style="width: 380px; align-content: center;" onclick="toggleDescription('instructor3')">
+  <img style="width: 200px; height: 150px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">
   <div class="instructor-info">
     <div class="instructor-name" >이용대</div>
     <div class="instructor-specialty">배드민턴 강사</div><br>
@@ -80,8 +80,8 @@
   </div>
 </div>
 
-<div class="instructor-card" style="width: 200px; align-content: center;" onclick="toggleDescription('instructor4')">
-  <img style="width: 110px; height: 100px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사4">
+<div class="instructor-card" style="width: 380px; align-content: center;" onclick="toggleDescription('instructor4')">
+  <img style="width: 200px; height: 150px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사4">
   <div class="instructor-info">
     <div class="instructor-name" >홍영현</div>
     <div class="instructor-specialty">탁구 강사</div><br>
@@ -98,8 +98,8 @@
   </div>
 </div>
 
-<div class="instructor-card" style="width: 200px; align-content: center;" onclick="toggleDescription('instructor5')">
-  <img style="width: 110px; height: 100px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사5">
+<div class="instructor-card" style="width: 380px; align-content: center;" onclick="toggleDescription('instructor5')">
+  <img style="width: 200px; height: 150px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사5">
   <div class="instructor-info">
     <div class="instructor-name" >이아영</div>
     <div class="instructor-specialty">필라테스 강사</div><br>
@@ -114,8 +114,8 @@
   </div>
 </div>
 
-<div class="instructor-card" style="width: 200px; align-content: center;" onclick="toggleDescription('instructor6')">
-  <img style="width: 110px; height: 100px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사6">
+<div class="instructor-card" style="width: 380px; align-content: center;" onclick="toggleDescription('instructor6')">
+  <img style="width: 200px; height: 150px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사6">
   <div class="instructor-info">
     <div class="instructor-name" >김근육</div>
     <div class="instructor-specialty">헬스 강사</div><br>

@@ -45,6 +45,7 @@
 		
 	
 	
+
 	    <div id="div-notice1" align="center">
 	     <h4>공지사항</h4>
 	     <p>새로운 소식을 알려드립니다.</p>
