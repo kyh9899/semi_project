@@ -45,7 +45,6 @@ public class BoardNoticeServlet extends HttpServlet {
 	    	
 	    	listCount = new BoardService().getBoardCount(boardId); // 게시글 개수
 	    	pageInfo = new PageInfo(page, 10, listCount, 10); // page 정보
-	    	
 	    	list = new BoardService().getBoardList(pageInfo, boardId); // 게시글 list 
 	    	
 	   	    	

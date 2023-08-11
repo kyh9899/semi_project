@@ -26,8 +26,10 @@ public class BoardViewServlet extends HttpServlet {
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	int no = Integer.parseInt(request.getParameter("no"));
-
-    	System.out.println("게시글 번호 : " + no);
+    	// boardId 파라미터 값을 읽어옴
+    	String boardId = request.getParameter("boardId");
+    	
+    
 	
 		// 게시글 번호 받아서 조회수 증가 & 업데이트
 		int updateCount = new BoardService().updateCount(no); 
@@ -40,11 +42,13 @@ public class BoardViewServlet extends HttpServlet {
 		    System.out.println("조회수 증가에 실패하였습니다.");
 		}	
 
+		  	
     	
-    	 // 업데이트된 조회수를 가져와서 board 객체에 설정
+
+    	// 업데이트된 조회수를 가져와서 board 객체에 설정
         Board board = new BoardService().getBoardByNo(no);
         request.setAttribute("board", board);
-        
+        request.setAttribute("boardId", boardId);  // ✔ 속성 설정을 해줘야 view.jsp에서 boardId 값 사용 가능.  
 	
     	board.setReadCount(board.getReadCount());
 
@@ -56,10 +60,10 @@ public class BoardViewServlet extends HttpServlet {
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	int no = 0;
-//    	Board board = null;
-//    	HttpSession session = request.getSession();
-//    	Member loginMember = (Member) session.getAttribute("loginMember");
-
+    	Board board = null;
+    	HttpSession session = request.getSession();
+    	Member loginMember = (Member) session.getAttribute("loginMember");
+    	String boardId = request.getParameter("boardId");
 	
 		// 조회수 증가 & 업데이트
 		int readCount = new BoardService().updateCount(no); 
@@ -81,9 +85,6 @@ public class BoardViewServlet extends HttpServlet {
 //		    System.out.println("조회수 증가에 실패하였습니다.");
 //		}
     	System.out.println("게시글번호" + no);
-    	
-		
-		
-		
+   
     }
 }
