@@ -116,7 +116,7 @@
    <div class="d-flex justify-content-between align-items-center mb-2">
     <ul class="nav col-md-auto mb-md-0 center-content" style="font-size: 25px;">
         <li class="home"><a href="${ path }/views/introduce/intro_hello.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
-        <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
+        <li><a href="${ path }/program/info" class="nav-link px-2 link-dark">프로그램안내</a></li>
         <li><a href="${ path }/application/enrollment" class="nav-link px-2 link-dark">수강신청</a></li>
         <li><a href="${ path }/board/notice?boardId=notice1" class="nav-link px-2 link-dark">고객센터</a></li>
     </ul>
@@ -145,7 +145,7 @@
       
       <tr>
          <td>
-            <button id="btn1" onclick="location.href='${ path }/views/member/myPage.jsp'">마이페이지</button> |
+            <button id="btn1" onclick="location.href='${ path }/member/myPage'">마이페이지</button> |
             <button id="btn2" onclick="location.href='${ path }/logout'">로그아웃</button>                  
          </td>
       </tr>

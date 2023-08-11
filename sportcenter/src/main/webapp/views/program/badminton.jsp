@@ -37,7 +37,7 @@
 		width: 140px;
 		height: 50px;
 	}
-	#btn2 {
+	#button {
 		width: 140px;
 		height: 50px;
 		margin-bottom: 20px;
@@ -141,7 +141,7 @@
 							<img src="${ path }/resources/images/badmitonprg3.png">		
 						</li>
 						<li id="mu3">
-							<img id="guide" src="${ path }/resources/images/guide.png">
+							<img id="guide" src="${ path }/resources/images/guideline.png">
 						</li>		
 					</ul>
 				</div>
