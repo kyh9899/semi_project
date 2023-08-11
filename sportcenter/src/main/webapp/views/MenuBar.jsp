@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-    <div class="flex-shrink-0 p-3 bg-white" style="width: 280px ;">
+    <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
     <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
       <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
       <span class="fs-5 fw-semibold">MENU</span>
@@ -17,9 +17,9 @@
         </button>
         <div class="collapse" id="home-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="http://localhost:8087/sportcenter/views/introduce/intro_hello.jsp" class="link-dark d-inline-flex text-decoration-none rounded">인사말</a></li>
- 			<li><a href="http://localhost:8087/sportcenter/views/introduce/route.jsp" class="link-dark d-inline-flex text-decoration-none rounded">오시는 길</a></li>
-            <li><a href="http://localhost:8087/sportcenter/views/introduce/th_introduce.jsp" class="link-dark d-inline-flex text-decoration-none rounded">강사 소개</a></li>
+            <li><a href="${ pageContext.request.contextPath }/introduce/Center" class="link-dark d-inline-flex text-decoration-none rounded">인사말</a></li>
+ 			<li><a href="${ pageContext.request.contextPath }/introduce/Route" class="link-dark d-inline-flex text-decoration-none rounded">오시는 길</a></li>
+            <li><a href="${ pageContext.request.contextPath }/introduce/Teacher" class="link-dark d-inline-flex text-decoration-none rounded">강사 소개</a></li>
           </ul>
         </div>
       </li>
@@ -77,7 +77,9 @@
   </div>
  
 
-<button id="scrollButton" onclick="scrollToTop()">위로</button>
+<button id="scrollButton" onclick="scrollToTop()";>
+	<img src="https://cdn3.iconfinder.com/data/icons/feather-5/24/chevrons-up-512.png" style="width: 35px; height: 40px;">
+</button>
 
 
 <script>

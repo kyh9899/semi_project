@@ -13,13 +13,12 @@
 		width: 400px;
 		height: 250px;
 		margin-bottom: 30px;
-		
 	}
-	#guide {
+	
+	#guideline {
 		width: 100%;
-        max-width: 100%;
-        height: auto;
 	}
+	
 	#div1 {
 		text-align: center;
 	}
@@ -31,13 +30,13 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
-	#btn1 {
+	#btn {
 		margin-bottom: 20px;
 		width: 140px;
 		height: 50px;
 		
 	}
-	#btn2 {
+	#button {
 		width: 140px;
 		height: 50px;
 		margin-bottom: 20px;
@@ -74,7 +73,7 @@
 		color:#333;
 	}
 	#pilatesprogram {
-		width: 1200px;
+		width: 100%;
 		margin-bottom: 10px;
 	}
 	h5{
@@ -96,7 +95,7 @@
 							<td><img id="pilates" src="${ path }/resources/images/pilates.jpg"></td>
 						</tr>
 					</table>	
-					<button id="btn1" onclick="location.href='${ path }/application/enrollment'">온라인 수강신청</button>
+					<button id="btn" onclick="location.href='${ path }/application/enrollment'">온라인 수강신청</button>
 				</div>
 				<div class="content">
 					<ul class="tab">
@@ -117,7 +116,7 @@
 								또한 일상생활에서 오는 긴장과 스트레스도 해소할 수 있습니다.<br>
 								자세교정 및 구체적인 근력강화, 유연성 향상	상해방지 및 재활에 효과적 입니다.</p>
 							<h5>▣ 프로그램 안내</h5>	
-							<img id="pilatesprogram" src="${ path }/resources/images/pilatesprogram1.png">	
+							<img id="pilatesprogram" src="${ path }/resources/images/pilatespro.png">	
 							
 							<h5>▣ 강습 방법</h5>
 							<p>
@@ -133,12 +132,12 @@
 							<img src="${ path }/resources/images/pilatesprogram2.png">
 						</li>
 						<li id="mu3">
-							<img id="guide" src="${ path }/resources/images/guide.png">
+							<img id="guideline" src="${ path }/resources/images/guideline.png">
 						</li>		
 					</ul>
 				</div>
 				<div id="div2">	
-					<button id="btn2" onclick="location.href='${ path }/program/info'">목록으로</button>
+					<button id="button" onclick="location.href='${ path }/program/info'">목록으로</button>
 				</div>
             </div>
         </div>

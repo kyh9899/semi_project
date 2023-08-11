@@ -13,13 +13,12 @@
 		width: 400px;
 		height: 250px;
 		margin-bottom: 30px;
-		
 	}
-	#guide {
+	
+	#guideline {
 		width: 100%;
-        max-width: 100%;
-        height: auto;
 	}
+	
 	#div1 {
 		text-align: center;
 	}
@@ -31,12 +30,12 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
-	#btn1 {
+	#btn {
 		margin-bottom: 20px;
 		width: 140px;
 		height: 50px;
 	}
-	#btn2 {
+	#button {
 		width: 140px;
 		height: 50px;
 		margin-bottom: 20px;
@@ -96,7 +95,7 @@
 							<td><img id="yoga" src="${ path }/resources/images/yoga.jpg"></td>
 						</tr>
 					</table>	
-					<button id="btn1" onclick="location.href='${ path }/application/enrollment'">온라인 수강신청</button>
+					<button id="btn" onclick="location.href='${ path }/application/enrollment'">온라인 수강신청</button>
 				</div>
 				<div class="content">
 					<ul class="tab">
@@ -132,12 +131,12 @@
 							
 						</li>
 						<li id="mu3">
-							<img id="guide" src="${ path }/resources/images/guide.png">
+							<img id="guideline" src="${ path }/resources/images/guideline.png">
 						</li>		
 					</ul>
 				</div>
 				<div id="div2">	
-					<button id="btn2" onclick="location.href='${ path }/program/info'">목록으로</button>
+					<button id="button" onclick="location.href='${ path }/program/info'">목록으로</button>
 				</div>
             </div>
         </div>

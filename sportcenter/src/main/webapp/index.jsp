@@ -29,6 +29,7 @@
         height : 200px;
         border : 1px solid green;
         margin-bottom : 50px;
+        float: left;
     }
 
     .recommend {
@@ -36,6 +37,28 @@
         height : 200px;
         border : 1px solid green;
         margin-bottom : 50px;
+        
+    }
+
+    .left-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 20%;
+        padding: 10px;
+        float: right;
+    }
+
+    .left-column .rectangle {
+        width: 100px;
+        height: 50px;
+        border: 1px solid green;
+        margin: 10px 0;
+        float: left;
+    }
+    
+    .clear {
+        clear: both; /* float 요소 영향 해제 */
     }
 </style>
 
@@ -56,10 +79,20 @@
     </section>
 
     <div class="notice"></div>
+    
+    
+    <div class="left-column">
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+    </div>
+
+    <div class="clear"></div>
     <div class="recommend"></div>
 </article>
 
 <article class="art2" style="width: 20%;">
+    
 </article>
 
 <jsp:include page="/views/common/footer.jsp" />
