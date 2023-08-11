@@ -109,6 +109,7 @@ public class MemberService {
 		return result;
 	}
 	
+	// 비밀번호 변경
 	 public int updateMemberPwd(int no, String newPassword) {
 		 int result = 0;
 		 Connection connection = getConnection();

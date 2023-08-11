@@ -30,6 +30,10 @@ public class BoardUpdateServlet extends HttpServlet {
     	Board board = null;
     	HttpSession session = request.getSession();
     	Member loginMember = (Member) session.getAttribute("loginMember");
+    	String boardId = request.getParameter("boardId");
+    	
+    	// ✔ 속성 설정을 해줘야 write.jsp에서 boardId 값 사용 가능.    	
+    	request.setAttribute("boardId", boardId);
     	
     	no = Integer.parseInt(request.getParameter("no"));
 		board = new BoardService().getBoardByNo(no);
@@ -64,7 +68,7 @@ public class BoardUpdateServlet extends HttpServlet {
     	Board board = null;
     	HttpSession session = request.getSession();
     	Member loginMember = (Member) session.getAttribute("loginMember");
-  
+    	String boardId = request.getParameter("boardId");
     	
     	String path = getServletContext().getRealPath("/resources/upload/board");
     	int maxSize = 10485760;
@@ -76,6 +80,7 @@ public class BoardUpdateServlet extends HttpServlet {
 		
 		board.setTitle(mr.getParameter("title"));
 		board.setContent(mr.getParameter("content"));
+		board.setBoardId(mr.getParameter("boardId"));
 		
 		String originalFileName = mr.getOriginalFileName("upfile");
 		String filesystemName = mr.getFilesystemName("upfile");
@@ -87,14 +92,18 @@ public class BoardUpdateServlet extends HttpServlet {
 		
 		int result = new BoardService().save(board);
 		
+		System.out.println("업데이트 게시판 아이디 ????????" + boardId);
+		
 		if (result > 0) {
 			// 게시글 수정 성공
 			request.setAttribute("msg", "게시글 수정 성공");
-			request.setAttribute("location", "/board/view?no=" + board.getNo());
-		} else {
+			request.setAttribute("boardId", boardId);
+			request.setAttribute("location", "/board/view?boardId=" + board.getBoardId() + "&no=" + board.getNo());
+		} else {						
 			// 게시글 수정 실패
 			request.setAttribute("msg", "게시글 수정 실패");
-			request.setAttribute("location", "/board/update?no=" + board.getNo());
+			request.setAttribute("boardId", boardId);
+			request.setAttribute("location", "/board/update?boardId=" + board.getBoardId() + "&no=" + board.getNo());
 		}
 		
    	
