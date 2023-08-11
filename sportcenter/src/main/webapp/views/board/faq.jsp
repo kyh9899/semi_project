@@ -81,12 +81,14 @@
 				<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">글쓰기</button>
 				</div>
 				<div id="searchbar">
-					<form action="${ path }/board/search" method="POST" name="search" style="margin-right:0px;">
+					<form action="${ path }/board/notice?boardId=${ boardId }" method="POST" name="search" style="margin-right:0px;">
+					<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
+					<input type="hidden" name="boardId" value="${ boardId }"> 
 						<table class="pull-right">
 							<tr>
 								<td><select class="form-control" name="searchField">
 										<option value="0">선택</option>
-										<option value="bbsTitle">제목</option>
+										<option value="title">제목</option>
 										<option value="userId">작성자</option>
 								</select></td>
 								<td><input type="text" class="form-control"

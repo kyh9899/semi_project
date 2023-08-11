@@ -38,6 +38,4 @@ public class Board {
 	private Date createDate;
 	
 	private Date modifyDate;
-
-
 }

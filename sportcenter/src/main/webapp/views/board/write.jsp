@@ -9,7 +9,7 @@
 <style>
 	div#board-write-container {
 		background-color: #f9f9f9;
-		width:700px;
+		width:800px;
 		margin:0 auto;
 		padding-top:5px;
 		text-align:center;
@@ -17,14 +17,15 @@
 		border-top: 2px solid black;
 		float: left;
 	}
-	
+
 	/* 글쓰기 폼 내부 */
 	.deco { width: 90%; float:left; }	
 		
+	h4 { padding-right: 600px;}
 		
-	table#tbl-board{width:100%;  margin:0 auto;border-collapse:collapse; clear:both; }
+	table#tbl-board{ width:100%;  margin:0 auto; border-collapse:collapse; clear:both; }
 	table#tbl-board th { width: 140px; text-align:center; }
-	table#tbl-board th, table#tbl-board td { padding: 5px 0; text-align:center;} 
+	table#tbl-board th, table#tbl-board td { padding: 5px 0; padding:6px; text-align:center;} 
 
 
 	/*페이지바*/
@@ -52,20 +53,28 @@
 			  
 		<div id="rightContent">
 		   <div id="div-notice1">
-		     <h4 align="center">공지사항 > 게시글 작성</h4>
+		      <c:if test="${ boardId == 'notice'}">
+			     <h4> 공지사항 > 게시글 작성</h4>
+			    </c:if>
+			    <c:if test="${ boardId == 'faq'}">
+			     <h4> 자주묻는질문(FAQ) > 게시글 작성</h4>
+			    </c:if>
 		   </div> 
 			
-			<%-- 게시글 작성 폼 --%>
+			
+			<%-- 게시글 작성 --%>
 			<section id="content" style="margin:0px;">
-				<div>
+				<div id="board-write-container">
 					<form action="${ path }/board/write" method="POST" enctype="multipart/form-data">
 						<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
 						<input type="hidden" name="boardId" value="${ boardId }"> 
 						<table id='tbl-board'>
+						<%-- 
 							<tr>
 								<th>boardId</th>
 								<td style="font-weight:bold; text-align:left;">${ boardId }</td>
 							</tr>
+						 --%>
 							<tr>
 								<th>제목</th>
 								<td><input type="text" name="title" class="deco"></td>
