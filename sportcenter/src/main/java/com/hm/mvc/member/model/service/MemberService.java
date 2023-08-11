@@ -108,10 +108,7 @@ public class MemberService {
 		
 		return result;
 	}
-	
-<<<<<<< HEAD
-	
-=======
+
 	// 비밀번호 변경
 	 public int updateMemberPwd(int no, String newPassword) {
 		 int result = 0;
@@ -127,7 +124,6 @@ public class MemberService {
 		 
 	        return result;
 	    }
->>>>>>> 6f9afd5944a1e894bac7c33c7b6b3f94d8adbbcf
 	
 	
 	

@@ -198,4 +198,26 @@ public class MemberDao {
 		
 		return result;
 	}
+	
+	public int updateMemberPwd(Connection connection, int no, String pwd) {
+	      int result = 0;
+	      PreparedStatement pstmt = null;
+	      String query = "UPDATE MEMBER SET MB_PWD=? WHERE MB_CODE=?";
+	      
+	      try {
+	         pstmt = connection.prepareStatement(query);
+	         
+	         pstmt.setString(1, pwd);
+	         pstmt.setInt(2, no);
+	         
+	         result = pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         
+	         e.printStackTrace();
+	      } finally {
+	         close(pstmt);
+	      }
+	      return result;
+	      
+	   }
 }
