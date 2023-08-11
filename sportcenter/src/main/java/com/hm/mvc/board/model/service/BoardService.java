@@ -15,22 +15,22 @@ import static com.hm.mvc.common.jdbc.JDBCTemplate.getConnection;
 
 public class BoardService {
 
-	public int getBoardCount() {
+	public int getBoardCount(String boardId) {
 		int count = 0;
 		Connection connection = getConnection();
 		
-		count = new BoardDao().getBoardCount(connection);
+		count = new BoardDao().getBoardCount(connection, boardId);
 		
 		close(connection);
 		
 		return count;
 	}
 
-	public List<Board> getBoardList(PageInfo pageInfo) {
+	public List<Board> getBoardList(PageInfo pageInfo, String boardId) {
 		List<Board> list = null;
 		Connection connection = getConnection();
 		
-		list = new BoardDao().findAll(connection, pageInfo);
+		list = new BoardDao().findAll(connection, pageInfo, boardId);
 		
 		close(connection);
 		
