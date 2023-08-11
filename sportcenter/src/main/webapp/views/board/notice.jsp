@@ -42,9 +42,6 @@
 		<div id="div-title">	
 		<h2 align="center">고객센터</h2>    
 		
-		
-	
-	
 
 	    <div id="div-notice1" align="center">
 	     <h4>공지사항</h4>
@@ -84,7 +81,7 @@
 			
 			<div>
 				<div id="writebutton">
-				<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write'">글쓰기</button>
+				<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">글쓰기</button>
 				</div>
 				<div id="searchbar">
 					<form action="${ path }/board/search" method="POST" name="search" style="margin-right:0px;">
@@ -134,8 +131,8 @@
 						<tr>
 							<td>${ board.no }</td>
 							<td>
-								<a href="${ path }/board/view?no=${ board.no }" class="updateCount">
-									${ board.title } 
+								<a href="${ path }/board/view?boardId=${ boardId }&no=${ board.no }" class="updateCount">
+									${ board.title }
 								</a>
 							</td>
 							<td>${ board.writerId }</td>
@@ -161,10 +158,10 @@
 			
 			<div id="pageBar">
 			<!-- 맨 처음으로 -->
-			    <button onclick="location.href='${ path }/board/notice?boardId=notice1&page=${ pageInfo.startPage }'">&lt;&lt;</button>
+			    <button onclick="location.href='${ path }/board/notice?boardId=notice&page=${ pageInfo.startPage }'">&lt;&lt;</button>
 			    	
 				<!-- 이전 페이지로 -->
-				<button onclick="location.href='${ path }/board/notice?boardId=notice1&page=${ pageInfo.prevPage }'">&lt;</button>
+				<button onclick="location.href='${ path }/board/notice?boardId=notice&page=${ pageInfo.prevPage }'">&lt;</button>
 	
 				<!--  10개 페이지 목록 -->
 				<c:forEach var="current" begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }">
@@ -173,16 +170,16 @@
 							<button disabled>${ current }</button>			
 						</c:when>
 						<c:otherwise>
-							<button onclick="location.href='${ path }/board/notice?boardId=notice1&page=${ current }'">${ current }</button>			
+							<button onclick="location.href='${ path }/board/notice?boardId=notice&page=${ current }'">${ current }</button>			
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 	
 				<!-- 다음 페이지로 -->
-				<button onclick="location.href='${ path }/board/notice?boardId=notice1&page=${ pageInfo.nextPage }'">&gt;</button>
+				<button onclick="location.href='${ path }/board/notice?boardId=notice&page=${ pageInfo.nextPage }'">&gt;</button>
 	
 				<!-- 맨 끝으로 -->
-				<button onclick="location.href='${ path }/board/notice?boardId=notice1&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
+				<button onclick="location.href='${ path }/board/notice?boardId=notice&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
 			</div>
 		</div>
 		</div>

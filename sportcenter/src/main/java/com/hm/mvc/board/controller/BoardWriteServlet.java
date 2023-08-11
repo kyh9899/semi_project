@@ -26,7 +26,11 @@ public class BoardWriteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	HttpSession session = request.getSession();
     	Member loginMember = (Member) session.getAttribute("loginMember");
+    	// boardId 파라미터 값을 읽어옴
+    	String boardId = request.getParameter("boardId");
     	
+    	// ✔ 속성 설정을 해줘야 write.jsp에서 boardId 값 사용 가능.    	
+    	request.setAttribute("boardId", boardId);
     	request.getRequestDispatcher("/views/board/write.jsp").forward(request, response);
     	
 //    	if (loginMember != null) {			
@@ -42,6 +46,8 @@ public class BoardWriteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	HttpSession session = request.getSession();
     	Member loginMember = (Member) session.getAttribute("loginMember");
+    	// boardId 속성값을 얻어옴
+    	String boardId = (String) request.getAttribute("boardId");
     	
     	if (loginMember != null) {			
     		// 파일이 저장될 경로
@@ -59,6 +65,7 @@ public class BoardWriteServlet extends HttpServlet {
         		// MultipartRequest(request값, 경로, 최대사이즈, 인코딩, 동일이름Rename정책)
         		new MultipartRequest(request, path, maxSize, encoding, new FileRename());
         	
+        	
         	Board board = new Board();
         	
         	// 게시글을 작성한 작성자의 NO 값
@@ -66,10 +73,10 @@ public class BoardWriteServlet extends HttpServlet {
         	
         	System.out.println(loginMember.toString());
         	
-        	// 폼 파라미터로 넘어온 값들
+        	// 폼 파라미터로 넘어온 값들 
         	board.setTitle(mr.getParameter("title"));
         	board.setContent(mr.getParameter("content"));
-        	
+            board.setBoardId(mr.getParameter("boardId"));
         	
         	// 파일에 대한 정보
         	board.setRenamedFilename(mr.getFilesystemName("upfile"));
@@ -77,12 +84,16 @@ public class BoardWriteServlet extends HttpServlet {
         	
         	int result = new BoardService().save(board);
         	
+        	
         	System.out.println(board);
         	
+        	System.out.println("생성한 게시글의 boardId????? : " + board.getBoardId());
+        	
+        	
         	if (result > 0) {
-        		// 게시글 등록 성공
+        		// 게시글 등록 성공 후, 해당하는 게시판 첫 페이지로 이동
         		request.setAttribute("msg", "게시글 등록 성공");
-        		request.setAttribute("location", "/board/notice");
+        		request.setAttribute("location", "/board/notice?boardId="+board.getBoardId());
         	} else {
         		// 게시글 등록 실패
         		request.setAttribute("msg", "게시글 등록 실패");

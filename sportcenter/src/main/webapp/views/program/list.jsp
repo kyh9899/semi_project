@@ -13,7 +13,7 @@
     width: 380px;
     height: 250px;
   }
-  table {
+  #table {
   	float: left;
     margin-left: 30px;
   }
@@ -27,7 +27,7 @@
 		      <!-- Content -->
 
 		 		<div> 		
-					<table>
+					<table id="table">
 						<tr>
 							<td class="image-container">
 								<a href="${ path }/swim/info"><img src="${ path }/resources/images/swim.jpg"></a>
@@ -45,7 +45,7 @@
 						</tr>
 					</table>
 		 		
-					<table>
+					<table id="table">
 						<tr>
 							<td class="image-container">
 								<a href="${ path }/health/info"><img src="${ path }/resources/images/health.jpg"></a>
@@ -62,7 +62,7 @@
 							</td>
 						</tr>
 					</table>
-					<table>
+					<table id="table">
 						<tr>
 							<td class="image-container">
 								<a href="${ path }/pilates/info"><img src="${ path }/resources/images/pilates.jpg"></a>
@@ -82,7 +82,7 @@
 				</div>
 
 					<div>
-						<table>
+						<table id="table">
 							<tr>
 								<td class="image-container">
 									<a href="${ path }/tabletennis/info"><img src="${ path }/resources/images/tabletennis.jpg"></a>
@@ -101,7 +101,7 @@
 						</table>
 					</div>
 					<div>
-						<table>
+						<table id="table">
 							<tr>
 								<td class="image-container">
 									<a href="${ path }/yoga/info"><img src="${ path }/resources/images/yoga.jpg"></a>
@@ -120,7 +120,7 @@
 						</table>
 					</div>
 					<div>
-						<table>
+						<table id="table">
 							<tr>
 								<td class="image-container">
 									<a href="${ path }/badminton/info"><img src="${ path }/resources/images/badminton.jpg"></a>
