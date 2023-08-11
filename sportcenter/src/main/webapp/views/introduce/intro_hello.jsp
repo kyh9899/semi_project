@@ -23,33 +23,8 @@
 </article>
 
  <article class="art2" style="width: 20%;">
-        <p>현재 접속중인 사용자: <span id="MB_ID"></span></p>
     </article>
 
-    <script>
-        // 서버에서 현재 접속중인 사용자 정보를 가져오는 함수
-        function getCurrentUser() {
-            // 실제 서버 URL을 여기에 입력하세요.
-            const serverUrl = "/CCU";
-
-            $.ajax({
-                url: serverUrl,
-                type: "GET",
-                success: function(response) {
-                    const userNameElement = document.getElementById("MB_ID");
-                    userNameElement.textContent = response;
-                },
-                error: function() {
-                    console.error("서버와의 통신 중 오류 발생");
-                }
-            });
-        }
-
-        // 페이지 로딩 시 현재 접속중인 사용자 표시
-        $(document).ready(function() {
-            getCurrentUser();
-        });
-    </script>
 
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />

@@ -13,13 +13,12 @@
 		width: 400px;
 		height: 250px;
 		margin-bottom: 30px;
-		
 	}
-	#guide {
+	
+	#guideline {
 		width: 100%;
-        max-width: 100%;
-        height: auto;
 	}
+	
 	#div1 {
 		text-align: center;
 	}
@@ -74,7 +73,7 @@
 		color:#333;
 	}
 	#pilatesprogram {
-		width: 1200px;
+		width: 100%;
 		margin-bottom: 10px;
 	}
 	h5{
@@ -117,7 +116,7 @@
 								또한 일상생활에서 오는 긴장과 스트레스도 해소할 수 있습니다.<br>
 								자세교정 및 구체적인 근력강화, 유연성 향상	상해방지 및 재활에 효과적 입니다.</p>
 							<h5>▣ 프로그램 안내</h5>	
-							<img id="pilatesprogram" src="${ path }/resources/images/pilatesprogram1.png">	
+							<img id="pilatesprogram" src="${ path }/resources/images/pilatespro.png">	
 							
 							<h5>▣ 강습 방법</h5>
 							<p>
@@ -133,7 +132,7 @@
 							<img src="${ path }/resources/images/pilatesprogram2.png">
 						</li>
 						<li id="mu3">
-							<img id="guide" src="${ path }/resources/images/guide.png">
+							<img id="guideline" src="${ path }/resources/images/guideline.png">
 						</li>		
 					</ul>
 				</div>
