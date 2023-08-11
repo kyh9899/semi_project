@@ -16,14 +16,16 @@ import static com.hm.mvc.common.jdbc.JDBCTemplate.close;
 
 public class BoardDao {
 
-	public int getBoardCount(Connection connection) {
+	public int getBoardCount(Connection connection, String boardId) {
 		int count = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String query = "SELECT COUNT(*) FROM POST WHERE P_STATUS='Y'";
+		String query = "SELECT COUNT(*) FROM POST WHERE P_STATUS='Y' AND B_ID=?";
 		
 		try {
 			pstmt = connection.prepareStatement(query);
+			
+			pstmt.setString(1, boardId);  // boardId 파라미터 값을 넘겨준다. 
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
@@ -39,29 +41,36 @@ public class BoardDao {
 		return count;
 	}
 
-	public List<Board> findAll(Connection connection, PageInfo pageInfo) {
+	public List<Board> findAll(Connection connection, PageInfo pageInfo, String boardId) {
 		List<Board> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		Board board = null;
+		
 		String query = "SELECT RNUM, P_NO, P_TITLE, MB_ID, P_CREATE_DATE, P_ORG_FILENAME, P_RDCOUNT, P_STATUS "
-					 + "FROM (SELECT P.P_NO, P.P_TITLE, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
+					 + "FROM (SELECT B.B_ID, P.P_NO, P.P_TITLE, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
 					 + "FROM POST P "
-					 + "JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) "
-					 + "WHERE P.P_STATUS = 'Y' "
+					 + "JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) JOIN BOARD B ON (P.B_ID = B.B_ID) "
+					 + "WHERE P.P_STATUS = 'Y' AND B.B_ID=? "
 					 + "ORDER BY P.P_NO DESC) SUBQ "
 					 + "WHERE RNUM BETWEEN ? AND ? ";
 
 		try {
 			pstmt = connection.prepareStatement(query);
+			pstmt.setString(1, boardId);
 			
-			pstmt.setInt(1, pageInfo.getEndList());
-			pstmt.setInt(2, pageInfo.getStartList());
+			System.out.println(pageInfo.getEndList());
+			System.out.println(pageInfo.getStartList());
+			
+			pstmt.setInt(2, pageInfo.getEndList());
+		    pstmt.setInt(3, pageInfo.getStartList());
 			
 			rs = pstmt.executeQuery();
 			
-			while (rs.next()) {
-				Board board = new Board();
-				
+				while (rs.next()) {
+					
+				board = new Board();
+					
 				board.setNo(rs.getInt("P_NO"));
 				board.setRowNum(rs.getInt("RNUM"));
 				board.setWriterId(rs.getString("MB_ID"));
@@ -70,16 +79,17 @@ public class BoardDao {
 				board.setOriginalFilename(rs.getString("P_ORG_FILENAME"));
 				board.setReadCount(rs.getInt("P_RDCOUNT"));
 				board.setStatus(rs.getString("P_STATUS"));
+						
+				list.add(board);			
+			}	
 				
-				list.add(board);
-			}			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
-		
+		System.out.println(list);
 		return list;
 	}
 

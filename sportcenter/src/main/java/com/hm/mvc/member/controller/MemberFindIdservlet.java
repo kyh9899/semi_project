@@ -1,6 +1,8 @@
 package com.hm.mvc.member.controller;
 
 import java.io.IOException;
+
+import javax.script.ScriptContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +29,8 @@ public class MemberFindIdservlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String findid = "member"; 
+		
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
 		
@@ -38,13 +42,19 @@ public class MemberFindIdservlet extends HttpServlet {
 			
     		HttpSession session = request.getSession();
     		
-    		session.setAttribute("loginMember", findMemberByName );
+    		session.setAttribute("findid", findMemberByName ); // loginNember를 findid로 바꾸면 로그인 X 메인 화면을 이동
+    		
+    		response.sendRedirect(request.getContextPath() + "/login");
     		
     		
-    		response.sendRedirect(request.getContextPath() + "/");
+    		response.getWriter().write(" 회원님의 아이디는 " +  findid + " 입니다.");
+    		
+//    		request.setAttribute("msg", " 회원님의 아이디는 " +  member + " 입니다.");
+    		
+    		
 		} else {
 			
-			request.setAttribute("msg",  "아이디 정보가 없습니다.");
+			request.setAttribute("msg",  "회원 정보가 없습니다.");
 			request.setAttribute("location", "/member/findid");
 			
 			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);

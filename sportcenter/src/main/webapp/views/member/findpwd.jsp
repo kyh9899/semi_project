@@ -2,15 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 
+<jsp:include page="/views/common/header.jsp" />
+
+<article class="art1" style="width: 60%;"> 
 <style>
-
 	section #findpwd-container {
 		text-align:center;
 	}
@@ -37,6 +33,8 @@
 		background-color: white;
 		box-shadow: none;
 		border:none;
+		margin-top: 30px;
+		padding-left: 30px;
 	}
 	#btn1 {
 		border-color: white;
@@ -47,10 +45,13 @@
 	td {
  	 padding-bottom: 15px;
  	 padding-left: 10px;
+ 	 padding-top: 
 	}
+	
+	
 </style>
-<body>
-<jsp:include page="/views/common/header.jsp" />
+
+
 
 
 <script>
@@ -86,6 +87,8 @@
 		</table>
 		</form>
 	</div>
+<article class="art2" style="width: 20%;">
+</article>
 
 
 
@@ -114,6 +117,7 @@
 	
 	
 	--%>
-
-</body>
-</html>
+<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
+<jsp:include page="/views/common/footer.jsp" />
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
