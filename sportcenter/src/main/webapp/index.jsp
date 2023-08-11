@@ -46,6 +46,7 @@
         align-items: flex-start;
         width: 20%;
         padding: 10px;
+        float: right;
     }
 
     .left-column .rectangle {
@@ -55,9 +56,9 @@
         margin: 10px 0;
         float: left;
     }
-
-    .left-column .rectangle:last-child {
-        align-self: flex-start; /* 마지막 사각형만 왼쪽 위로 이동 */
+    
+    .clear {
+        clear: both; /* float 요소 영향 해제 */
     }
 </style>
 
@@ -86,6 +87,7 @@
         <div class="rectangle"></div>
     </div>
 
+    <div class="clear"></div>
     <div class="recommend"></div>
 </article>
 

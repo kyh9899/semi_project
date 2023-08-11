@@ -74,6 +74,7 @@
  	 margin-bottom: 10px;
 	}
 </style>
+<article class="art1" style="width: 60%; margin: 10px auto;">
 <section id="content">
 	<div id="signin-container">
 	<h1 align="center">로그인</h1>
@@ -81,7 +82,6 @@
 <div class="signin-container">
 
 <c:if test="${ empty loginMember }">
-
 
 	<form id="loginFrm" action="${ path }/login" method="post">
 	
@@ -125,7 +125,9 @@
 		</table>
 	</form>
 </c:if>
-
+</article>
+<article class="art2" style="width: 20%;">
+</article>
 
 
 

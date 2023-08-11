@@ -60,7 +60,10 @@
           <div class="form-group">
             <label for="cvc">CVC:</label>
             <input type="text" class="form-control" name="cvc" id="cvc">
-          </div>
+         <div class="form-group">
+  		<label for="paymentAmount">결제금액:</label>
+  		<input type="text" class="form-control" name="paymentAmount" id="paymentAmount" value="${param.price}" readonly>
+		</div>
           <button type="submit" class="btn btn-primary btn-block">결제 하기</button>
         </form>
       </div>
