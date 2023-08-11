@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.hm.mvc.board.model.vo.Board;
 import com.hm.mvc.member.model.vo.Member;
 
 public class MemberDao {
@@ -58,7 +59,7 @@ public class MemberDao {
 	    Member member = null;
 	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
-	    String query = "SELECT * FROM MEMBER WHERE MB_NAME = ? AND MB_PHONE = ?";
+	    String query = "SELECT MB_ID FROM MEMBER WHERE MB_NAME = ? AND MB_PHONE = ? "; //
 	    
 	    try {
 	        pstmt = connection.prepareStatement(query);
@@ -71,9 +72,17 @@ public class MemberDao {
 	        if (rs.next()) {
 	            member = new Member();
 
-	            member.setName(rs.getString("MB_NAME"));
-	            member.setPhone(rs.getString("MB_PHONE"));
+//	            member.setName(rs.getString("MB_NAME"));
+//	            member.setPhone(rs.getString("MB_PHONE"));
 	            
+	            pstmt.setString(1, member.getName());
+	            pstmt.setString(2, member.getPhone());
+	            
+	            
+	            member = new Member();
+				
+				member.setId(rs.getString("MB_ID"));
+				
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -189,26 +198,26 @@ public class MemberDao {
 		
 		return result;
 	}
-
+	
 	public int updateMemberPwd(Connection connection, int no, String pwd) {
-		int result = 0;
-		PreparedStatement pstmt = null;
-		String query = "UPDATE MEMBER SET MB_PWD=? WHERE MB_CODE=?";
-		
-		try {
-			pstmt = connection.prepareStatement(query);
-			
-			pstmt.setString(1, pwd);
-			pstmt.setInt(2, no);
-			
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		return result;
-		
-	}
+	      int result = 0;
+	      PreparedStatement pstmt = null;
+	      String query = "UPDATE MEMBER SET MB_PWD=? WHERE MB_CODE=?";
+	      
+	      try {
+	         pstmt = connection.prepareStatement(query);
+	         
+	         pstmt.setString(1, pwd);
+	         pstmt.setInt(2, no);
+	         
+	         result = pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         
+	         e.printStackTrace();
+	      } finally {
+	         close(pstmt);
+	      }
+	      return result;
+	      
+	   }
 }
