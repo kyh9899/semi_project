@@ -90,7 +90,6 @@
             width: 20%;
             height: 65%;
             float: left;
-            background-color: #DFEAF7;
         }
       .scroll-box {
             position: fixed;
@@ -103,7 +102,6 @@
 	    .col-md-3 {
 	    max-width:15%;
 		}
-		
     </style>
 </head>
 <body style="background-color: #DFEAF7;">
