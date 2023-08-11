@@ -119,7 +119,7 @@
 	
 	            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">비밀번호 변경</button>
 	            <input type="submit" class="btn btn-primary" value="정보 수정">
-	            <input type="button" class="btn btn-primary" id="btnDelete" value="탈퇴">
+	            <input type="button" class="btn btn-outline-primary me-2" id="btnDelete" value="탈퇴">
 	        </form>
 	    </div>
 	</section>
