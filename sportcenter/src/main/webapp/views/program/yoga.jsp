@@ -137,7 +137,7 @@
 					</ul>
 				</div>
 				<div id="div2">	
-					<button id="btn2" onclick="location.href='${ path }/program/info'">목록으로</button>
+					<button id="button" onclick="location.href='${ path }/program/info'">목록으로</button>
 				</div>
             </div>
         </div>
