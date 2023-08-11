@@ -108,11 +108,12 @@
 <body>
    <div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
+      <div style="align:center;">
       <a href="${ path }" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none center-content">
         <svg class="bi me-2" width="30%" height="32" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
       </a>
       
-      
+   
        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 center-content" style="font-size:25px;">
         <li class="home"><a href="${ path }/views/introduce/intro_hello.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
         <li><a href="${ path }/views/program/list.jsp" class="nav-link px-2 link-dark">프로그램안내</a></li>
@@ -129,14 +130,16 @@
       </div>
    </c:if>
     <c:if test="${ not empty loginMember }">
+      </div>
 
     
-   <table>
+   <table> 
       <tr>
          <td id="space1" colspan="2">
             ${ loginMember.name }님 안녕하세요.
          </td>
       </tr>
+      
       <tr>
          <td>
             <button id="btn1" onclick="location.href='${ path }/views/member/myPage.jsp'">마이페이지</button> |
