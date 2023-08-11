@@ -60,6 +60,11 @@
         border: none;
         font-size: 1.2em;
     }
+	.col-md-3 {
+	    -ms-flex: 0 0 25%;
+	    flex: 0 0 25%;
+	    max-width: 0%;
+	}
   </style>
   
 <article class="art1" style="width: 60%;"> 

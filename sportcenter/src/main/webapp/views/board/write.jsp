@@ -5,9 +5,7 @@
 
 <jsp:include page="/views/common/header.jsp" />
 
-<!DOCTYPE html>
-<html>
-<head>	
+
 <style>
 	div#board-write-container {
 		background-color: #f9f9f9;
@@ -20,9 +18,6 @@
 		float: left;
 	}
 	
-	div#rightContent {
-		float:left;
-	}
 	/* 글쓰기 폼 내부 */
 	.deco { width: 90%; float:left; }	
 		
@@ -45,10 +40,12 @@
 	.sort { width: 10%; margin: 13px 0px 13px 150px; float:left; align: center; }
 	.form-control me-2 { width: 400px;  background-color:yellow; align:center; }
 	#btn-search { width: 80px; margin-top: 3px;}
+	
+	
 </style>
-</head>
 
-<body>
+
+<article class="art1" style="width: 60%;"> 
 	<section id="content">
 			<div id="div-title">	
 			<h2 align="center">고객센터</h2>    
@@ -56,12 +53,12 @@
 			  
 		<div id="rightContent">
 		   <div id="div-notice1">
-		     <h4>공지사항 > 게시글 작성</h4>
+		     <h4 align="center">공지사항 > 게시글 작성</h4>
 		   </div> 
 			
 			<%-- 게시글 작성 폼 --%>
 			<section id="content" style="margin:0px;">
-				<div id='board-write-container'>
+				<div>
 					<form action="${ path }/board/write" method="POST" enctype="multipart/form-data">
 						<table id='tbl-board'>
 							<tr>
@@ -93,9 +90,11 @@
 				 
 			</section>
 		</div>
-</body>
-</html>
+<article class="art2" style="width: 20%;">
+</article>
+
+
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<jsp:include page="/views/common/footer.jsp" />
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
-<jsp:include page="/views/common/footer.jsp" />
