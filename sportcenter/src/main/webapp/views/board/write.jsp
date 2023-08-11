@@ -44,7 +44,6 @@
 	
 </style>
 
-
 <article class="art1" style="width: 60%;"> 
 	<section id="content">
 			<div id="div-title">	
@@ -60,7 +59,13 @@
 			<section id="content" style="margin:0px;">
 				<div>
 					<form action="${ path }/board/write" method="POST" enctype="multipart/form-data">
+						<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
+						<input type="hidden" name="boardId" value="${ boardId }"> 
 						<table id='tbl-board'>
+							<tr>
+								<th>boardId</th>
+								<td style="font-weight:bold; text-align:left;">${ boardId }</td>
+							</tr>
 							<tr>
 								<th>제목</th>
 								<td><input type="text" name="title" class="deco"></td>
@@ -81,7 +86,7 @@
 								<th colspan="2">
 									<input type="submit" value="등록"> 
 									<input type="reset" value="취소">
-									<input type="button" value="목록으로" onclick="location.href='${ path }/board/notice'"> 
+									<input type="button" value="목록으로" onclick="location.href='${ path }/board/${ boardId }?boardId=${ boardId }'" >
 								</th>
 							</tr>
 						</table>

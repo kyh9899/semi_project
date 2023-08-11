@@ -47,8 +47,8 @@ public class BoardDao {
 		ResultSet rs = null;
 		Board board = null;
 		
-		String query = "SELECT RNUM, P_NO, P_TITLE, MB_ID, P_CREATE_DATE, P_ORG_FILENAME, P_RDCOUNT, P_STATUS "
-					 + "FROM (SELECT B.B_ID, P.P_NO, P.P_TITLE, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
+		String query = "SELECT RNUM, B_ID, P_NO, MB_CODE, P_TITLE, MB_ID, P_CREATE_DATE, P_ORG_FILENAME, P_RDCOUNT, P_STATUS "
+					 + "FROM (SELECT B.B_ID, P.P_NO, P.MB_CODE, P.P_TITLE, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
 					 + "FROM POST P "
 					 + "JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) JOIN BOARD B ON (P.B_ID = B.B_ID) "
 					 + "WHERE P.P_STATUS = 'Y' AND B.B_ID=? "
@@ -59,28 +59,30 @@ public class BoardDao {
 			pstmt = connection.prepareStatement(query);
 			pstmt.setString(1, boardId);
 			
-			System.out.println(pageInfo.getEndList());
-			System.out.println(pageInfo.getStartList());
-			
+//			System.out.println(pageInfo.getEndList());
+//			System.out.println(pageInfo.getStartList());
+//			
 			pstmt.setInt(2, pageInfo.getEndList());
 		    pstmt.setInt(3, pageInfo.getStartList());
 			
 			rs = pstmt.executeQuery();
 			
-				while (rs.next()) {
+			while (rs.next()) {
 					
-				board = new Board();
+			board = new Board();
 					
-				board.setNo(rs.getInt("P_NO"));
-				board.setRowNum(rs.getInt("RNUM"));
-				board.setWriterId(rs.getString("MB_ID"));
-				board.setTitle(rs.getString("P_TITLE"));
-				board.setCreateDate(rs.getDate("P_CREATE_DATE"));
-				board.setOriginalFilename(rs.getString("P_ORG_FILENAME"));
-				board.setReadCount(rs.getInt("P_RDCOUNT"));
-				board.setStatus(rs.getString("P_STATUS"));
+			board.setNo(rs.getInt("P_NO"));
+			board.setBoardId(rs.getString("B_ID"));
+			board.setWriterNo(rs.getInt("MB_CODE"));
+			board.setRowNum(rs.getInt("RNUM"));
+			board.setWriterId(rs.getString("MB_ID"));
+			board.setTitle(rs.getString("P_TITLE"));
+			board.setCreateDate(rs.getDate("P_CREATE_DATE"));
+			board.setOriginalFilename(rs.getString("P_ORG_FILENAME"));
+			board.setReadCount(rs.getInt("P_RDCOUNT"));
+			board.setStatus(rs.getString("P_STATUS"));
 						
-				list.add(board);			
+			list.add(board);			
 			}	
 				
 		} catch (SQLException e) {
@@ -137,23 +139,21 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 //		Date sqlCreateDate = new Date(board.getCreateDate().getTime());
 		
-		String query = "INSERT INTO POST VALUES(SEQ_POST_NO.NEXTVAL,DEFAULT,?,?,?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT)";
+		String query = "INSERT INTO POST VALUES(SEQ_POST_NO.NEXTVAL,?,?,?,?,?,?,0,DEFAULT,DEFAULT,DEFAULT)";
 		
 		
 		try {
 			pstmt = connection.prepareStatement(query);
 				
-			pstmt.setInt(1, board.getWriterNo());
-			pstmt.setString(2, board.getTitle());
-			pstmt.setString(3, board.getContent());
-			pstmt.setString(4, board.getOriginalFilename());
-			pstmt.setString(5, board.getRenamedFilename());
+			pstmt.setString(1, board.getBoardId());
+			pstmt.setInt(2, board.getWriterNo());
+			pstmt.setString(3, board.getTitle());
+			pstmt.setString(4, board.getContent());
+			pstmt.setString(5, board.getOriginalFilename());
+			pstmt.setString(6, board.getRenamedFilename());
 //			pstmt.setInt(6, board.getReadCount());
 //			pstmt.setDate(7, (java.sql.Date) sqlCreateDate);
-			
-			
-			System.out.println(board);
-						
+									
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -161,13 +161,14 @@ public class BoardDao {
 			close(pstmt);
 		}
 		
+		System.out.println("dao board객체에 담긴 boardId : " + board.getBoardId());
 		return result;
 	}
 
 	public int updateBoard(Connection connection, Board board) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "UPDATE POST SET P_TITLE=?,P_CONTENT=?,P_ORG_FILENAME=?,P_RND_FILENAME=?,P_MODIFY_DATE=SYSDATE WHERE P_NO=?";
+		String query = "UPDATE POST SET P_TITLE=?,P_CONTENT=?,P_ORG_FILENAME=?,P_RND_FILENAME=?,P_MODIFY_DATE=SYSDATE WHERE P_NO=? AND B_ID=? ";
 		
 		try {
 			pstmt = connection.prepareStatement(query);
@@ -177,6 +178,7 @@ public class BoardDao {
 			pstmt.setString(3, board.getOriginalFilename());
 			pstmt.setString(4, board.getRenamedFilename());
 			pstmt.setInt(5, board.getNo());
+			pstmt.setString(6, board.getBoardId());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
