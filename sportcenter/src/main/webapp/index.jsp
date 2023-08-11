@@ -37,6 +37,25 @@
         border : 1px solid green;
         margin-bottom : 50px;
     }
+
+    .left-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 20%;
+        padding: 10px;
+    }
+
+    .left-column .rectangle {
+        width: 100px;
+        height: 50px;
+        border: 1px solid green;
+        margin: 10px 0;
+    }
+
+    .left-column .rectangle:last-child {
+        align-self: flex-start; /* 마지막 사각형만 왼쪽 위로 이동 */
+    }
 </style>
 
 
@@ -57,9 +76,16 @@
 
     <div class="notice"></div>
     <div class="recommend"></div>
+    
+    <div class="left-column">
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+    </div>
 </article>
 
 <article class="art2" style="width: 20%;">
+    
 </article>
 
 <jsp:include page="/views/common/footer.jsp" />
