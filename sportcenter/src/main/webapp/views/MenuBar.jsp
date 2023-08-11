@@ -17,9 +17,9 @@
         </button>
         <div class="collapse" id="home-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="http://localhost:8087/sportcenter/views/introduce/intro_hello.jsp" class="link-dark d-inline-flex text-decoration-none rounded">인사말</a></li>
- 			<li><a href="http://localhost:8087/sportcenter/views/introduce/route.jsp" class="link-dark d-inline-flex text-decoration-none rounded">오시는 길</a></li>
-            <li><a href="http://localhost:8087/sportcenter/views/introduce/th_introduce.jsp" class="link-dark d-inline-flex text-decoration-none rounded">강사 소개</a></li>
+            <li><a href="${ pageContext.request.contextPath }/introduce/Center" class="link-dark d-inline-flex text-decoration-none rounded">인사말</a></li>
+ 			<li><a href="${ pageContext.request.contextPath }/introduce/Route" class="link-dark d-inline-flex text-decoration-none rounded">오시는 길</a></li>
+            <li><a href="${ pageContext.request.contextPath }/introduce/Teacher" class="link-dark d-inline-flex text-decoration-none rounded">강사 소개</a></li>
           </ul>
         </div>
       </li>
