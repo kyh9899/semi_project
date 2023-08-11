@@ -6,7 +6,7 @@ import static com.hm.mvc.common.jdbc.JDBCTemplate.getConnection;
 import static com.hm.mvc.common.jdbc.JDBCTemplate.rollback;
 
 import java.sql.Connection;
-
+import java.sql.SQLException;
 
 import com.hm.mvc.member.model.dao.MemberDao;
 import com.hm.mvc.member.model.vo.Member;
@@ -109,7 +109,20 @@ public class MemberService {
 		return result;
 	}
 	
-	
+	 public int updateMemberPwd(int no, String newPassword) {
+		 int result = 0;
+		 Connection connection = getConnection();
+		 
+		 result = new MemberDao().updateMemberPwd(connection, no, newPassword);
+		 
+		 if (result > 0) {
+				commit(connection);
+			} else {
+				rollback(connection);
+			}
+		 
+	        return result;
+	    }
 	
 	
 	
