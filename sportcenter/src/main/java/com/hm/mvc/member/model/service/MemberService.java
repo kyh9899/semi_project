@@ -59,6 +59,18 @@ public class MemberService {
 		
 		return member;
 	}
+
+	
+	public  Member findpwd(String id, String phone) {
+		Member member = null;
+		Connection connection = getConnection();
+		
+		member = new MemberDao().findpwd(connection, id, phone);
+		
+		close(connection);
+		
+		return member;
+	}
 	
 
 	// 3. 회원가입 시, 아이디가 중복인지 체크 

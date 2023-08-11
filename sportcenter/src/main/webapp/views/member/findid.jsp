@@ -2,15 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 <jsp:include page="/views/common/header.jsp" />
 
+<article class="art1" style="width: 60%;"> 
 <style>
 	section #findid-container {
 		text-align:center;
@@ -38,6 +32,7 @@
 	}
 	#findid {
 		margin-top: 10px;
+		padding-left: 60px;
 	}
 	#findid {
 		border-color: white;
@@ -52,13 +47,15 @@
 		border:none;
 	}
 	td {
- 	 padding-bottom: 15px;
- 	 padding-left: 10px;
+ 		padding-bottom: 15px;
+    	padding-left: 10px;
 	}
+	
+	
 	
 </style>
 
-<body>
+
 
 <script>
 	function findIDbtn(){
@@ -86,7 +83,7 @@
 			      <a href="#" onClick="alert('아이디 찾기 성공!!')">
 					<button id="btn1" type="findid" onclick="location.href='/sportcenter/">아이디 찾기</button>  
 					--%> 
-			        <button  type="submit" id="findid" onclick="'${ path }/member/findid'"><span>아이디 찾기</span></button>  | &nbsp; &nbsp; 
+			        <button  type="submit" id="findid" onclick="'${ path }/member/findid'"><span>아이디 찾기</span></button>  &nbsp;  |
 			      
 			        <input id="btn1" type="button"  value="취소" onClick="history.back()">
 			      </td>
@@ -94,7 +91,8 @@
 			</table>
 			</form>
 		</div>
-		
+<article class="art2" style="width: 20%;">
+</article>		
 	<%-- 
 		<c:if test="${ empty loginMember }">
 		<form name="idfindscreen" method = "POST">
@@ -118,7 +116,8 @@
 		</c:if>
 	--%>
 	
-	
-	
-</body>
-</html>
+
+<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
+<jsp:include page="/views/common/footer.jsp" />
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>	

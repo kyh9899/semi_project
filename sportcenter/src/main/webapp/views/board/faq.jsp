@@ -20,15 +20,18 @@
 	#content { align: center;  background-color:yellow;  }
 	#notice-write { float:left; font-size: 13px;}
 	
+	/* 검색 바 */	
+	#searchbar { width:90%; float:left; height:30px; padding-left:250px; margin-bottom: 20px;  }
+	
 	/* 글쓰기 버튼 */ 
-	.btn-outline-secondary { float:left; margin-bottom: 5px;}
-	.btn-secondary { width:50px; margin-bottom:5px; }
+	#writebutton { width:10%; float:left; }
+	.btn-outline-secondary { margin-top:5px; }
+	.btn-secondary { width:60px; }
 	.search-wrapper { width: 100%; height:50%; margin-bottom: 10px; background-color: lightgray; }
 	.sort { width: 10%; margin: 13px 0px 13px 150px; float:left; align: center; }
 	.form-control me-2 { width: 400px;  background-color:yellow; align:center; }
 	#btn-search { width: 80px; margin-top: 3px;}
 	#content-none { height: 300px;}
-
 </style>
 
 <article class="art1" style="width: 60%;"> 
@@ -73,7 +76,29 @@
 	            </div>
 	             --%>  		
 			
-			<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write'">글쓰기</button>
+			<div>
+				<div id="writebutton">
+				<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write'">글쓰기</button>
+				</div>
+				<div id="searchbar">
+					<form action="${ path }/board/search" method="POST" name="search" style="margin-right:0px;">
+						<table class="pull-right">
+							<tr>
+								<td><select class="form-control" name="searchField">
+										<option value="0">선택</option>
+										<option value="bbsTitle">제목</option>
+										<option value="userId">작성자</option>
+								</select></td>
+								<td><input type="text" class="form-control"
+									placeholder="검색어 입력" name="searchText" maxlength="100"></td>
+								<td><button type="submit" class="btn btn-secondary ">검색</button></td>
+								
+							</tr>
+		
+						</table>
+					</form>
+				</div>
+			</div>
 					
 			<br>
 			
@@ -87,6 +112,7 @@
 					<th>조회수</th>
 				</tr>
 				
+				<%-- 게시글이 없는 경우 --%>
 				<c:if test="${ empty list }">			
 					<tr>
 						<td colspan="6" id="content-none">
@@ -94,6 +120,8 @@
 						</td>
 					</tr>	
 				</c:if>
+				
+				<%-- 게시글이 있는 경우 --%>
 				<c:if test="${ not empty list }">
 					<c:forEach var="board" items="${ list }">
 						<tr>
@@ -121,10 +149,10 @@
 			</table>
 			<div id="pageBar">
 				<!-- 맨 처음으로 -->
-				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.prevPage }'">&lt;&lt;</button>
+				<button onclick="location.href='${ path }/board/notice?boardId=faq&page=${ pageInfo.prevPage }'">&lt;&lt;</button>
 	
 				<!-- 이전 페이지로 -->
-				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.prevPage }'">&lt;</button>
+				<button onclick="location.href='${ path }/board/notice?boardId=faq&page=${ pageInfo.prevPage }'">&lt;</button>
 	
 				<!--  10개 페이지 목록 -->
 				<c:forEach var="current" begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }">
@@ -133,16 +161,16 @@
 							<button disabled>${ current }</button>			
 						</c:when>
 						<c:otherwise>
-							<button onclick="location.href='${ path }/board/notice?page=${ current }'">${ current }</button>			
+							<button onclick="location.href='${ path }/board/notice?boardId=faq&page=${ current }'">${ current }</button>			
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 	
 				<!-- 다음 페이지로 -->
-				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.nextPage }'">&gt;</button>
+				<button onclick="location.href='${ path }/board/notice?boardId=faq&page=${ pageInfo.nextPage }'">&gt;</button>
 	
 				<!-- 맨 끝으로 -->
-				<button onclick="location.href='${ path }/board/notice?page=${ pageInfo.maxPage }'">&gt;&gt;</button>
+				<button onclick="location.href='${ path }/board/notice?boardId=faq&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
 			</div>
 		</div>
 		</div>
