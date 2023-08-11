@@ -109,7 +109,25 @@ public class MemberService {
 		return result;
 	}
 	
+<<<<<<< HEAD
 	
+=======
+	// 비밀번호 변경
+	 public int updateMemberPwd(int no, String newPassword) {
+		 int result = 0;
+		 Connection connection = getConnection();
+		 
+		 result = new MemberDao().updateMemberPwd(connection, no, newPassword);
+		 
+		 if (result > 0) {
+				commit(connection);
+			} else {
+				rollback(connection);
+			}
+		 
+	        return result;
+	    }
+>>>>>>> 6f9afd5944a1e894bac7c33c7b6b3f94d8adbbcf
 	
 	
 	

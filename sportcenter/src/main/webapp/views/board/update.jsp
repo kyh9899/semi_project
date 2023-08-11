@@ -63,6 +63,7 @@
 				<div id='board-write-container'>								
 					<form action="${ path }/board/update" method="POST" enctype="multipart/form-data">
 					<input type="hidden" name="no" value="${ board.no }">
+					<input type="hidden" name="boardId" value="${ boardId }"> 
 						
 						<table id='tbl-board'>
 							<tr>
@@ -90,7 +91,7 @@
 								<th colspan="2">
 									<input type="submit" value="수정">
 									<input type="reset" value="취소">
-									<input type="button" value="목록으로" onclick="location.href='${ path }/board/notice?boardId=${ board.boardId }'" >
+									<input type="button" value="목록으로" onclick="location.href='${ path }/board/${ boardId }?boardId=${ boardId }'" >
 								</th>
 							</tr>
 						</table>
