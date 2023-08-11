@@ -78,7 +78,7 @@
 			
 			<div>
 				<div id="writebutton">
-				<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write'">글쓰기</button>
+				<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">글쓰기</button>
 				</div>
 				<div id="searchbar">
 					<form action="${ path }/board/search" method="POST" name="search" style="margin-right:0px;">
@@ -127,7 +127,7 @@
 						<tr>
 							<td>${ board.rowNum }</td>
 							<td>
-								<a href="${ path }/board/view?no=${ board.no }">
+								<a href="${ path }/board/view?boardId=faq&no=${ board.no }">
 									${ board.title } 
 								</a>
 							</td>
