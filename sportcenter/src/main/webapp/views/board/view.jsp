@@ -101,6 +101,8 @@
 		<%-- 게시글 조회 --%>
 		<section id="content" style="margin:0px;">   
 			<div id="board-view-container">
+			<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
+			<input type="hidden" name="boardId" value="${ boardId }"> 
 				<h4> [공지] ${ board.title } </h4>
 				<table id="tbl-board" style="padding-right:50px;">
 					<%-- 
@@ -160,9 +162,9 @@
 								<input type="button" value="삭제" id="btnDelete">
 							</c:if>
 						--%>
-							<input type="button" value="수정" onclick="location.href='${ path }/board/update?no=${ board.no }'">
+							<input type="button" value="수정" onclick="location.href='${ path }/board/update?boardId=${ boardId }&no=${ board.no }'">
 							<input type="button" value="삭제" id="btnDelete">
-							<input type="button" value="목록으로" id="goBack" >
+							<input type="button" value="목록으로" onclick="location.href='${ path }/board/${ boardId }?boardId=${ boardId }'" >
 						</th>
 					</tr>
 				</table>

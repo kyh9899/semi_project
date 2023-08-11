@@ -17,9 +17,9 @@ public class EnrollServiceImpl implements EnrollService {
         return list;
     }
     @Override
-    public List<Enroll> searchCourses(String query) {
+    public List<Enroll> searchCourses(String search) {
         Connection conn = getConnection();
-        List<Enroll> list = dao.searchCourses(conn, query);
+        List<Enroll> list = dao.searchCourses(conn, search);
         close(conn);
         return list;
     }

@@ -40,7 +40,7 @@
         padding: 20px 0 15px 20px;
         border-bottom: 1px solid #ccc;
         border-top: 1px solid #ccc;
-        background-color: gray;
+        background-color: #E6E6E6;
         width: 200px;
     }
 
@@ -117,9 +117,9 @@
 	
 	            <br><br>
 	
-	            <button type="button" data-toggle="modal" data-target="#passwordModal">비밀번호 변경</button>
-	            <input type="submit" value="정보 수정">
-	            <input type="button" id="btnDelete" value="탈퇴">
+	            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">비밀번호 변경</button>
+	            <input type="submit" class="btn btn-primary" value="정보 수정">
+	            <input type="button" class="btn btn-outline-primary me-2" id="btnDelete" value="탈퇴">
 	        </form>
 	    </div>
 	</section>
