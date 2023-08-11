@@ -40,7 +40,7 @@
         padding: 20px 0 15px 20px;
         border-bottom: 1px solid #ccc;
         border-top: 1px solid #ccc;
-        background-color: gray;
+        background-color: #E0ECF8;
         width: 200px;
     }
 
@@ -107,13 +107,19 @@
 	                            <input type="text" class="input" name="address2" id="address" value="${ loginMember.address2 }">
 	                        </td>
 	                </tr>
+	                <tr>
+	                	<th>회원가입일</th>
+	                	<td>
+	                		<input type="text" class="input" name="joinDate" id="joinDate" value="${ loginMember.joinDate }" readonly required>
+	                	</td>
+	                </tr>
 	            </table>
 	
 	            <br><br>
 	
-	            <button type="button" data-toggle="modal" data-target="#passwordModal">비밀번호 변경</button>
-	            <input type="submit" value="정보 수정">
-	            <input type="button" id="btnDelete" value="탈퇴">
+	            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">비밀번호 변경</button>
+	            <input type="submit" class="btn btn-primary" value="정보 수정">
+	            <input type="button" class="btn btn-primary" id="btnDelete" value="탈퇴">
 	        </form>
 	    </div>
 	</section>
@@ -132,22 +138,22 @@
 	        <form id="passwordChangeForm" action="${ path }/password/change" method="POST">
 	          <div class="form-group">
 	            <label for="currentPassword">현재 비밀번호</label>
-	            <input type="password" class="form-control" id="currentPassword" name="currentPassword" required>
+	            <input type="password" class="form-control" id="currentPassword" name="userPwd" required>
 	          </div>
 	          <div class="form-group">
 	            <label for="newPassword">새 비밀번호</label>
-	            <input type="password" class="form-control" id="newPassword" name="newPassword" required>
-	            <p style="margin:0" id="passwordRequirements"><span class="num">문자, 숫자, 특수문자(~!@#$%^&*)의 조합 10 ~ 16자리</span>로 입력하세요.</p>
+	            <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="문자, 숫자, 특수문자(~!@#$%^&*)의 조합 10 ~ 16자리"  oninput="checkPassword()" required>
+	            <p style="margin:0" id="passwordRequirements">암호를 입력하세요.</p>
 	          </div>
 	          <div class="form-group">
 	            <label for="confirmPassword">비밀번호 확인</label>
-	            <input type="password" class="form-control" id="confirmPassword" required>
+	            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" oninput="checkPassword()" required>
 	            <span id="passwordMatch" style="color:red;"></span>
 	          </div>
 	        </form>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+	        <button type="button" class="btn btn-secondary" id="cancelButton" data-dismiss="modal">취소</button>
 	        <button type="button" class="btn btn-primary" id="submitPasswordChange">변경</button>
 	      </div>
 	    </div>
@@ -175,6 +181,36 @@
                 $('#passwordChangeForm').submit();
             }
         });
+    });
+   
+   // 비밀번호 확인
+    function checkPassword() {
+	    var password = document.getElementById("newPassword").value;
+	    var passwordCheck = document.getElementById("confirmPassword").value;
+	    var passwordMatchSpan = document.getElementById("passwordMatch");
+	    var passwordRequirements = document.getElementById("passwordRequirements");
+	    var regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*])[A-Za-z\d~!@#$%^&*]{10,16}$/;
+	
+	    if (password === "" && passwordCheck === "") {
+	        passwordMatchSpan.innerHTML = "";
+	    } else if (password === passwordCheck) {
+	        passwordMatchSpan.innerHTML = "비밀번호 일치";
+	        passwordMatchSpan.style.color = "green";
+	    } else {
+	        passwordMatchSpan.innerHTML = "비밀번호 불일치";
+	        passwordMatchSpan.style.color = "red";
+	    }
+	
+	    if (regex.test(password)) {
+	        passwordRequirements.style.color = "green";
+	    } else {
+	        passwordRequirements.style.color = "red";
+	    }
+	}
+   
+   // 취소 버튼
+    $('#cancelButton').click(function() {
+        $('#passwordModal').find('input').val('');
     });
 </script>
 

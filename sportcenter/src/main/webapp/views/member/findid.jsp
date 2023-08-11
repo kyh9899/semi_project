@@ -32,6 +32,7 @@
 	}
 	#findid {
 		margin-top: 10px;
+		padding-left: 60px;
 	}
 	#findid {
 		border-color: white;
@@ -46,9 +47,11 @@
 		border:none;
 	}
 	td {
- 	 padding-bottom: 15px;
- 	 padding-left: 10px;
+ 		padding-bottom: 15px;
+    	padding-left: 10px;
 	}
+	
+	
 	
 </style>
 
@@ -80,7 +83,7 @@
 			      <a href="#" onClick="alert('아이디 찾기 성공!!')">
 					<button id="btn1" type="findid" onclick="location.href='/sportcenter/">아이디 찾기</button>  
 					--%> 
-			        <button  type="submit" id="findid" onclick="'${ path }/member/findid'"><span>아이디 찾기</span></button>  | &nbsp; &nbsp; 
+			        <button  type="submit" id="findid" onclick="'${ path }/member/findid'"><span>아이디 찾기</span></button>  &nbsp;  |
 			      
 			        <input id="btn1" type="button"  value="취소" onClick="history.back()">
 			      </td>
