@@ -40,7 +40,7 @@
         padding: 20px 0 15px 20px;
         border-bottom: 1px solid #ccc;
         border-top: 1px solid #ccc;
-        background-color: #E0ECF8;
+        background-color: #E6E6E6;
         width: 200px;
     }
 
