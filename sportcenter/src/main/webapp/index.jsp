@@ -29,6 +29,7 @@
         height : 200px;
         border : 1px solid green;
         margin-bottom : 50px;
+        float: left;
     }
 
     .recommend {
@@ -36,6 +37,7 @@
         height : 200px;
         border : 1px solid green;
         margin-bottom : 50px;
+        
     }
 
     .left-column {
@@ -51,6 +53,7 @@
         height: 50px;
         border: 1px solid green;
         margin: 10px 0;
+        float: left;
     }
 
     .left-column .rectangle:last-child {
@@ -75,13 +78,15 @@
     </section>
 
     <div class="notice"></div>
-    <div class="recommend"></div>
+    
     
     <div class="left-column">
         <div class="rectangle"></div>
         <div class="rectangle"></div>
         <div class="rectangle"></div>
     </div>
+
+    <div class="recommend"></div>
 </article>
 
 <article class="art2" style="width: 20%;">
