@@ -13,13 +13,12 @@
 		width: 400px;
 		height: 250px;
 		margin-bottom: 30px;
-		
 	}
-	#guide {
+	
+	#guideline {
 		width: 100%;
-        max-width: 100%;
-        height: auto;
 	}
+	
 	#div1 {
 		text-align: center;
 	}
@@ -133,7 +132,7 @@
 							<img src="${ path }/resources/images/pilatesprogram2.png">
 						</li>
 						<li id="mu3">
-							<img id="guide" src="${ path }/resources/images/guide.png">
+							<img id="guideline" src="${ path }/resources/images/guideline.png">
 						</li>		
 					</ul>
 				</div>

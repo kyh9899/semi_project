@@ -16,11 +16,11 @@
 		margin-bottom: 30px;
 		align: center;
 	}
-	#guide {
+	
+	#guideline {
 		width: 100%;
-        max-width: 100%;
-        height: auto;
 	}
+	
 	#div1 {
 		text-align: center;
 	}
@@ -146,7 +146,7 @@
 					</ul>
 				</div>
 				<div id="div2">	
-					<button id="button" onclick="location.href='${ path }/program/info'">목록으로</button>
+					<button id="buttonline" onclick="location.href='${ path }/program/info'">목록으로</button>
 				</div>
             </div>
         </div>
