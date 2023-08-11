@@ -105,7 +105,7 @@
                <td>${ enroll.pgMax }</td> 
                <td>${ enroll.pgNum }</td>
             <%-- <td>   <button type="button" onclick="location.href='${ path }/application/payment'">신청</button></td>--%>
-             <td> <button type="button" onclick="checkLogin('${ enroll.pgTitle }');">신청</button></td>
+             <td> <button type="button" onclick="checkLogin('${ enroll.pgTitle }', '${ enroll.pgFee }');">신청</button></td>
               <%--  <td><form method="POST" action="/sportcenter/views/application/cation.jsp" onsubmit="return checkLoginStatus()">
                             <input type="hidden" name="courseId" value="코스ID">
                             <input type="submit" value="신청">
@@ -173,14 +173,15 @@ function resetCourses() {
 	  searchInput.value = '';
 	  location.href = '${path}/application/enrollment';
 	}
-function submitEnrollment(kind) {
+function submitEnrollment(kind, price) {
 	//console.log('${path}/application/payment?kind='+kind);
-    location.href = '${path}/application/payment?kind=' + kind;
+	//console.log('pgFee 값:', pgFee);
+    location.href = '${path}/application/payment?kind=' + kind + '&price=' + price;
   } 
-function checkLogin(kind) {
+function checkLogin(kind, price) {
     <c:choose>
       <c:when test="${ not empty loginMember }">
-        submitEnrollment(kind); // 신청하기 전 로그인 상태를 확인하고 신청 진행
+        submitEnrollment(kind,price); // 신청하기 전 로그인 상태를 확인하고 신청 진행
       </c:when>
       <c:otherwise>
         alert("로그인한 회원만 가능합니다. 로그인 해주세요!");
@@ -190,7 +191,6 @@ function checkLogin(kind) {
 	
 </script>
 
-<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
