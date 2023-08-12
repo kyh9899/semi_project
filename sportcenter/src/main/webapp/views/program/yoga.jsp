@@ -26,15 +26,16 @@
 		text-align: center;
 		margin-top: 20px;
 	}
+	
 	.table-centered {
 		margin-left: auto;
 		margin-right: auto;
 	}
+	
 	#btn {
 		margin-bottom: 20px;
-		width: 140px;
-		height: 50px;
 	}
+	
 	#button {
 		width: 140px;
 		height: 50px;
@@ -78,6 +79,10 @@
 	h5{
 		font-weight: bold;
 	}
+	
+	#img1{
+		width: 100%;
+	}
 </style>
 
 <article class="art1" style="width: 60%;">
@@ -95,7 +100,7 @@
 							<td><img id="yoga" src="${ path }/resources/images/yoga.jpg"></td>
 						</tr>
 					</table>	
-					<button id="btn" onclick="location.href='${ path }/application/enrollment'">온라인 수강신청</button>
+					<button id="btn" class="btn btn-primary btn-lg" onclick="location.href='${ path }/application/enrollment'"><i class="fa-regular fa-calendar-days"></i> 온라인 수강신청</button>
 				</div>
 				<div class="content">
 					<ul class="tab">
@@ -136,7 +141,7 @@
 					</ul>
 				</div>
 				<div id="div2">	
-					<button id="button" onclick="location.href='${ path }/program/info'">목록으로</button>
+					<button id="button" class="btn btn-secondary" onclick="location.href='${ path }/program/info'">목록으로</button>
 				</div>
             </div>
         </div>
