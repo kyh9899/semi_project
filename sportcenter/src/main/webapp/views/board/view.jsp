@@ -11,7 +11,7 @@
 <style>
 	div#board-view-container {
 		background-color: #f9f9f9;
-		width:700px;
+		width:800px;
 		margin:0 auto;
 		padding-top:20px;
 		padding-bottom:50px;
@@ -20,7 +20,7 @@
 		border-top: 2px solid black;
 		float: left;
 	}
-	h4 { marin-top: 50px; margin-bottom: 10px;}
+	h4 { marin-top: 50px; margin-bottom: 10px; text-align:center; }
 	
 	div#rightContent {
 		float:left;
@@ -30,7 +30,7 @@
 	
 	table#tbl-board{  margin:0 auto;border-collapse:collapse; clear:both; }
 	table#tbl-board th { width: 140px;  padding: 5px 0; text-align:center; }
-	table#tbl-board td { padding: 5px 0; width: 90px; text-align:left;} 
+	table#tbl-board td { padding: 5px 0; width: 90px;  text-align:left;} 
 	
 
     div#comment-container button#btn-insert{width:60px;height:50px; color:white; background-color:#3300FF;position:relative;top:-20px;}
@@ -59,7 +59,12 @@
 	  
 		<div id="rightContent">
 		    <div id="div-notice1">
-		     <h4>공지사항 > 게시글 조회</h4>
+			    <c:if test="${ boardId == 'notice'}">
+			     <h4> 공지사항 > 게시글 조회</h4>
+			    </c:if>
+			    <c:if test="${ boardId == 'faq'}">
+			     <h4> 자주묻는질문(FAQ) > 게시글 조회</h4>
+			    </c:if>
 		    </div> 
 			
 			<%-- 게시글 조회 
@@ -103,7 +108,13 @@
 			<div id="board-view-container">
 			<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
 			<input type="hidden" name="boardId" value="${ boardId }"> 
-				<h4> [공지] ${ board.title } </h4>
+				<c:if test="${ boardId == 'notice' }">
+				    <h4> [공지] ${ board.title } </h4>
+				</c:if>
+				<c:if test="${boardId == 'faq'}">
+				    <h4> ${board.title} </h4>
+				</c:if>
+				
 				<table id="tbl-board" style="padding-right:50px;">
 					<%-- 
 					<tr>
@@ -125,7 +136,7 @@
 						</td>
 						<th>작성일자</th>
 						<td> ${ board.createDate } </td> <%-- @@작성일자추가 --%>
-						<th>조회수</th>
+						<th style="padding-left:30px;">조회수</th>
 						<td>${ board.readCount }</td>
 					</tr>
 					<tr>

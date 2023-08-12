@@ -43,7 +43,7 @@
 		<h2 align="center">고객센터</h2>    
 		
 
-	    <div id="div-notice1" align="center">
+	    <div id="div-notice1">
 	     <h4>공지사항</h4>
 	     <p>새로운 소식을 알려드립니다.</p>
     
@@ -84,20 +84,20 @@
 				<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">글쓰기</button>
 				</div>
 				<div id="searchbar">
-					<form action="${ path }/board/search" method="POST" name="search" style="margin-right:0px;">
+					<form action="${ path }/board/notice?boardId=${ boardId }" method="POST" name="searchInput" style="margin-right:0px;">
+						<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
+						<input type="hidden" name="boardId" value="${ boardId }"> 
 						<table class="pull-right">
 							<tr>
 								<td><select class="form-control" name="searchField">
 										<option value="0">선택</option>
-										<option value="bbsTitle">제목</option>
+										<option value="title">제목</option>
 										<option value="userId">작성자</option>
 								</select></td>
 								<td><input type="text" class="form-control"
 									placeholder="검색어 입력" name="searchText" maxlength="100"></td>
-								<td><button type="submit" class="btn btn-secondary ">검색</button></td>
-								
-							</tr>
-		
+								<td><button type="submit" class="btn btn-secondary">검색</button></td>
+							</tr>		
 						</table>
 					</form>
 				</div>
@@ -131,7 +131,7 @@
 						<tr>
 							<td>${ board.no }</td>
 							<td>
-								<a href="${ path }/board/view?boardId=${ boardId }&no=${ board.no }" class="updateCount">
+								<a href="${ path }/board/view?boardId=${ boardId }&no=${ board.no }">
 									${ board.title }
 								</a>
 							</td>
@@ -186,14 +186,7 @@
 		</div>
 	</section>
 	<script>
-		$(document).ready(() => {
-			$('.updateCount').on('click', () => {
-				if (confirm('조회수를 증가 하시겠습니까?')) {
-					location.assign('${ path }/board/view');
-			      
-			    }		
-			}		
-		});
+
 	</script>
 <article class="art2" style="width: 20%;">
        

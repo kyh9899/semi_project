@@ -9,17 +9,16 @@
 	h2 {
 		margin-bottom: 30px;
 	}
-	#swim {
+	#health {
 		width: 400px;
 		height: 250px;
 		margin-bottom: 30px;
-		
 	}
-	#guide {
+	
+	#guideline {
 		width: 100%;
-        max-width: 100%;
-        height: auto;
 	}
+	
 	#div1 {
 		text-align: center;
 	}
@@ -32,10 +31,7 @@
 		margin-right: auto;
 	}
 	#btn {
-		margin-bottom: 20px;
-		width: 140px;
-		height: 50px;
-		
+		margin-bottom: 20px;	
 	}
 	#button {
 		width: 140px;
@@ -74,11 +70,15 @@
 		color:#333;
 	}
 	#healthprogram {
-		width: 1200px;
+		width: 100%;
 		margin-bottom: 10px;
 	}
 	h5, h6{
 		font-weight: bold;
+	}
+	
+	#ht{
+		width: 100%;
 	}
 </style>
 
@@ -94,10 +94,10 @@
             	<div id="div1">
             		<table class="table-centered">
 						<tr>
-							<td><img id="swim" src="${ path }/resources/images/health.jpg"></td>
+							<td><img id="health" src="${ path }/resources/images/health.jpg"></td>
 						</tr>
 					</table>	
-					<button id="btn" onclick="location.href='${ path }/application/enrollment'">온라인 수강신청</button>
+					<button id="btn" class="btn btn-primary btn-lg" onclick="location.href='${ path }/application/enrollment'"><i class="fa-regular fa-calendar-days"></i> 온라인 수강신청</button>
 				</div>
 				<div class="content">
 					<ul class="tab">
@@ -113,10 +113,10 @@
 								신체를 가꾸는 데 기본이 되는 운동입니다.
 							</p>
 							<h5>▣ 프로그램 안내</h5>
-							<img id="healthprogram" src="${ path }/resources/images/healthprogram.png">
+							<img id="healthprogram" src="${ path }/resources/images/healthpro1.png">
 							
 							<h5>▣ 강습내용</h5>
-							<img id="healthprogram" src="${ path }/resources/images/healthprogram2.png">
+							<img id="healthprogram" src="${ path }/resources/images/healthpro2.png">
 							
 							<h5>▣ 운동효과</h5>
 							<p>
@@ -146,15 +146,15 @@
 							</p>
 						</li>
 						<li id="mu2">
-							<img src="${ path }/resources/images/healthteacher.png">	
+							<img id="ht" src="${ path }/resources/images/healthteacher.png">	
 						</li>
 						<li id="mu3">
-							<img id="guide" src="${ path }/resources/images/guide.png">
+							<img id="guideline" src="${ path }/resources/images/guideline.png">
 						</li>		
 					</ul>
 				</div>
 				<div id="div2">	
-					<button id="button" onclick="location.href='${ path }/program/info'">목록으로</button>
+					<button id="button" class="btn btn-secondary" onclick="location.href='${ path }/program/info'">목록으로</button>
 				</div>
             </div>
         </div>

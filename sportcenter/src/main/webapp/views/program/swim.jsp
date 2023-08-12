@@ -12,13 +12,12 @@
 		width: 400px;
 		height: 250px;
 		margin-bottom: 30px;
-		
 	}
-	#guide {
+	
+	#guideline {
 		width: 100%;
-        max-width: 100%;
-        height: auto;
 	}
+	
 	#div1 {
 		text-align: center;
 	}
@@ -32,8 +31,6 @@
 	}
 	#btn {
 		margin-bottom: 20px;
-		width: 140px;
-		height: 50px;
 	}
 	#button {
 		width: 140px;
@@ -71,12 +68,12 @@
 		font-size:14px;
 		color:#333;
 	}
-	#swimmingprogram {
-		width: 1200px;
+	#swimmingprogram2 {
+		width: 100%;
 		margin-bottom: 10px;
 	}
 	#img1{
-		margin-top: 30px;
+		width: 100%;
 	}
 	h5{
 		font-weight: bold;
@@ -101,7 +98,7 @@
 							<td><img id="swim" src="${ path }/resources/images/swim.jpg"></td>
 						</tr>
 					</table>	
-					<button id="btn" onclick="location.href='${ path }/application/enrollment'">온라인 수강신청</button>
+					<button id="btn" class="btn btn-primary btn-lg" onclick="location.href='${ path }/application/enrollment'"><i class="fa-regular fa-calendar-days"></i> 온라인 수강신청</button>
 				</div>
 				<div class="content">
 					<ul class="tab">
@@ -122,7 +119,7 @@
 								“큰 호흡운동을 요구하기 때문에 근육이나 심폐의 발달에 좋으며”(출처 : 스포츠 백과, 2008., 국민생활체육회) 종합적인 체력단련에 적합한 운동입니다.
 							</p>
 							<h5>▣ 프로그램 안내</h5>
-							<img id="swimmingprogram" src="${ path }/resources/images/swimmingprogram.png">
+							<img id="swimmingprogram2" src="${ path }/resources/images/swimmingprogram2.png">
 							<p id="p1">
 								► 개인준비물 : 수영복, 수영보자, 수경, 샤워도구, 수건 <br>
 								► 강습시간 이외 자유수영 없음 <br>
@@ -136,16 +133,16 @@
 							</p>
 						</li>
 						<li id="mu2">
-							<img src="${ path }/resources/images/swimteacher.png">
+							<img id="img1" src="${ path }/resources/images/swimteacher.png">
 							<img id="img1" src="${ path }/resources/images/swimteacher2.png">
 						</li>
 						<li id="mu3">
-							<img id="guide" src="${ path }/resources/images/guide.png">
+							<img id="guideline" src="${ path }/resources/images/guideline.png">
 						</li>		
 					</ul>
 				</div>
 				<div id="div2">	
-					<button id="button" onclick="location.href='${ path }/program/info'">목록으로</button>
+					<button id="button" class="btn btn-secondary" onclick="location.href='${ path }/program/info'">목록으로</button>
 				</div>
             </div>
         </div>

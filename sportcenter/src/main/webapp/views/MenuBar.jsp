@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-    <div class="flex-shrink-0 p-3 bg-white" style="width: 280px ;">
+    <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
     <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
       <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
       <span class="fs-5 fw-semibold">MENU</span>
@@ -77,7 +77,9 @@
   </div>
  
 
-<button id="scrollButton" onclick="scrollToTop()">위로</button>
+<button id="scrollButton" onclick="scrollToTop()";>
+	<img src="https://cdn3.iconfinder.com/data/icons/feather-5/24/chevrons-up-512.png" style="width: 35px; height: 40px;">
+</button>
 
 
 <script>
