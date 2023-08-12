@@ -72,7 +72,7 @@
 		color:#333;
 	}
 	#yogaprogram {
-		width: 1200px;
+		width: 100%;
 		margin-bottom: 10px;
 	}
 	h5{
@@ -110,7 +110,7 @@
 							    5천여 년 전 인도에서 유래되었지만 오늘날에는 일상에 지친 현대인들이 긴장과 스트레스를 해소하고 <br>
 							    몸과 마음의 건강을 유지할 수 있도록 도와주는 생활스포츠로 인기가 높습니다.</p>
 							<h5>▣ 프로그램 안내</h5>
-								<img id="yogaprogram" src="${ path }/resources/images/yogaprogram1.png">	   
+								<img id="yogaprogram" src="${ path }/resources/images/yogapro.png">	   
 							 <p>
 							   ● 준비물 : 운동복, 샤워도구, 수건
 							 </p>   
