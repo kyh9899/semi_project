@@ -31,10 +31,7 @@
 		margin-right: auto;
 	}
 	#btn {
-		margin-bottom: 20px;
-		width: 140px;
-		height: 50px;
-		
+		margin-bottom: 20px;	
 	}
 	#button {
 		width: 140px;
@@ -79,6 +76,10 @@
 	h5, h6{
 		font-weight: bold;
 	}
+	
+	#ht{
+		width: 100%;
+	}
 </style>
 
 <article class="art1" style="width: 60%;"> 
@@ -96,7 +97,7 @@
 							<td><img id="health" src="${ path }/resources/images/health.jpg"></td>
 						</tr>
 					</table>	
-					<button id="btn" onclick="location.href='${ path }/application/enrollment'">온라인 수강신청</button>
+					<button id="btn" class="btn btn-primary btn-lg" onclick="location.href='${ path }/application/enrollment'"><i class="fa-regular fa-calendar-days"></i> 온라인 수강신청</button>
 				</div>
 				<div class="content">
 					<ul class="tab">
@@ -145,7 +146,7 @@
 							</p>
 						</li>
 						<li id="mu2">
-							<img src="${ path }/resources/images/healthteacher.png">	
+							<img id="ht" src="${ path }/resources/images/healthteacher.png">	
 						</li>
 						<li id="mu3">
 							<img id="guideline" src="${ path }/resources/images/guideline.png">
@@ -153,7 +154,7 @@
 					</ul>
 				</div>
 				<div id="div2">	
-					<button id="button" onclick="location.href='${ path }/program/info'">목록으로</button>
+					<button id="button" class="btn btn-secondary" onclick="location.href='${ path }/program/info'">목록으로</button>
 				</div>
             </div>
         </div>
