@@ -33,7 +33,7 @@ public class MemberFindIdservlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String findid = "member"; 
+//		String Member = "new MemberService().findid"; 
 		
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
@@ -47,13 +47,21 @@ public class MemberFindIdservlet extends HttpServlet {
     	    HttpSession session = request.getSession();
     	    session.setAttribute("findid", findMemberByName);
 
-    	    String successMessage = "회원님의 아이디는 " + findid + " 입니다.";
+//    	    System.out.println("회원님의 아이디는 " + findMemberByName.getId() + " 입니다.");
+    	    
+    	    request.setAttribute("msg", "회원님의 아이디는 " + findMemberByName.getId() + " 입니다.");
+    	    
+//    	    System.out.println("회원님의 아이디는 " + Member + " 입니다.");
+    	    
+//    	    String setAttribute = "회원님의 아이디는 " + findid + " 입니다.";
     	    request.setAttribute("findid", findMemberByName);
-
-    	    response.sendRedirect(request.getContextPath() + "/login");
+    	    
+    	    request.setAttribute("location", "/member/findid");
+    	    
+    	    request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
+//    	    response.sendRedirect(request.getContextPath() + "/login");
     	} else {
-    	    String failureMessage = "회원 정보가 없습니다.";
-    	    request.setAttribute("failureMsg", failureMessage);
+    	    request.setAttribute("msg", "회원 정보가 없습니다.");
     	    request.setAttribute("location", "/member/findid");
 
     	    request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
