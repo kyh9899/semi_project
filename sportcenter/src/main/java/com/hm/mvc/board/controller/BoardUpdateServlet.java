@@ -1,9 +1,7 @@
 package com.hm.mvc.board.controller;
 
-import static com.hm.mvc.common.jdbc.JDBCTemplate.commit;
-import static com.hm.mvc.common.jdbc.JDBCTemplate.rollback;
-
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -92,7 +90,6 @@ public class BoardUpdateServlet extends HttpServlet {
 		
 		int result = new BoardService().save(board);
 		
-		System.out.println("업데이트 게시판 아이디 ????????" + boardId);
 		
 		if (result > 0) {
 			// 게시글 수정 성공
@@ -104,8 +101,7 @@ public class BoardUpdateServlet extends HttpServlet {
 			request.setAttribute("msg", "게시글 수정 실패");
 			request.setAttribute("boardId", boardId);
 			request.setAttribute("location", "/board/update?boardId=" + board.getBoardId() + "&no=" + board.getNo());
-		}
-		
+		}		
    	
     	
     	

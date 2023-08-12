@@ -122,4 +122,26 @@ public class BoardService {
 		
 		return updateCount;
 	}
+
+	public int getSearchTitleCount(String boardId, String searchField, String searchText) {
+		int count = 0;
+		Connection connection = getConnection();
+		
+		count = new BoardDao().getSearchTitleCount(connection, boardId, searchField, searchText);
+		
+		close(connection);
+		
+		return count;
+	}
+
+	public List<Board> getSearchTitleList(PageInfo pageInfo, String boardId, String searchField, String searchText) {
+		List<Board> list = null;
+		Connection connection = getConnection();
+		
+		list = new BoardDao().findSearchResult(connection, pageInfo, boardId, searchField, searchText);
+		
+		close(connection);
+		
+		return list;
+	}
 }
