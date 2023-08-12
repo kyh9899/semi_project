@@ -24,6 +24,24 @@ public class EnrollServiceImpl implements EnrollService {
         return list;
     }
     
+  
+
+    @Override
+    public int getEnrollCount() {
+        Connection conn = getConnection();
+        int count = dao.getEnrollCount(conn);
+        close(conn);
+        return count;
+    }
+    @Override
+    public List<Enroll> getEnrollList(int currentPage, int listLimit) {
+        Connection conn = getConnection();
+        List<Enroll> enrollList = dao.getEnrollList(conn, currentPage, listLimit);
+        close(conn);
+        return enrollList;
+    }
+    
+    
     
 }
 
