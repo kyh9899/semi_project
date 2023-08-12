@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${ path }/resources/css/style.css">
 <script src="${ path }/resources/js/jquery-3.7.0.js"></script>
-
+<script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js"></script>
 <!-- bootstrap css -->
 <link rel="stylesheet" href="${ path }/resources/css/bootstrap.min.css">
 

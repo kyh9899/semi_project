@@ -72,7 +72,7 @@
 		color:#333;
 	}
 	#tabletennisprogram {
-		width: 1200px;
+		width: 100%;
 		margin-bottom: 10px;
 	}
 	h5, h6{
@@ -110,7 +110,7 @@
 								또한 전신 운동으로서 근지구력을 기르는데 탁월한 운동입니다.
 							</p>
 							<h5>▣ 프로그램 안내</h5>
-							<img id="tabletennisprogram" src="${ path }/resources/images/tabletennisprogram.png">
+							<img id="tabletennisprogram" src="${ path }/resources/images/tabletennispro.png">
 							<h5>▣ 운동효과, 건강은 물론 생활에 활력을 더해주는 라켓 스포츠</h5>
 							<p>
 								과격하지 않아 연령과 성별에 관계없이 누구나 즐길 수 있는 탁구는 육체적으로는 심폐지구력과 근력, 근지구력 발달 및 순발력과 유연성, 민첩성 향상에 좋습니다.<br> 
