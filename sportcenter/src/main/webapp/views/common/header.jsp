@@ -102,15 +102,15 @@
 	    .col-md-3 {
 	    max-width:15%;
 		}
-		
     </style>
 </head>
-<body>
+<body style="background-color: #DFEAF7;">
    <div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
       <div style="align:center;">
       <a href="${ path }" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none center-content">
-        <svg class="bi me-2" width="30%" height="32" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        <svg class="bi me-2" width="30%" height="32" aria-label="Bootstrap"><use xlink:href="#bootstrap"/>
+       	</svg>
       </a>
       
    <div class="d-flex justify-content-between align-items-center mb-2">

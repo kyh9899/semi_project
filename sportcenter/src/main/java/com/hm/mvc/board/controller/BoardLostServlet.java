@@ -26,6 +26,7 @@ public class BoardLostServlet extends HttpServlet {
 	    	int listCount = 0;
 	    	PageInfo pageInfo = null;  
 	    	List<Board> list = null;
+	    	String boardId = request.getParameter("boardId");
 	    	
 	    	try {    		
 	    		page = Integer.parseInt(request.getParameter("page"));
@@ -33,9 +34,9 @@ public class BoardLostServlet extends HttpServlet {
 	    		page = 1;
 			}
 	    	
-	    	listCount = new BoardService().getBoardCount();
+	    	listCount = new BoardService().getBoardCount(boardId);
 	    	pageInfo = new PageInfo(page, 10, listCount, 10);
-	    	list = new BoardService().getBoardList(pageInfo);
+	    	list = new BoardService().getBoardList(pageInfo, boardId);
 	    	
 	    	request.setAttribute("pageInfo", pageInfo);
 	    	request.setAttribute("list", list);

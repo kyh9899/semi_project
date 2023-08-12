@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.List;import javax.naming.directory.InvalidSearchFilterException;
 
 import com.hm.mvc.board.model.vo.Board;
 import com.hm.mvc.board.model.vo.Reply;
@@ -20,7 +20,7 @@ public class BoardDao {
 		int count = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String query = "SELECT COUNT(*) FROM POST WHERE P_STATUS='Y' AND B_ID=?";
+		String query = "SELECT COUNT(*) FROM POST WHERE P_STATUS='Y' AND B_ID=? ";
 		
 		try {
 			pstmt = connection.prepareStatement(query);
@@ -37,6 +37,45 @@ public class BoardDao {
 			close(rs);
 			close(pstmt);
 		}
+		
+		return count;
+	}
+	
+	
+	public int getSearchTitleCount(Connection connection, String boardId, String searchField, String searchText) {
+		int count = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String query = null;
+		
+		 if (searchField.equals("title")) {
+		     query = "SELECT COUNT(*) FROM POST WHERE P_STATUS='Y' AND B_ID=? AND P_TITLE LIKE ? ";
+		 } else if(searchField.equals("userId")) {
+		     query = "SELECT COUNT(*) FROM POST P JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) WHERE P.P_STATUS='Y' AND P.B_ID=? AND M.MB_ID LIKE ? ";
+		 }		    
+		
+		try {
+		    pstmt = connection.prepareStatement(query);
+		    
+		    pstmt.setString(1, boardId);  // boardId 파라미터 값을 넘겨준다.
+		    pstmt.setString(2, "%" + searchText + "%"); // 검색어 값을 넘겨준다.
+		    
+		    rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+	
+		System.out.println(searchField.equals("title"));
+		System.out.println(searchField.equals("userId"));
+		System.out.println("쿼리문 수행 후 게시물 개수: " + count);
 		
 		return count;
 	}
@@ -91,7 +130,7 @@ public class BoardDao {
 			close(rs);
 			close(pstmt);
 		}
-		System.out.println(list);
+	
 		return list;
 	}
 
@@ -161,7 +200,6 @@ public class BoardDao {
 			close(pstmt);
 		}
 		
-		System.out.println("dao board객체에 담긴 boardId : " + board.getBoardId());
 		return result;
 	}
 
@@ -297,5 +335,67 @@ public class BoardDao {
 
 	    return updateCount;
 	}
-	
+
+	public List<Board> findSearchResult(Connection connection, PageInfo pageInfo, String boardId, String searchField, String searchText) {
+		List<Board> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Board board = null;
+		String query = null;
+			
+		
+		if(searchField.equals("title")) {
+			query = "SELECT RNUM, B_ID, P_NO, MB_CODE, P_TITLE, MB_ID, P_CREATE_DATE, P_ORG_FILENAME, P_RDCOUNT, P_STATUS "
+					 + "FROM (SELECT B.B_ID, P.P_NO, P.MB_CODE, P.P_TITLE, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
+					 + "FROM POST P "
+					 + "JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) JOIN BOARD B ON (P.B_ID = B.B_ID) "
+					 + "WHERE P.P_STATUS = 'Y' AND B.B_ID=? AND P.P_TITLE LIKE ? "
+					 + "ORDER BY P.P_NO DESC) SUBQ "
+					 + "WHERE RNUM BETWEEN ? AND ? ";
+		} else if(searchField.equals("userId")) {
+			 query = "SELECT RNUM, B_ID, P_NO, MB_CODE, P_TITLE, MB_ID, P_CREATE_DATE, P_ORG_FILENAME, P_RDCOUNT, P_STATUS "
+					 + "FROM (SELECT B.B_ID, P.P_NO, P.MB_CODE, P.P_TITLE, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
+					 + "FROM POST P "
+					 + "JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) JOIN BOARD B ON (P.B_ID = B.B_ID) "
+					 + "WHERE P.P_STATUS = 'Y' AND B.B_ID=? AND M.MB_ID LIKE ? "
+					 + "ORDER BY P.P_NO DESC) SUBQ "
+					 + "WHERE RNUM BETWEEN ? AND ? ";	
+		}
+
+		try {
+			pstmt = connection.prepareStatement(query);
+			pstmt.setString(1, boardId);  // boardId 파라미터 값을 넘겨준다.
+		    pstmt.setString(2, "%" + searchText + "%"); // 검색어 값을 넘겨준다.
+			pstmt.setInt(3, pageInfo.getEndList());
+		    pstmt.setInt(4, pageInfo.getStartList());
+			
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+					
+			board = new Board();
+					
+			board.setNo(rs.getInt("P_NO"));
+			board.setBoardId(rs.getString("B_ID"));
+			board.setWriterNo(rs.getInt("MB_CODE"));
+			board.setRowNum(rs.getInt("RNUM"));
+			board.setWriterId(rs.getString("MB_ID"));
+			board.setTitle(rs.getString("P_TITLE"));
+			board.setCreateDate(rs.getDate("P_CREATE_DATE"));
+			board.setOriginalFilename(rs.getString("P_ORG_FILENAME"));
+			board.setReadCount(rs.getInt("P_RDCOUNT"));
+			board.setStatus(rs.getString("P_STATUS"));
+						
+			list.add(board);			
+			}	
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		System.out.println("!! dao 검색 게시글 내용: " + list);
+		return list;
+	}
 }

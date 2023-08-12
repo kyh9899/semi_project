@@ -31,15 +31,15 @@ public class BoardWriteServlet extends HttpServlet {
     	
     	// ✔ 속성 설정을 해줘야 write.jsp에서 boardId 값 사용 가능.    	
     	request.setAttribute("boardId", boardId);
-    	request.getRequestDispatcher("/views/board/write.jsp").forward(request, response);
-    	
-//    	if (loginMember != null) {			
-//    		request.getRequestDispatcher("/views/board/write.jsp").forward(request, response);
-//		} else {
-//			request.setAttribute("msg", "로그인 후 작성해 주세요.");
-//			request.setAttribute("location", "/");
-//			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
-//		}
+    	    	
+    	if (loginMember != null) {			
+    		request.getRequestDispatcher("/views/board/write.jsp").forward(request, response);
+		} else {
+			// 비회원의 경우 로그인창으로 연결시킴
+			request.setAttribute("msg", "로그인 후 작성해 주세요.");
+			request.setAttribute("location", "/login");
+			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
+		}
 	}
     
     @Override

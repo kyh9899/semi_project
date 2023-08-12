@@ -94,11 +94,12 @@ public class MemberDao {
 	    return member;
 	}
 	
+	
 	public Member findpwd(Connection connection, String id, String phone) {
 	    Member member = null;
 	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
-	    String query = "SELECT * FROM MEMBER WHERE MB_ID = ? AND MB_PHONE = ?";
+	    String query = "SELECT MB_PWD FROM MEMBER WHERE MB_ID = ? AND MB_PHONE = ?";
 	    
 	    try {
 	        pstmt = connection.prepareStatement(query);
@@ -111,8 +112,12 @@ public class MemberDao {
 	        if (rs.next()) {
 	            member = new Member();
 
-	            member.setName(rs.getString("MB_ID"));
-	            member.setPhone(rs.getString("MB_PHONE"));
+	            pstmt.setString(1, member.getId());
+	            pstmt.setString(2, member.getPhone());
+	            
+	            member = new Member();
+	            
+	            member.setPwd(rs.getString("MB_PWD"));
 	            
 	        }
 	    } catch (Exception e) {
