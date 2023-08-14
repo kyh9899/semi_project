@@ -17,6 +17,8 @@ public class Enroll {
     private int pgMax;
     private int pgNum;
     private String ermAva;
-    
+    private String mbName;
+    private String mbSsn;
+   
 }
 

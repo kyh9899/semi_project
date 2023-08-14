@@ -96,31 +96,6 @@
 
 
 
-	<%-- 
-	<h4>비밀번호 찾기</h4>
-	<div style="text-align: center;">
-	<form name=fm>
-		<table>
-		    <tr>
-		      <td>아이디 : </td>
-		      <td><input type="text" name="name" required></td>
-		    </tr>
-		    <tr>
-		      <td>번호 : </td>
-		      <td><input type="tel" name="phone" required></td>
-		    </tr>
-		    <tr>
-		      <td colspan="2">
-		        <button type="submit" id="findpwd-btn" onclick="findpwd-btn()">비밀번호 찾기</button>
-		        <input type="button" name="cancle" value="취소" onClick="history.back()">
-		      </td>
-		    </tr>
-		</table>
-		</form>
-	</div>
-	
-	
-	--%>
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>

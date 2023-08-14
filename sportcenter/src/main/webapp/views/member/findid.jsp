@@ -97,28 +97,7 @@
 		</div>
 <article class="art2" style="width: 20%;">
 </article>		
-	<%-- 
-		<c:if test="${ empty loginMember }">
-		<form name="idfindscreen" method = "POST">
-		<section class = "form-search">
-			<div class = "find-name">
-				<label>성명 : </label> 
-				<input type="text" name="member_name" class = "btn-name" id="userName" size="11" maxlength="11" placeholder = "이름">
-			<br>
-			</div>
-			<div class = "find-phone">
-				<label>번호 : </label>
-				<input type="tel" onKeyup = "addHypen(this);" name="member_phone" id="phone" class = "btn-phone" size="12" maxlength="11" placeholder = "휴대폰번호 입력">
-			</div>
-			<br>
-	</section>
-	<div class ="btnSearch">
-		<input type="button"  value="찾기"  onClick="">
-		<input type="button"  value="취소" onClick="history.back()">
- 	</div>
- </form>
-		</c:if>
-	--%>
+	
 	
 
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">

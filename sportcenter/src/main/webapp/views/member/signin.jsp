@@ -114,10 +114,7 @@
 					<label id="space3"><input type="checkbox" name="saveId" id="saveId"
 								${ empty cookie.saveId ? "" : "checked" }>아이디 저장</label> 
 					<br>
-					<%-- 
-						<a href="#" onClick="alert('로그인 성공!!')">
-					<button id="btn1" type="button" onclick="location.href='/sportcenter/views/introduce/intro_hello.jsp'">로그인</button>
-					--%>
+					
 					<input id="btn1" type="submit" value="로그인" >
 				</td>
 			</tr>
@@ -137,22 +134,6 @@
 
 
 
-<%-- 
-<c:if test="${ not empty loginMember }">
-	<table>
-		<tr>
-			<td colspan="2">
-				${ loginMember.name }님 안녕하세요.
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<button onclick="location.href='${ path }/logout'">로그아웃</button>						
-			</td>
-		</tr>
-	</table>
-</c:if>
---%>
 </div>
  	</div>
 </section>
