@@ -9,13 +9,14 @@
 <style>
 	div#board-write-container {
 		background-color: #f9f9f9;
-		width:800px;
+		width:1200px;
 		margin:0 auto;
 		padding-top:5px;
 		text-align:center;
 		align:left;
 		border-top: 2px solid black;
 		float: left;
+		height: 670px;
 	}
 
 	/* 글쓰기 폼 내부 */

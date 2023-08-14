@@ -51,6 +51,7 @@
 		background-color:transparent;
 		padding-left: 30px;
 	}
+	#btn2:hover { text-decoration: underline;}
 	#btn3 {
 		border-color: white;
 		background-color: white;
@@ -58,6 +59,7 @@
 		border:none;
 		background-color:transparent;
 	}
+	#btn3:hover { text-decoration: underline;}
 	#signin-container {
 		margin-top: 70px;
 	}

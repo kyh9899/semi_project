@@ -34,6 +34,7 @@
 	#findid {
 		margin-top: 10px;
 		padding-left: 90px;
+		
 	}
 	#findid {
 		border-color: white;
@@ -43,6 +44,8 @@
 		background-color:transparent;
 		margin-left: 30px;
 	}
+	#findid:hover { text-decoration: underline;}
+	#btn1:hover { text-decoration: underline;}
 	#btn1 {
 		border-color: white;
 		background-color: white;
@@ -51,12 +54,12 @@
 		background-color:transparent;
 	}
 	td {
- 		padding-bottom: 15px;
-    	padding-left: 10px;
+ 		padding-bottom: 10px;
+    	padding-left: 5px;
 	}
 	#space1 { letter-spacing: 15px; }
 	#space2 { letter-spacing: 10px; }
-	
+	#name { padding-left: -20px; }
 </style>
 
 

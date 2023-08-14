@@ -2,22 +2,20 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
-
 <jsp:include page="/views/common/header.jsp" />
 
-<!DOCTYPE html>
-<html>
-<head>	
+
 <style>
 	div#board-write-container {
 		background-color: #f9f9f9;
-		width:700px;
+		width:1200px;
 		margin:0 auto;
 		padding-top:5px;
 		text-align:center;
 		align:left;
 		border-top: 2px solid black;
 		float: left;
+		height: 670px;
 	}
 	
 	div#rightContent {
@@ -27,7 +25,7 @@
 	.deco { width: 90%; float:left; }	
 		
 		
-	table#tbl-board{width:100%;  margin:0 auto;border-collapse:collapse; clear:both; }
+	table#tbl-board{width:100%;  margin:0 auto;border-collapse:collapse; clear:both; margin-top: 20px;}
 	table#tbl-board th { width: 140px; text-align:center; }
 	table#tbl-board th, table#tbl-board td { padding: 5px 0; text-align:center;} 
 
@@ -45,9 +43,9 @@
 	.form-control me-2 { width: 400px;  background-color:yellow; align:center; }
 	#btn-search { width: 80px; margin-top: 3px;}
 </style>
-</head>
 
-<body>
+
+<article class="art1" style="width: 60%;"> 
 	<section id="content">
 		<div id="div-title">	
 			<h2 align="center">고객센터</h2>    
@@ -106,10 +104,10 @@
 				</div>
 				 </div> 
 			</section>
+<article class="art2" style="width: 20%;">
+</article>			
 
-</body>
-</html>
-<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
-<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>

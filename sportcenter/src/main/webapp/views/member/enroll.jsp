@@ -211,20 +211,20 @@
                 	<td class="col2"><input type="text"  id="addr_dtl" name="addr_dtl" placeholder="상세주소"  style="width:250px;"></td>
                 </tr>
     <tr>
-	    <td class="col1">이메일</td>
-	    <td class="col2">
-	        <input type="text" name="mailid">
-	        <span class="a">@</span>
-	        <input type="text" name="email" id="emailInput">
-	        <select name="mailslc" onchange="updateEmailDomain()">
-	            <option value="self" selected>직접입력</option>
-	            <option value="naver">naver.com</option>
-	            <option value="gm">gmail.com</option>
-	            <option value="da">daum.com</option>
-	            <option value="yah">yahoo.com</option>
-	        </select>
-	    </td>
-</tr>
+            <td class="col1">이메일</td>
+            <td class="col2">
+                <input type="text" name="mailid">
+                <span class="a">@</span>
+                <input type="text" name="email" id="emailInput">
+                <select name="mailslc" onchange="updateEmailDomain()">
+                    <option value="self" selected>직접입력</option>
+                    <option value="naver.com">naver.com</option>
+                    <option value="gmail.com">gmail.com</option>
+                    <option value="daum.net">daum.net</option>
+                    <option value="yahoo.co.kr">yahoo.co.kr</option>
+                </select>
+            </td>
+        </tr>
     </table>
     
   </div>
@@ -255,12 +255,6 @@
 	    } else {
 	        passwordMatchSpan.innerHTML = "비밀번호 불일치";
 	        passwordMatchSpan.style.color = "red";
-	    }
-	
-	    if (regex.test(password)) {
-	        passwordRequirements.style.color = "green";
-	    } else {
-	        passwordRequirements.style.color = "red";
 	    }
 	}
 
@@ -328,10 +322,12 @@
             }
         }).open();
         
-        function updateEmailDomain() {
-            var mailslc = document.getElementsByName("mailslc")[0];
+    }
+        
+        function updateEmailDomain() {	
+            var select = document.getElementsByName("mailslc")[0];
             var emailInput = document.getElementById("emailInput");
-            var selectedOption = mailslc.options[mailslc.selectedIndex].value;
+            var selectedOption = select.options[select.selectedIndex].value;
 
             if (selectedOption !== "self") {
                 emailInput.value = selectedOption;
@@ -339,7 +335,6 @@
                 emailInput.value = "";
             }
         }
-    }
     
     $(document).ready(() => {
     	$('#checkDuplicate').on('click', () => {

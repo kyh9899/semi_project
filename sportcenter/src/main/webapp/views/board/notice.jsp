@@ -24,7 +24,7 @@
 	#notice-write { float:left; font-size: 13px;}
 	
 	/* 검색 바 */	
-	#searchbar { width:90%; float:left; height:30px; padding-left:250px; margin-bottom: 20px;  }
+	#searchbar { width:90%; float:left; height:30px; padding-left:700px; margin-bottom: 20px;  }
 	
 	/* 글쓰기 버튼 */ 
 	#writebutton { width:10%; float:left; }
@@ -70,7 +70,8 @@
 								<td><select class="form-control" name="searchField">
 										<option value="0">선택</option>
 										<option value="title">제목</option>
-										<option value="userId">작성자</option>
+										<option value="content">작성자</option>
+										<option value="userId">작성자</option>										
 								</select></td>
 								<td><input type="text" class="form-control"
 									placeholder="검색어 입력" name="searchText" maxlength="100"></td>

@@ -2,16 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
-
 <jsp:include page="/views/common/header.jsp" />
 
-<!DOCTYPE html>
-<html>
-<head>	
+
+
 <style>
 	div#board-view-container {
 		background-color: #f9f9f9;
-		width:800px;
+		width:1200px;
 		margin:0 auto;
 		padding-top:20px;
 		padding-bottom:50px;
@@ -48,9 +46,8 @@
     table#tbl-comment sub.comment-writer {color:navy; font-size:14px}
     table#tbl-comment sub.comment-date {color:tomato; font-size:10px}
 </style>
-</head>
 
-<body>
+<article class="art1" style="width: 60%;"> 
 	<section id="content">
 			<div id="div-title">	
 				<h2 align="center">고객센터</h2>    
@@ -176,6 +173,8 @@
 	    </div>
 	     
 	</section>
+<article class="art2" style="width: 20%;">
+</article>
 	
 	<script>
 		$(document).ready(() => {	
@@ -208,10 +207,8 @@
 		});
 	</script>
 
-<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
-<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
+
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
-
-</body>
-</html>
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>

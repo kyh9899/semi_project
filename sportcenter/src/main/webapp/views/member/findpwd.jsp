@@ -39,21 +39,22 @@
 		background-color:transparent;
 		margin-left: 70px;
 	}
+	#findpwd:hover { text-decoration: underline; }
 	#btn1 {
 		border-color: white;
 		background-color: white;
 		box-shadow: none;
 		border:none;
 		background-color:transparent;
+		margin-left: -10px;
 	}
+	#btn1:hover { text-decoration: underline; }
 	td {
 	 	 padding-bottom: 55px;
 	 	 padding-left: 10px;
-	 	 padding-top: 
 	}
 	#space1 { letter-spacing:19px; }
 	#space2 { letter-spacing:10px; margin-left: 25px; }
-	
 </style>
 
 
@@ -82,7 +83,7 @@
 		    <tr> 
 		      <td colspan="2" align="center"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
 		      
-		        <button type="submit" id="findpwd" onclick="'${ path }/member/findpwd'"><span>비밀번호 찾기</span></button>  |
+		        <button type="submit" id="findpwd" onclick="'${ path }/member/findpwd'"><span>비밀번호 찾기</span></button>     |
 		      
 		        <input id="btn1" type="button"  value="취소" onclick="location.href='${ path }/login'">
 		      </td>
