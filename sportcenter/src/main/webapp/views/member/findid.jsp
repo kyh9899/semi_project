@@ -6,6 +6,7 @@
 
 <article class="art1" style="width: 60%;"> 
 <style>
+	h4 { padding-top: 70px;  }
 	section #findid-container {
 		text-align:center;
 	}
@@ -32,7 +33,7 @@
 	}
 	#findid {
 		margin-top: 10px;
-		padding-left: 60px;
+		padding-left: 90px;
 	}
 	#findid {
 		border-color: white;
@@ -53,7 +54,7 @@
  		padding-bottom: 15px;
     	padding-left: 10px;
 	}
-	#space1 { letter-spacing: 25px; }
+	#space1 { letter-spacing: 15px; }
 	#space2 { letter-spacing: 10px; }
 	
 </style>
@@ -73,7 +74,7 @@
 			<form name="idfindscreen" method = "POST"  >
 				<table>
 			    <tr>
-			      <td><span id="space1">이름</span> : </td>
+			      <td><span id="space1">이 름</span> : </td>
 			      <td><input type="text" name="name" id="name" required ></td>
 			    </tr> 
 			    <tr>
