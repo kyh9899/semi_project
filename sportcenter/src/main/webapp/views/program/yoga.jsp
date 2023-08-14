@@ -13,13 +13,12 @@
 		width: 400px;
 		height: 250px;
 		margin-bottom: 30px;
-		
 	}
-	#guide {
+	
+	#guideline {
 		width: 100%;
-        max-width: 100%;
-        height: auto;
 	}
+	
 	#div1 {
 		text-align: center;
 	}
@@ -27,15 +26,16 @@
 		text-align: center;
 		margin-top: 20px;
 	}
+	
 	.table-centered {
 		margin-left: auto;
 		margin-right: auto;
 	}
+	
 	#btn {
 		margin-bottom: 20px;
-		width: 140px;
-		height: 50px;
 	}
+	
 	#button {
 		width: 140px;
 		height: 50px;
@@ -73,11 +73,15 @@
 		color:#333;
 	}
 	#yogaprogram {
-		width: 1200px;
+		width: 100%;
 		margin-bottom: 10px;
 	}
 	h5{
 		font-weight: bold;
+	}
+	
+	#img1{
+		width: 100%;
 	}
 </style>
 
@@ -96,7 +100,7 @@
 							<td><img id="yoga" src="${ path }/resources/images/yoga.jpg"></td>
 						</tr>
 					</table>	
-					<button id="btn" onclick="location.href='${ path }/application/enrollment'">온라인 수강신청</button>
+					<button id="btn" class="btn btn-primary btn-lg" onclick="location.href='${ path }/application/enrollment'"><i class="fa-regular fa-calendar-days"></i> 온라인 수강신청</button>
 				</div>
 				<div class="content">
 					<ul class="tab">
@@ -111,7 +115,7 @@
 							    5천여 년 전 인도에서 유래되었지만 오늘날에는 일상에 지친 현대인들이 긴장과 스트레스를 해소하고 <br>
 							    몸과 마음의 건강을 유지할 수 있도록 도와주는 생활스포츠로 인기가 높습니다.</p>
 							<h5>▣ 프로그램 안내</h5>
-								<img id="yogaprogram" src="${ path }/resources/images/yogaprogram1.png">	   
+								<img id="yogaprogram" src="${ path }/resources/images/yogapro.png">	   
 							 <p>
 							   ● 준비물 : 운동복, 샤워도구, 수건
 							 </p>   
@@ -132,12 +136,12 @@
 							
 						</li>
 						<li id="mu3">
-							<img id="guide" src="${ path }/resources/images/guide.png">
+							<img id="guideline" src="${ path }/resources/images/guideline.png">
 						</li>		
 					</ul>
 				</div>
 				<div id="div2">	
-					<button id="button" onclick="location.href='${ path }/program/info'">목록으로</button>
+					<button id="button" class="btn btn-secondary" onclick="location.href='${ path }/program/info'">목록으로</button>
 				</div>
             </div>
         </div>

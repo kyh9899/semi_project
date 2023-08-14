@@ -4,8 +4,6 @@
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 <jsp:include page="/views/common/header.jsp" />
 
-
-
 <style>
 	h2 {
 		margin-bottom: 30px;
@@ -16,11 +14,11 @@
 		margin-bottom: 30px;
 		align: center;
 	}
-	#guide {
+	
+	#guideline {
 		width: 100%;
-        max-width: 100%;
-        height: auto;
 	}
+	
 	#div1 {
 		text-align: center;
 	}
@@ -34,8 +32,7 @@
 	}
 	#btn {
 		margin-bottom: 20px;
-		width: 140px;
-		height: 50px;
+		
 	}
 	#button {
 		width: 140px;
@@ -73,12 +70,16 @@
 		font-size:14px;
 		color:#333;
 	}
-	#badmintonprogram {
-		width: 1200px;
+	.badmintonprogram {
+		width: 100%;
 		margin-bottom: 10px;
 	}
 	h5{
 		font-weight: bold;
+	}
+	
+	#bt{
+		width: 100%;
 	}
 </style>
 
@@ -97,7 +98,7 @@
 							<td><img id="badminton" src="${ path }/resources/images/badminton.jpg"></td>
 						</tr>
 					</table>	
-					<button id="btn" onclick="location.href='${ path }/application/enrollment'">온라인 수강신청</button>
+					<button id="btn" class="btn btn-primary btn-lg" onclick="location.href='${ path }/application/enrollment'"><i class="fa-regular fa-calendar-days"></i> 온라인 수강신청</button>
 				</div>
 				<div class="content">
 					<ul class="tab">
@@ -113,7 +114,7 @@
 							또한 고강도의 무산소 운동과 유산소 운동을 동시에 하는 전신운동으로 호흡 순환계 발달에 큰 효과를 주는 운동입니다.
 							</p>
 							<h5>▣ 프로그램 안내</h5>
-							<img class="badmintonprogram" src="${ path }/resources/images/badmintonprg1.png">
+							<img class="badmintonprogram" src="${ path }/resources/images/badmintonpro1.png">
 							
 							<h5>▣ 강습특징</h5>
 							<p>회원들의 관절보호를 위해 특수충격 흡수공법의 인도네시아산 단풍나무 바닥재로 시공한 국제 규격의 배드민턴 코트 9개를 구비하고 국가대표 출신 전문 지도강사를 기용해<br> 
@@ -124,7 +125,7 @@
 							<br>
 							
 							<h5>▣ 강습내용</h5>
-							<img class="badmintonprogram" src="${ path }/resources/images/badmintonprg2.png">
+							<img class="badmintonprogram" src="${ path }/resources/images/badmintonpro2.png">
 							
 							<br><br>
 							
@@ -138,15 +139,15 @@
 							</p>
 						</li>
 						<li id="mu2">
-							<img src="${ path }/resources/images/badmitonprg3.png">		
+							<img id="bt" src="${ path }/resources/images/badmitonprg3.png">		
 						</li>
 						<li id="mu3">
-							<img id="guide" src="${ path }/resources/images/guideline.png">
+							<img id="guideline" src="${ path }/resources/images/guideline.png">
 						</li>		
 					</ul>
 				</div>
 				<div id="div2">	
-					<button id="button" onclick="location.href='${ path }/program/info'">목록으로</button>
+					<button id="button" class="btn btn-secondary" onclick="location.href='${ path }/program/info'">목록으로</button>
 				</div>
             </div>
         </div>

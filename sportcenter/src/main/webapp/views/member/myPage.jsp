@@ -24,6 +24,7 @@
   
     section #view-container {
         text-align:center;
+        background-color: #DFEAF7;
     }
 
     section #view-container input {
@@ -37,10 +38,10 @@
 
     section #view-container table th {
         text-align: center;
-        padding: 20px 0 15px 20px;
+        font-size: 1.2em;
         border-bottom: 1px solid #ccc;
         border-top: 1px solid #ccc;
-        background-color: #E6E6E6;
+        background-color: #A9D0F5;
         width: 200px;
     }
 
@@ -59,11 +60,16 @@
     .input {
         border: none;
         font-size: 1.2em;
+        background-color: #DFEAF7;
     }
 	.col-md-3 {
 	    -ms-flex: 0 0 25%;
 	    flex: 0 0 25%;
 	    max-width: 0%;
+	}
+	
+	section #content{
+		background-color: #DFEAF7;
 	}
   </style>
   

@@ -78,23 +78,25 @@
 			
 			<div>
 				<div id="writebutton">
-				<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">글쓰기</button>
+					<c:if test="${ not empty loginMember }">
+					<	button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">글쓰기</button>
+					</c:if>
 				</div>
 				<div id="searchbar">
-					<form action="${ path }/board/search" method="POST" name="search" style="margin-right:0px;">
+					<form action="${ path }/board/notice?boardId=${ boardId }" method="POST" name="search" style="margin-right:0px;">
+					<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 받을 수 있다. --%>
+					<input type="hidden" name="boardId" value="${ boardId }"> 
 						<table class="pull-right">
 							<tr>
 								<td><select class="form-control" name="searchField">
 										<option value="0">선택</option>
-										<option value="bbsTitle">제목</option>
+										<option value="title">제목</option>
 										<option value="userId">작성자</option>
 								</select></td>
 								<td><input type="text" class="form-control"
 									placeholder="검색어 입력" name="searchText" maxlength="100"></td>
 								<td><button type="submit" class="btn btn-secondary ">검색</button></td>
-								
-							</tr>
-		
+							</tr>		
 						</table>
 					</form>
 				</div>

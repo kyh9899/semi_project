@@ -12,7 +12,6 @@ import com.hm.mvc.model.enrollment.EnrollServiceImpl;
 import com.hm.mvc.model.enrollment.Enroll;
 
 
-
 @WebServlet(name = "enrollment", urlPatterns = { "/application/enrollment", "/application/payment"})
 public class EnrollmentServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -41,22 +40,27 @@ public class EnrollmentServlet extends HttpServlet {
     
     
     private void processEnrollmentRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	
-    	
+    	 String pageParam = request.getParameter("page");
+         int currentPage = pageParam == null ? 1 : Integer.parseInt(pageParam);
+         int listCount = service.getEnrollCount();
+         EnrollmentPageInfo pageInfo = new EnrollmentPageInfo(currentPage, 10, listCount, 10);
+         List<Enroll> enrollList = service.getEnrollList(currentPage, pageInfo.getListLimit());
+         request.setAttribute("list", enrollList);
+         request.setAttribute("pageInfo", pageInfo); // pageInfo 를 뷰로 전달
+
+//         request.getRequestDispatcher("/views/application/enroll.jsp").forward(request, response);
+         
     	String keyword = request.getParameter("search");
-    	 List<Enroll> list;
-    	    if (keyword != null && !keyword.trim().isEmpty()) {
-    	        list = service.searchCourses(keyword);
-    	    } else {
-    	        list = service.findAllEnroll();
-    	    }
-//        List<Enroll> list = service.findAllEnroll();
-        // 리스트를 request에 저장
-        request.setAttribute("list", list);
-        // 포워드를 사용하여 enroll.jsp 경로로 이동합니다.
-        request.getRequestDispatcher("/views/application/enroll.jsp").forward(request, response);
-        
+        if (keyword != null && !keyword.trim().isEmpty()) {
+            List<Enroll> list = service.searchCourses(keyword);
+            request.setAttribute("list", list);
+            request.getRequestDispatcher("/views/application/enroll.jsp").forward(request, response);
+        } else {
+            request.getRequestDispatcher("/views/application/enroll.jsp").forward(request, response);
+        }
     }
+        
+    
       
 
     private void showPayment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

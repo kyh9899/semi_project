@@ -9,7 +9,7 @@
     justify-content: center;
     width: 100%;
   }
-  img {
+  #imglist {
     width: 380px;
     height: 250px;
   }
@@ -30,7 +30,7 @@
 					<table id="table">
 						<tr>
 							<td class="image-container">
-								<a href="${ path }/swim/info"><img src="${ path }/resources/images/swim.jpg"></a>
+								<a href="${ path }/swim/info"><img id="imglist" src="${ path }/resources/images/swim.jpg"></a>
 							</td>
 						</tr>
 						<tr>
@@ -48,7 +48,7 @@
 					<table id="table">
 						<tr>
 							<td class="image-container">
-								<a href="${ path }/health/info"><img src="${ path }/resources/images/health.jpg"></a>
+								<a href="${ path }/health/info"><img id="imglist" src="${ path }/resources/images/health.jpg"></a>
 							</td>
 						</tr>
 						<tr>
@@ -65,7 +65,7 @@
 					<table id="table">
 						<tr>
 							<td class="image-container">
-								<a href="${ path }/pilates/info"><img src="${ path }/resources/images/pilates.jpg"></a>
+								<a href="${ path }/pilates/info"><img id="imglist" src="${ path }/resources/images/pilates.jpg"></a>
 							</td>
 						</tr>
 						<tr>
@@ -85,7 +85,7 @@
 						<table id="table">
 							<tr>
 								<td class="image-container">
-									<a href="${ path }/tabletennis/info"><img src="${ path }/resources/images/tabletennis.jpg"></a>
+									<a href="${ path }/tabletennis/info"><img id="imglist" src="${ path }/resources/images/tabletennis.jpg"></a>
 								</td>
 							</tr>
 							<tr>
@@ -104,7 +104,7 @@
 						<table id="table">
 							<tr>
 								<td class="image-container">
-									<a href="${ path }/yoga/info"><img src="${ path }/resources/images/yoga.jpg"></a>
+									<a href="${ path }/yoga/info"><img id="imglist" src="${ path }/resources/images/yoga.jpg"></a>
 								</td>
 							</tr>
 							<tr>
@@ -123,7 +123,7 @@
 						<table id="table">
 							<tr>
 								<td class="image-container">
-									<a href="${ path }/badminton/info"><img src="${ path }/resources/images/badminton.jpg"></a>
+									<a href="${ path }/badminton/info"><img id="imglist" src="${ path }/resources/images/badminton.jpg"></a>
 								</td>
 							</tr>
 							<tr>

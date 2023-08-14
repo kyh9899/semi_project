@@ -1,7 +1,9 @@
 package com.hm.mvc.board.controller;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,9 +44,7 @@ public class BoardViewServlet extends HttpServlet {
 		    System.out.println("조회수 증가에 실패하였습니다.");
 		}	
 
-		  	
-    	
-
+		  
     	// 업데이트된 조회수를 가져와서 board 객체에 설정
         Board board = new BoardService().getBoardByNo(no);
         request.setAttribute("board", board);
@@ -64,27 +64,49 @@ public class BoardViewServlet extends HttpServlet {
     	HttpSession session = request.getSession();
     	Member loginMember = (Member) session.getAttribute("loginMember");
     	String boardId = request.getParameter("boardId");
-	
-		// 조회수 증가 & 업데이트
-		int readCount = new BoardService().updateCount(no); 
     	
-		if (readCount > 0) {
-			// 조회수 증가 성공
-		    System.out.println("조회수가 증가하였습니다.");
-		} else {
-			// 조회수 증가 실패
-		    System.out.println("조회수 증가에 실패하였습니다.");
-		}		
-		
-//		int postId = 123; // 원하는 게시물의 ID
-//		int updatedCount = updateBoardReadCount(connection, postId);
-//
-//		if (updatedCount > 0) {
+    	board = new BoardService().getBoardByNo(no);
+    	
+    	
+        Set<Integer> viewedPosts = (Set<Integer>) session.getAttribute("viewedPosts");
+        
+        if (viewedPosts == null) {
+            viewedPosts = new HashSet<>();
+            session.setAttribute("viewedPosts", viewedPosts);
+        }
+
+        // session에서 조회하지 않은 게시글인 경우
+        if (!viewedPosts.contains(no)) {
+            // 조회수 증가 및 업데이트
+            int readCount = new BoardService().updateCount(no);
+            if (readCount > 0) {
+                // 조회수 증가 성공
+                System.out.println("조회수가 증가하였습니다.");
+                viewedPosts.add(no); 
+            } else {
+                // 조회수 증가 실패
+                System.out.println("조회수 증가에 실패하였습니다.");
+            }
+        } else {
+            // session 에서 이미 조회한 게시글인 경우
+            System.out.println("이미 조회한 게시글입니다.");
+        }
+
+        System.out.println("게시글번호" + no);
+    }
+    	
+	
+//		// 조회수 증가 & 업데이트
+//		int readCount = new BoardService().updateCount(no); 
+//    	
+//		if (readCount > 0) {
+//			// 조회수 증가 성공
 //		    System.out.println("조회수가 증가하였습니다.");
 //		} else {
+//			// 조회수 증가 실패
 //		    System.out.println("조회수 증가에 실패하였습니다.");
-//		}
-    	System.out.println("게시글번호" + no);
-   
-    }
+//		}		
+//		
+//    	System.out.println("게시글번호" + no);
+//    }
 }
