@@ -98,11 +98,11 @@
     
      <article class="nested-article" style="width: 50%; float: left;">
 		 <div class="notice">
-		 <p style="text-align:right; margin:0px">&#62; 더보기</p>
+		 <a href="${ path }/board/notice?boardId=notice" style="text-align:right; margin:0px">&#62; 더보기</a>
 		 <div style="width:100%; height:100%; background-color:green;"></div>
 		 </div>
 		 <div class="recommend">
-		  <p style="text-align:right; margin:0px">&#62; 더보기</p>
+		 <a href="${ path }/board/notice?boardId=notice" style="text-align:right; margin:0px">&#62; 더보기</a>
 		  <div style="width:100%; height:100%; background-color:green;"></div>
 		 </div>
     </article>
