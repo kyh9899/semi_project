@@ -10,7 +10,7 @@
 	  
 	#root {
 	  font-size:30px;
-	  color: lightgray;
+	  color: gray;
 	  text-align: center;
 	}
 	  
@@ -28,10 +28,16 @@
 		display: flex;
       	justify-content: center;
 	}
+	
+	#containers {
+		 background-color: #DFEAF7;
+		 width: 100%;
+		 height: 100vh; 
+	}
 </style>
 
-<body>
-<div id="container">
+<article class="art1" style="width: 60%;"> 
+<div id="containers">
 	<h1>회원가입</h1>
  	<br><br>
  	<p id="root">01약관동의 ➝ 02본인인증 ➝ 03정보입력 ➝ <strong>04가입완료</strong></p>
@@ -41,8 +47,8 @@
  	<div id="button">
  		<button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/login'">로그인</button>
  	</div>
- 	
 </div>
 
-</body>
+<article class="art2" style="width: 20%;" >
+</article>
  <jsp:include page="/views/common/footer.jsp" /> 
