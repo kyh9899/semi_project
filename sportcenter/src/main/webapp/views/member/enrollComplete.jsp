@@ -46,6 +46,7 @@
  	
  	<div id="button">
  		<button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/login'">로그인</button>
+ 		<button type="button" class="btn btn-primary" onclick="location.href='${ path }'">메인으로</button>
  	</div>
 </div>
 
