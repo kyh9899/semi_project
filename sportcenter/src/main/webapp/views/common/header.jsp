@@ -102,6 +102,27 @@
 	    .col-md-3 {
 	    max-width:25%;
 		}
+		
+		#btn1 {
+			border-color: white;
+			background-color: white;
+			box-shadow: none;
+			border:none;
+			background-color:transparent;
+			padding-left: 20px;
+		}
+		#btn2 {
+			border-color: white;
+			background-color: white;
+			box-shadow: none;
+			border:none;
+			background-color:transparent;
+		}
+		
+		#space1 { 
+			padding-left: 25px; 
+			padding-bottom: 10px;
+		}
     </style>
 </head>
 <body style="background-color: #DFEAF7;">
