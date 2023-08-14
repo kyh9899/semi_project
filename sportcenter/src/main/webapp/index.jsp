@@ -77,6 +77,19 @@
         float: left;
         height: 100%;
     }
+    
+    #link {
+    	font-family: 'Noto Sans', sans-serif;
+    	text-decoration: none;
+        color: black;
+    }
+    
+    .text {
+    	font-family: 'Noto Sans', sans-serif;
+    	font:20px;
+    	color: white;
+    	text-align:center;
+    }
 </style>
 
 
@@ -98,19 +111,31 @@
     
      <article class="nested-article" style="width: 50%; float: left;">
 		 <div class="notice">
-		 <a href="${ path }/board/notice?boardId=notice" style="text-align:right; margin:0px">&#62; 더보기</a>
+		 <div style="display: flex; justify-content: space-between;">
+		 <p style = "margin:0">공지사항</p>
+		 <span style = "margin:0;"><a id="link" href="${ path }/board/notice?boardId=notice">더보기 &#62;</a></span>
+		 </div>
 		 <div style="width:100%; height:100%; background-color:green;"></div>
 		 </div>
 		 <div class="recommend">
-		 <a href="${ path }/board/notice?boardId=notice" style="text-align:right; margin:0px">&#62; 더보기</a>
+		 <div style="display: flex; justify-content: space-between;">
+		 <p style = "margin:0">추천강좌</p>
+		 <span style = "margin:0;"><a id="link" href="${ path }/board/notice?boardId=notice">더보기 &#62;</a></span>
+		 </div>
 		  <div style="width:100%; height:100%; background-color:green;"></div>
 		 </div>
     </article>
     <article class="nested-article" style="width: 50%; float: left;">
         <div class="left-column">
-        <div class="rectangle1"></div>
-        <div class="rectangle2"></div>
-        <div class="rectangle3"></div>
+        <div class="rectangle1">
+        	<p class="text">온라인 수강신청 안내</p>
+        </div>
+        <div class="rectangle2">
+        	<p class="text">시설 이용시간 안내</p>
+        </div>
+        <div class="rectangle3">
+        	<p class="text">안내데스크 및 대표 번호</p>
+        </div>
     </div>
     </article>
 </article>
