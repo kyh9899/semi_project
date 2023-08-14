@@ -72,8 +72,6 @@ public class MemberDao {
 	        if (rs.next()) {
 	            member = new Member();
 
-//	            member.setName(rs.getString("MB_NAME"));
-//	            member.setPhone(rs.getString("MB_PHONE"));
 	            
 	            pstmt.setString(1, member.getName());
 	            pstmt.setString(2, member.getPhone());
