@@ -85,7 +85,7 @@
 					--%> 
 			        <button  type="submit" id="findid" onclick="'${ path }/member/findid'"><span>아이디 찾기</span></button>  &nbsp;  |
 			      
-			        <input id="btn1" type="button"  value="취소" onClick="history.back()">
+			        <input id="btn1" type="button"  value="취소" onclick="location.href='${ path }/login'">
 			      </td>
 			    </tr>
 			</table>
