@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:include page="/views/common/header.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
+<jsp:include page="/views/common/header.jsp" />
 
 <style>
 
-	section #board-list-container{width:700px; height:100%; margin:10px auto; text-align:center;  float:left;}
+	section #board-list-container{width:1200px; height:100%; margin:10px auto; text-align:center;  float:left;}
 	section #board-list-container h2{margin:0px 0;}
 	table#tbl-board{width:100%;  margin:0 auto; border-collapse:collapse; border-top: 2px solid black; clear:both; }
 	table#tbl-board th {  background-color: #f9f9f9; }
 	table#tbl-board th, table#tbl-board td {border:1px solid transparent; padding: 5px 0; text-align:center;} 
-
+	table#tbl-board tr.typeQ:hover { background-color: #D5E3F4; cursor: pointer; }
+	table#tbl-board tr.typeQc, tr.typeA { display: none; }
+	
 	/*페이지바*/
 	div#pageBar{margin-top:10px; text-align:center; }
 	#div-title { align: center; }
@@ -102,13 +104,9 @@
 				<%-- 게시글이 있는 경우 --%>
 				<c:if test="${ not empty list }">
 					<c:forEach var="board" items="${ list }">
-						<tr>
-							<td>${ board.rowNum }</td>
-							<td>
-								<a href="${ path }/board/view?boardId=${ boardId }&no=${ board.no }">
-									${ board.title } 
-								</a>
-							</td>
+						<tr class="typeQ">
+							<td style="width: 50px;">Q</td>
+							<td>${ board.title }</td>
 							<td>${ board.writerId }</td>
 							<td>${ board.createDate }</td>
 							<td>
@@ -121,6 +119,15 @@
 								</c:if>
 							</td>
 							<td>${ board.readCount }</td>
+						</tr>
+						<tr class="typeQc">
+							<td></td>
+							<td colspan="6" style="text-align:left; padding-left:20px;">ㄴ ${ board.content }</td>
+						</tr>
+						
+						<tr class="typeA">
+							<td></td>
+							<td colspan="6" style="text-align:left; padding-left:20px;">ㄴ A.답변내용</td>
 						</tr>
 					</c:forEach>
 				</c:if>
@@ -155,11 +162,40 @@
 		</div>
 		</div>
 	</section>
+	<script>
+		// 각 행을 클릭할 때 링크로 연결되도록 처리
+		  var rows = document.querySelectorAll(".clickable-row");
+		  rows.forEach(function(row) {
+		    row.addEventListener("click", function() {
+		      var href = row.getAttribute("href");
+		      if (href) {
+		        window.location.href = href;
+		      }
+		    });
+		  });
+		 
+		  // typeQ 클래스를 가진 행 클릭 시 typeQc, typeA 클래스를 가진 행 보이게 처리	
+		   var typeQRows = document.querySelectorAll(".typeQ");
+			  typeQRows.forEach(function(row) {
+			    row.addEventListener("click", function() {
+			      var typeQcRow = row.nextElementSibling;
+			      var typeARow = typeQcRow.nextElementSibling;
+			      
+			      if (typeQcRow.style.display === "none") {
+			        typeQcRow.style.display = "table-row";
+			        typeARow.style.display = "table-row";
+			      } else {
+			        typeQcRow.style.display = "none";
+			        typeARow.style.display = "none";
+			      }
+			    });
+			  });
+	</script>
 
 <article class="art2" style="width: 20%;">
 </article>
 
-<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
-<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>

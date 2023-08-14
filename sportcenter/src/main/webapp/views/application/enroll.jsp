@@ -62,6 +62,23 @@ table#tbl-board tr:hover td {
   background-color: #e0ebeb; /* 마우스 오버 시 색상 변경 */
   cursor: pointer;
 }
+/* 신청 버튼 스타일 */
+.enroll-button {
+  background-color: #455a64; /* 어두운 회색 계열 */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+}
+
+
+/* 신청 버튼 호버 효과 */
+.enroll-button:hover {
+  background-color: #CCCC99;
+}
+
 
 	  
 			   /* 페이지 바 컨테이너 */
@@ -114,11 +131,11 @@ table#tbl-board tr:hover td {
 	<article class="art1" style="width: 60%;"> 
 	<div>
 	<section id="content">
-	   <h1 align="center">수강 신청</h1>
+	   <h2 align="center">수강 신청</h2>
 	   <div id="board-list-container" >
 	   <br><br>
 	    <section id="courseList">
-	        <h2>강좌 목록</h2>
+	        <h3>강좌 목록</h3>
 	      	<input type="text" name="query" id="searchInput" placeholder="강좌 검색" />
 	     	<%-- <button type="submit" id="search" onclick="location.href='${path}/application/enrollment?query">검색</button>--%>
 	    	<button type="submit" id="searchButton" onclick="searchCourses();">검색</button>
@@ -169,7 +186,13 @@ table#tbl-board tr:hover td {
 	               <td>${ enroll.pgMax }</td> 
 	               <td>${ enroll.pgNum }</td>
 	            <%-- <td>   <button type="button" onclick="location.href='${ path }/application/payment'">신청</button></td>--%>
-	             <td> <button type="button" onclick="checkLogin('${ enroll.pgTitle }', '${ enroll.pgFee }');">신청</button></td>
+	           <%--  <td> <button type="button" onclick="checkLogin('${ enroll.pgTitle }', '${ enroll.pgFee }');">신청</button></td>--%>
+	              
+					<td>
+					    <button type="button" class="enroll-button" onclick="checkLogin('${ enroll.pgTitle }', '${ enroll.pgFee }');">신청</button>
+					</td>
+
+	              
 	              <%--  <td><form method="POST" action="/sportcenter/views/application/cation.jsp" onsubmit="return checkLoginStatus()">
 	                            <input type="hidden" name="courseId" value="코스ID">
 	                            <input type="submit" value="신청">

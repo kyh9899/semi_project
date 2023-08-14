@@ -8,10 +8,18 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    overflow: hidden;
   }
+  
+  #imglist:hover {
+  	transform: scale(1.2, 1.2);
+    transition-duration: 0.5s;
+  }
+  
   #imglist {
     width: 380px;
     height: 250px;
+     transition-duration: 0.3s;
   }
   #table {
   	float: left;
