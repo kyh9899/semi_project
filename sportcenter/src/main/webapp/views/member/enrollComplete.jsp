@@ -46,9 +46,14 @@
  	
  	<div id="button">
  		<button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/login'">로그인</button>
+ 		<button type="button" class="btn btn-primary" onclick="location.href='${ path }'">메인으로</button>
  	</div>
 </div>
 
 <article class="art2" style="width: 20%;" >
 </article>
- <jsp:include page="/views/common/footer.jsp" /> 
+
+<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
+<jsp:include page="/views/common/footer.jsp" />
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>

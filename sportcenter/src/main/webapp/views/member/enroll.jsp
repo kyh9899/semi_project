@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
+<jsp:include page="/views/common/header.jsp" />
 
-<style type="text/css">
+<style>
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
@@ -128,11 +129,7 @@
     p{
     font-size: 0.7em;
     }
-    
-    a{
-    font-size: 2em;
-    }
- 
+
     .g{
     font-size: 0.7em;
     }
@@ -151,8 +148,9 @@
  
   </style>
 
-<jsp:include page="/views/common/header.jsp" />
 
+
+<article class="art1" style="width: 60%;"> 
   <form name="memberEnrollFrm" action="${ path }/member/enroll" method="POST">
       <div class="container">
     <div class="insert">
@@ -237,6 +235,9 @@
   </div>
   </div>
   </form>
+  
+<article class="art2" style="width: 20%;">
+</article>
 
 <script>
 	function checkPassword() {
@@ -372,7 +373,11 @@
     });
  
     
-    
-  </script>
-  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  <jsp:include page="/views/common/footer.jsp" /> 
+   
+</script>
+
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
+<jsp:include page="/views/common/footer.jsp" />
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>

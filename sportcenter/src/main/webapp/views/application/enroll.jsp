@@ -62,6 +62,21 @@ table#tbl-board tr:hover td {
   background-color: #e0ebeb; /* 마우스 오버 시 색상 변경 */
   cursor: pointer;
 }
+/* 신청 버튼 스타일 */
+.enroll-button {
+  background-color: #455a64; /* 어두운 회색 계열 */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+}
+
+/* 신청 버튼 호버 효과 */
+.enroll-button:hover {
+  background-color: ##CCCC99;
+}
 
 	  
 			   /* 페이지 바 컨테이너 */
@@ -169,7 +184,13 @@ table#tbl-board tr:hover td {
 	               <td>${ enroll.pgMax }</td> 
 	               <td>${ enroll.pgNum }</td>
 	            <%-- <td>   <button type="button" onclick="location.href='${ path }/application/payment'">신청</button></td>--%>
-	             <td> <button type="button" onclick="checkLogin('${ enroll.pgTitle }', '${ enroll.pgFee }');">신청</button></td>
+	           <%--  <td> <button type="button" onclick="checkLogin('${ enroll.pgTitle }', '${ enroll.pgFee }');">신청</button></td>--%>
+	              
+					<td>
+					    <button type="button" class="enroll-button" onclick="checkLogin('${ enroll.pgTitle }', '${ enroll.pgFee }');">신청</button>
+					</td>
+
+	              
 	              <%--  <td><form method="POST" action="/sportcenter/views/application/cation.jsp" onsubmit="return checkLoginStatus()">
 	                            <input type="hidden" name="courseId" value="코스ID">
 	                            <input type="submit" value="신청">

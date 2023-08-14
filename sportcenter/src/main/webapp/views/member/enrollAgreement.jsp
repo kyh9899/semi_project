@@ -119,7 +119,7 @@ label.required::after {
 </style>
 
 
-
+<article class="art1" style="width: 60%;"> 
 <div class="container">
       <div class="logo">
         <h1>회원가입</h1>
@@ -161,8 +161,10 @@ label.required::after {
         </form>
       </div>
     </div>
-    
-    <script>
+
+<article class="art2" style="width: 20%;">
+</article>    
+<script>
 function formCheck() {
     const termsOfService = document.getElementById("termsOfService");
     const privacyPolicy = document.getElementById("privacyPolicy");
@@ -199,4 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-<jsp:include page="/views/common/footer.jsp" /> 
+<link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
+<jsp:include page="/views/common/footer.jsp" />
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
