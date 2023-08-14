@@ -43,7 +43,7 @@ public class MemberFindPwdServlet extends HttpServlet {
     		
 //    		response.sendRedirect(request.getContextPath() + "/");
     		
-request.setAttribute("findid", findMemberById);
+    		request.setAttribute("findid", findMemberById);
     	    
     	    request.setAttribute("location", "/member/findpwd");
     	    

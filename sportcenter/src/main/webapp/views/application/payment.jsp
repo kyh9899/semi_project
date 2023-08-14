@@ -49,10 +49,25 @@
   border-radius: 5px;
 }
 
+
 /* 결제하기 버튼 호버 효과 */
 .payment-button:hover {
-  background-color: ##CCCC99;
+  background-color: #CCCC99;
 }
+
+.payment-amount {
+  font-weight: bold; /* 글자 두께를 두꺼운 (bold)로 설정 */
+  color: #000; /* 글자 색상을 진한 검정색으로 설정 */
+}
+
+.form-label {
+  font-weight: bold; /* 글자 두께를 두꺼운 (bold)로 설정 */
+  font-size: 17px; /* 글자 크기를 18픽셀로 설정 */
+}
+ .payment{
+ font-weight: bold;
+ font-size: 22px;
+ }  
     
 </style>
 
@@ -61,9 +76,9 @@
 <article class="art1" style="width: 60%;"> 
 
 <div class="container1">
-  <h1 class="text-center my-4">결제 페이지</h1>
+  <h2 class="text-center my-4">결제 페이지</h2>
 	<br><br><br>
-	<h2  class="payment" >결제창</h2>
+	<h4 class="payment" >결제창</h4>
   <div class="col-md-6 mx-auto">
   
     <div class="card">
@@ -74,31 +89,38 @@
       <div class="card-body">
         <form action="${path}/paymentservlet" method="GET">
           <div class="form-group">
-            <label for="cardName">사용자 이름:</label>
+            <label for="cardName" class="form-label">사용자 이름</label>
             <input type="text" class="form-control" name="cardName" id="cardName">
-            <br><br>
+            <br>
        <div class="form-group">
-  		<label for="prinum">주민등록번호:</label>
+  		<label for="prinum" class="form-label">주민등록번호</label>
   		<div class="input-group">
 	    <input type="text" name="prinum1" maxlength="6" style="width: 140px;">&nbsp; <a>- </a> &nbsp;&nbsp;<input type="text" name="prinum2" maxlength="1" style="width:20px">
 	    <span style="font-size: 1.4em;">●●●●●●</span>
 	  </div>
 	</div>
           <div class="form-group">
-            <label for="cardNumber">카드 번호:</label>
+            <label for="cardNumber" class="form-label" >카드 번호</label>
             <input type="text" class="form-control" name="cardNumber" id="cardNumber">
           </div>
           <div class="form-group">
-            <label for="date">유효 기간:</label>
+            <label for="date" class="form-label">유효 기간</label>
             <input type="date" class="form-control" name="datee" id="date">
           </div>
           <div class="form-group">
-            <label for="cvc">CVC:</label>
-            <input type="text" class="form-control" name="cvc" id="cvc">
-         <div class="form-group">
-  		<label for="paymentAmount">결제금액:</label>
-  		<input type="text" class="form-control" name="paymentAmount" id="paymentAmount" value="${param.price}" readonly>
-		</div>
+            <label for="cvc" class="form-label">CVC</label>
+            <input type="number" class="form-control" name="cvc" id="cvc">
+            <br>
+       <div class="form-group">
+	  <label for="paymentAmount" class="form-label">결제금액</label>
+	  <input type="text" class="form-control payment-amount" name="paymentAmount" id="paymentAmount" value="${param.price}" readonly>
+	</div>
+	<br>
+	<div className={styles.form_agreement_box}>
+        	<div className={styles.form_agreement_all}>
+        		<input type="checkbox" id="all-check" checked={allCheck} onChange={allBtnEvent}/>
+        		<label for="all-check">전체동의</label>
+        		<br>
           <button type="submit" class="payment-button btn-block">결제 하기</button>
         </form>
       </div>
