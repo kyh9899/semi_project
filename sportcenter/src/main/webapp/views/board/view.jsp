@@ -65,6 +65,9 @@
 			    <c:if test="${ boardId == 'faq'}">
 			     <h4> 자주묻는질문(FAQ) > 게시글 조회</h4>
 			    </c:if>
+			    <c:if test="${ boardId == 'question'}">
+			     <h4> 1:1 문의게시판 > 게시글 조회</h4>
+			  </c:if>
 		    </div> 
 			
 			<%-- 게시글 조회 
@@ -111,8 +114,8 @@
 				<c:if test="${ boardId == 'notice' }">
 				    <h4> [공지] ${ board.title } </h4>
 				</c:if>
-				<c:if test="${boardId == 'faq'}">
-				    <h4> ${board.title} </h4>
+				<c:if test="${ boardId == 'faq' || boardId == 'question' }">
+				    <h4> ${ board.title } </h4>
 				</c:if>
 				
 				<table id="tbl-board" style="padding-right:50px;">
@@ -160,22 +163,24 @@
 						</td>
 					</tr>
 					<tr>
-						<th>내 용</th>
+						<c:if  test="${ boardId == 'notice' || boardId == 'faq' }">
+							<th>내 용</th>
+						</c:if>
+						<c:if  test="${ boardId == 'question' }">
+							<th>문의사항</th>
+						</c:if>
 						<td colspan="5" style="height: 500px; padding-top:20px; vertical-align:top;">${ board.content }</td>
 				
 					</tr>
 					<%--작성자의 경우 수정/삭제 가능 --%>
 					<tr>
 						<th colspan="6">
-						<%--  
 							<c:if test="${ not empty loginMember && loginMember.id == board.writerId }">
-								<input type="button" value="수정" onclick="location.href='${ path }/board/update?no=${ board.no }'">
+								<input type="button" value="수정" onclick="location.href='${ path }/board/update?boardId=${ boardId }&no=${ board.no }'">
 								<input type="button" value="삭제" id="btnDelete">
 							</c:if>
-						--%>
-							<input type="button" value="수정" onclick="location.href='${ path }/board/update?boardId=${ boardId }&no=${ board.no }'">
-							<input type="button" value="삭제" id="btnDelete">
-							<input type="button" value="목록으로" onclick="location.href='${ path }/board/${ boardId }?boardId=${ boardId }'" >
+								<input type="button" value="목록으로" onclick="location.href='${ path }/board/${ boardId }?boardId=${ boardId }'" >
+							
 						</th>
 					</tr>
 				</table>

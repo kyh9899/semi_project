@@ -11,7 +11,8 @@
 	/* 게시글 목록 표 */
 	table#tbl-board{ width:100%;  margin:0 auto; border-collapse:collapse; border-top: 2px solid black; clear:both; }
 	table#tbl-board th {  background-color: #f9f9f9; }
-	table#tbl-board th, table#tbl-board td {border:1px solid transparent; padding: 5px 0; text-align:center;} 
+	table#tbl-board th, table#tbl-board td { border:1px solid transparent; padding: 5px 0; text-align:center; } 
+	table#tbl-board tr:hover { background-color: #D5E3F4;  }
 
 	/*페이지바*/
 	div#pageBar{margin-top:10px; text-align:center; }
@@ -38,7 +39,6 @@
 </style>
 
 <article class="art1" style="width: 60%;" items="notice1"> 
-	
 		<div id="div-title">	
 		<h2 align="center">고객센터</h2>    
 		
@@ -48,44 +48,22 @@
 	     <p>새로운 소식을 알려드립니다.</p>
     
 	    
-		<div id="board-list-container">
-			 <%--  
-			<c:if test="${ not empty loginMember }">
-				<button class="btn btn-sm btn-outline-secondary" type="button">글쓰기</button><br>
-			</c:if>
-			--%>
-				
-				<%-- 검색기능_필요시 활성화
-	            <div class="search-wrapper">
-	                <fieldset class="search">
-	                    
-	                    <select class="sort" title="검색조건">
-	                        <option value="1">전체</option>
-	                        <option value="1">제목</option>
-	                        <option value="1">내용</option>
-	                        <option value="1">작성자</option>
-	                    </select>
-	                    
-	                    <nav class="navbar bg-body-tertiary">
-						  <div class="container-fluid">
-						    <form class="d-flex" role="search">
-						      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-						      <button type="button" id="btn-search" class="btn btn-secondary btn-sm">검색</button>
-						    </form>
-						  </div>
-						</nav>
-						
-	                </fieldset>
-	            </div>
-	             --%>  		
-			
+		<div id="board-list-container">			
 			<div>
 				<div id="writebutton">
-				<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">글쓰기</button>
+					<%-- 관리자의 경우에만 글쓰기 가능 --%>
+					<c:choose>
+					    <c:when test="${ not empty loginMember && loginMember.id == 'admin' }">
+					        <button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">글쓰기</button>
+					    </c:when>
+					    <c:when test="${ empty loginMember || loginMember.id != 'admin' }">
+					        <button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'" disabled>글쓰기</button>
+				    	</c:when>
+					</c:choose>
 				</div>
 				<div id="searchbar">
-					<form action="${ path }/board/notice?boardId=${ boardId }" method="POST" name="searchInput" style="margin-right:0px;">
-						<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
+					<form action="${ path }/board/notice?boardId=${ boardId }" method="GET" name="searchInput" style="margin-right:0px;">
+						<%-- ✔ 게시판아이디를 hidden으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
 						<input type="hidden" name="boardId" value="${ boardId }"> 
 						<table class="pull-right">
 							<tr>
@@ -158,10 +136,10 @@
 			
 			<div id="pageBar">
 			<!-- 맨 처음으로 -->
-			    <button onclick="location.href='${ path }/board/notice?boardId=notice&page=${ pageInfo.startPage }'">&lt;&lt;</button>
+			    <button onclick="location.href='${ path }/board/notice?boardId=${ boardId }&page=${ pageInfo.startPage }'">&lt;&lt;</button>
 			    	
 				<!-- 이전 페이지로 -->
-				<button onclick="location.href='${ path }/board/notice?boardId=notice&page=${ pageInfo.prevPage }'">&lt;</button>
+				<button onclick="location.href='${ path }/board/notice?boardId=${ boardId }&page=${ pageInfo.prevPage }'">&lt;</button>
 	
 				<!--  10개 페이지 목록 -->
 				<c:forEach var="current" begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }">
@@ -170,16 +148,16 @@
 							<button disabled>${ current }</button>			
 						</c:when>
 						<c:otherwise>
-							<button onclick="location.href='${ path }/board/notice?boardId=notice&page=${ current }'">${ current }</button>			
+							<button onclick="location.href='${ path }/board/notice?boardId=${ boardId }&page=${ current }'">${ current }</button>			
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 	
 				<!-- 다음 페이지로 -->
-				<button onclick="location.href='${ path }/board/notice?boardId=notice&page=${ pageInfo.nextPage }'">&gt;</button>
+				<button onclick="location.href='${ path }/board/notice?boardId=${ boardId }&page=${ pageInfo.nextPage }'">&gt;</button>
 	
 				<!-- 맨 끝으로 -->
-				<button onclick="location.href='${ path }/board/notice?boardId=notice&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
+				<button onclick="location.href='${ path }/board/notice?boardId=${ boardId }&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
 			</div>
 		</div>
 		</div>
