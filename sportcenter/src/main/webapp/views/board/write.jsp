@@ -72,13 +72,14 @@
 					<form action="${ path }/board/write" method="POST" enctype="multipart/form-data">
 						<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
 						<input type="hidden" name="boardId" value="${ boardId }"> 
-						<table id='tbl-board'>
 						
+						<table id='tbl-board'>
+						<%--  
 							<tr>
 								<th>boardId</th>
 								<td style="font-weight:bold; text-align:left;">${ boardId }</td>
 							</tr>
-						
+						--%>
 							<tr>
 								<th>제목</th>
 								<td><input type="text" name="title" class="deco"></td>

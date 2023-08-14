@@ -150,14 +150,14 @@ public class BoardService {
 	}
 
 	// 문의에 대한 답변 조회
-	public List<Reply> getRepliesByNo(String boardId) {
-		List<Reply> replies = null;
-		Connection connection = getConnection();
-		
-		replies = new BoardDao().getRepliesByNo(connection, boardId);
-		
-		close(connection);
-		
-		return replies;
-	}
+//	public List<Reply> getRepliesByNo(int no) {
+//		List<Reply> replies = null;
+//		Connection connection = getConnection();
+//		
+//		replies = new BoardDao().getRepliesByNo(connection, no);
+//		
+//		close(connection);
+//		
+//		return replies;
+//	}
 }
