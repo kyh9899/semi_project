@@ -53,8 +53,8 @@
  		padding-bottom: 15px;
     	padding-left: 10px;
 	}
-	#space1 { letter-spacing:18px; }
-	#space2 { letter-spacing: 0.5px; }
+	#space1 { letter-spacing: 25px; }
+	#space2 { letter-spacing: 10px; }
 	
 </style>
 
