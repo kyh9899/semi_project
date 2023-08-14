@@ -29,7 +29,6 @@
         height : 200px;
         border : 1px solid green;
         margin-bottom : 50px;
-        float: left;
     }
 
     .recommend {
@@ -46,7 +45,6 @@
         align-items: flex-start;
         width: 20%;
         padding: 10px;
-        float: right;
     }
 
     .left-column .rectangle {
@@ -54,7 +52,6 @@
         height: 50px;
         border: 1px solid green;
         margin: 10px 0;
-        float: left;
     }
     
     .clear {
@@ -77,18 +74,20 @@
             <div class="circle"></div>
         </div>
     </section>
-
-    <div class="notice"></div>
+    <div class="clear"></div>
     
     
-    <div class="left-column">
+     <article class="nested-article" style="width: 50%; float: left;">
+		 <div class="notice"></div>
+		 <div class="recommend"></div>
+    </article>
+    <article class="nested-article" style="width: 50%; float: left;">
+        <div class="left-column">
         <div class="rectangle"></div>
         <div class="rectangle"></div>
         <div class="rectangle"></div>
     </div>
-
-    <div class="clear"></div>
-    <div class="recommend"></div>
+    </article>
 </article>
 
 <article class="art2" style="width: 20%;">
