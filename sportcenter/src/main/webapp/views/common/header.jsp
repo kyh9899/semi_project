@@ -159,4 +159,4 @@
   
 <div>
 	<section style="display:flex;">
-		<aside><jsp:include page="/views//MenuBar.jsp" /></aside>
+<aside><jsp:include page="/views//MenuBar.jsp" /></aside>
