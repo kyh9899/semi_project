@@ -81,10 +81,17 @@
 			
 			<div>
 				<div id="writebutton">
-				<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">글쓰기</button>
+				<c:choose>
+				    <c:when test="${ not empty loginMember && loginMember.id == 'admin' }">
+				        <button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">글쓰기</button>
+				    </c:when>
+				    <c:when test="${ empty loginMember || loginMember.id != 'admin' }">
+				        <button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'" disabled>글쓰기</button>
+			    	</c:when>
+				</c:choose>
 				</div>
 				<div id="searchbar">
-					<form action="${ path }/board/notice?boardId=${ boardId }" method="POST" name="searchInput" style="margin-right:0px;">
+					<form action="${ path }/board/notice?boardId=${ boardId }" method="GET" name="searchInput" style="margin-right:0px;">
 						<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
 						<input type="hidden" name="boardId" value="${ boardId }"> 
 						<table class="pull-right">

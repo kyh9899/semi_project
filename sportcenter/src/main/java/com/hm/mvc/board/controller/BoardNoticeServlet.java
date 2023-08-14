@@ -76,11 +76,6 @@ public class BoardNoticeServlet extends HttpServlet {
     	
     	
     	
-    	
-    	
-    	
-    	
-    	
 //	    	try {    		
 //	    		page = Integer.parseInt(request.getParameter("page"));
 //	    	} catch (NumberFormatException e) {
