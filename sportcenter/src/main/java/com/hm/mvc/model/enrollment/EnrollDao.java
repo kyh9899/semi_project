@@ -12,12 +12,12 @@ import static com.hm.mvc.common.jdbc.JDBCTemplate.close;
 public class EnrollDao {
 	public List<Enroll> findAllEnroll(Connection connection) {
         List<Enroll> enrolls = new ArrayList<>();
-        String sql = "SELECT P.PG_TITLE, F.FC_NAME, C.CH_NAME, P.PG_TIME,PG_DATE ,P.PG_FEE, P.PG_MAX, P.PG_NUM, E.ERM_AVA " +
+        String sql = "SELECT P.PG_TITLE, F.FC_NAME, C.CH_NAME, P.PG_TIME,PG_DATE ,P.PG_FEE, P.PG_MAX, P.PG_NUM, E.ERM_AVA, M.MB_NAME, M.MB_SSN " +
                 "FROM ENROLLMENT E " +
                 "JOIN PROGRAM P ON E.PG_CODE = P.PG_CODE " +
                 "JOIN COACH C ON P.CH_CODE = C.CH_CODE " +
-                "JOIN FACILITY F ON P.FC_CODE = F.FC_CODE";
-
+                "JOIN FACILITY F ON P.FC_CODE = F.FC_CODE" +
+        		"JOIN MEMBER M ON E.MB_CODE = M.MB_CODE";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             ResultSet resultSet = pstmt.executeQuery();
 
@@ -32,6 +32,8 @@ public class EnrollDao {
                 enroll.setPgMax(resultSet.getInt("PG_MAX"));
                 enroll.setPgNum(resultSet.getInt("PG_NUM"));
                 enroll.setErmAva(resultSet.getString("ERM_AVA"));
+                enroll.setMbName(resultSet.getString("MB_NAME"));
+                enroll.setMbSsn(resultSet.getString("MB_SSN"));
                 enrolls.add(enroll);
             }
         } catch (SQLException e) {
@@ -40,6 +42,7 @@ public class EnrollDao {
 
         return enrolls;
     }
+	
 	public List<Enroll> searchCourses(Connection connection, String search) {
         List<Enroll> searchResults = new ArrayList<>();
         String sql = "SELECT P.PG_TITLE, F.FC_NAME, C.CH_NAME, P.PG_TIME, PG_DATE,P.PG_FEE, P.PG_MAX, P.PG_NUM, E.ERM_AVA " +

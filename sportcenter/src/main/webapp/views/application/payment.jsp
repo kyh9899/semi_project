@@ -77,8 +77,7 @@
 
 <div class="container1">
   <h2 class="text-center my-4">결제 페이지</h2>
-	<br><br><br>
-	<h4 class="payment" >결제창</h4>
+	<br> 
   <div class="col-md-6 mx-auto">
   
     <div class="card">
@@ -89,14 +88,14 @@
       <div class="card-body">
         <form action="${path}/paymentservlet" method="GET">
           <div class="form-group">
-            <label for="cardName" class="form-label">사용자 이름</label>
-            <input type="text" class="form-control" name="cardName" id="cardName">
+            <label for="cardName" class="form-label">결제자 이름</label>
+            <input type="text" class="form-control" name="cardName" id="cardName" value="${ loginMember.name }">
             <br>
        <div class="form-group">
   		<label for="prinum" class="form-label">주민등록번호</label>
   		<div class="input-group">
-	    <input type="text" name="prinum1" maxlength="6" style="width: 140px;">&nbsp; <a>- </a> &nbsp;&nbsp;<input type="text" name="prinum2" maxlength="1" style="width:20px">
-	    <span style="font-size: 1.4em;">●●●●●●</span>
+  		<input type="text" name="prinum1" style="width: 140px;" value="${loginMember.SSN1 != null ? loginMember.SSN1.substring(0, 6) : ''}">&nbsp; <a>-</a> &nbsp;&nbsp;<input type="text" name="prinum2" maxlength="1" style="width:20px">
+		<span style="font-size: 1.4em;">●●●●●●</span>
 	  </div>
 	</div>
           <div class="form-group">
@@ -109,19 +108,22 @@
           </div>
           <div class="form-group">
             <label for="cvc" class="form-label">CVC</label>
-            <input type="number" class="form-control" name="cvc" id="cvc">
+            <input type="text" class="form-control" name="cvc" id="cvc" maxlength="3" pattern="[0-9]{3}" title="세 자리 숫자를 입력하세요">
+            </div>
             <br>
        <div class="form-group">
 	  <label for="paymentAmount" class="form-label">결제금액</label>
-	  <input type="text" class="form-control payment-amount" name="paymentAmount" id="paymentAmount" value="${param.price}" readonly>
+	  <input type="text" class="form-control payment-amount" name="paymentAmount" id="paymentAmount" readonly>
 	</div>
 	<br>
 	<div className={styles.form_agreement_box}>
         	<div className={styles.form_agreement_all}>
-        		<input type="checkbox" id="all-check" checked={allCheck} onChange={allBtnEvent}/>
+        		<input type="checkbox" id="all-check" onChange={allBtnEvent}/>
         		<label for="all-check">전체동의</label>
-        		<br>
-          <button type="submit" class="payment-button btn-block">결제 하기</button>
+        		<br><br>
+         <%--  <button type="submit" class="payment-button btn-block">결제 하기</button>--%>
+          <button type="button" class="payment-button btn-block" onclick="submitPaymentForm()">결제 하기</button>
+          
         </form>
       </div>
     </div>
@@ -129,6 +131,44 @@
 </div>
 <article class="art2" style="width: 20%;">
 </article>
+
+<script>
+switch(`${param.kind}`){
+case "수영":
+	$('#paymentAmount').val("100000");
+	break;
+case "요가":
+	$('#paymentAmount').val("120000");
+	break;
+case "필라테스":
+	$('#paymentAmount').val("170000");
+	break;	
+case "헬스":
+	$('#paymentAmount').val("150000");
+	break;	
+case "베드민턴":
+	$('#paymentAmount').val("140000");
+	break;	
+case "필라테스":
+	$('#paymentAmount').val("130000");
+	break;	
+}
+
+function submitPaymentForm() {
+  const allCheck = document.getElementById('all-check');
+  
+  if (!allCheck.checked) {
+    alert('동의 버튼을 체크해 주세요.');
+    return;
+  }
+  
+  if (confirm('정말로 결제하시겠습니까?')) {
+    document.querySelector('form').submit();
+  }
+}
+
+</script>
+
 
 <%-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">--%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js" defer></script>

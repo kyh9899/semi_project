@@ -28,7 +28,7 @@
     background-color: #DFEAF7;
   }
 	  table#tbl-board {
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
   border-collapse: collapse;
   clear: both;
@@ -43,20 +43,27 @@ table#tbl-board th, table#tbl-board td {
   padding: 12px 10px;
   text-align: center;
   background-color: #ffffff;
+  padding: 10px 10px; 
+  line-height: 1.8; 
 }
 
 table#tbl-board th {
   background-color: #4a90e2;
   color: white;
-  font-weight: 600;
+  font-weight: 1100;
   text-transform: uppercase; /* 대문자 변환 */
   letter-spacing: 0.08em; /* 글자 간격 */
   border-bottom: 2px solid #295788;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+  border: 2px solid #3974b9; /* 윤곽선 추가 */
+  border-radius: 5px;
+  
 }
 
 table#tbl-board tr:nth-child(even) td {
   background-color: #f2f2f2; /* 짝수 행에 색상 변경 */
 }
+
 
 table#tbl-board tr:hover td {
   background-color: #e0ebeb; /* 마우스 오버 시 색상 변경 */
@@ -189,7 +196,7 @@ table#tbl-board tr:hover td {
 	           <%--  <td> <button type="button" onclick="checkLogin('${ enroll.pgTitle }', '${ enroll.pgFee }');">신청</button></td>--%>
 	              
 					<td>
-					    <button type="button" class="enroll-button" onclick="checkLogin('${ enroll.pgTitle }', '${ enroll.pgFee }');">신청</button>
+					    <button type="button" class="enroll-button" onclick="checkLogin('${ enroll.pgTitle }');">신청</button>
 					</td>
 
 	              
@@ -246,15 +253,15 @@ table#tbl-board tr:hover td {
 		  searchInput.value = '';
 		  location.href = '${path}/application/enrollment';
 		}
-	function submitEnrollment(kind, price) {
+	function submitEnrollment(kind) {
 		//console.log('${path}/application/payment?kind='+kind);
 		//console.log('pgFee 값:', pgFee);
-	    location.href = '${path}/application/payment?kind=' + kind + '&price=' + price;
+	    location.href = '${path}/application/payment?kind=' + kind;
 	  } 
-	function checkLogin(kind, price) {
+	function checkLogin(kind) {
 	    <c:choose>
 	      <c:when test="${ not empty loginMember }">
-	        submitEnrollment(kind,price); // 신청하기 전 로그인 상태를 확인하고 신청 진행
+	        submitEnrollment(kind); // 신청하기 전 로그인 상태를 확인하고 신청 진행
 	      </c:when>
 	      <c:otherwise>
 	        alert("로그인한 회원만 가능합니다. 로그인 해주세요!");
