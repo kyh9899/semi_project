@@ -42,7 +42,7 @@
  font-weight: bold;
 
  }  
- .home{
+ .home2{
  color: #0033FF; /* 원하는 글씨 색상으로 변경하세요 */
   text-shadow: 1px 1px 2px #888888; /* 입체감있게 만드는 텍스트 그림자 설정 */
 }
@@ -63,7 +63,7 @@
   <h5 class="pay"> 결제 완료 및 선택하신 강좌 정상적으로 신청되었습니다. <br></h5>
    <h3>^_^</h3>
       <br><br><br><br>
-  <h3 class="home">완료 버튼을 누르면 홈 화면으로 돌아갑니다</h3>
+  <h3 class="home2">완료 버튼을 누르면 홈 화면으로 돌아갑니다</h3>
   <br><br>
   <a href="/sportcenter/" class="finish-btn">완료</a>
 </div>
