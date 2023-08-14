@@ -6,6 +6,7 @@
 	
 	
 	<style>
+		
 	
 	   section#board-list-container{width:600px; margin:0 auto; text-align:center;}
 	   section#board-list-container h2{margin:10px 0;}
@@ -18,7 +19,12 @@
 	  }
 	  section#board-list-container h2 {
 	    margin: 10px 0;
+	    background-color: #DFEAF7;
 	  }
+	  
+	 #board-list-container {
+    background-color: #DFEAF7;
+  }
 	  table#tbl-board {
 	    width: 75%;
 	    margin: 0 auto;
@@ -50,7 +56,7 @@
 		  justify-content: center;
 		   gap: 7px; 
 		  align-items: center;
-		  background: #f2f2f2;
+		  background: #DFEAF7;
 		  padding: 10px;
 		  border-radius: 5px;
 		  box: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -84,13 +90,16 @@
 		  background: #bcd3e6;
 		  cursor: not-allowed;
 		}
+		 h1 {
+    background-color: #DFEAF7;
+  }
 	   
 	</style>
 	<article class="art1" style="width: 60%;"> 
 	<div>
 	<section id="content">
 	   <h1 align="center">수강 신청</h1>
-	   <div id="board-list-container">
+	   <div id="board-list-container" >
 	   
 	    <section id="courseList">
 	        <h2>강좌 목록</h2>

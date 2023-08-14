@@ -3,19 +3,24 @@
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 
 <jsp:include page="/views/common/header.jsp" />
-<style>
-    .centered-text {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 50vh;
-    }
-</style>
-<div class="centered-text">
-<h2 align="center">강좌 신청 완료</h2>
-</div>
+  
 
+<body>
+<div>
+<h1>결제 완료 페이지</h1>
+<br><br><br>
+</div>
+<div>
+<h2>강좌 신청 완료</h2>
+</div>
+<br><br><br><br>
+<div>
+<p>감사합니다. 결제 완료 및 선택하신 강좌 정상적으로<br>
+	신청되었습니다. ^_^</p>
+</div>
+</body>
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
+
