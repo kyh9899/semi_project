@@ -100,23 +100,23 @@
             align-items: flex-end;
         }
 	    .col-md-3 {
-	    max-width:15%;
+	    max-width:25%;
 		}
     </style>
 </head>
 <body style="background-color: #DFEAF7;">
    <div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
-      <div style="align:center; float:left;">
+     
 	      <a href="${ path }/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none center-content">
 	        <svg class="bi me-2" width="30%" height="32" aria-label="Bootstrap"><use xlink:href="#bootstrap"/>
 	       	</svg>
 	       	<%-- 로고 이미지 넣은 부분 ↓ --%>
-	    	<img src="${ path }/resources/images/mainLogo.png" > 
+	    	<img src="${ path }/resources/images/mainLogo.png" style="width: 340px;" > 
 	      </a>
 	      
 		  <div class="d-flex justify-content-between align-items-center mb-2">
-			   <ul class="nav col-md-auto mb-md-0 center-content" style="font-size: 25px; margin-left:150px;">
+			   <ul class="nav col-md-auto mb-md-0 center-content" style="font-size: 25px; margin-left:10%;">
 			       <li class="home"><a href="${ path }/views/introduce/intro_hello.jsp" class="nav-link px-2 link-secondary">센터소개</a></li>
 			       <li><a href="${ path }/program/info" class="nav-link px-2 link-dark">프로그램안내</a></li>
 			       <li><a href="${ path }/application/enrollment" class="nav-link px-2 link-dark">수강신청</a></li>
