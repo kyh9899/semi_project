@@ -70,25 +70,19 @@ public class BoardWriteServlet extends HttpServlet {
         	
         	// 게시글을 작성한 작성자의 NO 값
         	board.setWriterNo(loginMember.getNo());
-        	
-        	System.out.println(loginMember.toString());
+
         	
         	// 폼 파라미터로 넘어온 값들 
         	board.setTitle(mr.getParameter("title"));
         	board.setContent(mr.getParameter("content"));
+        	board.setContent2(mr.getParameter("content2"));        	
             board.setBoardId(mr.getParameter("boardId"));
-        	
+
         	// 파일에 대한 정보
         	board.setRenamedFilename(mr.getFilesystemName("upfile"));
         	board.setOriginalFilename(mr.getOriginalFileName("upfile"));
         	
-        	int result = new BoardService().save(board);
-        	
-        	
-        	System.out.println(board);
-        	
-        	System.out.println("생성한 게시글의 boardId????? : " + board.getBoardId());
-        	
+        	int result = new BoardService().save(board);        	
         	
         	if (result > 0) {
         		// 게시글 등록 성공 후, 해당하는 게시판 첫 페이지로 이동

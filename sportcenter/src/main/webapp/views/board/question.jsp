@@ -23,7 +23,7 @@
 	#notice-write { float:left; font-size: 13px;}
 	
 	/* 검색 바 */	
-	#searchbar { width:90%; float:left; height:30px; padding-left:250px; margin-bottom: 20px;  }
+	#searchbar { width:90%; float:left; height:30px;  padding-left:700px; margin-bottom: 20px;  }
 	
 	/* 글쓰기 버튼 */ 
 	#writebutton { width:10%; float:left; }
@@ -82,7 +82,6 @@
 					<th>작성자</th>
 					<th>작성일</th>
 					<th>첨부파일</th>
-					<th>조회수</th>
 					<th>진행상태</th>
 
 				</tr>
@@ -114,13 +113,12 @@
 									<span> ${ board.originalFilename } </span>
 								</c:if>
 							</td>
-							<td>${ board.readCount }</td>
 							<%-- 진행상태란 --%>
 							<td>
 								<c:choose>
 									<%-- 관리자 화면_미답변시 버튼 --%>
 								    <c:when test="${ not empty loginMember && loginMember.id == 'admin' }">
-								        <button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">답변하기</button>
+								       <b>미답변<b> 
 								    </c:when>
 								    <%-- 관리자 화면_미답변시 버튼? 
 								    <c:when test="${ not empty loginMember && loginMember.id == 'admin' }">
@@ -140,8 +138,41 @@
 						</tr>
 						
 						<tr class="typeA">
-							<td></td>
-							<td colspan="6" style="text-align:left; padding-left:20px;">ㄴ A.답변내용</td>
+							<td>ㄷㄷ${ reply.content }</td>
+							
+							<c:if test="${ not empty loginMember && loginMember.id == 'admin' }">
+								<td colspan="6" style="text-align:left; padding-left:20px;">
+										<div id="comment-container">
+									    	<div class="comment-editor">
+									    		<form action="${ path }/board/reply" method="POST">
+										    		<%-- ✔ 게시판아이디, 게시글번호, 작성자를 hidden 으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
+													<input type="hidden" name="boardId" value="${ boardId }"> 
+									    			<input type="hidden" name="boardNo" value="${ board.no }">
+									    			<input type="hidden" name="writerId" value="${ board.writerId }">
+													<textarea name="content" cols="120" rows="3" placeholder="답변을 입력하세요."></textarea>
+													<button type="submit" class="btn btn-secondary" style="width:50px; height:80px; margin-bottom:70px;">등록</button>	    			
+									    		</form>
+									    	</div>
+									    </div>
+									    <table id="tbl-comment">
+									    
+									    <%-- 
+								    	   	<tr class="level1">
+									    		<td>
+									    			<sub class="comment-writer">aa</sub>
+									    			<sub class="comment-date">2021.05.07</sub>
+									    			<br>
+									    			컨텐츠
+									    		</td>
+									    		<td>
+								    				<button class="btn-delete">삭제</button>
+									    		</td>
+									    	</tr>
+									     --%>	
+									    </table>
+								    </div>
+								</td>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</c:if>

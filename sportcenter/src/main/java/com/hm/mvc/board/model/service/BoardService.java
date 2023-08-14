@@ -88,6 +88,7 @@ public class BoardService {
 		return result;
 	}
 	
+	// 게시글에 대한 답변 오라클에 INSERT
 	public int saveReply(Reply reply) {
 		int result = 0;
 		Connection connection = getConnection();
@@ -96,6 +97,7 @@ public class BoardService {
 		
 		if(result > 0) {
 			commit(connection);
+			
 		} else {
 			rollback(connection);
 		}
@@ -123,6 +125,7 @@ public class BoardService {
 		return updateCount;
 	}
 
+	// 검색된 게시물 개수 조회
 	public int getSearchTitleCount(String boardId, String searchField, String searchText) {
 		int count = 0;
 		Connection connection = getConnection();
@@ -134,6 +137,7 @@ public class BoardService {
 		return count;
 	}
 
+	// 검색된 게시물 목록 조회
 	public List<Board> getSearchTitleList(PageInfo pageInfo, String boardId, String searchField, String searchText) {
 		List<Board> list = null;
 		Connection connection = getConnection();
@@ -143,5 +147,17 @@ public class BoardService {
 		close(connection);
 		
 		return list;
+	}
+
+	// 문의에 대한 답변 조회
+	public List<Reply> getRepliesByNo(String boardId) {
+		List<Reply> replies = null;
+		Connection connection = getConnection();
+		
+		replies = new BoardDao().getRepliesByNo(connection, boardId);
+		
+		close(connection);
+		
+		return replies;
 	}
 }
