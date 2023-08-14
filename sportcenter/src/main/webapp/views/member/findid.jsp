@@ -39,12 +39,15 @@
 		background-color: white;
 		box-shadow: none;
 		border:none;
+		background-color:transparent;
+		margin-left: 30px;
 	}
 	#btn1 {
 		border-color: white;
 		background-color: white;
 		box-shadow: none;
 		border:none;
+		background-color:transparent;
 	}
 	td {
  		padding-bottom: 15px;

@@ -47,12 +47,15 @@
 		background-color: white;
 		box-shadow: none;
 		border:none;
+		background-color:transparent;
+		padding-left: 20px;
 	}
 	#btn3 {
 		border-color: white;
 		background-color: white;
 		box-shadow: none;
 		border:none;
+		background-color:transparent;
 	}
 	#signin-container {
 		margin-top: 70px;
