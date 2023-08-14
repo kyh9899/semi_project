@@ -12,11 +12,15 @@ import lombok.NoArgsConstructor;
 public class Reply {
 	private int no;
 	
+	private String boardId;
+	
 	private int boardNo;
 	
-	private int writerNo;
+	private String status;
 	
-	private String writerId;
+	private int writerNo;
+//	
+//	private String writerId;
 	
 	private String content;	
 	
