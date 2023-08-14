@@ -63,7 +63,7 @@
 
 
 <h4 align="center">비밀번호 찾기</h4> <br>
-	<div id="findpwd-container" align="center">
+	<div id="findpwd-container" align="center" style="background-color: ">
 		<form name="pwdfindscreen" method = "POST" >
 			<table>
 		    <tr>
@@ -81,7 +81,7 @@
 					<button id="btn1" type="findpwd" onclick="location.href='/sportcenter/views/introduce/intro_hello.jsp'"><span>비밀번호 찾기</span></button> --%> 
 		        <button type="submit" id="findpwd" onclick="'${ path }/member/findpwd'"><span>비밀번호 찾기</span></button>  |
 		      
-		        <input id="btn1" type="button"  value="취소" onClick="history.back()">
+		        <input id="btn1" type="button"  value="취소" onclick="location.href='${ path }/login'">
 		      </td>
 		    </tr>
 		</table>
