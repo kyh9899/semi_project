@@ -23,7 +23,7 @@
 	#notice-write { float:left; font-size: 13px;}
 	
 	/* 검색 바 */	
-	#searchbar { width:90%; float:left; height:30px; padding-left:250px; margin-bottom: 20px;  }
+	#searchbar { width:90%; float:left; height:30px; padding-left:700px; margin-bottom: 20px;  }
 	
 	/* 글쓰기 버튼 */ 
 	#writebutton { width:10%; float:left; }
@@ -84,12 +84,11 @@
 			
 			<table id="tbl-board">
 				<tr>
-					<th>번호</th>
+					<th>유형</th>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>작성일</th>
 					<th>첨부파일</th>
-					<th>조회수</th>
 				</tr>
 				
 				<%-- 게시글이 없는 경우 --%>
@@ -118,16 +117,15 @@
 									<span> ${ board.originalFilename } </span>
 								</c:if>
 							</td>
-							<td>${ board.readCount }</td>
 						</tr>
 						<tr class="typeQc">
 							<td></td>
-							<td colspan="6" style="text-align:left; padding-left:20px;">ㄴ ${ board.content }</td>
+							<td colspan="6" style="text-align:left; padding-left:20px;"> ${ board.content }</td>
 						</tr>
 						
 						<tr class="typeA">
 							<td></td>
-							<td colspan="6" style="text-align:left; padding-left:20px;">ㄴ A.답변내용</td>
+							<td colspan="6" style="text-align:left; padding-left:20px;">ㄴ ${ board.content2 }</td>
 						</tr>
 					</c:forEach>
 				</c:if>

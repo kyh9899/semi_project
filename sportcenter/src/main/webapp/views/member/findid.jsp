@@ -6,6 +6,7 @@
 
 <article class="art1" style="width: 60%;"> 
 <style>
+	h4 { padding-top: 70px;  }
 	section #findid-container {
 		text-align:center;
 	}
@@ -32,26 +33,29 @@
 	}
 	#findid {
 		margin-top: 10px;
-		padding-left: 60px;
+		padding-left: 90px;
 	}
 	#findid {
 		border-color: white;
 		background-color: white;
 		box-shadow: none;
 		border:none;
+		background-color:transparent;
+		margin-left: 30px;
 	}
 	#btn1 {
 		border-color: white;
 		background-color: white;
 		box-shadow: none;
 		border:none;
+		background-color:transparent;
 	}
 	td {
  		padding-bottom: 15px;
     	padding-left: 10px;
 	}
-	
-	
+	#space1 { letter-spacing: 15px; }
+	#space2 { letter-spacing: 10px; }
 	
 </style>
 
@@ -70,19 +74,16 @@
 			<form name="idfindscreen" method = "POST"  >
 				<table>
 			    <tr>
-			      <td>이름 : </td>
+			      <td><span id="space1">이 름</span> : </td>
 			      <td><input type="text" name="name" id="name" required ></td>
 			    </tr> 
 			    <tr>
-			      <td>번호 : </td>
+			      <td><span id="space2">전화번호</span> : </td>
 			      <td><input type="tel" name="phone" id="phone"  required></td>
 			    </tr>
 			    <tr id="ttr3"> 
 			      <td colspan="2" align="center"> &nbsp; &nbsp; &nbsp; 
-			      <%-- 
-			      <a href="#" onClick="alert('아이디 찾기 성공!!')">
-					<button id="btn1" type="findid" onclick="location.href='/sportcenter/">아이디 찾기</button>  
-					--%> 
+			      
 			        <button  type="submit" id="findid" onclick="'${ path }/member/findid'"><span>아이디 찾기</span></button>  &nbsp;  |
 			      
 			        <input id="btn1" type="button"  value="취소" onclick="location.href='${ path }/login'">

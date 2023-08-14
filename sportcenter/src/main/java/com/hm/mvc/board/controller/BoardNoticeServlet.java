@@ -29,14 +29,9 @@ public class BoardNoticeServlet extends HttpServlet {
     	String boardId = request.getParameter("boardId");
     	
     	// 검색 조건과 검색 입력값을 받아옴
-    	String searchField = request.getParameter("searchField"); // 검색 조건 : title or userId
+    	String searchField = request.getParameter("searchField"); // 검색 조건 : title or content or userId
     	String searchText = request.getParameter("searchText"); // 검색어 : 사용자 입력값
-    	
-    	System.out.println(boardId);
-    	System.out.println(searchField);
-    	System.out.println(searchText);
-
-	  
+    	  
 			 try {    		
 			 	page = Integer.parseInt(request.getParameter("page"));
 			 } catch (NumberFormatException e) {
@@ -54,11 +49,7 @@ public class BoardNoticeServlet extends HttpServlet {
 			listCount = new BoardService().getBoardCount(boardId); // 게시글 개수
 		    pageInfo = new PageInfo(page, 10, listCount, 10); // page 정보
 		    list = new BoardService().getBoardList(pageInfo, boardId); // 게시글 list 	
-		}	   
-			  
-			  System.out.println("검색 게시판 아이디" + boardId);
-			  System.out.println("검색 게시글 총 개수 " + listCount);
-			  System.out.println("검색 게시글 목록" + list);
+		}	
 			
 			  request.setAttribute("boardId", boardId);
 			  request.setAttribute("pageInfo", pageInfo);
@@ -88,10 +79,6 @@ public class BoardNoticeServlet extends HttpServlet {
 //	    	pageInfo = new PageInfo(page, 10, listCount, 10); // page 정보
 //	    	list = new BoardService().getBoardList(pageInfo, boardId); // 게시글 list 
 //	    	
-//	   	    	
-//	    	System.out.println(boardId);
-//	    	System.out.println(listCount);
-//	    	System.out.println(list);
 //	
 //	    	request.setAttribute("boardId", boardId);
 //	    	request.setAttribute("pageInfo", pageInfo);
