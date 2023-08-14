@@ -94,19 +94,5 @@ public class BoardViewServlet extends HttpServlet {
 
         System.out.println("게시글번호" + no);
     }
-    	
-	
-//		// 조회수 증가 & 업데이트
-//		int readCount = new BoardService().updateCount(no); 
-//    	
-//		if (readCount > 0) {
-//			// 조회수 증가 성공
-//		    System.out.println("조회수가 증가하였습니다.");
-//		} else {
-//			// 조회수 증가 실패
-//		    System.out.println("조회수 증가에 실패하였습니다.");
-//		}		
-//		
-//    	System.out.println("게시글번호" + no);
-//    }
+   	
 }

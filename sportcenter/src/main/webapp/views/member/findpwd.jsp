@@ -7,6 +7,7 @@
 
 <article class="art1" style="width: 60%;"> 
 <style>
+	h4 { padding-top: 70px;  padding-bottom: 10px;}
 	section #findpwd-container {
 		text-align:center;
 	}
@@ -36,7 +37,7 @@
 		margin-top: 30px;
 		padding-left: 30px;
 		background-color:transparent;
-		margin-left: 60px;
+		margin-left: 70px;
 	}
 	#btn1 {
 		border-color: white;
@@ -50,8 +51,8 @@
 	 	 padding-left: 10px;
 	 	 padding-top: 
 	}
-	#space1 { letter-spacing:18.7px; }
-	#space2 { letter-spacing:10px; }
+	#space1 { letter-spacing:19px; }
+	#space2 { letter-spacing:10px; margin-left: 25px; }
 	
 </style>
 
