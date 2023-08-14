@@ -55,10 +55,13 @@
 		   <div id="div-notice1">
 		      <c:if test="${ boardId == 'notice'}">
 			     <h4> 공지사항 > 게시글 작성</h4>
-			    </c:if>
-			    <c:if test="${ boardId == 'faq'}">
+			  </c:if>
+			  <c:if test="${ boardId == 'faq'}">
 			     <h4> 자주묻는질문(FAQ) > 게시글 작성</h4>
-			    </c:if>
+			  </c:if>
+			  <c:if test="${ boardId == 'question'}">
+			     <h4> 1:1 문의게시판 > 게시글 작성</h4>
+			  </c:if>
 		   </div> 
 			
 			
@@ -69,12 +72,12 @@
 						<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
 						<input type="hidden" name="boardId" value="${ boardId }"> 
 						<table id='tbl-board'>
-						<%-- 
+						
 							<tr>
 								<th>boardId</th>
 								<td style="font-weight:bold; text-align:left;">${ boardId }</td>
 							</tr>
-						 --%>
+						
 							<tr>
 								<th>제목</th>
 								<td><input type="text" name="title" class="deco"></td>
