@@ -7,6 +7,7 @@
 
 <article class="art1" style="width: 60%;"> 
 <style>
+	h4 { padding-top: 70px;  padding-bottom: 10px;}
 	section #findpwd-container {
 		text-align:center;
 	}
@@ -36,23 +37,24 @@
 		margin-top: 30px;
 		padding-left: 30px;
 		background-color:transparent;
-		margin-left: 60px;
+		margin-left: 70px;
 	}
+	#findpwd:hover { text-decoration: underline; }
 	#btn1 {
 		border-color: white;
 		background-color: white;
 		box-shadow: none;
 		border:none;
 		background-color:transparent;
+		margin-left: -10px;
 	}
+	#btn1:hover { text-decoration: underline; }
 	td {
 	 	 padding-bottom: 55px;
 	 	 padding-left: 10px;
-	 	 padding-top: 
 	}
-	#space1 { letter-spacing:18.7px; }
-	#space2 { letter-spacing:10px; }
-	
+	#space1 { letter-spacing:19px; }
+	#space2 { letter-spacing:10px; margin-left: 25px; }
 </style>
 
 
@@ -81,7 +83,7 @@
 		    <tr> 
 		      <td colspan="2" align="center"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
 		      
-		        <button type="submit" id="findpwd" onclick="'${ path }/member/findpwd'"><span>비밀번호 찾기</span></button>  |
+		        <button type="submit" id="findpwd" onclick="'${ path }/member/findpwd'"><span>비밀번호 찾기</span></button>     |
 		      
 		        <input id="btn1" type="button"  value="취소" onclick="location.href='${ path }/login'">
 		      </td>
@@ -94,31 +96,6 @@
 
 
 
-	<%-- 
-	<h4>비밀번호 찾기</h4>
-	<div style="text-align: center;">
-	<form name=fm>
-		<table>
-		    <tr>
-		      <td>아이디 : </td>
-		      <td><input type="text" name="name" required></td>
-		    </tr>
-		    <tr>
-		      <td>번호 : </td>
-		      <td><input type="tel" name="phone" required></td>
-		    </tr>
-		    <tr>
-		      <td colspan="2">
-		        <button type="submit" id="findpwd-btn" onclick="findpwd-btn()">비밀번호 찾기</button>
-		        <input type="button" name="cancle" value="취소" onClick="history.back()">
-		      </td>
-		    </tr>
-		</table>
-		</form>
-	</div>
-	
-	
-	--%>
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>

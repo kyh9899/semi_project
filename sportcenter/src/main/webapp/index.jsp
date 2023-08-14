@@ -3,6 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 <jsp:include page="/views/common/header.jsp" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+
+
 
     <style>
     h2 {
@@ -121,6 +125,12 @@
 	filter: brightness(70%);
 	}
   }
+  
+  .mySwiper {
+    width: 100%; /* Swiper 컨테이너의 너비 설정 */
+    height: 200px; /* Swiper 컨테이너의 높이 설정 */
+}
+
 </style>
 
 
@@ -165,7 +175,19 @@
 		 <p style = "margin:0">추천강좌</p>
 		 <span style = "margin:0;"><a id="link" href="${ path }/program/info">더보기 &#62;</a></span>
 		 </div>
-		  <div style="width:100%; height:100%; background-color:green;"></div>
+		 <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+		              <div class="swiper-slide"><a href="${ path }/swim/info"><img class="pic1" style="width:400px; height:200px;" src="${ path }/resources/images/swim.jpg"></a></div>
+		              <div class="swiper-slide"><a href="${ path }/health/info"><img class="pic1" style="width:400px; height:200px;" src="${ path }/resources/images/health.jpg"></a></div>
+		              <div class="swiper-slide"><a href="${ path }/tabletennis/info"><img class="pic1" style="width:400px; height:200px;" src="${ path }/resources/images/tabletennis.jpg"></a></div>
+		              <div class="swiper-slide"><a href="${ path }/yoga/info"><img class="pic1" style="width:400px; height:200px;" src="${ path }/resources/images/yoga.jpg"></a></div>
+		              <div class="swiper-slide"><a href="${ path }/pilates/info"><img class="pic1" style="width:400px; height:200px;" src="${ path }/resources/images/pilates.jpg"></a></div>
+		              <div class="swiper-slide"><a href="${ path }/badminton/info"><img class="pic1" style="width:400px; height:200px;" src="${ path }/resources/images/badminton.jpg"></a></div>
+              	</div>
+             <div class="swiper-button-next"></div>
+             <div class="swiper-button-prev"></div>
+         </div>
+
 		 </div>
     </article>
     <article class="nested-article" style="width: 50%; float: left;">
@@ -190,6 +212,32 @@
 </article>
 
 <jsp:include page="/views/common/footer.jsp" />
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+    function fnMove(seq){
+        // offset() 좌표값,위치
+        // var 변수 선언
+        var offset = $("#section"+seq).offset();
+        $("html, body").animate({
+            scrollTop : offset.top-10
+        }, 400);
+    }
+
+    var swiper = new Swiper(".mySwiper", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        // 자동 슬라이드 설정
+        autoplay: {
+            delay: 2000, // 2초 간격으로 슬라이드
+        },
+    });
+</script>
+
+
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>

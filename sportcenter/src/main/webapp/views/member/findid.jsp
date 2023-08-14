@@ -6,6 +6,7 @@
 
 <article class="art1" style="width: 60%;"> 
 <style>
+	h4 { padding-top: 70px;  }
 	section #findid-container {
 		text-align:center;
 	}
@@ -32,7 +33,8 @@
 	}
 	#findid {
 		margin-top: 10px;
-		padding-left: 60px;
+		padding-left: 90px;
+		
 	}
 	#findid {
 		border-color: white;
@@ -42,6 +44,8 @@
 		background-color:transparent;
 		margin-left: 30px;
 	}
+	#findid:hover { text-decoration: underline;}
+	#btn1:hover { text-decoration: underline;}
 	#btn1 {
 		border-color: white;
 		background-color: white;
@@ -50,12 +54,12 @@
 		background-color:transparent;
 	}
 	td {
- 		padding-bottom: 15px;
-    	padding-left: 10px;
+ 		padding-bottom: 10px;
+    	padding-left: 5px;
 	}
-	#space1 { letter-spacing:18px; }
-	#space2 { letter-spacing: 0.5px; }
-	
+	#space1 { letter-spacing: 15px; }
+	#space2 { letter-spacing: 10px; }
+	#name { padding-left: -20px; }
 </style>
 
 
@@ -73,7 +77,7 @@
 			<form name="idfindscreen" method = "POST"  >
 				<table>
 			    <tr>
-			      <td><span id="space1">이름</span> : </td>
+			      <td><span id="space1">이 름</span> : </td>
 			      <td><input type="text" name="name" id="name" required ></td>
 			    </tr> 
 			    <tr>
@@ -93,28 +97,7 @@
 		</div>
 <article class="art2" style="width: 20%;">
 </article>		
-	<%-- 
-		<c:if test="${ empty loginMember }">
-		<form name="idfindscreen" method = "POST">
-		<section class = "form-search">
-			<div class = "find-name">
-				<label>성명 : </label> 
-				<input type="text" name="member_name" class = "btn-name" id="userName" size="11" maxlength="11" placeholder = "이름">
-			<br>
-			</div>
-			<div class = "find-phone">
-				<label>번호 : </label>
-				<input type="tel" onKeyup = "addHypen(this);" name="member_phone" id="phone" class = "btn-phone" size="12" maxlength="11" placeholder = "휴대폰번호 입력">
-			</div>
-			<br>
-	</section>
-	<div class ="btnSearch">
-		<input type="button"  value="찾기"  onClick="">
-		<input type="button"  value="취소" onClick="history.back()">
- 	</div>
- </form>
-		</c:if>
-	--%>
+	
 	
 
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">

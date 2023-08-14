@@ -29,7 +29,7 @@
 		text-align:left;
 	}
 	
-	#space1 { letter-spacing:18.7px; }
+	#space1 { letter-spacing:18.7px; margin-left: -25px;}
 	#space2 { letter-spacing:10px; }
 	#space3 { margin-left: 112px;}
 	
@@ -41,6 +41,7 @@
  		display :inline-block;
  		box-shadow: none;
 		border:none;
+		background-color: white;
 	}
 	#btn2 {
 		border-color: white;
@@ -48,8 +49,9 @@
 		box-shadow: none;
 		border:none;
 		background-color:transparent;
-		padding-left: 20px;
+		padding-left: 30px;
 	}
+	#btn2:hover { text-decoration: underline;}
 	#btn3 {
 		border-color: white;
 		background-color: white;
@@ -57,6 +59,7 @@
 		border:none;
 		background-color:transparent;
 	}
+	#btn3:hover { text-decoration: underline;}
 	#signin-container {
 		margin-top: 70px;
 	}
@@ -67,15 +70,15 @@
 	#userPwd {
 		margin-bottom: 50px;
 	}
-	#id {
-		padding-left: 5px;
+	
 	}
 	#pwd {
-		padding-left: 3px;
+		padding-left: 20px;
+		margin-left: 50px;
 	}
-	td {
- 	 margin-bottom: 10px;
-	}
+	
+	#inid {margin-left: 200px;}
+	
 </style>
 <article class="art1" style="width: 60%; margin: 10px auto;">
 <section id="content">
@@ -94,7 +97,7 @@
 			<tr>
 				<td id="id">
 					<label><span id="space1">아이디</span>:</label>
-					<input type="text" name="id" id="id" placeholder="아이디" 
+					<input type="text" name="id" id="inid" placeholder="아이디" 
 							value="${ cookie.saveId.value }" required>
 				</td>
 			</tr>
@@ -111,10 +114,7 @@
 					<label id="space3"><input type="checkbox" name="saveId" id="saveId"
 								${ empty cookie.saveId ? "" : "checked" }>아이디 저장</label> 
 					<br>
-					<%-- 
-						<a href="#" onClick="alert('로그인 성공!!')">
-					<button id="btn1" type="button" onclick="location.href='/sportcenter/views/introduce/intro_hello.jsp'">로그인</button>
-					--%>
+					
 					<input id="btn1" type="submit" value="로그인" >
 				</td>
 			</tr>
@@ -134,22 +134,6 @@
 
 
 
-<%-- 
-<c:if test="${ not empty loginMember }">
-	<table>
-		<tr>
-			<td colspan="2">
-				${ loginMember.name }님 안녕하세요.
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<button onclick="location.href='${ path }/logout'">로그아웃</button>						
-			</td>
-		</tr>
-	</table>
-</c:if>
---%>
 </div>
  	</div>
 </section>
