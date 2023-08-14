@@ -16,6 +16,7 @@ public class EnrollServiceImpl implements EnrollService {
         close(conn);
         return list;
     }
+
     @Override
     public List<Enroll> searchCourses(String search) {
         Connection conn = getConnection();
@@ -23,9 +24,7 @@ public class EnrollServiceImpl implements EnrollService {
         close(conn);
         return list;
     }
-    
-  
-
+   
     @Override
     public int getEnrollCount() {
         Connection conn = getConnection();
@@ -33,6 +32,7 @@ public class EnrollServiceImpl implements EnrollService {
         close(conn);
         return count;
     }
+
     @Override
     public List<Enroll> getEnrollList(int currentPage, int listLimit) {
         Connection conn = getConnection();
@@ -40,8 +40,4 @@ public class EnrollServiceImpl implements EnrollService {
         close(conn);
         return enrollList;
     }
-    
-    
-    
 }
-
