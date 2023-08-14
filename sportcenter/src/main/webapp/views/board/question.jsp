@@ -5,12 +5,13 @@
 
 <style>
 
-	section #board-list-container{width:700px; height:100%; margin:10px auto; text-align:center;  float:left;}
+	section #board-list-container{width:1200px; height:100%; margin:10px auto; text-align:center;  float:left;}
 	section #board-list-container h2{margin:0px 0;}
 	table#tbl-board{width:100%;  margin:0 auto; border-collapse:collapse; border-top: 2px solid black; clear:both; }
 	table#tbl-board th {  background-color: #f9f9f9; }
 	table#tbl-board th, table#tbl-board td {border:1px solid transparent; padding: 5px 0; text-align:center;} 
-	
+	table#tbl-board tr.typeQ:hover { background-color: #D5E3F4; cursor: pointer; }
+	table#tbl-board tr.typeQc, tr.typeA { display: none; }
 
 	/*페이지바*/
 	div#pageBar{margin-top:10px; text-align:center; }
@@ -87,7 +88,7 @@
 				</tr>
 				
 				<%-- 게시글이 없는 경우 --%>
-				<c:if test="${ empty list }">			
+				<c:if test="${ empty list || empty loginMember}">			
 					<tr>
 						<td colspan="6" id="content-none">
 							조회된 게시글이 없습니다.
@@ -96,14 +97,11 @@
 				</c:if>
 				
 				<%-- 게시글이 있는 경우 --%>
-				<c:if test="${ not empty list }">
+				<c:if test="${ not empty list && not empty loginMember }">
 					<c:forEach var="board" items="${ list }">
-						<tr>
-							<td style="width: 50px; ">Q</td>
-							<td>
-								<a href="${ path }/board/view?boardId=${ boardId }&no=${ board.no }">
-									${ board.title } 
-								</a>
+						<tr class="typeQ">
+							<td style="width: 50px;">Q</td>
+							<td>${ board.title }</a>
 							</td>
 							<td>${ board.writerId }</td>
 							<td>${ board.createDate }</td>
@@ -117,12 +115,33 @@
 								</c:if>
 							</td>
 							<td>${ board.readCount }</td>
-							<%-- 답변이 있으면 답변완료, 답변이 없으면 답변대기 --%>
-					    		<td>답변대기</td>
+							<%-- 진행상태란 --%>
+							<td>
+								<c:choose>
+									<%-- 관리자 화면_미답변시 버튼 --%>
+								    <c:when test="${ not empty loginMember && loginMember.id == 'admin' }">
+								        <button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">답변하기</button>
+								    </c:when>
+								    <%-- 관리자 화면_미답변시 버튼? 
+								    <c:when test="${ not empty loginMember && loginMember.id == 'admin' }">
+								    답변완료
+								    </c:when>
+								    --%>
+								    <%-- 사용자 화면_미답변시 버튼--%>
+								    <c:when test="${ not empty loginMember && loginMember.id == board.writerId }">
+								       <b>답변대기<b> 
+							    	</c:when>
+								</c:choose>					    		
+					    	</td>
 						</tr>
-						<tr>
-							<td> </td>
+						<tr class="typeQc">
+							<td></td>
 							<td colspan="6" style="text-align:left; padding-left:20px;">ㄴ ${ board.content }</td>
+						</tr>
+						
+						<tr class="typeA">
+							<td></td>
+							<td colspan="6" style="text-align:left; padding-left:20px;">ㄴ A.답변내용</td>
 						</tr>
 					</c:forEach>
 				</c:if>
@@ -157,11 +176,30 @@
 		</div>
 		</div>
 	</section>
+	
+	<script>
+	  // typeQ 클래스를 가진 행 클릭 시 typeQc, typeA 클래스를 가진 행 보이게 처리	
+	   var typeQRows = document.querySelectorAll(".typeQ");
+		  typeQRows.forEach(function(row) {
+		    row.addEventListener("click", function() {
+		      var typeQcRow = row.nextElementSibling;
+		      var typeARow = typeQcRow.nextElementSibling;
+		      
+		      if (typeQcRow.style.display === "none") {
+		        typeQcRow.style.display = "table-row";
+		        typeARow.style.display = "table-row";
+		      } else {
+		        typeQcRow.style.display = "none";
+		        typeARow.style.display = "none";
+		      }
+		    });
+		  });
+	</script>
 
 <article class="art2" style="width: 20%;">
 </article>
 
-<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
-<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>

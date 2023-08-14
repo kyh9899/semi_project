@@ -25,6 +25,8 @@ public class Board {
 	
 	private String content;
 	
+	private String content2;
+	
 	private String originalFilename; 
 	
 	private String renamedFilename;

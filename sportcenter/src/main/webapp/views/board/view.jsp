@@ -53,61 +53,25 @@
 <body>
 	<section id="content">
 			<div id="div-title">	
-			<h2 align="center">고객센터</h2>    
+				<h2 align="center">고객센터</h2>    
 			</div>
 		
 	  
 		<div id="rightContent">
 		    <div id="div-notice1">
 			    <c:if test="${ boardId == 'notice'}">
-			     <h4> 공지사항 > 게시글 조회</h4>
+			     	<h4> 공지사항 > 게시글 조회</h4>
 			    </c:if>
 			    <c:if test="${ boardId == 'faq'}">
-			     <h4> 자주묻는질문(FAQ) > 게시글 조회</h4>
+			     	<h4> 자주묻는질문(FAQ) > 게시글 조회</h4>
 			    </c:if>
 			    <c:if test="${ boardId == 'question'}">
-			     <h4> 1:1 문의게시판 > 게시글 조회</h4>
-			  </c:if>
+			    	<h4> 1:1 문의게시판 > 게시글 조회</h4>
+			    </c:if>
 		    </div> 
-			
-			<%-- 게시글 조회 
-			<section id="content">
-				<div id='board-write-container'>
-					<form action="${ path }/board/write" method="POST"  enctype="multipart/form-data">
-						<table id='tbl-board'>
-							<tr>
-								<th>제목</th>
-								<td><input type="text" name="title" class="deco"></td>
-							</tr>
-							<tr>
-								<th>작성자</th>
-								<td><input type="text" name="writer" class="deco" value="${ loginMember.id }" readonly></td>
-							</tr>
-							<tr>
-								<th>첨부파일</th>
-								<td><input type="file" name="upfile" class="deco"></td>
-							</tr>
-							<tr>
-								<th>내용</th>
-								<td><textarea name="content" cols="50" rows="15" class="deco"></textarea></td>
-							</tr>
-							<tr>
-								<th colspan="2">
-									<input type="button" value="뒤로가기" onclick="location.href='${ path }/board/notice'"> 
-									&nbsp;&nbsp;
-									<input type="submit" value="등록"> 
-									&nbsp;&nbsp;
-									<input type="reset" value="지우기">
-								</th>
-							</tr>
-						</table>
-					</form>
-				</div>
-			</section>
-			--%>
-			
+						
 		<%-- 게시글 조회 --%>
-		<section id="content" style="margin:0px;">   
+		<section id="content" >   
 			<div id="board-view-container">
 			<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
 			<input type="hidden" name="boardId" value="${ boardId }"> 
@@ -148,13 +112,7 @@
 							<c:if test="${ empty board.originalFilename }">
 								<span> - </span>
 							</c:if>
-							
 							<c:if test="${ not empty board.originalFilename }">
-							<%-- 
-								<a href="javascript:" id="fileDown">
-									<span> ${ board.originalFilename } </span>
-								</a>
-							--%>
 								<a href="${ path }/resources/upload/board/${ board.renamedFilename }"
 									download="${ board.originalFilename }" >
 									<span> ${ board.originalFilename } </span>

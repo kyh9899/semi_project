@@ -62,12 +62,7 @@
         font-size: 1.2em;
         background-color: #DFEAF7;
     }
-	.col-md-3 {
-	    -ms-flex: 0 0 25%;
-	    flex: 0 0 25%;
-	    max-width: 0%;
-	}
-	
+
 	section #content{
 		background-color: #DFEAF7;
 	}
@@ -166,6 +161,8 @@
 	  </div>
 	</div>
 </div>
+<article class="art2" style="width: 20%;">
+</article>
 
 <script>
    // 회원 탈퇴
@@ -220,8 +217,7 @@
     });
 </script>
 
-<article class="art2" style="width: 20%;">
-</article>
+
 
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 
