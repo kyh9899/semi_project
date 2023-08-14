@@ -13,7 +13,7 @@ import com.hm.mvc.board.model.service.BoardService;
 import com.hm.mvc.board.model.vo.Board;
 import com.hm.mvc.common.util.PageInfo;
 
-@WebServlet(name = "boardNotice", urlPatterns = { "/board/notice", "/board/faq", "/board/search"})
+@WebServlet(name = "boardNotice", urlPatterns = { "/board/notice", "/board/faq", "/board/question", "/board/search"})
 public class BoardNoticeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -67,6 +67,8 @@ public class BoardNoticeServlet extends HttpServlet {
 			// 결과값을 게시판 별로 출력 
 		    if (boardId.equals("faq")){
 		    	request.getRequestDispatcher("/views/board/faq.jsp").forward(request, response);
+		    } else if(boardId.equals("question")) {
+		    	request.getRequestDispatcher("/views/board/question.jsp").forward(request, response);	    	
 		    } else {
 		    	request.getRequestDispatcher("/views/board/notice.jsp").forward(request, response);
 		    } 

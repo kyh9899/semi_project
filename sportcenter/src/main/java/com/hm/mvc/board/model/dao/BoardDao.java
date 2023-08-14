@@ -86,8 +86,8 @@ public class BoardDao {
 		ResultSet rs = null;
 		Board board = null;
 		
-		String query = "SELECT RNUM, B_ID, P_NO, MB_CODE, P_TITLE, MB_ID, P_CREATE_DATE, P_ORG_FILENAME, P_RDCOUNT, P_STATUS "
-					 + "FROM (SELECT B.B_ID, P.P_NO, P.MB_CODE, P.P_TITLE, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
+		String query = "SELECT RNUM, B_ID, P_NO, MB_CODE, P_TITLE, P_CONTENT, MB_ID, P_CREATE_DATE, P_ORG_FILENAME, P_RDCOUNT, P_STATUS "
+					 + "FROM (SELECT B.B_ID, P.P_NO, P.MB_CODE, P.P_TITLE, P.P_CONTENT, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
 					 + "FROM POST P "
 					 + "JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) JOIN BOARD B ON (P.B_ID = B.B_ID) "
 					 + "WHERE P.P_STATUS = 'Y' AND B.B_ID=? "
@@ -113,9 +113,11 @@ public class BoardDao {
 			board.setNo(rs.getInt("P_NO"));
 			board.setBoardId(rs.getString("B_ID"));
 			board.setWriterNo(rs.getInt("MB_CODE"));
+			
 			board.setRowNum(rs.getInt("RNUM"));
 			board.setWriterId(rs.getString("MB_ID"));
 			board.setTitle(rs.getString("P_TITLE"));
+			board.setContent(rs.getString("P_CONTENT"));
 			board.setCreateDate(rs.getDate("P_CREATE_DATE"));
 			board.setOriginalFilename(rs.getString("P_ORG_FILENAME"));
 			board.setReadCount(rs.getInt("P_RDCOUNT"));
