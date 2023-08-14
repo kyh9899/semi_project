@@ -16,6 +16,7 @@
 		border-top: 2px solid black;
 		float: left;
 		height: 670px;
+		margin-top: 20px;
 	}
 	
 	div#rightContent {
