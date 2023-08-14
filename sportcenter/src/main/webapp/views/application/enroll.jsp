@@ -6,7 +6,10 @@
 	
 	
 	<style>
-	
+	section#content {
+	background-color: #DFEAF7;
+	}
+		
 	   section#board-list-container{width:600px; margin:0 auto; text-align:center;}
 	   section#board-list-container h2{margin:10px 0;}
 	   table#tbl-board{width:100%; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
@@ -18,29 +21,63 @@
 	  }
 	  section#board-list-container h2 {
 	    margin: 10px 0;
+	    background-color: #DFEAF7;
 	  }
+	  
+	 #board-list-container {
+    background-color: #DFEAF7;
+  }
 	  table#tbl-board {
-	    width: 75%;
-	    margin: 0 auto;
-	    border: 1px solid black;
-	    border-collapse: collapse;
-	    clear: both;
-	    font-family: Arial, sans-serif; /* Change the font to Arial */
-	    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Add a boxShadow */
-	  }
-	  table#tbl-board th, table#tbl-board td {
-	    border: 1px solid;
-	    padding: 6px 5px;
-	    text-align: center;
-	    background-color: #f8f8f8; /* Add a light gray background color */
-	  }
-	  table#tbl-board th {
-	    background-color: #24648F; /* Add a dark blue background color */
-	    color: white; /* Set the text color to white */
-	  }
-	  table#tbl-board tr:hover td {
-	    background-color: #ddd; /* Change the background color on hover */
-	  }
+  width: 75%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  clear: both;
+  font-family: Arial, sans-serif;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 6px; /* 둥근 모서리 */
+  overflow: hidden; /* 둥근 모서리의 내부 요소 잘림 */
+}
+
+table#tbl-board th, table#tbl-board td {
+  border: 1px solid #d6d6d6;
+  padding: 12px 10px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+table#tbl-board th {
+  background-color: #4a90e2;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase; /* 대문자 변환 */
+  letter-spacing: 0.08em; /* 글자 간격 */
+  border-bottom: 2px solid #295788;
+}
+
+table#tbl-board tr:nth-child(even) td {
+  background-color: #f2f2f2; /* 짝수 행에 색상 변경 */
+}
+
+table#tbl-board tr:hover td {
+  background-color: #e0ebeb; /* 마우스 오버 시 색상 변경 */
+  cursor: pointer;
+}
+/* 신청 버튼 스타일 */
+.enroll-button {
+  background-color: #455a64; /* 어두운 회색 계열 */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+}
+
+/* 신청 버튼 호버 효과 */
+.enroll-button:hover {
+  background-color: ##CCCC99;
+}
+
 	  
 			   /* 페이지 바 컨테이너 */
 		#pageBar {
@@ -50,7 +87,7 @@
 		  justify-content: center;
 		   gap: 7px; 
 		  align-items: center;
-		  background: #f2f2f2;
+		  background: #DFEAF7;
 		  padding: 10px;
 		  border-radius: 5px;
 		  box: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -84,21 +121,24 @@
 		  background: #bcd3e6;
 		  cursor: not-allowed;
 		}
+		 h1 {
+    background-color: #DFEAF7;
+  }
 	   
 	</style>
 	<article class="art1" style="width: 60%;"> 
 	<div>
 	<section id="content">
 	   <h1 align="center">수강 신청</h1>
-	   <div id="board-list-container">
-	   
+	   <div id="board-list-container" >
+	   <br><br>
 	    <section id="courseList">
 	        <h2>강좌 목록</h2>
 	      	<input type="text" name="query" id="searchInput" placeholder="강좌 검색" />
 	     	<%-- <button type="submit" id="search" onclick="location.href='${path}/application/enrollment?query">검색</button>--%>
 	    	<button type="submit" id="searchButton" onclick="searchCourses();">검색</button>
 	    	<button type="button" id="resetButton" onclick="resetCourses();">초기화</button>
-	    	<br><br>
+	    	<br><br><br>
 	    	   <p style="font-size: 14px; color: gray;">원하시는 종목 및 강습반을 선택해 주세요.</p>
 			   <p style="font-size: 14px; color: gray;">강습명 검색시 선택된 종목, 강습반은 초기화 됩니다.</p>
 			   <p style="font-size: 14px; color: gray;">마감 된 강좌를 제외하고 잔여자리가 있는 강좌만 조회 가능합니다.</p>
@@ -144,7 +184,13 @@
 	               <td>${ enroll.pgMax }</td> 
 	               <td>${ enroll.pgNum }</td>
 	            <%-- <td>   <button type="button" onclick="location.href='${ path }/application/payment'">신청</button></td>--%>
-	             <td> <button type="button" onclick="checkLogin('${ enroll.pgTitle }', '${ enroll.pgFee }');">신청</button></td>
+	           <%--  <td> <button type="button" onclick="checkLogin('${ enroll.pgTitle }', '${ enroll.pgFee }');">신청</button></td>--%>
+	              
+					<td>
+					    <button type="button" class="enroll-button" onclick="checkLogin('${ enroll.pgTitle }', '${ enroll.pgFee }');">신청</button>
+					</td>
+
+	              
 	              <%--  <td><form method="POST" action="/sportcenter/views/application/cation.jsp" onsubmit="return checkLoginStatus()">
 	                            <input type="hidden" name="courseId" value="코스ID">
 	                            <input type="submit" value="신청">
@@ -154,6 +200,7 @@
 	         </c:if>
 	      </table>
 	      </div>
+	      <br>
 	       <div id="pageBar">
     <c:if test="${pageInfo.maxPage > 1}">
         <button onclick="changePage(1)">&lt;&lt;</button>
