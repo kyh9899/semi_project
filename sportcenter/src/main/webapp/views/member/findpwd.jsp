@@ -35,15 +35,18 @@
 		border:none;
 		margin-top: 30px;
 		padding-left: 30px;
+		background-color:transparent;
+		margin-left: 60px;
 	}
 	#btn1 {
 		border-color: white;
 		background-color: white;
 		box-shadow: none;
 		border:none;
+		background-color:transparent;
 	}
 	td {
-	 	 padding-bottom: 15px;
+	 	 padding-bottom: 55px;
 	 	 padding-left: 10px;
 	 	 padding-top: 
 	}
