@@ -57,6 +57,7 @@
 					<form action="${ path }/board/notice?boardId=${ boardId }" method="GET" name="search" style="margin-right:0px;">
 					<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 받을 수 있다. --%>
 					<input type="hidden" name="boardId" value="${ boardId }"> 
+					<input type="hidden" name="no" value="${ board.no }">  
 						<table class="pull-right">
 							<tr>
 								<td><select class="form-control" name="searchField">
@@ -137,8 +138,16 @@
 							<td colspan="6" style="text-align:left; padding-left:20px;">ㄴ ${ board.content }</td>
 						</tr>
 						
-						<tr class="typeA">
-							<td>ㄷㄷ${ reply.content }</td>
+						<tr class="typeA">						
+							<c:forEach var="reply" items="${ board.replies }">
+								<c:if test="${ empty reply }">
+									<td>reply값을 가져오지 못함</td>
+								</c:if>
+							
+								<c:if test="${ not empty reply }">
+									<td>reply값을 가져옴 ${ reply.no }</td>
+								</c:if>
+							</c:forEach>
 							
 							<c:if test="${ not empty loginMember && loginMember.id == 'admin' }">
 								<td colspan="6" style="text-align:left; padding-left:20px;">

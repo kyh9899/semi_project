@@ -137,8 +137,7 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String query = "SELECT P.P_NO, P.P_TITLE, M.MB_ID, P.P_RDCOUNT, P.P_ORG_FILENAME, P.P_RND_FILENAME, P.P_CONTENT, P.P_CONTENT2, P.P_CREATE_DATE, P.P_MODIFY_DATE "
-		       + "FROM POST P INNER JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) WHERE P.P_STATUS = 'Y' AND P.P_NO=? ";
-		
+		       + "FROM POST P INNER JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) WHERE P.P_STATUS = 'Y' AND P.P_NO=? ";		
 		try {
 			pstmt = connection.prepareStatement(query);
 			
@@ -146,7 +145,7 @@ public class BoardDao {
 			
 			rs = pstmt.executeQuery();
 			
-			if (rs.next()) {
+			while (rs.next()) {
 				board = new Board();
 				
 				board.setTitle(rs.getString("P_TITLE"));
@@ -159,8 +158,8 @@ public class BoardDao {
 				board.setContent2(rs.getString("P_CONTENT2"));
 				// 댓글 조회
 				board.setReplies(this.getRepliesByNo(connection, no));
-				board.setCreateDate(rs.getDate("P_CREATE_DATE"));
-				board.setModifyDate(rs.getDate("P_MODIFY_DATE"));
+				board.setCreateDate(rs.getDate("R_CREATE_DATE"));
+				board.setModifyDate(rs.getDate("R_MODIFY_DATE"));
 			}			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -169,6 +168,7 @@ public class BoardDao {
 			close(pstmt);
 		}		
 		
+		System.out.println("답글있나" + board.getReplies());
 		return board;
 	}
 
@@ -251,36 +251,32 @@ public class BoardDao {
 	}
 	
 	
-	public List<Reply> getRepliesByNo(Connection connection, String boardId) {
+	public List<Reply> getRepliesByNo(Connection connection, int no) {
 		List<Reply> replies = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String query = "SELECT R.NO, "
-							 + "R.BOARD_NO, "
-							 + "R.CONTENT, "
-							 + "M.ID, "
-							 + "R.CREATE_DATE, "
-							 + "R.MODIFY_DATE "
-					  + "FROM REPLY R "
-					  + "JOIN MEMBER M ON(R.WRITER_NO = M.NO) "
-					  + "WHERE R.STATUS='Y' AND BOARD_NO=? "
-					  + "ORDER BY R.NO DESC";	
+		String query = "SELECT R.R_NO, R.B_ID, R.P_NO, R.MB_CODE, M.MB_ID, R.R_CONTENT, R.R_STATUS, R.R_CREATE_DATE, R.R_MODIFY_DATE FROM REPLY R "
+					 + "JOIN MEMBER M ON (M.MB_CODE = R.MB_CODE) WHERE R.P_NO = ? ";	
 		
 		try {
 			pstmt = connection.prepareStatement(query);
 			
-			pstmt.setInt(1, boardId);
+			pstmt.setInt(1, no);
 			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				Reply reply = new Reply();
 				
-				reply.setNo(rs.getInt("NO"));
-				reply.setBoardNo(rs.getInt("BOARD_NO"));
-				reply.setContent(rs.getString("CONTENT"));
-				reply.setCreateDate(rs.getDate("CREATE_DATE"));
-				reply.setModifyDate(rs.getDate("MODIFY_DATE"));
+				reply.setNo(rs.getInt("R_NO"));
+				reply.setBoardId(rs.getString("B_ID"));
+				reply.setBoardNo(rs.getInt("P_NO"));
+				reply.setWriterNo(rs.getInt("MB_CODE"));
+				reply.setWriterId(rs.getString("MB_ID"));
+				reply.setContent(rs.getString("R_CONTENT"));
+				reply.setStatus(rs.getString("R_STATUS"));
+				reply.setCreateDate(rs.getDate("R_CREATE_DATE"));
+				reply.setModifyDate(rs.getDate("R_MODIFY_DATE"));
 				
 				replies.add(reply);
 			}
@@ -309,8 +305,6 @@ public class BoardDao {
 			pstmt.setInt(2, reply.getBoardNo()); //  게시글번호 P_NO
 			pstmt.setInt(3, reply.getWriterNo()); // 작성자 번호
 			pstmt.setString(4, reply.getContent()); 
-			
-			System.out.println(reply.getBoardId() + ", " + reply.getBoardNo() + ", " + reply.getWriterNo() + ", " + reply.getContent());
 			
 			result = pstmt.executeUpdate();	
 		} catch (SQLException e) {

@@ -19,8 +19,8 @@ public class Reply {
 	private String status;
 	
 	private int writerNo;
-//	
-//	private String writerId;
+	
+	private String writerId;
 	
 	private String content;	
 	
