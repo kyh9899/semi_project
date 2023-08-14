@@ -12,6 +12,7 @@ public class Enroll {
     private String fcName;
     private String chName;
     private String pgTime;
+    private String pgDate;
     private String pgFee;
     private int pgMax;
     private int pgNum;
