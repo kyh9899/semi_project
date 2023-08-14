@@ -64,7 +64,8 @@
 				<div id="searchbar">
 					<form action="${ path }/board/notice?boardId=${ boardId }" method="GET" name="searchInput" style="margin-right:0px;">
 						<%-- ✔ 게시판아이디를 hidden으로 넘겨주면 doPost에서 boardId값을 가져올 수 있다. --%>
-						<input type="hidden" name="boardId" value="${ boardId }"> 
+						<input type="hidden" name="boardId" value="${ boardId }">
+						<input type="hidden" name="no" value="${ board.no }">  
 						<table class="pull-right">
 							<tr>
 								<td><select class="form-control" name="searchField">

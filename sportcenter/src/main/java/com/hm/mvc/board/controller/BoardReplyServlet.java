@@ -32,7 +32,7 @@ public class BoardReplyServlet extends HttpServlet {
 		String content = request.getParameter("content");
     	HttpSession session = request.getSession(false);
     	Member loginMember = session != null ? (Member)session.getAttribute("loginMember") : null;
-    	List<Reply> replies = null;
+//    	List<Reply> replies = null;
     	
     	if(loginMember != null) {
 			Reply reply = new Reply();
@@ -42,40 +42,30 @@ public class BoardReplyServlet extends HttpServlet {
 			reply.setBoardNo(boardNo);
 			reply.setWriterNo(loginMember.getNo());
 			reply.setContent(content);
-			
-			System.out.println(reply);
 				
 			// 문의에 대한 답변 INSERT 
 			result = service.saveReply(reply);
 			
-			
-			// 문의에 대한 답변 조회
-			replies = new BoardService().getRepliesByNo(boardId); // 게시글 list 	
-			
 			if(result > 0) {
          		request.setAttribute("msg", "답변 등록 성공!");	
-         		request.setAttribute("location", "/board/question?boardId=" + reply.getBoardId());
+//         		// 문의에 대한 답변 조회
+//    			replies = new BoardService().getRepliesByNo(boardId, boardNo); // 답변 리스트 	
+//    			
+//    			System.out.println(replies);
+//    			
+//    			request.setAttribute("boardId", boardId);
+//    			request.setAttribute("boardNo", boardNo);
+//    			request.setAttribute("replies", replies);
+         		request.setAttribute("location", "/board/question?boardId=" + boardId);
 			} else {
 				request.setAttribute("msg", "답변 등록 실패!");
-         		request.setAttribute("location", "/board/question?boardId=" + reply.getBoardId());
+         		request.setAttribute("location", "/board/question?boardId=" + boardId);
 			}
     	} else {
      		request.setAttribute("msg", "로그인 후 사용할 수 있습니다.");
      		request.setAttribute("location", "/login");
     	}
     	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
    	}
 }
