@@ -168,7 +168,7 @@ public class MemberDao {
 			
 			pstmt.setString(1, member.getName());
 			pstmt.setString(2, member.getPhone());
-			pstmt.setString(3, member.getEmailId() + "@" + member.getEmail());
+			pstmt.setString(3, member.getEmail());
 			pstmt.setString(4, member.getAddress1());
 			pstmt.setString(5, member.getAddress2());
 			pstmt.setInt(6, member.getNo());
