@@ -167,15 +167,12 @@
 					<%--작성자의 경우 수정/삭제 가능 --%>
 					<tr>
 						<th colspan="6">
-						<%--  
 							<c:if test="${ not empty loginMember && loginMember.id == board.writerId }">
-								<input type="button" value="수정" onclick="location.href='${ path }/board/update?no=${ board.no }'">
+								<input type="button" value="수정" onclick="location.href='${ path }/board/update?boardId=${ boardId }&no=${ board.no }'">
 								<input type="button" value="삭제" id="btnDelete">
 							</c:if>
-						--%>
-							<input type="button" value="수정" onclick="location.href='${ path }/board/update?boardId=${ boardId }&no=${ board.no }'">
-							<input type="button" value="삭제" id="btnDelete">
-							<input type="button" value="목록으로" onclick="location.href='${ path }/board/${ boardId }?boardId=${ boardId }'" >
+								<input type="button" value="목록으로" onclick="location.href='${ path }/board/${ boardId }?boardId=${ boardId }'" >
+							
 						</th>
 					</tr>
 				</table>

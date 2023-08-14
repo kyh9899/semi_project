@@ -17,7 +17,7 @@
 	#div-menubar { align:center; margin:20px 50px 0px 150px;  float:left; } 
 	
 	#div-notice1 { margin-top: 40px; float:left; align: center; }
-	#content { align: center;  background-color:yellow;  }
+	#content { align: center; }
 	#notice-write { float:left; font-size: 13px;}
 	
 	/* 검색 바 */	
@@ -79,11 +79,11 @@
 			<div>
 				<div id="writebutton">
 					<c:if test="${ not empty loginMember }">
-					<	button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">글쓰기</button>
+						<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'"> 글쓰기</button>
 					</c:if>
 				</div>
 				<div id="searchbar">
-					<form action="${ path }/board/notice?boardId=${ boardId }" method="POST" name="search" style="margin-right:0px;">
+					<form action="${ path }/board/notice?boardId=${ boardId }" method="GET" name="search" style="margin-right:0px;">
 					<%-- ✔ 게시판아이디를 hidden 으로 넘겨주면 doPost에서 boardId값을 받을 수 있다. --%>
 					<input type="hidden" name="boardId" value="${ boardId }"> 
 						<table class="pull-right">
