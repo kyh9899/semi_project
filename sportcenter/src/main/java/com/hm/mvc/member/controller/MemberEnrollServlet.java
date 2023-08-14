@@ -52,15 +52,14 @@ public class MemberEnrollServlet extends HttpServlet {
 
         if (result > 0) {
             // 회원 가입 완료
-            request.setAttribute("msg", "회원 가입 성공");
-            request.setAttribute("location", "/");
+            request.setAttribute("name", member.getName());
+            request.getRequestDispatcher("/views/member/enrollComplete.jsp").forward(request, response);
         } else {
             // 회원 가입 실패
             request.setAttribute("msg", "회원 가입 실패");
             request.setAttribute("location", "/member/enroll");
+            request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
         }
-
-        request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
     }
     
     // SHA-256 암호화 메서드

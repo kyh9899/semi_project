@@ -18,6 +18,17 @@
 	#root > strong{
 		color : black;
 	}
+	
+	#p1 {
+		text-align: center;
+		font-size: 2.5em;
+	}
+	
+	#button {
+		margin-top: 80px;
+		display: flex;
+      	justify-content: center;
+	}
 </style>
 <jsp:include page="/views/common/header.jsp" />
 <body>
@@ -26,7 +37,13 @@
  	<br><br>
  	<p id="root">01약관동의 ➝ 02본인인증 ➝ 03정보입력 ➝ <strong>04가입완료</strong></p>
  	<br><br>
+ 	<p id="p1">${ name } 님의 회원가입을<br>환영합니다!</p>
+ 	
+ 	<div id="button">
+ 		<button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${ path }/login'">로그인</button>
+ 	</div>
+ 	
 </div>
 
 </body>
-</html>
+ <jsp:include page="/views/common/footer.jsp" /> 
