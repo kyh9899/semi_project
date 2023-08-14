@@ -137,6 +137,9 @@
 	} else if(page === '/sportcenter/views/board/write.jsp'){
 		$('#account-collapse').addClass("show");	
 		$('#noticeId').attr("aria-expanded", "true");
+	} else if(page === '/sportcenter/views/board/question.jsp'){
+		$('#account-collapse').addClass("show");	
+		$('#noticeId').attr("aria-expanded", "true");
 	};
     // 스크롤 버튼 보이기/숨기기
     window.onscroll = function() {
