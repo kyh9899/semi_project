@@ -112,7 +112,7 @@
 	        <svg class="bi me-2" width="30%" height="32" aria-label="Bootstrap"><use xlink:href="#bootstrap"/>
 	       	</svg>
 	       	<%-- 로고 이미지 넣은 부분 ↓ --%>
-	    	<img src="${ path }/resources/images/mainLogo.png" style="width: 340px;" > 
+	    	<img src="${ path }/resources/images/mainLogo.png" style="width: 340px; margin-rightt: 150px;" > 
 	      </a>
 	      
 		  <div class="d-flex justify-content-between align-items-center mb-2">
@@ -131,13 +131,10 @@
 			       </div>
 			   </div>
 			   </c:if>	
-		 </div>
-			
-		<c:if test="${ not empty loginMember }">
+			   <c:if test="${ not empty loginMember }">
       </div>
 
-    
-   <table> 
+   <table style="margin-left: 200px;"> 
       <tr>
          <td id="space1" colspan="2">
             ${ loginMember.name }님 안녕하세요.
@@ -152,6 +149,9 @@
       </tr>
    </table>
 </c:if>
+		 </div>
+			
+
     </header>
   </div>
 
