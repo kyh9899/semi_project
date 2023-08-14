@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:include page="/views/common/header.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
+<jsp:include page="/views/common/header.jsp" />
 
 <style>
 
-	section #board-list-container{width:700px; height:100%; margin:10px auto; text-align:center;  float:left;}
+	section #board-list-container{width:1200px; height:100%; margin:10px auto; text-align:center;  float:left;}
 	section #board-list-container h2{margin:0px 0;}
 	table#tbl-board{width:100%;  margin:0 auto; border-collapse:collapse; border-top: 2px solid black; clear:both; }
 	table#tbl-board th {  background-color: #f9f9f9; }
@@ -195,7 +195,7 @@
 <article class="art2" style="width: 20%;">
 </article>
 
-<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
-<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
 <link href="${ pageContext.request.contextPath }/resources/css/sidebars.css" rel="stylesheet">
 <jsp:include page="/views/common/footer.jsp" />
+<script src="${ pageContext.request.contextPath }/resources/js/bootstrap.bundle.js"></script>
+<script src="${ pageContext.request.contextPath }/resources/js/sidebars.js"></script>
