@@ -37,9 +37,17 @@ public class MemberFindPwdServlet extends HttpServlet {
 			
     		HttpSession session = request.getSession();
     		
-    		session.setAttribute("loginMember", findMemberById);
+    		session.setAttribute("findpwd", findMemberById);
     		
-    		response.sendRedirect(request.getContextPath() + "/");
+    		request.setAttribute("msg", "회원닙의 비밀번호는 " + findMemberById.getPwd() + " 입니다.");
+    		
+//    		response.sendRedirect(request.getContextPath() + "/");
+    		
+request.setAttribute("findid", findMemberById);
+    	    
+    	    request.setAttribute("location", "/member/findpwd");
+    	    
+    	    request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
     		
     		
 		} else {
