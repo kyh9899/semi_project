@@ -46,41 +46,17 @@
     
 	    
 		<div id="board-list-container">
-			 <%--  
-			<c:if test="${ not empty loginMember }">
-				<button class="btn btn-sm btn-outline-secondary" type="button">글쓰기</button><br>
-			</c:if>
-			--%>
-				
-				<%-- 검색기능_필요시 활성화
-	            <div class="search-wrapper">
-	                <fieldset class="search">
-	                    
-	                    <select class="sort" title="검색조건">
-	                        <option value="1">전체</option>
-	                        <option value="1">제목</option>
-	                        <option value="1">내용</option>
-	                        <option value="1">작성자</option>
-	                    </select>
-	                    
-	                    <nav class="navbar bg-body-tertiary">
-						  <div class="container-fluid">
-						    <form class="d-flex" role="search">
-						      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-						      <button type="button" id="btn-search" class="btn btn-secondary btn-sm">검색</button>
-						    </form>
-						  </div>
-						</nav>
-						
-	                </fieldset>
-	            </div>
-	             --%>  		
-			
 			<div>
 				<div id="writebutton">
-					<c:if test="${ not empty loginMember }">
-						<button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'"> 글쓰기</button>
-					</c:if>
+					<%-- 관리자의 경우에만 글쓰기 가능 --%>
+					<c:choose>
+				    <c:when test="${ not empty loginMember && loginMember.id == 'admin' }">
+				        <button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'">글쓰기</button>
+				    </c:when>
+				    <c:when test="${ empty loginMember || loginMember.id != 'admin' }">
+				        <button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='${ path }/board/write?boardId=${ boardId }'" disabled>글쓰기</button>
+			    	</c:when>
+					</c:choose>
 				</div>
 				<div id="searchbar">
 					<form action="${ path }/board/notice?boardId=${ boardId }" method="GET" name="search" style="margin-right:0px;">
@@ -129,7 +105,7 @@
 						<tr>
 							<td>${ board.rowNum }</td>
 							<td>
-								<a href="${ path }/board/view?boardId=faq&no=${ board.no }">
+								<a href="${ path }/board/view?boardId=${ boardId }&no=${ board.no }">
 									${ board.title } 
 								</a>
 							</td>
@@ -149,12 +125,13 @@
 					</c:forEach>
 				</c:if>
 			</table>
+			
 			<div id="pageBar">
-				<!-- 맨 처음으로 -->
-				<button onclick="location.href='${ path }/board/notice?boardId=faq&page=${ pageInfo.prevPage }'">&lt;&lt;</button>
-	
+			<!-- 맨 처음으로 -->
+			    <button onclick="location.href='${ path }/board/faq?boardId=${ boardId }&page=${ pageInfo.startPage }'">&lt;&lt;</button>
+			    	
 				<!-- 이전 페이지로 -->
-				<button onclick="location.href='${ path }/board/notice?boardId=faq&page=${ pageInfo.prevPage }'">&lt;</button>
+				<button onclick="location.href='${ path }/board/faq?boardId=${ boardId }&page=${ pageInfo.prevPage }'">&lt;</button>
 	
 				<!--  10개 페이지 목록 -->
 				<c:forEach var="current" begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }">
@@ -163,16 +140,16 @@
 							<button disabled>${ current }</button>			
 						</c:when>
 						<c:otherwise>
-							<button onclick="location.href='${ path }/board/notice?boardId=faq&page=${ current }'">${ current }</button>			
+							<button onclick="location.href='${ path }/board/faq?boardId=${ boardId }&page=${ current }'">${ current }</button>			
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 	
 				<!-- 다음 페이지로 -->
-				<button onclick="location.href='${ path }/board/notice?boardId=faq&page=${ pageInfo.nextPage }'">&gt;</button>
+				<button onclick="location.href='${ path }/board/faq?boardId=${ boardId }&page=${ pageInfo.nextPage }'">&gt;</button>
 	
 				<!-- 맨 끝으로 -->
-				<button onclick="location.href='${ path }/board/notice?boardId=faq&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
+				<button onclick="location.href='${ path }/board/faq?boardId=${ boardId }&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
 			</div>
 		</div>
 		</div>

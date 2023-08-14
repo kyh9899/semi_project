@@ -55,8 +55,15 @@
 		
 		<div id="rightContent">
 		   <div id="div-notice1">
-		     <h4>공지사항 > 게시글 수정</h4>
-		   </div> 
+			    <c:if test="${ boardId == 'notice'}">
+			     <h4> 공지사항 > 게시글 수정</h4>
+			    </c:if>
+			    <c:if test="${ boardId == 'faq'}">
+			     <h4> 자주묻는질문(FAQ) > 게시글 수정</h4>
+			    </c:if>
+			    <c:if test="${ boardId == 'question'}">
+			     <h4> 1:1 문의게시판 > 게시글 수정</h4>
+			  </c:if>
 			
 			<%-- 게시글 작성 폼 --%>
 			<section id="content" style="margin: 0px;">
