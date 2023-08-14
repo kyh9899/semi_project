@@ -12,7 +12,7 @@
 	table#tbl-board{ width:100%;  margin:0 auto; border-collapse:collapse; border-top: 2px solid black; clear:both; }
 	table#tbl-board th {  background-color: #f9f9f9; }
 	table#tbl-board th, table#tbl-board td { border:1px solid transparent; padding: 5px 0; text-align:center; } 
-	table#tbl-board tr:hover { background-color: #D5E3F4;  }
+	table#tbl-board tr:hover { background-color: #D5E3F4; cursor:pointer; }
 
 	/*페이지바*/
 	div#pageBar{margin-top:10px; text-align:center; }
@@ -106,33 +106,27 @@
 				<c:if test="${ not empty list }">
 					<%-- 조회수를 역순으로 출력 --%>
 					<c:forEach var="board" items="${ list }">
-						<tr>
+						<%-- 행에 마우스를 올려놓으면 효과 및 해당하는 게시글로 이동 --%>
+						<tr class="clickable-row" href="${path}/board/view?boardId=${ boardId }&no=${ board.no }">
 							<td>${ board.no }</td>
-							<td>
-								<a href="${ path }/board/view?boardId=${ boardId }&no=${ board.no }">
-									${ board.title }
-								</a>
-							</td>
+							<td>${ board.title }</td>
 							<td>${ board.writerId }</td>
 							<td>${ board.createDate }</td>
 							<td>
+								<%-- 파일이 없는 경우 ' - ' 표시 --%>
 								<c:if test="${ empty board.originalFilename }">
 									<span> - </span>
-								</c:if>
-								
+								</c:if>									
+								<%-- 파일이 있는 경우 '파일명' 표시 --%>
 								<c:if test="${ not empty board.originalFilename }">
 									<span> ${ board.originalFilename } </span>
 								</c:if>
 							</td>
-							<td>${ board.readCount }</td>
+							<td>${ board.readCount }</td>							
 						</tr>
 					</c:forEach>
 				</c:if>
 			</table>
-			<div id="pageBar">
-			    
-			
-			</div>
 			
 			<div id="pageBar">
 			<!-- 맨 처음으로 -->
@@ -164,7 +158,16 @@
 		</div>
 	</section>
 	<script>
-
+		// 각 행을 클릭할 때 링크로 연결되도록 처리
+		  var rows = document.querySelectorAll(".clickable-row");
+		  rows.forEach(function(row) {
+		    row.addEventListener("click", function() {
+		      var href = row.getAttribute("href");
+		      if (href) {
+		        window.location.href = href;
+		      }
+		    });
+		  });
 	</script>
 <article class="art2" style="width: 20%;">
        

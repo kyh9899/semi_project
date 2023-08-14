@@ -94,7 +94,12 @@
 								<th>내용</th>
 								<td><textarea name="content" cols="50" rows="15" class="deco"></textarea></td>
 							</tr>
-							<tr>
+							<c:if test="${ boardId == 'faq'}">
+								<tr>
+									<th>답변</th>
+									<td><textarea name="content2" cols="50" rows="15" class="deco"></textarea></td></tr>
+								<tr>
+							</c:if>
 								<th colspan="2">
 									<input type="submit" value="등록"> 
 									<input type="reset" value="취소">
