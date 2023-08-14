@@ -33,7 +33,7 @@
 	#div-title { align: center; }
 	#div-menubar { align:center; margin:20px 50px 0px 150px;  float:left; } 
 	#div-notice1 { margin-top: 40px; float:left; }
-	#content { align: center; }
+	#content { align: center; background-color: none; }
 	#notice-write { float:left; font-size: 13px;}
 	.btn-outline-secondary { float:left; margin-bottom: 5px;}
 	.btn-secondary { width:50px; margin-bottom:5px; }
