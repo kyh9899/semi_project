@@ -94,12 +94,12 @@
 							</tr>
 							<tr>
 								<th>내용</th>
-								<td><textarea name="content" cols="50" rows="15" class="deco"></textarea></td>
+								<td><textarea name="content" cols="50" rows="15" class="deco" style="height:200px;"></textarea></td>
 							</tr>
 							<c:if test="${ boardId == 'faq'}">
 								<tr>
 									<th>답변</th>
-									<td><textarea name="content2" cols="50" rows="15" class="deco"></textarea></td></tr>
+									<td><textarea name="content2" cols="50" rows="15" class="deco" style="height:220px;"></textarea></td></tr>
 								<tr>
 							</c:if>
 								<th colspan="2">

@@ -54,7 +54,7 @@
     .rectangle1 {
         width: 400px;
         height: 123px;
-        background-color: blue;
+        border:1px solid black;
         margin: 20px auto;
         margin-top: 170px;
     }
@@ -62,7 +62,7 @@
     .rectangle2 {
         width: 400px;
         height: 123px;
-        background-color: blue;
+        border:1px solid black;
         margin: 0px auto;
         margin-bottom : 20px;
     }
@@ -70,7 +70,7 @@
     .rectangle3 {
         width: 400px;
         height: 123px;
-        background-color: blue;
+        border:1px solid black;
         margin: 0px auto;
         margin-bottom : 20px;
     }
@@ -167,7 +167,7 @@
 		 <p style = "margin:0">공지사항</p>
 		 <span style = "margin:0;"><a id="link" href="${ path }/board/notice?boardId=notice">더보기 &#62;</a></span>
 		 </div>
-		 <div style="width:100%; height:100%; background-color:green;"></div>
+		 <div style="width:100%; height:100%; border:1px solid black;"></div>
 		 </div>
 		 <div class="recommend">
 		 <div style="display: flex; justify-content: space-between;">
@@ -193,14 +193,14 @@
         <div class="left-column">
         <a href="${ path }/application/enrollment">
         <div class="rectangle1">
-        	<p id="text">온라인 수강신청 안내</p>
+        	<p id="text" style="color:black;">온라인 수강신청 안내</p>
         </div>
         </a>
         <div class="rectangle2">
-        	<p id="text">시설 이용시간 안내</p>
+        	<p id="text" style="color:black;">시설 이용시간 안내</p>
         </div>
         <div class="rectangle3">
-        	<p id="text">안내데스크 및 대표 번호</p>
+        	<p id="text" style="color:black;">안내데스크 및 대표 번호</p>
         </div>
     </div>
     </article>
