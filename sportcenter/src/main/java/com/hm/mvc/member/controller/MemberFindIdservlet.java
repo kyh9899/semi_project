@@ -56,7 +56,7 @@ public class MemberFindIdservlet extends HttpServlet {
 //    	    String setAttribute = "회원님의 아이디는 " + findid + " 입니다.";
     	    request.setAttribute("findid", findMemberByName);
     	    
-    	    request.setAttribute("location", "/member/findid");
+    	    request.setAttribute("location", "/login");
     	    
     	    request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 //    	    response.sendRedirect(request.getContextPath() + "/login");
