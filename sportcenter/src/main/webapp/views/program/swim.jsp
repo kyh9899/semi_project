@@ -72,9 +72,6 @@
 		width: 100%;
 		margin-bottom: 10px;
 	}
-	#img1{
-		width: 100%;
-	}
 	h5{
 		font-weight: bold;
 	}
@@ -83,7 +80,7 @@
 	}
 </style>
 
-<article class="art1" style="width: 60%;"> 
+<article class="art1" style="width: 60%;"/> 
 	 <div class="w-[1200px], h-[800px], m-1">
         <div class="w-full, h-1/5, flex, flex-col">      
 			<h2 align="center">수영</h2>		
@@ -133,19 +130,81 @@
 							</p>
 						</li>
 						<li id="mu2">
-							<img id="img1" src="${ path }/resources/images/swimteacher.png">
-							<img id="img1" src="${ path }/resources/images/swimteacher2.png">
+							<table style="margin-bottom: 50px;">
+								<tr style=" width:100%;">
+									<td>									
+										<img style="width: 300px; height: 300px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">								
+									</td>
+									<td style="padding-left: 150px;">									
+										<h3>김민상</h3>
+										<br>
+										<h5><i class="fa-regular fa-comment-dots"></i> 정성을 다해 지도하겠습니다!</h5>
+										<br>
+										<p>● 동국대학교 체육교육과 졸업</p>
+										<p>● 생활스포츠지도사 1급(수영)</p>
+										<p>● 수상인명구조원</p>	
+									</td>
+								</tr>
+							</table>
+							<table style="margin-bottom: 50px;">
+								<tr>
+									<td>
+										<img style="width: 300px; height: 300px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">
+									</td>
+									<td style="padding-left: 150px;">
+										<h3>문상훈</h3>
+										<br>
+										<h5><i class="fa-regular fa-comment-dots"></i> 웃음이 가득한 강습반으로 지도하겠습니다.</h5>
+										<br>
+										<p>● 생활스포츠지도사 2급(수영)</p>
+										<p>● 수상인명구조원</p>		
+									</td>								
+								</tr>
+							</table>
+							<table style="margin-bottom: 50px;">
+								<tr>
+									<td>
+										<img style="width: 300px; height: 300px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">
+									</td>
+									<td style="padding-left: 150px;">
+										<h3>김민희</h3>
+										<br>
+										<h5><i class="fa-regular fa-comment-dots"></i> 매일매일 재미있는 수영수업이 되도록 지도하겠습니다.</h5>
+										<br>
+										<p>● 스포츠의학 전공</p>
+										<p>● 생활스포츠지도사 2급(수영)</p>
+										<p>● 노인체육지도자</p>		
+									</td>								
+								</tr>
+							</table>
+							<table>
+								<tr>
+									<td>
+										<img style="width: 300px; height: 300px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">
+									</td>
+									<td style="padding-left: 150px;">
+										<h3>조수아</h3>
+										<br>
+										<h5><i class="fa-regular fa-comment-dots"></i> 매일매일 재미있는 수영수업이 되도록 지도하겠습니다.</h5>
+										<br>
+										<p>● 스포츠의학 전공</p>
+										<p>● 생활스포츠지도사 2급(수영)</p>
+										<p>● 노인체육지도자</p>		
+										<p>● 수상인명구조원</p>		
+									</td>								
+								</tr>
+							</table>
 						</li>
 						<li id="mu3">
 							<img id="guideline" src="${ path }/resources/images/guideline.png">
 						</li>		
 					</ul>
 				</div>
-				<div id="div2">	
-					<button id="button" class="btn btn-secondary" onclick="location.href='${ path }/program/info'">목록으로</button>
-				</div>
             </div>
         </div>
+		<div id="div2">	
+			<button id="button" class="btn btn-secondary" onclick="location.href='${ path }/program/info'">목록으로</button>
+		</div>
     </div>
 <article class="art2" style="width: 20%;">
 </article>

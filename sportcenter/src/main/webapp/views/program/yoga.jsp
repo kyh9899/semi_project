@@ -132,8 +132,38 @@
 							  </p>						  
 						</li>
 						<li id="mu2">
-							<img id="img1" src="${ path }/resources/images/yogaprogram2.png">
-							
+							<table style="margin-bottom: 50px;">
+								<tr>
+									<td>
+										<img style="width: 300px; height: 300px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">
+									</td>
+									<td style="padding-left: 150px;">
+										<h3>방주아</h3>
+										<br>
+										<h5><i class="fa-regular fa-comment-dots"></i> 요가와 함께 몸과 마음을 건강하게 지켜보세요.</h5>
+										<br>
+										<p>● 요가운동처방사 3급자격</p>
+										<p>● 요가라이프 지도교사</p>	
+									</td>								
+								</tr>
+							</table>
+							<table>
+								<tr>
+									<td>
+										<img style="width: 300px; height: 300px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">
+									</td>
+									<td style="padding-left: 150px;">
+										<h3>오승민</h3>
+										<br>
+										<h5><i class="fa-regular fa-comment-dots"></i> 다양한 프로그램 경험을 바탕으로 재미있는 요가강습을 선보이겠습니다.</h5>
+										<br>
+										<p>● 대한 요가 협회 요가 지도자 자격 취득</p>	
+										<p>● 한국아쿠아운동협회 아쿠아피트니스 지도자 자격 취득</p>	
+										<p>● 한국아쿠아운동협회 아쿠아요가 지도자 자격 취득</p>	
+										<p>● 재저 사이즈 힙합 아카데미 지도자과정 이수</p>	
+									</td>								
+								</tr>
+							</table>					
 						</li>
 						<li id="mu3">
 							<img id="guideline" src="${ path }/resources/images/guideline.png">

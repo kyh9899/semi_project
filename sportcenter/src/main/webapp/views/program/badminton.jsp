@@ -139,7 +139,23 @@
 							</p>
 						</li>
 						<li id="mu2">
-							<img id="bt" src="${ path }/resources/images/badmitonprg3.png">		
+							<table>
+								<tr>
+									<td>
+										<img style="width: 300px; height: 300px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">
+									</td>
+									<td style="padding-left: 150px;">
+										<h3>김두한</h3>
+										<br>
+										<h5><i class="fa-regular fa-comment-dots"></i> 스포츠센터 배드민턴 교실로 오세요!</h5>
+										<br>
+										<p>● 전 국가대표 선수</p>	
+										<p>● 생활스포츠지도사 2급</p>	
+										<p>● 경기지도사 2급</p>	
+										<p>● 전국체전 다수 우승</p>	
+									</td>								
+								</tr>
+							</table>						
 						</li>
 						<li id="mu3">
 							<img id="guideline" src="${ path }/resources/images/guideline.png">

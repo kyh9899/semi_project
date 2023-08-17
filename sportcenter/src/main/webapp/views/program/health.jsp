@@ -146,7 +146,36 @@
 							</p>
 						</li>
 						<li id="mu2">
-							<img id="ht" src="${ path }/resources/images/healthteacher.png">	
+							<table style="margin-bottom: 50px;">
+								<tr>
+									<td>
+										<img style="width: 300px; height: 300px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">
+									</td>
+									<td style="padding-left: 150px;">
+										<h3>정재우</h3>
+										<br>
+										<h5><i class="fa-regular fa-comment-dots"></i> 구체적이고 체계적인 운동방법을 제시하는 맞춤형 트레이닝을 실시하겠습니다.</h5>
+										<br>
+										<p>● 생활스포츠지도사 1급</p>
+										<p>● 코치아카데미 2급</p>
+										<p>● FISAF Korea(퍼스널 트레이너)</p>		
+									</td>								
+								</tr>
+							</table>
+							<table>
+								<tr>
+									<td>
+										<img style="width: 300px; height: 300px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">
+									</td>
+									<td style="padding-left: 150px;">
+										<h3>오승민</h3>
+										<br>
+										<h5><i class="fa-regular fa-comment-dots"></i> 건강한 몸과 건강한 정신! 헬스를 통해 만들어 보아요!</h5>
+										<br>
+										<p>● 생활스포츠지도사 2급</p>	
+									</td>								
+								</tr>
+							</table>	
 						</li>
 						<li id="mu3">
 							<img id="guideline" src="${ path }/resources/images/guideline.png">
