@@ -131,7 +131,37 @@
 							</p>				
 						</li>
 						<li id="mu2">
-							<img id="tt" src="${ path }/resources/images/tabletennisteacher.png">
+							<table style="margin-bottom: 50px;">
+								<tr>
+									<td>
+										<img style="width: 300px; height: 300px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">
+									</td>
+									<td style="padding-left: 150px;">
+										<h3>이은용</h3>
+										<br>
+										<h5><i class="fa-regular fa-comment-dots"></i> 즐겁고 활기찬 탁구를 위해 노력하겠습니다!</h5>
+										<br>
+										<p>● 강원대 체육학과</p>
+										<p>● 회장기 전국탁구탁구대회 우승</p>		
+									</td>								
+								</tr>
+							</table>
+							<table>
+								<tr>
+									<td>
+										<img style="width: 300px; height: 300px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">
+									</td>
+									<td style="padding-left: 150px;">
+										<h3>오승민</h3>
+										<br>
+										<h5><i class="fa-regular fa-comment-dots"></i> 탁구의 세계로 빠져보시죠!</h5>
+										<br>
+										<p>● 생활스포츠지도사 2급</p>	
+										<p>● 전문스포츠지도사 2급</p>	
+										<p>● 국내대회 다수 입상</p>	
+									</td>								
+								</tr>
+							</table>	
 						</li>
 						<li id="mu3">
 							<img id="guideline" src="${ path }/resources/images/guideline.png">

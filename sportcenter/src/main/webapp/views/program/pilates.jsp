@@ -131,7 +131,21 @@
 							 </p>		
 						</li>
 						<li id="mu2">
-							<img id="pt" src="${ path }/resources/images/pilatesprogram2.png">
+							<table>
+								<tr>
+									<td>
+										<img style="width: 300px; height: 300px;" src="https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png" alt="강사3">
+									</td>
+									<td style="padding-left: 150px;">
+										<h3>정만옥</h3>
+										<br>
+										<h5><i class="fa-regular fa-comment-dots"></i> 필라테스와 함께 건강하고 아름다운 몸매를 만들어 보아요!</h5>
+										<br>
+										<p>● 한국바른자세운동협회 필라테스 1급 지도자</p>	
+										<p>● 소매틱 필라테스협회 교육이사</p>	
+									</td>								
+								</tr>
+							</table>	
 						</li>
 						<li id="mu3">
 							<img id="guideline" src="${ path }/resources/images/guideline.png">
