@@ -45,7 +45,7 @@ public class MemberFindPwdServlet extends HttpServlet {
     		
     		request.setAttribute("findid", findMemberById);
     	    
-    	    request.setAttribute("location", "/member/findpwd");
+    	    request.setAttribute("location", "/login");
     	    
     	    request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
     		
