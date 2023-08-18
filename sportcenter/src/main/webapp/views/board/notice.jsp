@@ -71,7 +71,6 @@
 								<td><select class="form-control" name="searchField">
 										<option value="0">선택</option>
 										<option value="title">제목</option>
-										<option value="content">작성자</option>
 										<option value="userId">작성자</option>										
 								</select></td>
 								<td><input type="text" class="form-control"

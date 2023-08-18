@@ -359,15 +359,16 @@ public class BoardDao {
 					 + "WHERE P.P_STATUS = 'Y' AND B.B_ID=? AND M.MB_ID LIKE ? "
 					 + "ORDER BY P.P_NO DESC) SUBQ "
 					 + "WHERE RNUM BETWEEN ? AND ? ";	
-		} else if(searchField.equals("content")) {
-			 query = "SELECT RNUM, B_ID, P_NO, MB_CODE, P_TITLE, P_CONTENT, P_CONTENT2, MB_ID, P_CREATE_DATE, P_ORG_FILENAME, P_RDCOUNT, P_STATUS "
-					 + "FROM (SELECT B.B_ID, P.P_NO, P.MB_CODE, P.P_TITLE, P.P_CONTENT, P.P_CONTENT2, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
-					 + "FROM POST P "
-					 + "JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) JOIN BOARD B ON (P.B_ID = B.B_ID) "
-					 + "WHERE P.P_STATUS = 'Y' AND B.B_ID=? AND P.P_CONTENT LIKE ? "
-					 + "ORDER BY P.P_NO DESC) SUBQ "
-					 + "WHERE RNUM BETWEEN ? AND ? ";	
 		}
+//		else if(searchField.equals("content")) {
+//			 query = "SELECT RNUM, B_ID, P_NO, MB_CODE, P_TITLE, P_CONTENT, P_CONTENT2, MB_ID, P_CREATE_DATE, P_ORG_FILENAME, P_RDCOUNT, P_STATUS "
+//					 + "FROM (SELECT B.B_ID, P.P_NO, P.MB_CODE, P.P_TITLE, P.P_CONTENT, P.P_CONTENT2, M.MB_ID, P.P_CREATE_DATE, P.P_ORG_FILENAME, P.P_RDCOUNT, P.P_STATUS, ROWNUM AS RNUM "
+//					 + "FROM POST P "
+//					 + "JOIN MEMBER M ON (P.MB_CODE = M.MB_CODE) JOIN BOARD B ON (P.B_ID = B.B_ID) "
+//					 + "WHERE P.P_STATUS = 'Y' AND B.B_ID=? AND P.P_CONTENT LIKE ? "
+//					 + "ORDER BY P.P_NO DESC) SUBQ "
+//					 + "WHERE RNUM BETWEEN ? AND ? ";	
+//		}
 
 		try {
 			pstmt = connection.prepareStatement(query);

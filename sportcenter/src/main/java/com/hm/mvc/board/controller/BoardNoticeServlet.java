@@ -34,7 +34,7 @@ public class BoardNoticeServlet extends HttpServlet {
     	
     	
     	// 검색 조건과 검색 입력값을 받아옴
-    	String searchField = request.getParameter("searchField"); // 검색 조건 : title or content or userId
+    	String searchField = request.getParameter("searchField"); // 검색 조건 : title or userId
     	String searchText = request.getParameter("searchText"); // 검색어 : 사용자 입력값
     	  
 			 try {    		
@@ -78,29 +78,5 @@ public class BoardNoticeServlet extends HttpServlet {
     }
 }
     	
-    	
-    	
-//	    	try {    		
-//	    		page = Integer.parseInt(request.getParameter("page"));
-//	    	} catch (NumberFormatException e) {
-//	    		page = 1;
-//			}
-//	    	
-//	    	listCount = new BoardService().getBoardCount(boardId); // 게시글 개수
-//	    	pageInfo = new PageInfo(page, 10, listCount, 10); // page 정보
-//	    	list = new BoardService().getBoardList(pageInfo, boardId); // 게시글 list 
-//	    	
-//	
-//	    	request.setAttribute("boardId", boardId);
-//	    	request.setAttribute("pageInfo", pageInfo);
-//	    	request.setAttribute("list", list);
-//	    	
-//	    	
-//	    	if (boardId.equals("faq")){
-//	    		request.getRequestDispatcher("/views/board/faq.jsp").forward(request, response);
-//	    	} else {
-//	    		request.getRequestDispatcher("/views/board/notice.jsp").forward(request, response);
-//	    	}
-//      }
-//    }	    	
+   	
 
